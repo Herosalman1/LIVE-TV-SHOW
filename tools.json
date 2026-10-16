@@ -403,5 +403,10 @@
     "name": "Bhojpuri Cinema",
     "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "B4U Bhojpuri",
+    "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/HD1080/HD1080.m3u8",
+    "category": "MUSIC"
   }
 ]
