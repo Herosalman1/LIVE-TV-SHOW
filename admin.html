@@ -57,19 +57,23 @@
         .btn-logout { background: #da3633; color: #fff; margin-top: 10px; padding: 10px; font-size: 13px; }
         .btn-logout:hover { background: #f85149; }
         
-        /* Drag & Drop List Styling */
+        /* Folder Styling */
         .category-folder { 
             margin-bottom: 10px; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden; border: 1px solid #30363d; 
-            cursor: grab; transition: 0.2s;
+            transition: 0.2s;
         }
         .category-folder.dragging { opacity: 0.4; border: 1px dashed #00ea77; }
         .category-folder.drag-over { border-top: 3px solid #ff003c; }
 
         .category-header { 
             padding: 12px 15px; background: rgba(0,0,0,0.3); color: #fff; font-weight: 600; font-size: 13px;
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; 
+            display: flex; justify-content: space-between; align-items: center; user-select: none; 
         }
-        .cat-count { font-size: 11px; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 20px; color: #00ea77;}
+        .cat-actions button { background: none; border: none; color: #8b949e; cursor: pointer; font-size: 12px; margin-left: 8px; transition: 0.2s; }
+        .cat-actions button:hover { color: #00ea77; }
+        .cat-actions button.del-folder:hover { color: #da3633; }
+
+        .cat-count { font-size: 11px; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 20px; color: #00ea77; margin-left: 8px;}
         .category-content { display: none; padding: 10px; background: rgba(0,0,0,0.15); }
         .category-content.open { display: block; }
         
@@ -140,10 +144,10 @@
     <div id="listModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fa-solid fa-folder-open"></i> DRAG & DROP REORDER LIST</h3>
+                <h3><i class="fa-solid fa-folder-open"></i> ADVANCED REORDER LIST</h3>
                 <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders ko aur channels ko aapas mein drag karke upar-neeche set karein.</p>
+            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Folder rename ya delete bhi kar sakte hain.</p>
             <div id="projectList"></div>
         </div>
     </div>
@@ -165,7 +169,6 @@
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE", "OTHER"];
         let savedCategories = [...defaultCategories];
 
-        // Check persistent login session on page load
         window.addEventListener('DOMContentLoaded', () => {
             if(localStorage.getItem('tv_admin_logged_in') === 'true') {
                 loadData(true);
@@ -239,7 +242,6 @@
                 return;
             }
 
-            // Extract categories in order of appearance or savedCategories
             const activeCategories = [];
             channelsArray.forEach(ch => {
                 const cat = ch.category || "OTHER";
@@ -263,10 +265,14 @@
                 
                 folderDiv.innerHTML = `
                     <div class="category-header">
-                        <span onclick="toggleFolder('${catId}')" style="flex:1; display:flex; align-items:center;">
-                            <i class="fa-solid ${isOpen ? 'fa-folder-open' : 'fa-folder'}" style="margin-right:8px; color:#00ea77;"></i> ${cat} <span class="cat-count" style="margin-left:10px;">${channelsInCat.length}</span>
+                        <span onclick="toggleFolder('${catId}')" style="flex:1; display:flex; align-items:center; cursor:pointer;">
+                            <i class="fa-solid ${isOpen ? 'fa-folder-open' : 'fa-folder'}" style="margin-right:8px; color:#00ea77;"></i> ${cat} <span class="cat-count">${channelsInCat.length}</span>
                         </span>
-                        <span style="color: #8b949e; font-size:12px; cursor:grab;" title="Drag folder"><i class="fa-solid fa-grip-vertical"></i></span>
+                        <div class="cat-actions">
+                            <button onclick="renameCategory('${cat}')" title="Rename Folder"><i class="fa-solid fa-pen"></i></button>
+                            <button class="del-folder" onclick="deleteCategory('${cat}')" title="Delete Folder"><i class="fa-solid fa-trash-can"></i></button>
+                            <span style="color: #8b949e; font-size:12px; cursor:grab; margin-left: 8px;" title="Drag folder"><i class="fa-solid fa-grip-vertical"></i></span>
+                        </div>
                     </div>
                     <div class="category-content ${isOpen ? 'open' : ''}" id="folder-${catId}"></div>
                 `;
@@ -295,11 +301,45 @@
             addDragAndDropListeners();
         }
 
+        function renameCategory(oldName) {
+            const newName = prompt(`Folder "${oldName}" ka naya naam daalein:`, oldName);
+            if(!newName || newName.trim() === "") return;
+            const formattedName = newName.trim().toUpperCase();
+
+            channelsArray.forEach(ch => {
+                if((ch.category || "OTHER") === oldName) {
+                    ch.category = formattedName;
+                }
+            });
+
+            if(!savedCategories.includes(formattedName)) savedCategories.push(formattedName);
+            savedCategories = savedCategories.filter(c => c !== oldName);
+
+            renderCategoryDropdown();
+            renderList();
+            alert("Folder renamed successfully! Click 'UPLOAD TO GITHUB' to save.");
+        }
+
+        function deleteCategory(catName) {
+            if(catName === "OTHER") return alert("System folder 'OTHER' delete nahi ho sakta!");
+            if(!confirm(`Pakka folder "${catName}" delete karna hai? Iske saare channels 'OTHER' mein move ho jayenge.`)) return;
+
+            channelsArray.forEach(ch => {
+                if((ch.category || "OTHER") === catName) {
+                    ch.category = "OTHER";
+                }
+            });
+
+            savedCategories = savedCategories.filter(c => c !== catName);
+            renderCategoryDropdown();
+            renderList();
+            alert("Folder deleted! Click 'UPLOAD TO GITHUB' to save.");
+        }
+
         function addDragAndDropListeners() {
             let draggedType = null;
             let dragSourceIndex = null;
 
-            // Folder Drag & Drop
             const folders = document.querySelectorAll('.category-folder');
             folders.forEach(folder => {
                 folder.addEventListener('dragstart', function(e) {
@@ -323,7 +363,6 @@
                 folder.addEventListener('dragend', function() { this.classList.remove('dragging'); });
             });
 
-            // Channel Item Drag & Drop
             const draggables = document.querySelectorAll('.list-item');
             draggables.forEach(draggable => {
                 draggable.addEventListener('dragstart', function(e) {
@@ -361,7 +400,6 @@
             activeCategories.splice(toCatIdx, 0, movedCat);
             savedCategories = activeCategories;
 
-            // Reorganize channelsArray based on new category order
             let newChannelsArray = [];
             savedCategories.forEach(cat => {
                 const chans = channelsArray.filter(ch => (ch.category || "OTHER") === cat);
@@ -373,7 +411,6 @@
 
         function swapChannels(fromIndex, toIndex) {
             const itemToMove = channelsArray.splice(fromIndex, 1)[0];
-            // If dropping onto another item, update its category to match target category
             itemToMove.category = channelsArray[toIndex].category || "OTHER";
             channelsArray.splice(toIndex, 0, itemToMove);
             renderList();
