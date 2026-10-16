@@ -378,5 +378,10 @@
     "name": "ZOOM MUSIC",
     "url": "https://televizya.app/p?u=https%3A%2F%2Fpubads.g.doubleclick.net%2Fssai%2Fevent%2FJCAm25qkRXiKcK1AJMlvKQ%2Fmaster.m3u8",
     "category": "MUSIC"
+  },
+  {
+    "name": "BOLLYWOOD 4U Live",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
+    "category": "MOVIE"
   }
 ]
