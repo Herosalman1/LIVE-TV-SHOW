@@ -383,5 +383,10 @@
     "name": "BOLLYWOOD 4U Live",
     "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "COMEDY TADKA",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0abe00bb-b6f3-4dcd-bdf6-12e74e08216c/a25a3d56-468f-4c36-a53a-3dc70688e297/1.m3u8",
+    "category": "COMEDY"
   }
 ]
