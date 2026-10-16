@@ -57,7 +57,6 @@
         .btn-logout { background: #da3633; color: #fff; margin-top: 10px; padding: 10px; font-size: 13px; }
         .btn-logout:hover { background: #f85149; }
         
-        /* Folder Styling */
         .category-folder { 
             margin-bottom: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden; border: 1px solid #30363d; 
             transition: 0.2s;
@@ -157,7 +156,7 @@
                 <h3><i class="fa-solid fa-folder-open"></i> ADVANCED REORDER LIST</h3>
                 <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein.</p>
+            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Normal size buttons diye gaye hain.</p>
             <div id="projectList"></div>
         </div>
     </div>
@@ -208,9 +207,15 @@
                 document.getElementById('editorSection').style.display = 'block';
                 localStorage.setItem('tv_admin_logged_in', 'true');
             } catch (error) {
-                if(!isAuto) alert("Error! Token ya repo check karo.");
+                if(!isAuto) {
+                    loginBtn.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> ERROR! CHECK TOKEN";
+                    loginBtn.style.background = "#da3633";
+                    setTimeout(() => {
+                        loginBtn.innerHTML = "<i class='fa-solid fa-right-to-bracket'></i> ENTER ADMIN PANEL";
+                        loginBtn.style.background = "";
+                    }, 3000);
+                }
                 localStorage.removeItem('tv_admin_logged_in');
-                loginBtn.innerHTML = "<i class='fa-solid fa-right-to-bracket'></i> ENTER ADMIN PANEL";
             }
         }
 
@@ -330,7 +335,10 @@
         }
 
         function deleteCategory(catName) {
-            if(catName === "OTHER") return alert("System folder 'OTHER' delete nahi ho sakta!");
+            if(catName === "OTHER") {
+                alert("System folder 'OTHER' delete nahi ho sakta!");
+                return;
+            }
             if(!confirm(`Pakka folder "${catName}" delete karna hai? Iske saare channels 'OTHER' mein move ho jayenge.`)) return;
 
             channelsArray.forEach(ch => {
@@ -437,10 +445,27 @@
             const name = document.getElementById('pName').value.trim();
             const link = document.getElementById('pLink').value.trim();
             let category = "OTHER";
+            const actionBtn = document.getElementById('actionBtn');
+
+            // Custom error function to show error on the button directly
+            const showError = (msg) => {
+                const oldHtml = actionBtn.innerHTML;
+                actionBtn.innerHTML = `<i class='fa-solid fa-triangle-exclamation'></i> ${msg}`;
+                actionBtn.style.backgroundColor = "#da3633";
+                actionBtn.style.color = "#fff";
+                setTimeout(() => {
+                    actionBtn.innerHTML = oldHtml;
+                    actionBtn.style.backgroundColor = "";
+                    actionBtn.style.color = "";
+                }, 2000);
+            };
 
             if (isCustomCat) {
                 const customCat = document.getElementById('newCategoryInput').value.trim().toUpperCase();
-                if (!customCat) return alert("Please enter custom category name!");
+                if (!customCat) {
+                    showError("ENTER CATEGORY NAME!");
+                    return;
+                }
                 category = customCat;
                 if (!savedCategories.includes(category)) { savedCategories.push(category); renderCategoryDropdown(); }
                 toggleCatInput();
@@ -448,9 +473,10 @@
                 category = document.getElementById('pCat').value;
             }
             
-            if(!name || !link) return alert("Channel ka Naam aur Link dono daalna zaroori hai!");
-
-            const actionBtn = document.getElementById('actionBtn');
+            if(!name || !link) {
+                showError("FILL BOTH FIELDS!");
+                return;
+            }
 
             if(editIndex === null) {
                 channelsArray.push({name, url: link, category});
@@ -463,15 +489,15 @@
             document.getElementById('pName').value = ""; 
             document.getElementById('pLink').value = "";
 
-            // Direct button text update without alert popup
             actionBtn.innerHTML = "<i class='fa-solid fa-circle-check'></i> ADD DONE ✅";
-            actionBtn.style.background = "#00ea77";
+            actionBtn.style.backgroundColor = "#00ea77";
             actionBtn.style.color = "#000";
 
             setTimeout(() => {
                 actionBtn.innerHTML = "<i class='fa-solid fa-plus'></i> ADD TO LIST";
-                actionBtn.style.background = "#00ea77";
-                actionBtn.style.color = "#000";
+                actionBtn.style.backgroundColor = "";
+                actionBtn.style.color = "";
+                actionBtn.className = "btn-pro btn-green";
             }, 2500);
         }
 
@@ -522,6 +548,10 @@
             } catch (error) {
                 uploadBtn.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> FAILED ❌";
                 uploadBtn.style.background = "#da3633";
+                setTimeout(() => {
+                    uploadBtn.innerHTML = "<i class='fa-solid fa-cloud-arrow-up'></i> UPLOAD TO GITHUB";
+                    uploadBtn.style.background = "#ff003c";
+                }, 3000);
             }
         }
 
