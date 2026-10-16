@@ -448,5 +448,10 @@
     "name": "Bollywood HD",
     "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "Desi Channel",
+    "url": "https://livestream.unlimitedcdn.com/agm-dc/desi-channel/index.m3u8",
+    "category": "MUSIC"
   }
 ]
