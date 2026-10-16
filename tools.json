@@ -1,0 +1,392 @@
+[
+  {
+    "name": "& TV HD",
+    "url": "https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "1ST India News",
+    "url": "https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "4TV NEWS",
+    "url": "https://cdn.pishow.tv/ott/live/1007/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "7S MUSIC",
+    "url": "https://cdn.pishow.tv/ott/live/1257/master.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X JALWA",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Jalwa%2FHD720%2FHD720.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X JHAKAAS",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Famg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv%2Fts-eu-w1-n2%2Fplaylist%2Famg01281-9xmediapvtltd-9xjhakaas-samsungin%2Fcb563f1a6570658a84cc2167d9f16288bd7a119e542ed42b6daa44eb2c937925f6a3f2dded55ed684e8b4ade64596c550c64d64ad62803dadf7bfe50292e4274cf85e32ed1991201bbd80f2929bb18a060c4262d01de9e10a38b2f3bc75080770c07ed0d2e65268ca90cee547affb274fa5fb45f60ef4b0403051ddb054d94fd0be1a6b20c6fe654374c8d7ab71834a4da108c9642a9a3ecbb4c8eb454c372ecb8c8ed8a52d5dfcf3af84d855e6c0a722ccdd92bd9a1d5d1abf97152d839ce653e2ca6a01dc46c02b5e703c39bb5bb9e68fa01c78a24ce4e32ac3fa140963bb015c07191cd6deffef58f0c1369e4e85263118cc6efd9b5657def3689c293bd791ec1a5f419ae48c96e44e32a35b0221ffcfce9b0bce78118e879%2F83%2F640x360_1056000%2Findex.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X TASHAN",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Famg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv%2Fplaylist%2Famg01281-9xmediapvtltd-9xtashan-samsungin%2Fplaylist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9XM",
+    "url": "https://streams.tangotv.in/9XM/ORIGIN/tracks-v1a1/mono.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "AAJ KI KHABBAR",
+    "url": "https://stream.ottlive.co.in/aajkikhabar/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "AAJ TAK HD",
+    "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "AARYA TV",
+    "url": "https://stream.ottlive.co.in/aryatvtamil/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "ABP NEWS HD",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "B4U KADAK",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fstreams.tangotv.in%2FB4UKADAK%2FORIGIN%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "B4U MOVIES",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fstreams.tangotv.in%2FB4UMOVIES%2FORIGIN%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "B4U MUSIC",
+    "url": "https://amg01408-amg01408c5-amgplt0747.playout.now3.amagi.tv/b4um001/playlist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "BALLE BALLE",
+    "url": "https://mcncdndigital.com/balleballetv/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "BOOGLE BOLLYWOOD",
+    "url": "https://yuppnimrestreammum.akamaized.net/181224/smil:bogglebollywood.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "category": "MUSIC"
+  },
+  {
+    "name": "CARTOON NETWORK",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_hd_abr/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "CN HD+",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Flive20.bozztv.com%2Fgiatvplayout7%2Fgiatv-208314%2Ftracks-v1a1%2Fmono.ts.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "COLORS TV",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ColorsAPAC.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "DD News",
+    "url": "https://mumbai-edge.smartplaytv.in/DDNews/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "DD Sports",
+    "url": "https://mumbai-edge.smartplaytv.in/DDSports/tracks-v1a1/mono.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "DISCOVERY KIDS",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F185.227.34.179%3A8080%2Fdisney-xd%2Ftracks-v1a1%2Fmono.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "EPIC KIDS",
+    "url": "https://cc-t8lqe1o99pszu.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-t8lqe1o99pszu/9195d0ee-8262-4e1d-b545-654ab1aaca86/0.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "GNT NEWS",
+    "url": "https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "GNT NEWS",
+    "url": "https://feeds.intoday.in/gnt/api/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "HARIYANVI MUSIC PTC",
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "HUNGAMA TV",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "India TV Speed News",
+    "url": "https://cc-lyf4c0hwzg5dd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lyf4c0hwzg5dd/v1/vglive-sk-479089/main.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Kashish News",
+    "url": "https://server.thelegitpro.in/kashishnews/kashishnews/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "KBC News",
+    "url": "https://stream.ottlive.co.in/kbcnews/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "KIDDO",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "MH ONE NEWS",
+    "url": "https://streams.tangotv.in/MHONENEWS/ORIGIN/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Mr Bean Live Action",
+    "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "MUSIC INDIA",
+    "url": "https://streams.tangotv.in/MUSICINDIA/ORIGIN/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "NDTV INDIA",
+    "url": "https://ndtvindiaelemarchana.akamaized.net//hls//live//2003679//ndtvindia//master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News 1 India",
+    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News 1 India",
+    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/tracks-v1a1/mono.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News 11",
+    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS11BHARAT/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News 24",
+    "url": "https://streams.tangotv.in/NEWS24/ORIGIN/tracks-v1a1/mono.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News State MP & CHG",
+    "url": "https://jmp2.uk/stvp-IN4000012ML",
+    "category": "NEWS"
+  },
+  {
+    "name": "News9Live",
+    "url": "https://amg01106-amg01106c3-amgplt0844.playout.now3.amagi.tv/ts-ap-s1-n1/playlist/amg01106-amg01106c3-amgplt0844/playlist.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News18 Bihar Jharkhand",
+    "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Bihar_Jharkhand_NW18_MOB/output01/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News18 Delhi NCR JK",
+    "url": "https://n18syndication.akamaized.net/bpk-tv/News18_JKLH_NW18_MOB/output01/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News18 India",
+    "url": "https://n18syndication.akamaized.net/bpk-tv/News18_India_NW18_MOB/output01/News18_India_NW18_MOB-audio_98835_hin=98800-video=3724000.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "NICK JR INDIA",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FNICK-JR%2Findex.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "OGGY & COCKRECHES",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fcfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv%2Fv2%2Fstitch%2Fhls%2Fchannel%2F63221bafdc6e110007b50270%2F3321280%2Fplaylist.m3u8%3Fterminate%3Dfalse%26sid%3Db43daf4e-c87d-11f1-b2b4-36ac555a2daa%26deviceDNT%3D0%26deviceLat%3D-22.84000015258789%26deviceLon%3D-43.34000015258789%26deviceModel%3Dweb%26deviceVersion%3D122.0.0%26includeExtendedEvents%3Dtrue%26appName%3Dweb%26deviceId%3Da3763c53-2099-4462-b8fe-178d3eb7a2ec%26appVersion%3D8.0.0-111b2b9dc00bd0bea9030b30662159ed9e7c8bc6%26deviceType%3Dweb%26deviceMake%3Dchrome%26jwt%3DeyJhbGciOiJIUzI1NiIsImtpZCI6IjY4YWY0NTUyLWZiNzQtNDc5OC1iNzRlLTI1MjFjZmRjYzg4ZCIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uSUQiOiJiNDNkYWY0ZS1jODdkLTExZjEtYjJiNC0zNmFjNTU1YTJkYWEiLCJjbGllbnRJUCI6IjE3Ny4xOTIuMjU1LjM4IiwiY2l0eSI6IlJpbyBEZSBKYW5laXJvIiwicG9zdGFsQ29kZSI6IjIxNTQ1LTI3MCIsImNvdW50cnkiOiJCUiIsImRtYSI6NzYwMDgsImFjdGl2ZVJlZ2lvbiI6IkJSIiwiZGV2aWNlTGF0IjotMjIuODQwMDAwMTUyNTg3ODksImRldmljZUxvbiI6LTQzLjM0MDAwMDE1MjU4Nzg5LCJwcmVmZXJyZWRMYW5ndWFnZSI6ImVuIiwiZGV2aWNlVHlwZSI6IndlYiIsImRldmljZVZlcnNpb24iOiIxMjIuMC4wIiwiZGV2aWNlTWFrZSI6ImNocm9tZSIsImRldmljZU1vZGVsIjoid2ViIiwiYXBwTmFtZSI6IndlYiIsImFwcFZlcnNpb24iOiI4LjAuMC0xMTFiMmI5ZGMwMGJkMGJlYTkwMzBiMzA2NjIxNTllZDllN2M4YmM2IiwiY2xpZW50SUQiOiJhMzc2M2M1My0yMDk5LTQ0NjItYjhmZS0xNzhkM2ViN2EyZWMiLCJjbUF1ZGllbmNlSUQiOiIiLCJpc0NsaWVudEROVCI6ZmFsc2UsInVzZXJJRCI6IiIsImxvZ0xldmVsIjoiREVGQVVMVCIsInRpbWVab25lIjoiQW1lcmljYS9TYW9fUGF1bG8iLCJzZXJ2ZXJTaWRlQWRzIjpmYWxzZSwiZTJlQmVhY29ucyI6ZmFsc2UsImZlYXR1cmVzIjp7Im11bHRpUG9kQWRzIjp7ImNvaG9ydCI6IiIsImVuYWJsZWQiOnRydWV9LCJzdGl0Y2hlckFkU2Vzc2lvbkV2ZW50Ijp7ImVuYWJsZWQiOnRydWV9LCJzdGl0Y2hlckRhc2hOZyI6eyJqaXRQYWNrIjoicmVwYWNrSml0LGRlY3J5cHQifSwic3RpdGNoZXJIbHNOZyI6eyJkZW11eGVkQXVkaW8iOiJqaXQifX0sImZtc1BhcmFtcyI6eyJmd1ZjSUQyIjoiYTM3NjNjNTMtMjA5OS00NDYyLWI4ZmUtMTc4ZDNlYjdhMmVjIiwiZndWY0lEMkNvcHBhIjoiYTM3NjNjNTMtMjA5OS00NDYyLWI4ZmUtMTc4ZDNlYjdhMmVjIiwiY3VzdG9tUGFyYW1zIjp7ImZtc19saXZlcmFtcF9pZGwiOiIiLCJmbXNfZW1haWxoYXNoIjoiIiwiZm1zX3N1YnNjcmliZXJpZCI6IiIsImZtc19pZmEiOiIiLCJmbXNfaWRmdiI6IiIsImZtc191c2VyaWQiOiJhMzc2M2M1My0yMDk5LTQ0NjItYjhmZS0xNzhkM2ViN2EyZWMiLCJmbXNfdmNpZDJ0eXBlIjoidXNlcmlkIiwiZm1zX3JhbXBfaWQiOiIiLCJmbXNfaGhfcmFtcF9pZCI6IiIsImZtc19iaWRpZHR5cGUiOiIxMDQ2IiwiX2Z3XzNQX1VJRCI6IklETDpBc0xKZlpZLUM3WjlrODBRYzItMDJvN29vOS15V3M0djFmWkJrZnZBRkI4ZDBtUERXb2dYX1NVeXpzYTA1TUhuUXVPUUZ3QkV3dlUyZzNTVWtlbGV0bmo2R3VrT0JpRXBwaXlYSHVqbmtRX2lRaktrRC12LS1JU0lqcWkxeUtXOVFWRmxpWUVkNC0zV1c4WVE4S1FaZDFhNG9hRlN6Wll0Wkh2NXZ3b3ljdERKRS1FMzV4U3YyZ196X2xfSDVPSWF3WGh0Q3FQcEY2T053Uk9WUFJIM2dFYWdDR1F1a0R1TkZNdGM1NE4wTllqb3RlUXAzRkhROHo5bjZvSEpCQTMzY2ZuRlB1a0M3dWliSHNZZmtUc1A0bFdPems0a0xSS2FlT0ZQclBLWHZWX2h6Z1NnNGtoX180Szc0Vl9MM1hQUTZ1NFJaMTY2M2ZLekw1ckVrUDRXY1BvMGN6S0hNTkdlMmZvbjg4Y0FFWXciLCJmbXNfcnVsZWlkIjoiMTAwMDAsMTAwMDksMTAwMTYsMTAwMjAsMTAwMjMsMTAwMTMsMTAwMTQsMTAwMTUsMTAwMjEifX0sInNlc3Npb25TdGFydFRpbWUiOjE3OTIwNTc3NjQ1NjAsImlzcyI6ImJvb3QucGx1dG8udHYiLCJzdWIiOiJwcmk6djE6cGx1dG86ZGV2aWNlczpCUjpZVE0zTmpOak5UTXRNakE1T1MwME5EWXlMV0k0Wm1VdE1UYzRaRE5sWWpkaE1tVmoiLCJhdWQiOiIqLnBsdXRvLnR2IiwiZXhwIjoxNzkyMTQ0MTY0LCJpYXQiOjE3OTIwNTc3NjQsImp0aSI6IjIwNGM4N2ZjLWNjMjUtNGE2MC04ZTNhLTQ1ODI2ZWY2ZDg4MSJ9.QMZoq4dLVvzOyGraj30mxl5COFMviQrfPhIUCXxkhC8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Prime News",
+    "url": "https://stream.ottlive.co.in/primenews/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Pudhari News",
+    "url": "https://streams.tangotv.in/PUDHARINEWS/ORIGIN/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "PUNJABI HITS",
+    "url": "https://stream.ottlive.co.in/punjabihits/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "REPUBLIC BHARAT",
+    "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/c23808ea-f684-43b3-a586-f4dfa554b55a/playlist.m3u8?hdnts=st=1792128480~exp=1792150080~acl=!*/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/c23808ea-f684-43b3-a586-f4dfa554b55a/*!/payload/yupptvott_5_-1_dc6701af-6bf0-4d33-9c21-ab9adc73cc2f_IN_2409:40d2:1338:2a03:9422:591:3221:908c_bott_1_channel_592_-1/*~data=yupptvott_5_-1_dc6701af-6bf0-4d33-9c21-ab9adc73cc2f_IN_2409:40d2:1338:2a03:9422:591:3221:908c_bott_1_channel_592_-1~hmac=59795fb1ce6fed7705c8d8964c0be9e1cd0ffd6efc2770a7ca6a9668226917e1&ads.network_name=scope",
+    "category": "NEWS"
+  },
+  {
+    "name": "Sadhna News MP/CH",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Sadhna Plus News",
+    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/sadhananewstv/live.stream/playlist.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Sangeet Bhojpuri",
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3SANGEETBHOJPURI/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Shemaroo Filmi Gaane",
+    "url": "https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Shemaroo Josh",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY MAX 2",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fsonymax2%2Findex.m3u8%3Ftoken%3Dtest",
+    "category": "MOVIE"
+  },
+  {
+    "name": "South Station",
+    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sports Live",
+    "url": "https://cc-cuqwjso962c54.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-cuqwjso962c54/5a317140-e29e-47f6-be83-4deb6024c8f1/1.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "STAR GOLD 2 HD",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01v%2Findex.m3u8%3Fhls",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR GOLD HD",
+    "url": "https://garden-tv.mobi/proxy?stream=http%3A%2F%2F103.185.24.134%3A3001%2FStar-Gold%2Ftracks-v1a1%2Fmono.m3u8&ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR PLUS",
+    "url": "https://srv1.pxfy.dev/?u=u5NxjfjC4YOAV6MdkKYNszIOOthbdxjXMtvSHHjm5LaHYDhdN2qxlmcnoOmhhYAdDBXg5IGRmGFlcvNTQ_ZDfUrn3TlI_wO1SbRfdlZKl-jVJH2l6AGBUk5ewuAHq1iG5JsWYQ&exp=1792182017&sig=95ae3301d737bf6f7100d44ee31db8100491db22a82d44f0bc5d6b8e33015447",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Swadesh News",
+    "url": "https://cdn.pishow.tv/ott/live/465/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "THE JUNGLE BOOK",
+    "url": "https://cc-4bhi5osabejc9.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/9669bb80-c13b-49e6-9d9a-815c7b87e946/0.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "The Movie Club +2",
+    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
+    "category": "MOVIE"
+  },
+  {
+    "name": "TNP News",
+    "url": "https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Tolly TV",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "TV27 News",
+    "url": "https://mumt04.tangotv.in/m18aqlK4TV27/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Vistaar News",
+    "url": "https://stream.ottlive.co.in/vistaartv/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "WOW KIDZ",
+    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "YRF MUSIC",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Famg01412-xiaomiasia-yrfmusic-xiaomi-1rmk2.amagi.tv%2Fts-eu-w1-n2%2Fplaylist%2Famg01412-xiaomiasia-yrfmusic-xiaomi%2Fcb563f0072767b8f9dcb2164d3f16288bd7a119e542ed42b6daa44eb2c937925f6a3f2dded55ed684e8b49dd680b68525535d64ad62800dadf7bfe50292e45739385b32ade9a1209e38e0b2823b318a060c4262d01de9e10a38b2f3bc75080770c07ed0d2e65268ca90cee547affb274fa5fb45f60ef4b0403051ddb054d94fd0be1a6b20c6fe654374c8d7ab71834a4da108c9642a9a3ecbb4c8eb454c372ecb8c8ed8a52d5dfcf3af84d855e6c0a722ccdd92bd9a1d5d1abf97152d839ce653e2ca6a01dc46c02b5e703c39bb5bb9e68fa01c78a24ce4e32ac3fa140963bb015c07191cd6deffef58f0c1369e4e85263118cc6efd9b5657def3689c293bd791dce1675e4fa6ddbbe4e12d6dad78f766503275ac2ea9b3015%2F7%2F640x360_1111080%2Findex.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Z  ACTION",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fzeeaction%2Findex.m3u8%3Ftoken%3Dtest",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Z CINE CLASSIC",
+    "url": "https://amg00862-amg00862c8-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c8-amgplt0016/cb7f3e1a7b7b6f8a9a9e3d6cd1a04af5880e6a8b5363d36765fe5cc57ccb180dd6eefbcbbf49bd4a11e24094385631004262d519ce64669e802ef716776c69108a99b265d992026eeb86092e21a3321855e71e6490650f77eeec18238c29fa2c5644a65a38167aa6953dd00a4ed5dc53d02a39fcf88e3a66644a2cc71f02b8f541a2fae34345c66cbfb10c2bc47914a5db5dccd71ba583d24beb17d169f0119f8cf095d30e82948536a052e4615a017a309ad87dc0840ce7dccb24609825710b1b07e0a296f81f6ad51e470ba28ca1d864fb00808d2c85125fd166837fb719ae76f071cd864fa4bef5db4c554bc9ae307a1381d787afcf1a03897ba1e283b372788ab8156857f669d72f2a319e8fa57ee8d834a6861ca19b443c11ee8c1fe7f7de82eba3c34b8c35f5c9f595383022096e19a76d92a543fa04f865f2be79485d4957e3995ad496d82c53082ed6b274be7c732f04a6f9bd271588053254ec69d8296a06ae155f0c2ea964f84608a83503844f5db13867c22af8c9b163b25b19676f95a70dd34d42ed9539f2bc6e887e35584d98fd205444587cea4907672d54cc5feddfc6e0385c4ebcb785c9c95d3c082e041222bfa2b620d5de9b692a1fcf05723b340841c24d9648cf10450519cc1cf8a51d3bd0557663b5f17f157144a2e59dcdc7dac34fb03ff4cafe3220721940b5210a2b6b9ce7d80bb368052e340dc03c6545bc15530dbfc69eabcad62eeb9863e56937462d95be470f5920060960ac9966d351f5805de8cbb83be2dbcd4315cb6cd94e7af7fdd56feae292c8491be2c37a106485dc34ca7539bd79f12f8fd73095f0620f12384f5fd1cc33db5aaad48ec83b904ffc1b509e8bde3f3855d5362fd3da6bc959144a341310aa5acab2/143/426x240_923520/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "ZEE BUSINESS NEWS",
+    "url": "https://dwby15d04agvq.cloudfront.net/index_5.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Zee News",
+    "url": "https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "ZEE TV HD",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F41.205.93.154%2FZEE-TV%2Ftracks-v1a1%2Fmono.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "ZEE TV SD",
+    "url": "http://103.151.60.162:2122/play/a01u/index.m3u8?hls",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "ZOOM MUSIC",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fpubads.g.doubleclick.net%2Fssai%2Fevent%2FJCAm25qkRXiKcK1AJMlvKQ%2Fmaster.m3u8",
+    "category": "MUSIC"
+  }
+]
