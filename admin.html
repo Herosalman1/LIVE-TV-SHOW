@@ -57,7 +57,7 @@
         .btn-logout { background: #da3633; color: #fff; margin-top: 10px; padding: 10px; font-size: 13px; }
         .btn-logout:hover { background: #f85149; }
         
-        /* Folder Styling with Normal Sized Buttons */
+        /* Folder Styling */
         .category-folder { 
             margin-bottom: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden; border: 1px solid #30363d; 
             transition: 0.2s;
@@ -157,7 +157,7 @@
                 <h3><i class="fa-solid fa-folder-open"></i> ADVANCED REORDER LIST</h3>
                 <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Normal size buttons diye gaye hain.</p>
+            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein.</p>
             <div id="projectList"></div>
         </div>
     </div>
@@ -327,7 +327,6 @@
 
             renderCategoryDropdown();
             renderList();
-            alert("Folder renamed successfully! Click 'UPLOAD TO GITHUB' to save.");
         }
 
         function deleteCategory(catName) {
@@ -343,7 +342,6 @@
             savedCategories = savedCategories.filter(c => c !== catName);
             renderCategoryDropdown();
             renderList();
-            alert("Folder deleted! Click 'UPLOAD TO GITHUB' to save.");
         }
 
         function addDragAndDropListeners() {
@@ -452,18 +450,29 @@
             
             if(!name || !link) return alert("Channel ka Naam aur Link dono daalna zaroori hai!");
 
+            const actionBtn = document.getElementById('actionBtn');
+
             if(editIndex === null) {
                 channelsArray.push({name, url: link, category});
             } else {
                 channelsArray[editIndex] = {name, url: link, category};
                 editIndex = null;
                 document.getElementById('formTitle').innerHTML = "<i class='fa-solid fa-plus-circle'></i> Add New Channel";
-                document.getElementById('actionBtn').innerHTML = "<i class='fa-solid fa-plus'></i> ADD TO LIST";
-                document.getElementById('actionBtn').className = "btn-pro btn-green";
             }
 
-            document.getElementById('pName').value = ""; document.getElementById('pLink').value = "";
-            alert("Channel added! Click 'UPLOAD TO GITHUB' to save permanently.");
+            document.getElementById('pName').value = ""; 
+            document.getElementById('pLink').value = "";
+
+            // Direct button text update without alert popup
+            actionBtn.innerHTML = "<i class='fa-solid fa-circle-check'></i> ADD DONE ✅";
+            actionBtn.style.background = "#00ea77";
+            actionBtn.style.color = "#000";
+
+            setTimeout(() => {
+                actionBtn.innerHTML = "<i class='fa-solid fa-plus'></i> ADD TO LIST";
+                actionBtn.style.background = "#00ea77";
+                actionBtn.style.color = "#000";
+            }, 2500);
         }
 
         function editChannel(index) {
