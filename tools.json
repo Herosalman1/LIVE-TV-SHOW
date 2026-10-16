@@ -380,11 +380,6 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "ZEE TV SD",
-    "url": "http://103.151.60.162:2122/play/a01u/index.m3u8?hls",
-    "category": "SERIAL EPISODE"
-  },
-  {
     "name": "ZOOM MUSIC",
     "url": "https://televizya.app/p?u=https%3A%2F%2Fpubads.g.doubleclick.net%2Fssai%2Fevent%2FJCAm25qkRXiKcK1AJMlvKQ%2Fmaster.m3u8",
     "category": "MUSIC"
