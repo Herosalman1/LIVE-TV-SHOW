@@ -600,7 +600,7 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "Star Plus English",
+    "name": "Star Plus",
     "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/starplusuk_2500/chunks.m3u8",
     "category": "SERIAL EPISODE"
   },
@@ -608,11 +608,6 @@
     "name": "Total Bhakti",
     "url": "https://d34z4embz0hjf6.cloudfront.net/out/v1/d55b3323a9f142638f897378f0b526fe/index.m3u8",
     "category": "BHAKTI CHANNEL"
-  },
-  {
-    "name": "Star Plus Hindi",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavPlus.m3u8",
-    "category": "SERIAL EPISODE"
   },
   {
     "name": "Zee Bharat",
