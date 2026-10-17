@@ -633,5 +633,10 @@
     "name": "Zee Uttar Pradesh/Uttarakhand",
     "url": "https://duw35ict5q7th.cloudfront.net/index_3.m3u8",
     "category": "NEWS"
+  },
+  {
+    "name": "Zoom",
+    "url": "https://pubads.g.doubleclick.net/ssai/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
+    "category": "MUSIC"
   }
 ]
