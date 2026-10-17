@@ -125,11 +125,6 @@
     "category": "NEWS"
   },
   {
-    "name": "GNT NEWS",
-    "url": "https://feeds.intoday.in/gnt/api/master.m3u8",
-    "category": "NEWS"
-  },
-  {
     "name": "HARIYANVI MUSIC PTC",
     "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
     "category": "MUSIC"
