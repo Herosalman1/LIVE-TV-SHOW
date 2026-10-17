@@ -593,5 +593,10 @@
     "name": "Sony KAL Hindi",
     "url": "https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8",
     "category": "CRIME INVESTIGATION"
+  },
+  {
+    "name": "Star Bharat",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavBharat.m3u8",
+    "category": "SERIAL EPISODE"
   }
 ]
