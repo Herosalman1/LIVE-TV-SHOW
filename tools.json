@@ -370,6 +370,11 @@
     "category": "NEWS"
   },
   {
+    "name": "Dangal 2",
+    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
     "name": "ZEE TV HD",
     "url": "https://televizya.app/p?u=http%3A%2F%2F41.205.93.154%2FZEE-TV%2Ftracks-v1a1%2Fmono.m3u8",
     "category": "SERIAL EPISODE"
@@ -580,23 +585,18 @@
     "category": "NEWS"
   },
   {
-    "name": "Dangal 2",
-    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
-    "category": "CRIME INVESTIGATION"
-  },
-  {
-    "name": "Shemaroo Josh",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
-    "category": "CRIME INVESTIGATION"
+    "name": "Star Bharat",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavBharat.m3u8",
+    "category": "SERIAL EPISODE"
   },
   {
     "name": "Sony KAL Hindi",
     "url": "https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8",
-    "category": "CRIME INVESTIGATION"
+    "category": "SERIAL EPISODE"
   },
   {
-    "name": "Star Bharat",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavBharat.m3u8",
+    "name": "Shemaroo Josh",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
     "category": "SERIAL EPISODE"
   },
   {
