@@ -194,15 +194,15 @@
         function renderChannels() {
             channelListEl.innerHTML = '';
             
+            // Yahan categories tools.json ke original sequence ke hisab se hi rahengi (koi sorting nahi ki gayi)
             const categories = [];
             savedChannels.forEach(ch => {
                 const cat = ch.category || "OTHER";
                 if (!categories.includes(cat)) categories.push(cat);
             });
-            categories.sort(); // Categories alphabetical order (A to Z)
 
             categories.forEach(cat => {
-                // Channels alphabetical order (A, B, C...) inside each category
+                // Folder ke andar ke channels ko A to Z (alphabetical order) sort kiya gaya hai
                 const channelsInCat = savedChannels
                     .map((ch, idx) => ({...ch, originalIndex: idx}))
                     .filter(c => (c.category || "OTHER") === cat)
