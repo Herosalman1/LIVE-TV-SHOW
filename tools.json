@@ -643,5 +643,10 @@
     "name": "TOM & JERRY 4K",
     "url": "https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1792262337/ei/YWzTapfgKLecvcAP1-DL2Ak/ip/2409:40d2:1271:49c1:1d7f:b003:ab24:4fa3/id/C6hI2WB3wH8.2/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr5---sn-gwpa-qxal7.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/bui/AWzQHwrL-mPuAVkJMhLAITHE2ctqHU_5OWnhUkcKwh8HIAVR0VPrsnHnDBUkOsxSUjx89_FQodV1-h3G/spc/mpRQ_4LYBniiAwW6CH1W26u_a-xRa3yFlrMgVNwjYNeqSjYMu2qG8fYZwY30cIBbJaeEmcG7zK0/vprv/1/ns/RYIoOACUdx4Djdfw3odYjNMZ/reg/0/playlist_type/DVR/initcwndbps/989125/met/1792240741,/mh/jL/mm/44/mn/sn-gwpa-qxal7/ms/lva/mv/m/mvi/5/pl/39/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51565116/n/rjpetLXdHOHSmA/mt/1792240379/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,bui,spc,vprv,ns,reg,playlist_type/sig/AE0s2JYwRQIgDpmRrjynsYqvJKVBHRDSZRoojVw9NhyPh_zUASEu3t8CIQCc_-a6-OXjqsn3nfhv2U0rRpkdjP3KloVblJeYR0tgig%3D%3D/lsparams/hls_chunk_host,initcwndbps,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgXCMStHKCL8njVoBmhMq2Zs7sXJlibYiLqPZXaPakD-ICIQD7hKNXnCHZsBSQ3ymEUWUqk9sER1McI47khHpluk4ZpA%3D%3D/playlist/index.m3u8",
     "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Colors Rishtey",
+    "url": "https://manatv.akamaized.net/090823/smil:ristheyamerica.smil/playlist.m3u8",
+    "category": "SERIAL EPISODE"
   }
 ]
