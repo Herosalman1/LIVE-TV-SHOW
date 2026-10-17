@@ -533,5 +533,15 @@
     "name": "Insync",
     "url": "https://d1msejlow1t3l4.cloudfront.net/fta/insync/playlist.m3u8",
     "category": "MUSIC"
+  },
+  {
+    "name": "Ishwar Bhakti TV",
+    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+    "category": "BHAKTI CHANNEL"
+  },
+  {
+    "name": "Investigation Discovery",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/id_hd_abr/index.m3u8",
+    "category": "CRIME INVESTIGATION"
   }
 ]
