@@ -425,11 +425,6 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "Dangal 2",
-    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
     "name": "Gangaur TV",
     "url": "https://pbgangaur.wiseplayout.com/Gangaur/HD1080/HD1080.m3u8",
     "category": "MUSIC"
@@ -583,6 +578,11 @@
     "name": "Sarv Dharm Sangam",
     "url": "https://mumt01.tangotv.in/O5aw8Zn3SARAVDHARAMSANGAM/index.m3u8",
     "category": "NEWS"
+  },
+  {
+    "name": "Dangal 2",
+    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
+    "category": "CRIME INVESTIGATION"
   },
   {
     "name": "Shemaroo Josh",
