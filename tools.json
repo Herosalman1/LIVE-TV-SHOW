@@ -648,5 +648,10 @@
     "name": "Colors Cineplex",
     "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "DD Sports",
+    "url": "https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8",
+    "category": "SPORTS"
   }
 ]
