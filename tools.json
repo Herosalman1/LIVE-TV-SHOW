@@ -623,5 +623,10 @@
     "name": "Zee Cinema HD",
     "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "Zee Comedy Nation",
+    "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
+    "category": "COMEDY"
   }
 ]
