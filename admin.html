@@ -167,7 +167,7 @@
         const GIT_TOKEN = TOKEN_PART_1 + TOKEN_PART_2; 
         
         const myRepo = "Herosalman1/LIVE-TV-SHOW"; 
-        const fileName = "tools.json";
+        const fileName = "tools.json"; 
         
         let channelsArray = [];
         let fileSha = "";
@@ -267,8 +267,11 @@
             });
 
             activeCategories.forEach((cat, catIdx) => {
-                const channelsInCat = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.category || "OTHER") === cat);
+                let channelsInCat = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.category || "OTHER") === cat);
                 
+                // Folder ke andar A B C D order (alphabetical) me sort karne ke liye:
+                channelsInCat.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: 'base' }));
+
                 const catId = cat.replace(/\s+/g, '-').toLowerCase();
                 const isOpen = openFolders.has(catId);
 
@@ -447,7 +450,6 @@
             let category = "OTHER";
             const actionBtn = document.getElementById('actionBtn');
 
-            // Custom error function to show error on the button directly
             const showError = (msg) => {
                 const oldHtml = actionBtn.innerHTML;
                 actionBtn.innerHTML = `<i class='fa-solid fa-triangle-exclamation'></i> ${msg}`;
@@ -531,7 +533,7 @@
             try {
                 const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
                     method: 'PUT',
-                    headers: { 'Authorization': `token ${GIT_TOKEN}`, 'Content-Type': 'application/json' },
+                    headers: { 'Authorization': `token ${GIT_TOKEN}` },
                     body: JSON.stringify({ message: "Updated via Admin Panel", content: encodedContent, sha: fileSha })
                 });
 
