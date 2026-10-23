@@ -663,5 +663,10 @@
     "name": "ZEE TV SD",
     "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_800/chunks.m3u8",
     "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "ZEE SD",
+    "url": "http://103.151.60.162:2122/play/a01u/index.m3u8?hls",
+    "category": "SERIAL EPISODE"
   }
 ]
