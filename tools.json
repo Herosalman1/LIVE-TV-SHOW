@@ -665,8 +665,8 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "ZEE SD",
-    "url": "http://103.151.60.162:2122/play/a01u/index.m3u8?hls",
+    "name": "ZEE TV SD+",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01u%2F70290462.m3u8",
     "category": "SERIAL EPISODE"
   }
 ]
