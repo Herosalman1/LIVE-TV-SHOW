@@ -249,6 +249,7 @@
             playStream(ch.url, ch.name);
         }
 
+        // Updated function supporting HLS (.m3u8) as well as MP4 / Direct links
         function playStream(url, name) {
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
             
@@ -257,6 +258,7 @@
                 hlsInstance = null;
             }
 
+            // Agar link MP4 ya direct video file ka hai toh standard video tag se play karega
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
@@ -266,7 +268,7 @@
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
                     xhrSetup: function (xhr, url) {
-                        xhr.withCredentials = false;
+                        xhr.withCredentials = false; // Bypass CORS restrictions
                     }
                 });
                 hlsInstance.loadSource(url);
@@ -338,43 +340,43 @@
                 video.msRequestFullscreen();
             }
         }
+        
+        // Auto Play Next Video within the Same Category
+        video.addEventListener('ended', function() {
+            if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
-        // TV Remote / Keyboard Control Event Listener
-        document.addEventListener('keydown', function(event) {
-            // Agar input tag me typing chal rahi ho to ignore karein (TV player pe general typing nhi hoti, par safe side ke liye)
-            if (event.target.tagName.toLowerCase() === 'input' || event.target.tagName.toLowerCase() === 'textarea') return;
+            const currentChannel = savedChannels[currentPlayingIndex];
+            const currentCategory = currentChannel.category || "OTHER";
 
-            switch(event.key) {
-                case 'ArrowRight':
-                    // Video 10 second aage skip karein
-                    if(video.duration) {
-                        video.currentTime = Math.min(video.currentTime + 10, video.duration);
+            // Find the next channel in the SAME category
+            let nextIndex = -1;
+            
+            // Look forward in the array
+            for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
+                const checkCat = savedChannels[i].category || "OTHER";
+                if (checkCat === currentCategory) {
+                    nextIndex = i;
+                    break;
+                }
+            }
+            
+            // If not found searching forward, wrap around and look from the beginning
+            if (nextIndex === -1) {
+                for (let i = 0; i < currentPlayingIndex; i++) {
+                    const checkCat = savedChannels[i].category || "OTHER";
+                    if (checkCat === currentCategory) {
+                        nextIndex = i;
+                        break;
                     }
-                    event.preventDefault();
-                    break;
-                case 'ArrowLeft':
-                    // Video 10 second peeche skip karein
-                    video.currentTime = Math.max(video.currentTime - 10, 0);
-                    event.preventDefault();
-                    break;
-                case 'ArrowUp':
-                    // Volume increase karein (Max 1.0)
-                    video.volume = Math.min(video.volume + 0.1, 1.0);
-                    event.preventDefault();
-                    break;
-                case 'ArrowDown':
-                    // Volume decrease karein (Min 0.0)
-                    video.volume = Math.max(video.volume - 0.1, 0.0);
-                    event.preventDefault();
-                    break;
-                case 'Enter':
-                case ' ':
-                    // Enter ya Space dabane par Play/Pause ho
-                    togglePausePlay();
-                    event.preventDefault();
-                    break;
+                }
+            }
+
+            // Play the next video if found
+            if (nextIndex !== -1) {
+                playChannelByIndex(nextIndex);
             }
         });
+        
     </script>
 </body>
 </html>
