@@ -150,6 +150,7 @@
         </button>
     </div>
 
+    <!-- MAIN CHANNELS LIST MODAL -->
     <div id="listModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -158,6 +159,22 @@
             </div>
             <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Normal size buttons diye gaye hain.</p>
             <div id="projectList"></div>
+        </div>
+    </div>
+
+    <!-- DUPLICATE ERROR MODAL -->
+    <div id="duplicateModal" class="modal" style="z-index: 1000;">
+        <div class="modal-content" style="max-width: 400px; text-align: center; border-color: #da3633;">
+            <div style="color: #da3633; font-size: 50px; margin-bottom: 15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 style="color: #da3633; margin-bottom: 10px;">DUPLICATE URL ERROR!</h3>
+            <p style="color: #c9d1d9; font-size: 14px; margin-bottom: 15px;">This URL already exists in your list. Cannot save duplicates.</p>
+            <div style="background: #0d1117; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 20px; border: 1px solid #30363d;">
+                <p style="margin-bottom: 5px;"><strong>Name:</strong> <span id="dupName" style="color: #00ea77; font-weight: 600;"></span></p>
+                <p><strong>Folder:</strong> <span id="dupFolder" style="color: #d29922; font-weight: 600;"></span></p>
+            </div>
+            <button class="btn-pro btn-blue" onclick="closeDuplicatePopup()">OK, GOT IT</button>
         </div>
     </div>
 
@@ -269,7 +286,6 @@
             activeCategories.forEach((cat, catIdx) => {
                 let channelsInCat = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.category || "OTHER") === cat);
                 
-                // Folder ke andar A B C D order (alphabetical) me sort karne ke liye:
                 channelsInCat.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: 'base' }));
 
                 const catId = cat.replace(/\s+/g, '-').toLowerCase();
@@ -444,6 +460,16 @@
             }
         }
 
+        function showDuplicatePopup(name, folder) {
+            document.getElementById('dupName').innerText = name;
+            document.getElementById('dupFolder').innerText = folder;
+            document.getElementById('duplicateModal').style.display = 'flex';
+        }
+
+        function closeDuplicatePopup() {
+            document.getElementById('duplicateModal').style.display = 'none';
+        }
+
         function processChannel() {
             const name = document.getElementById('pName').value.trim();
             const link = document.getElementById('pLink').value.trim();
@@ -478,6 +504,13 @@
             if(!name || !link) {
                 showError("FILL BOTH FIELDS!");
                 return;
+            }
+
+            const existingChannel = channelsArray.find((ch, idx) => ch.url === link && idx !== editIndex);
+            
+            if (existingChannel) {
+                showDuplicatePopup(existingChannel.name, existingChannel.category || "OTHER");
+                return; 
             }
 
             if(editIndex === null) {
