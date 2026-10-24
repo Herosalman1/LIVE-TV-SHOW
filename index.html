@@ -249,7 +249,6 @@
             playStream(ch.url, ch.name);
         }
 
-        // Updated function supporting HLS (.m3u8) as well as MP4 / Direct links
         function playStream(url, name) {
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
             
@@ -258,7 +257,6 @@
                 hlsInstance = null;
             }
 
-            // Agar link MP4 ya direct video file ka hai toh standard video tag se play karega
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
@@ -268,7 +266,7 @@
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
                     xhrSetup: function (xhr, url) {
-                        xhr.withCredentials = false; // Bypass CORS restrictions
+                        xhr.withCredentials = false;
                     }
                 });
                 hlsInstance.loadSource(url);
@@ -341,17 +339,14 @@
             }
         }
         
-        // Auto Play Next Video within the Same Category
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
             const currentChannel = savedChannels[currentPlayingIndex];
             const currentCategory = currentChannel.category || "OTHER";
 
-            // Find the next channel in the SAME category
             let nextIndex = -1;
             
-            // Look forward in the array
             for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
                 const checkCat = savedChannels[i].category || "OTHER";
                 if (checkCat === currentCategory) {
@@ -360,7 +355,6 @@
                 }
             }
             
-            // If not found searching forward, wrap around and look from the beginning
             if (nextIndex === -1) {
                 for (let i = 0; i < currentPlayingIndex; i++) {
                     const checkCat = savedChannels[i].category || "OTHER";
@@ -371,9 +365,33 @@
                 }
             }
 
-            // Play the next video if found
             if (nextIndex !== -1) {
                 playChannelByIndex(nextIndex);
+            }
+        });
+
+        // TV Remote & Arrow Keys Control System (Skip Only)
+        document.addEventListener('keydown', function(e) {
+            if (!video || (!video.src && !video.currentSrc)) return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                    if (video.duration) {
+                        video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                    }
+                    e.preventDefault();
+                    break;
+                case 'ArrowLeft':
+                    if (video.duration) {
+                        video.currentTime = Math.max(0, video.currentTime - 10);
+                    }
+                    e.preventDefault();
+                    break;
+                case 'Enter':
+                case ' ':
+                    togglePausePlay();
+                    e.preventDefault();
+                    break;
             }
         });
         
