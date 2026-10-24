@@ -157,7 +157,7 @@
                 <h3><i class="fa-solid fa-folder-open"></i> ADVANCED REORDER LIST</h3>
                 <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Normal size buttons diye gaye hain.</p>
+            <p class="subtitle" style="text-align: left; margin-top:-10px;">💡 Folders aur channels ko drag karke upar-neeche karein. Delete ke baad Upload karna na bhoolein.</p>
             <div id="projectList"></div>
         </div>
     </div>
@@ -192,7 +192,8 @@
         let isCustomCat = false;
         let openFolders = new Set();
         
-        const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE", "OTHER"];
+        // Remove 'OTHER' completely from defaults
+        const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
         let savedCategories = [...defaultCategories];
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -215,7 +216,7 @@
                 channelsArray = JSON.parse(decodeURIComponent(escape(atob(data.content))));
                 
                 channelsArray.forEach(ch => {
-                    const cat = ch.category || "OTHER";
+                    const cat = ch.category || "UNCATEGORIZED";
                     if(!savedCategories.includes(cat)) savedCategories.push(cat);
                 });
 
@@ -276,7 +277,7 @@
 
             const activeCategories = [];
             channelsArray.forEach(ch => {
-                const cat = ch.category || "OTHER";
+                const cat = ch.category || "UNCATEGORIZED";
                 if (!activeCategories.includes(cat)) activeCategories.push(cat);
             });
             savedCategories.forEach(cat => {
@@ -284,8 +285,10 @@
             });
 
             activeCategories.forEach((cat, catIdx) => {
-                let channelsInCat = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.category || "OTHER") === cat);
+                let channelsInCat = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.category || "UNCATEGORIZED") === cat);
                 
+                if (channelsInCat.length === 0 && !savedCategories.includes(cat)) return;
+
                 channelsInCat.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: 'base' }));
 
                 const catId = cat.replace(/\s+/g, '-').toLowerCase();
@@ -341,7 +344,7 @@
             const formattedName = newName.trim().toUpperCase();
 
             channelsArray.forEach(ch => {
-                if((ch.category || "OTHER") === oldName) {
+                if((ch.category || "UNCATEGORIZED") === oldName) {
                     ch.category = formattedName;
                 }
             });
@@ -354,15 +357,11 @@
         }
 
         function deleteCategory(catName) {
-            if(catName === "OTHER") {
-                alert("System folder 'OTHER' delete nahi ho sakta!");
-                return;
-            }
-            if(!confirm(`Pakka folder "${catName}" delete karna hai? Iske saare channels 'OTHER' mein move ho jayenge.`)) return;
+            if(!confirm(`Pakka folder "${catName}" delete karna hai? Iske channels 'UNCATEGORIZED' folder mein move ho jayenge.\n\n(Dhyaan rahe, delete ke baad 'UPLOAD TO GITHUB' dabana zaroori hai)`)) return;
 
             channelsArray.forEach(ch => {
-                if((ch.category || "OTHER") === catName) {
-                    ch.category = "OTHER";
+                if((ch.category || "UNCATEGORIZED") === catName) {
+                    ch.category = "UNCATEGORIZED";
                 }
             });
 
@@ -424,7 +423,7 @@
         function reorderCategories(fromCatIdx, toCatIdx) {
             const activeCategories = [];
             channelsArray.forEach(ch => {
-                const cat = ch.category || "OTHER";
+                const cat = ch.category || "UNCATEGORIZED";
                 if (!activeCategories.includes(cat)) activeCategories.push(cat);
             });
             savedCategories.forEach(cat => {
@@ -437,7 +436,7 @@
 
             let newChannelsArray = [];
             savedCategories.forEach(cat => {
-                const chans = channelsArray.filter(ch => (ch.category || "OTHER") === cat);
+                const chans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat);
                 newChannelsArray = newChannelsArray.concat(chans);
             });
             channelsArray = newChannelsArray;
@@ -446,7 +445,7 @@
 
         function swapChannels(fromIndex, toIndex) {
             const itemToMove = channelsArray.splice(fromIndex, 1)[0];
-            itemToMove.category = channelsArray[toIndex].category || "OTHER";
+            itemToMove.category = channelsArray[toIndex].category || "UNCATEGORIZED";
             channelsArray.splice(toIndex, 0, itemToMove);
             renderList();
         }
@@ -473,7 +472,7 @@
         function processChannel() {
             const name = document.getElementById('pName').value.trim();
             const link = document.getElementById('pLink').value.trim();
-            let category = "OTHER";
+            let category = "UNCATEGORIZED";
             const actionBtn = document.getElementById('actionBtn');
 
             const showError = (msg) => {
@@ -509,7 +508,7 @@
             const existingChannel = channelsArray.find((ch, idx) => ch.url === link && idx !== editIndex);
             
             if (existingChannel) {
-                showDuplicatePopup(existingChannel.name, existingChannel.category || "OTHER");
+                showDuplicatePopup(existingChannel.name, existingChannel.category || "UNCATEGORIZED");
                 return; 
             }
 
@@ -540,7 +539,7 @@
             editIndex = index;
             document.getElementById('pName').value = channelsArray[index].name || "";
             document.getElementById('pLink').value = channelsArray[index].url || "";
-            document.getElementById('pCat').value = channelsArray[index].category || "OTHER";
+            document.getElementById('pCat').value = channelsArray[index].category || "UNCATEGORIZED";
             
             document.getElementById('formTitle').innerHTML = "<i class='fa-solid fa-pen-to-square'></i> Edit Channel";
             document.getElementById('actionBtn').innerHTML = "<i class='fa-solid fa-check-double'></i> UPDATE CHANNEL";
