@@ -713,5 +713,10 @@
     "name": "Disney International HD",
     "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa018%2Findex.m3u8%3Fhls",
     "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Doraemon: Nobita's Dinosaur",
+    "url": "https://archive.org/download/steel-troops/Pisuke%20Dinosour.mp4",
+    "category": "DOREAMON HD+ EPISODE"
   }
 ]
