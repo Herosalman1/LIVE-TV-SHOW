@@ -693,5 +693,10 @@
     "name": "Shemaroo TV",
     "url": "https://vodaapp.shemaroome.com/shemarootv/smil:shemarootvadp.smil/chunklist_b1628000_sleng.m3u8?hdnts=st%3D1792822124%7Eexp%3D1792832924%7Eacl%3D*%7Edata%3Dtestdata%7Ehmac%3D9fd3df9de1187ba6758033d64fdb4e3e27cd803c8db99ba8d7b35c92d7e2bd9e",
     "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Shemaroo Umang",
+    "url": "https://vodaapp.shemaroome.com/shemarooumang/smil:shemarooumangadp.smil/chunklist_b1628000_sleng.m3u8?hdnts=st%3D1792821898%7Eexp%3D1792832698%7Eacl%3D*%7Edata%3Dtestdata%7Ehmac%3De229d684d238ebe7ca299706e02ab8a4e4a0e845a4e195a366f591a63e5db116",
+    "category": "CRIME INVESTIGATION"
   }
 ]
