@@ -249,14 +249,26 @@
             playStream(ch.url, ch.name);
         }
 
+        // Updated function supporting HLS (.m3u8) as well as MP4 / Direct links
         function playStream(url, name) {
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
-            if (hlsInstance) hlsInstance.destroy();
+            
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
 
-            if (Hls.isSupported()) {
+            // Agar link MP4 ya direct video file ka hai toh standard video tag se play karega
+            if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
+                video.src = url;
+                video.load();
+                video.play().catch(e => console.log("Auto-play blocked"));
+                playPauseIcon.className = "fa-solid fa-pause";
+            } 
+            else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
                     xhrSetup: function (xhr, url) {
-                        xhr.withCredentials = false; // Bypass CORS restrictions for tokenized stream links
+                        xhr.withCredentials = false; // Bypass CORS restrictions
                     }
                 });
                 hlsInstance.loadSource(url);
@@ -287,7 +299,11 @@
                     playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
-                nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
+                video.src = url;
+                video.load();
+                video.play().catch(e => {
+                    nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
+                });
             }
         }
 
