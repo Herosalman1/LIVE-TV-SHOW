@@ -668,5 +668,10 @@
     "name": "ZEE TV SD+",
     "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01u%2F70290462.m3u8",
     "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "STAR SPOTS 2",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00v%2Findex.m3u8%3Fhls",
+    "category": "SPORTS"
   }
 ]
