@@ -251,7 +251,6 @@
         }
 
         function playStream(url, name) {
-            // Check for restricted domains and trigger Script logic
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
                 
@@ -272,9 +271,8 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // PC Par seedha raw url open karega new tab mein
-                    // Jisse Universal Stream Grabber catch kar lega
-                    window.open(url, '_blank');
+                    // Yahan direct m3u8 ki jagah 'player2.html' open hoga
+                    window.open('player2.html?url=' + encodeURIComponent(url), '_blank');
                 }
                 return;
             }
@@ -422,7 +420,6 @@
                     break;
             }
         });
-        
     </script>
 </body>
 </html>
