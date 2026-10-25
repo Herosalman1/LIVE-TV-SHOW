@@ -276,7 +276,7 @@
   },
   {
     "name": "SONY MAX 2",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fsonymax2%2Findex.m3u8%3Ftoken%3Dtest",
+    "url": "https://sliv.tgaadi.workers.dev/max2.m3u8",
     "category": "MOVIE"
   },
   {
@@ -2593,5 +2593,10 @@
     "name": "Chhota Bheem Baloon Adventure",
     "url": "https://vod3.cf.dmcdn.net/sec2(F3MZ41soLQYz-yJyPeblDZnDZZa-7PMD_qq9E-KSO69d5dNPPD9GYtpr0b3PCJ-qW3fthz6OD3I-sAXMTp_826DP0pZOudPifS4l2Rdeb5yrPC4En4MES0gcQr_NHKwEXbJwlOKY9L_eZunNePaayBynDSLHiuRIRpd7i4O6rVOZkjZFkkqIIHQxdswe-hl3jkp2TmUUDbUKl8q6JW80Bw)/video/fmp4/605883572/h264_aac_hd/4/manifest.m3u8",
     "category": "CHHOTA BHEEM"
+  },
+  {
+    "name": "SONY YAY KIDS",
+    "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
+    "category": "KIDS CARTOON"
   }
 ]
