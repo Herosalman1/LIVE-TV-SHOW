@@ -271,8 +271,34 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // Yahan direct m3u8 ki jagah 'player2.html' open hoga
-                    window.open('player2.html?url=' + encodeURIComponent(url), '_blank');
+                    // EXACT PLAYER 2 LOGIC
+                    const playerWindow = window.open('', '_blank');
+                    const htmlContent = `<html><head><title>${name} - Live Stream</title>
+                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
+                        <style>
+                            html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; outline: none; }
+                        </style>
+                        </head><body><video id="video" controls autoplay></video>
+                        <script>
+                            var video = document.getElementById('video'); 
+                            var videoSrc = "${url}"; 
+                            if (window.Hls && Hls.isSupported()) { 
+                                var hls = new Hls(); 
+                                hls.loadSource(videoSrc); 
+                                hls.attachMedia(video); 
+                                hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
+                                video.src = videoSrc; 
+                                video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
+                            } else {
+                                video.src = videoSrc;
+                                video.play().catch(e=>console.log(e));
+                            }
+                        <` + `/script></body></html>`;
+                    
+                    playerWindow.document.write(htmlContent);
+                    playerWindow.document.close();
                 }
                 return;
             }
