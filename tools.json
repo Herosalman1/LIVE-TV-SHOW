@@ -1,10 +1,5 @@
 [
   {
-    "name": "& TV HD",
-    "url": "https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
     "name": "1ST India News",
     "url": "https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8",
     "category": "NEWS"
@@ -13,31 +8,6 @@
     "name": "4TV NEWS",
     "url": "https://cdn.pishow.tv/ott/live/1007/master.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "7S MUSIC",
-    "url": "https://cdn.pishow.tv/ott/live/1257/master.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "9X JALWA",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Jalwa%2FSD504%2FSD504.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "9X JHAKAAS",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Jhakaas%2FSD504%2FSD504.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "9X TASHAN",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Tashan%2FSD504%2FSD504.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "9XM",
-    "url": "https://streams.tangotv.in/9XM/ORIGIN/tracks-v1a1/mono.m3u8",
-    "category": "MUSIC"
   },
   {
     "name": "AAJ KI KHABBAR",
@@ -50,54 +20,9 @@
     "category": "NEWS"
   },
   {
-    "name": "AARYA TV",
-    "url": "https://stream.ottlive.co.in/aryatvtamil/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
     "name": "ABP NEWS HD",
     "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "B4U KADAK",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UKADAK%2FORIGIN%2Ftracks-v1a1%2Fmono.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "B4U MOVIES",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UMOVIES%2FORIGIN%2Findex.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "B4U MUSIC",
-    "url": "https://amg01408-amg01408c5-amgplt0747.playout.now3.amagi.tv/b4um001/playlist.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "BALLE BALLE",
-    "url": "https://mcncdndigital.com/balleballetv/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "BOOGLE BOLLYWOOD",
-    "url": "https://yuppnimrestreammum.akamaized.net/181224/smil:bogglebollywood.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "category": "MUSIC"
-  },
-  {
-    "name": "CARTOON NETWORK",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_hd_abr/index.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "CN HD+",
-    "url": "https://televizya.app/p?u=https%3A%2F%2Flive20.bozztv.com%2Fgiatvplayout7%2Fgiatv-208314%2Ftracks-v1a1%2Fmono.ts.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "COLORS TV",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ColorsAPAC.m3u8",
-    "category": "SERIAL EPISODE"
   },
   {
     "name": "DD News",
@@ -105,34 +30,9 @@
     "category": "NEWS"
   },
   {
-    "name": "DD Sports",
-    "url": "https://mumbai-edge.smartplaytv.in/DDSports/tracks-v1a1/mono.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "DISCOVERY KIDS",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/discovery_kids_abr/index.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "EPIC KIDS",
-    "url": "https://televizya.app/p?u=https%3A%2F%2Fcc-t8lqe1o99pszu.akamaized.net%2Fv1%2Fmanifest%2F3722c60a815c199d9c0ef36c5b73da68a62b09d1%2Fcc-t8lqe1o99pszu%2Fc02743e9-4e2e-4f45-8270-ae13fd49b12d%2F1.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
     "name": "GNT NEWS",
     "url": "https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "HARIYANVI MUSIC PTC",
-    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "HUNGAMA TV",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
-    "category": "KIDS CARTOON"
   },
   {
     "name": "India TV Speed News",
@@ -150,24 +50,9 @@
     "category": "NEWS"
   },
   {
-    "name": "KIDDO",
-    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
     "name": "MH ONE NEWS",
     "url": "https://streams.tangotv.in/MHONENEWS/ORIGIN/index.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "Mr Bean Live Action",
-    "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "MUSIC INDIA",
-    "url": "https://streams.tangotv.in/MUSICINDIA/ORIGIN/index.m3u8",
-    "category": "MUSIC"
   },
   {
     "name": "NDTV INDIA",
@@ -230,11 +115,6 @@
     "category": "NEWS"
   },
   {
-    "name": "PUNJABI HITS",
-    "url": "https://stream.ottlive.co.in/punjabihits/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
     "name": "REPUBLIC BHARAT",
     "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/c23808ea-f684-43b3-a586-f4dfa554b55a/playlist.m3u8?hdnts=st=1792128480~exp=1792150080~acl=!*/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/c23808ea-f684-43b3-a586-f4dfa554b55a/*!/payload/yupptvott_5_-1_dc6701af-6bf0-4d33-9c21-ab9adc73cc2f_IN_2409:40d2:1338:2a03:9422:591:3221:908c_bott_1_channel_592_-1/*~data=yupptvott_5_-1_dc6701af-6bf0-4d33-9c21-ab9adc73cc2f_IN_2409:40d2:1338:2a03:9422:591:3221:908c_bott_1_channel_592_-1~hmac=59795fb1ce6fed7705c8d8964c0be9e1cd0ffd6efc2770a7ca6a9668226917e1&ads.network_name=scope",
     "category": "NEWS"
@@ -250,64 +130,14 @@
     "category": "NEWS"
   },
   {
-    "name": "Sangeet Bhojpuri",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3SANGEETBHOJPURI/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Shemaroo Filmi Gaane",
-    "url": "https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Shemaroo Josh",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY MAX 2",
-    "url": "https://sliv.tgaadi.workers.dev/max2.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "South Station",
-    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sports Live",
-    "url": "https://cc-cuqwjso962c54.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-cuqwjso962c54/5a317140-e29e-47f6-be83-4deb6024c8f1/1.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "STAR GOLD 2 HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01v%2Findex.m3u8%3Fhls",
-    "category": "MOVIE"
-  },
-  {
-    "name": "STAR GOLD HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F41.205.93.154%2FSTAR-GOLD%2Findex.m3u8",
-    "category": "MOVIE"
-  },
-  {
     "name": "Swadesh News",
     "url": "https://cdn.pishow.tv/ott/live/465/master.m3u8",
     "category": "NEWS"
   },
   {
-    "name": "The Movie Club +2",
-    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
-    "category": "MOVIE"
-  },
-  {
     "name": "TNP News",
     "url": "https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "Tolly TV",
-    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8",
-    "category": "MOVIE"
   },
   {
     "name": "TV27 News",
@@ -320,26 +150,6 @@
     "category": "NEWS"
   },
   {
-    "name": "WOW KIDZ",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "YRF MUSIC",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Famg01412-xiaomiasia-yrfmusic-xiaomi-1rmk2.amagi.tv%2Fts-eu-w1-n2%2Fplaylist%2Famg01412-xiaomiasia-yrfmusic-xiaomi%2Fcb573d1b796c608784c23778d1f64882967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8704cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6abfb102488b2f57f3d014c8d41fb386d346ca438520ec159cc4f196811683848c67fc52e3305a092028ce832aa1e237d9b20cb614e61301685c30cfad97f74f4ee92d217dcb8f003bf89d69aaa83688614ddb4af81dc758020cdb9431f4ce5cccefff3b8ba816e959411480afccabe83c32f24df4aee2dc677da35175125ae462c22b273491b29e5ad4835da1bf2d81bb7e0e78eea505cacdfcd3b4f0ba4392739e9cb4806b16072325129651a7ad68d902d46ce79b4076121e12edd27eecb2f4727c22438f8b5b94341ebad084ca9f2d33d86f165fa7318c0d4b3c8264222ca51ef89c3d7e80695fd66273a80e75a546fbf77da0f195b5486bfb8eb5379505d8bc04d6f915ba2d6d0970d4dc181f141c33809429675954ca46f6dcd9ee711d7285dac4fdd25c2b083f032862aee6e075dbc3801e1418c55c31733677339317dd7dd01043627f91feb267a2e23360036f928bc1e82a26f524006047f2009e%2F18%2F854x480_1724104%2Findex.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Z  ACTION",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fzeeaction%2Findex.m3u8%3Ftoken%3Dtest",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Z CINE CLASSIC",
-    "url": "https://amg00862-amg00862c8-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c8-amgplt0016/cb7f3e1a7b7b6f8a9a9e3d6cd1a04af5880e6a8b5363d36765fe5cc57ccb180dd6eefbcbbf49bd4a11e24094385631004262d519ce64669e802ef716776c69108a99b265d992026eeb86092e21a3321855e71e6490650f77eeec18238c29fa2c5644a65a38167aa6953dd00a4ed5dc53d02a39fcf88e3a66644a2cc71f02b8f541a2fae34345c66cbfb10c2bc47914a5db5dccd71ba583d24beb17d169f0119f8cf095d30e82948536a052e4615a017a309ad87dc0840ce7dccb24609825710b1b07e0a296f81f6ad51e470ba28ca1d864fb00808d2c85125fd166837fb719ae76f071cd864fa4bef5db4c554bc9ae307a1381d787afcf1a03897ba1e283b372788ab8156857f669d72f2a319e8fa57ee8d834a6861ca19b443c11ee8c1fe7f7de82eba3c34b8c35f5c9f595383022096e19a76d92a543fa04f865f2be79485d4957e3995ad496d82c53082ed6b274be7c732f04a6f9bd271588053254ec69d8296a06ae155f0c2ea964f84608a83503844f5db13867c22af8c9b163b25b19676f95a70dd34d42ed9539f2bc6e887e35584d98fd205444587cea4907672d54cc5feddfc6e0385c4ebcb785c9c95d3c082e041222bfa2b620d5de9b692a1fcf05723b340841c24d9648cf10450519cc1cf8a51d3bd0557663b5f17f157144a2e59dcdc7dac34fb03ff4cafe3220721940b5210a2b6b9ce7d80bb368052e340dc03c6545bc15530dbfc69eabcad62eeb9863e56937462d95be470f5920060960ac9966d351f5805de8cbb83be2dbcd4315cb6cd94e7af7fdd56feae292c8491be2c37a106485dc34ca7539bd79f12f8fd73095f0620f12384f5fd1cc33db5aaad48ec83b904ffc1b509e8bde3f3855d5362fd3da6bc959144a341310aa5acab2/143/426x240_923520/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
     "name": "ZEE BUSINESS NEWS",
     "url": "https://dwby15d04agvq.cloudfront.net/index_5.m3u8",
     "category": "NEWS"
@@ -348,131 +158,6 @@
     "name": "Zee News",
     "url": "https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "Dangal 2",
-    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "ZEE TV HD+",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_2500/chunks.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "BOLLYWOOD 4U Live",
-    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "COMEDY TADKA",
-    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0abe00bb-b6f3-4dcd-bdf6-12e74e08216c/a25a3d56-468f-4c36-a53a-3dc70688e297/1.m3u8",
-    "category": "COMEDY"
-  },
-  {
-    "name": "Pocket Films Live",
-    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/b8ada260-bb81-472b-b7c1-3a79213a84b8/980ac4be-94d9-4a0a-ba7d-624de8069ae5/3.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "E24 Live",
-    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0fb3790a-b5ad-4da8-bce8-2e7af21f7252/dd07b63d-a0a0-4ebe-bfcc-b19855d1313d/1.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Bhojpuri Cinema",
-    "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "B4U Bhojpuri",
-    "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/HD1080/HD1080.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Zee Dil Se HD",
-    "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c6-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd56e3630f5e762e9acd7aca9059fb8bcb6f68d173701f4b18e7a291ff193dd615415aada7f9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c026e62c33ae4cde858d3fa6ba489e2bc615ececb4a31edd7349dd/33/1920x1080_6280560/index.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "Zee Comedy Nation",
-    "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c5-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd54e7370a5c7a7b98cd7aca9059fb8bcb6f68d1707d474f18b0a292af1b3d8210175fa0fcf9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c027e4288a2f9cd7c791ef05744fef11c7eaa98ba8026df627e7cf6a/179/1920x1080_6280560/index.m3u8",
-    "category": "COMEDY"
-  },
-  {
-    "name": "Dangal TV",
-    "url": "https://live-dangal.akamaized.net/liveabr/playlist.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "Gangaur TV",
-    "url": "https://pbgangaur.wiseplayout.com/Gangaur/HD1080/HD1080.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Zoom TV",
-    "url": "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Steelbird Music",
-    "url": "https://cdn2.in/SteelbirdMusicTVhls/live.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Bollywood HD",
-    "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Desi Channel",
-    "url": "https://livestream.unlimitedcdn.com/agm-dc/desi-channel/index.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "PTC Music",
-    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index_4.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Steelbird Music",
-    "url": "https://cdn2.in/SteelbirdMusicTVhls/live.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Colors HD",
-    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorsme.smil/playlist.m3u8",
-    "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "AlbKanale Music TV",
-    "url": "https://albportal.net/albkanalemusic.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Goldmines Action",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESACTION/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines 2",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines",
-    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines Bollywood",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines Movies",
-    "url": "https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8",
-    "category": "MOVIE"
   },
   {
     "name": "Hindi Khabar",
@@ -500,21 +185,6 @@
     "category": "NEWS"
   },
   {
-    "name": "Insync",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/insync/playlist.m3u8",
-    "category": "MUSIC"
-  },
-  {
-    "name": "Ishwar Bhakti TV",
-    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
-    "category": "BHAKTI CHANNEL"
-  },
-  {
-    "name": "Investigation Discovery",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/id_hd_abr/index.m3u8",
-    "category": "CRIME INVESTIGATION"
-  },
-  {
     "name": "K News India",
     "url": "https://mumt07.tangotv.in/zHjX9OFlKNEWSINDIA/index.m3u8",
     "category": "NEWS"
@@ -535,9 +205,129 @@
     "category": "NEWS"
   },
   {
-    "name": "Manoranjan Grand",
-    "url": "https://streams.tangotv.in/MANORANJANGRAND/ORIGIN/index.m3u8",
-    "category": "COMEDY"
+    "name": "Sarv Dharm Sangam",
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3SARAVDHARAMSANGAM/index.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Zee Bharat",
+    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "Zee Uttar Pradesh/Uttarakhand",
+    "url": "https://duw35ict5q7th.cloudfront.net/index_3.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "DD Urdu",
+    "url": "https://cdn.pishow.tv/ott/live/8/master.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "B4U KADAK",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UKADAK%2FORIGIN%2Ftracks-v1a1%2Fmono.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "B4U MOVIES",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UMOVIES%2FORIGIN%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Shemaroo Josh",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY MAX 2",
+    "url": "https://sliv.tgaadi.workers.dev/max2.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "South Station",
+    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR GOLD 2 HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01v%2Findex.m3u8%3Fhls",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR GOLD HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F41.205.93.154%2FSTAR-GOLD%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "The Movie Club +2",
+    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Tolly TV",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Z  ACTION",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fzeeaction%2Findex.m3u8%3Ftoken%3Dtest",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Z CINE CLASSIC",
+    "url": "https://amg00862-amg00862c8-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c8-amgplt0016/cb7f3e1a7b7b6f8a9a9e3d6cd1a04af5880e6a8b5363d36765fe5cc57ccb180dd6eefbcbbf49bd4a11e24094385631004262d519ce64669e802ef716776c69108a99b265d992026eeb86092e21a3321855e71e6490650f77eeec18238c29fa2c5644a65a38167aa6953dd00a4ed5dc53d02a39fcf88e3a66644a2cc71f02b8f541a2fae34345c66cbfb10c2bc47914a5db5dccd71ba583d24beb17d169f0119f8cf095d30e82948536a052e4615a017a309ad87dc0840ce7dccb24609825710b1b07e0a296f81f6ad51e470ba28ca1d864fb00808d2c85125fd166837fb719ae76f071cd864fa4bef5db4c554bc9ae307a1381d787afcf1a03897ba1e283b372788ab8156857f669d72f2a319e8fa57ee8d834a6861ca19b443c11ee8c1fe7f7de82eba3c34b8c35f5c9f595383022096e19a76d92a543fa04f865f2be79485d4957e3995ad496d82c53082ed6b274be7c732f04a6f9bd271588053254ec69d8296a06ae155f0c2ea964f84608a83503844f5db13867c22af8c9b163b25b19676f95a70dd34d42ed9539f2bc6e887e35584d98fd205444587cea4907672d54cc5feddfc6e0385c4ebcb785c9c95d3c082e041222bfa2b620d5de9b692a1fcf05723b340841c24d9648cf10450519cc1cf8a51d3bd0557663b5f17f157144a2e59dcdc7dac34fb03ff4cafe3220721940b5210a2b6b9ce7d80bb368052e340dc03c6545bc15530dbfc69eabcad62eeb9863e56937462d95be470f5920060960ac9966d351f5805de8cbb83be2dbcd4315cb6cd94e7af7fdd56feae292c8491be2c37a106485dc34ca7539bd79f12f8fd73095f0620f12384f5fd1cc33db5aaad48ec83b904ffc1b509e8bde3f3855d5362fd3da6bc959144a341310aa5acab2/143/426x240_923520/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "BOLLYWOOD 4U Live",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Pocket Films Live",
+    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/b8ada260-bb81-472b-b7c1-3a79213a84b8/980ac4be-94d9-4a0a-ba7d-624de8069ae5/3.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "E24 Live",
+    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0fb3790a-b5ad-4da8-bce8-2e7af21f7252/dd07b63d-a0a0-4ebe-bfcc-b19855d1313d/1.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Bhojpuri Cinema",
+    "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Bollywood HD",
+    "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines Action",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESACTION/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines 2",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines",
+    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines Bollywood",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines Movies",
+    "url": "https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8",
+    "category": "MOVIE"
   },
   {
     "name": "Mango",
@@ -545,19 +335,349 @@
     "category": "MOVIE"
   },
   {
-    "name": "Manoranjan TV",
-    "url": "https://streams.tangotv.in/MANORANJANTV/ORIGIN/index.m3u8",
-    "category": "COMEDY"
+    "name": "Zee Cinema HD",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
+    "category": "MOVIE"
   },
   {
-    "name": "Sanskar TV",
-    "url": "https://d26idhjf0y1p2g.cloudfront.net/out/v1/cd66dd25b9774cb29943bab54bbf3e2f/index.m3u8",
-    "category": "BHAKTI CHANNEL"
+    "name": "Shemaroo Bollywood",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fepg.provider.plex.tv%2Flibrary%2Fparts%2F698f7631338300003d436270-62d1a58e520656fda09e609d%2Fvariant.m3u8%3Fx-plex-token%3De5EqzivsgbAdxsZvQZCy%26x-plex-advertising-identifier%3D%26x-plex-client-identifier%3D74126c0d-6fa6-44aa-b165-a3b179802b43%26x-plex-playback-id%3Dp_56b4aef1-25f2-448a-9a8d-65ce6449f9dc%26x-plex-playback-session-id%3D%26x-plex-session-id%3D%26x-plex-device%3DWindows%26x-plex-device-name%3DPlex%2BMediaverse%26x-plex-advertising-donottrack%3D0%26x-plex-drm%3D%26x-plex-model%3D%26x-plex-platform%3DEdge%26x-plex-platform-version%3D155.0.0.0%26x-plex-product%3DPlex%2BMediaverse%26x-plex-device-screen-resolution%3D%26x-plex-device-vendor%3D%26x-plex-version%3D%26x-plex-provider-streaming-start%3D1792233183%26auto%3D0%26url%3D6d9341333fb1a9d552ac711716c7ce1c-fe01ca68c39cc915139f49fa7e99d7494f7c79b3e9c0abc1f0ba417dbc1ed69035bcebea730cb434eb86cd2354144d61442e7011fb76438ab05aecaab97fe238e11028252cb7f568f6f93b2e6ff54d8b9c09a5d6d31758ee337aa4902708b99e1c68b1bf7a019ae56831dfea2a3f42c8bbbb31c126a690556c8f9ccca4637f6709617049000c78c6546536641aec48ef9781e17922e3a2196620f5fa46798a979564cb3a22487f925760df2e03803e223cf443c81012d0f04e8bea70e8f7364118edd11fb70718b0fd0817d0a44445e87a2ae814a0a5b590d40ad727fbc92599d131ebeaf1e41ef979bf4ebb40232ad13104a122b0e7bf8c97f22c7a97fe52211dded44f4137e1999c3a0235a5c285302e0cefb9036d9a0c71ea282d6380af3f4a28b57f27daa6910737de45033832ac7adeb82a75706dca136473a48d263e095e8efc9ab4404837ad33d2c3e42ab762efe1765046c4b9f1465b78b4d62f98e9adcf250e229a39466b21f636ae8b5fa41b4066889ec277634af34bbfae063fc16b14b8e5371eaa9c20aaff9311755be5e864182477071075b411a205e927656f4d87cbc97649095b9de891c54b2a9c0bc67ea426a08fb45569650c31e888dcdcf5ff473af71205478771a7c32ac42f755a9a1ec464587ecdb22db35bbabae065b6732a103f08796f060bc5232ecf49db9e5f72bbf623599fedcdd2564ccb3d8e048bcb7fe364d564163aa668a50670e355d38c07c2187510a7474ed47e14ee5545f9da483959a76059057bd719a585b250e84733f4a35661ed621253106bf7937ea10ec720e280c8d02da3a147b1eb25fa9b3d12b00367ca4aad70c89153c82fb609292018e06e22f38f27a91c0006c02ebef14738d58d0bef2047c7e60285843bfb562fd3ee8a1fbf2c3e63f4653bdbaeb9b3ffb34b066be73ede558e32e7336bf1f6601e1bce5c38de05689e5cfb263d58d2c882323ef3301c942e4125d037d6be94e162bdb0c44aa98792c821d5b674f3be414a3e7d9b479dcfdd1f8b27b0ba39df4932f36180825e804bccd67a7678e4cf6da051b559b95e1cc090f8a9bd5add31ca054a4abf68e5de2593072cf664fa2caf81f29664cca2cbb82b3dfb7975d751c314447f4eca208cc72d37fa35b6c91c56f92c9471b92bee8141a3f23d97252d6afceadf0977c2312cb0f2fb003f188e0e4c32342e0a59040ab40e2ec2285b17defb9e565ef639cf5872b40d909ed12225e45d2c544f5ecbf013c0d4e233caca7059e61f0750781fe53525b1f501a228b752581543799b06256d4175d7a7a20953f83968c4397b8062f0128296beec4e9ad0360b602fe57882e9c9e1823438448dfb5989d3f00ac90d820b55bfbc0b06b123c5b97f1b26c9111ebaa46baf49f8ccbb9d61ece8974c42e35f31f3c579cf1aa2ae5f68a19770af7156c97c00756b5534ab482aba21c7d52bc1c433e31e9e9010c87dde0f0ab5ca2a2424387e522977b78fae57a9f5b5ff5bcb71bb3a3190062d79c0d7abff5bd8e6f4b1e05ca36e137e0680987decd56c851610528241c3c93b1934dd782f4287f4eccc0303b1db84e37965ca5d495585d80fe4249e80255765db3a38ae4b4eea53d75881e990a22362dce30cedb908fa8884940444ff69eac460456b3cf0112b79ae43e4ecfad62b973c34ad8c0043d6d823c7929dc77c50a22cedefc6d4a7d0705350929af0e22a09c92422d4c1fd1979c02ae55c13248754b7dd80836a9dfcb7dd8d8989f72a1afd462ed9e1bb1fe319a08c892b64fdb113ee853c502adf082cf70bfb4dd50dddb8b702667b2249dd74dd30091cd1e6a8aff1e1ac4bb51f76f82f4510b1296908dbb4f89ec9b8bfcaa8cc418cd6bfa9b860bb3547969d9337b3908e8754233d688352c6d20a4003ce4fbb2967346edc9f9a5a443c14ed9833e13b0169618ef85c39041b406688e177c912e914a339ba9f8de079f6f6ffa588d2c7a4bd9853f065179eb7d9e1ad926180a948220b90d341a1b712197dd09f9c7616b8b2d202cc827b599c1adeba0d55ef83940856bd9269b5ad14fcf7044ce18d4fff303f15f8c14ea4fe10523caa99d4afcb0afbf7c817af9ab0e77c7a03f7896dce105d5b13c740235df6d5c02fea7e3d9cf95669ae2560f6dcc125998866e25600633c5c84d1ddbbf5acea0c6015b95ddcd3ee89e8cac3964ed41353b41ee63467f3c212a28b4ec1abba2e0e6a2e63d6639b620ef8a97b1fa4c1ba4e5da2e2ec6acdec98e24c174a39195774bd3138159d448680b2f9ac0ac8d605c6e02487bcd6940f336f3af732c5b520beb7dbe34a0d60225329a1bbfea661c1fcd8fad7807ceac105e8a607b81b90681b7cec7ffffdfef0c46d3cefb1f3ac2ac51a9084c65bf45afa1a6ee9c34c30ddb9af66bf27c68f026673a36d6209bb980af1cab3f8c34a63c63f04b4961aa35b3af6fc71fbf276ae787ccde6b0b9a423a302b763dfb89ce9fcaebf68991683b1010973a176f19bef5b96a63625e985c69c0256d5dbf85844236fa4020b0f77e42520f1570cadec50dc8dc0b53e641a4ee330873688855a786826ef3512ae51bd64722233f7a7ee26d1def7b721a0c137ad8c5cd20a53e46cfec6645d3d9173a793fd8488df3edd769145400e76b9a95f570778d46886de02c817e8ce92ac8b5f2674ac9c3559d82cf143b2e74ef7c9fc1b562f70624d2328b74129a03f864de3ad374f012c3a38b0a8cf50f00669d3c39c44f27a7af78b1ca87850f7f34550b10bfa19193d57f4ac05269e54e3f760c0843c7ce54256a3e4165455a02068fe3bc49d3f315d174c6960a44f23dcb1628b1f5f1ba7677d25c77a31288707f739f06779fa793117544b7c4044f3706ea1883b9d55e413cd1f4d0e99e63239977cb0e39095bfedac03da256dbc2bfcd828174605613fb8c9c32027232889ae9233243ef30a0fc9279ccb450f8122796c64eec946e480314850a7bfed5108354c819834f7908c979a0e11d8558c2014d46598bee313b8d8fee7",
+    "category": "MOVIE"
   },
   {
-    "name": "Sarv Dharm Sangam",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3SARAVDHARAMSANGAM/index.m3u8",
-    "category": "NEWS"
+    "name": "Colors Cineplex",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Colors Cineplex 2",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fraw.githubusercontent.com%2Famazeyourself%2Fadaptive-streams%2Frefs%2Fheads%2Fmain%2Fstreams%2Fgb%2FYuppTV%2FColorsCineplexUK.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY MAX HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY PIX HD",
+    "url": "https://sliv.tgaadi.workers.dev/pixhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony WAH",
+    "url": "https://sliv.tgaadi.workers.dev/sonywah.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony MAX",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxsd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony SAB HD",
+    "url": "https://sliv.tgaadi.workers.dev/sabhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY SET HD",
+    "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "CARTOON NETWORK",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_hd_abr/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "CN HD+",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Flive20.bozztv.com%2Fgiatvplayout7%2Fgiatv-208314%2Ftracks-v1a1%2Fmono.ts.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "DISCOVERY KIDS",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/discovery_kids_abr/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "EPIC KIDS",
+    "url": "https://televizya.app/p?u=https%3A%2F%2Fcc-t8lqe1o99pszu.akamaized.net%2Fv1%2Fmanifest%2F3722c60a815c199d9c0ef36c5b73da68a62b09d1%2Fcc-t8lqe1o99pszu%2Fc02743e9-4e2e-4f45-8270-ae13fd49b12d%2F1.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "HUNGAMA TV",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "KIDDO",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Mr Bean Live Action",
+    "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "WOW KIDZ",
+    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "POGO TV HINDI",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Cartoon Network (India)",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/index.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Disney International HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa018%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "SONY YAY KIDS",
+    "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "NICK JR INDIA",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "7S MUSIC",
+    "url": "https://cdn.pishow.tv/ott/live/1257/master.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X JALWA",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Jalwa%2FSD504%2FSD504.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X JHAKAAS",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Jhakaas%2FSD504%2FSD504.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9X TASHAN",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fwiselp.wiseplayout.com%2F9X_Tashan%2FSD504%2FSD504.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "9XM",
+    "url": "https://streams.tangotv.in/9XM/ORIGIN/tracks-v1a1/mono.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "AARYA TV",
+    "url": "https://stream.ottlive.co.in/aryatvtamil/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "B4U MUSIC",
+    "url": "https://amg01408-amg01408c5-amgplt0747.playout.now3.amagi.tv/b4um001/playlist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "BALLE BALLE",
+    "url": "https://mcncdndigital.com/balleballetv/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "BOOGLE BOLLYWOOD",
+    "url": "https://yuppnimrestreammum.akamaized.net/181224/smil:bogglebollywood.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "category": "MUSIC"
+  },
+  {
+    "name": "HARIYANVI MUSIC PTC",
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "MUSIC INDIA",
+    "url": "https://streams.tangotv.in/MUSICINDIA/ORIGIN/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "PUNJABI HITS",
+    "url": "https://stream.ottlive.co.in/punjabihits/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Sangeet Bhojpuri",
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3SANGEETBHOJPURI/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Shemaroo Filmi Gaane",
+    "url": "https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "YRF MUSIC",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Famg01412-xiaomiasia-yrfmusic-xiaomi-1rmk2.amagi.tv%2Fts-eu-w1-n2%2Fplaylist%2Famg01412-xiaomiasia-yrfmusic-xiaomi%2Fcb573d1b796c608784c23778d1f64882967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8704cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6abfb102488b2f57f3d014c8d41fb386d346ca438520ec159cc4f196811683848c67fc52e3305a092028ce832aa1e237d9b20cb614e61301685c30cfad97f74f4ee92d217dcb8f003bf89d69aaa83688614ddb4af81dc758020cdb9431f4ce5cccefff3b8ba816e959411480afccabe83c32f24df4aee2dc677da35175125ae462c22b273491b29e5ad4835da1bf2d81bb7e0e78eea505cacdfcd3b4f0ba4392739e9cb4806b16072325129651a7ad68d902d46ce79b4076121e12edd27eecb2f4727c22438f8b5b94341ebad084ca9f2d33d86f165fa7318c0d4b3c8264222ca51ef89c3d7e80695fd66273a80e75a546fbf77da0f195b5486bfb8eb5379505d8bc04d6f915ba2d6d0970d4dc181f141c33809429675954ca46f6dcd9ee711d7285dac4fdd25c2b083f032862aee6e075dbc3801e1418c55c31733677339317dd7dd01043627f91feb267a2e23360036f928bc1e82a26f524006047f2009e%2F18%2F854x480_1724104%2Findex.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "B4U Bhojpuri",
+    "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/HD1080/HD1080.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Gangaur TV",
+    "url": "https://pbgangaur.wiseplayout.com/Gangaur/HD1080/HD1080.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Zoom TV",
+    "url": "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Steelbird Music",
+    "url": "https://cdn2.in/SteelbirdMusicTVhls/live.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Desi Channel",
+    "url": "https://livestream.unlimitedcdn.com/agm-dc/desi-channel/index.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "PTC Music",
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index_4.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Steelbird Music",
+    "url": "https://cdn2.in/SteelbirdMusicTVhls/live.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "AlbKanale Music TV",
+    "url": "https://albportal.net/albkanalemusic.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "Insync",
+    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/insync/playlist.m3u8",
+    "category": "MUSIC"
+  },
+  {
+    "name": "DD Sports",
+    "url": "https://mumbai-edge.smartplaytv.in/DDSports/tracks-v1a1/mono.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sports Live",
+    "url": "https://cc-cuqwjso962c54.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-cuqwjso962c54/5a317140-e29e-47f6-be83-4deb6024c8f1/1.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Cricket Gold",
+    "url": "https://epg.provider.plex.tv/library/parts/698f7631338300003d436270-65e0c8c6d899afe817b9d224.m3u8?includeAllStreams=1&x-plex-product=Plex+Mediaverse&x-plex-token=e5EqzivsgbAdxsZvQZCy&auto=0",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Star Sports Select 1",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa026%2Findex.m3u8%3Fhls",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 5 HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonysixhd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 4 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten4hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 3 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten3hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 2 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten2hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 1 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten1hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 5",
+    "url": "https://sliv.tgaadi.workers.dev/sonysixsd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 4",
+    "url": "https://sliv.tgaadi.workers.dev/ten4sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 3",
+    "url": "https://sliv.tgaadi.workers.dev/ten3sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 2",
+    "url": "https://sliv.tgaadi.workers.dev/ten2sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 1",
+    "url": "https://sliv.tgaadi.workers.dev/ten1sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony BBC Earth HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonybbcearthhd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "& TV HD",
+    "url": "https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "COLORS TV",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ColorsAPAC.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Dangal 2",
+    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "ZEE TV HD+",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_2500/chunks.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Zee Dil Se HD",
+    "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c6-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd56e3630f5e762e9acd7aca9059fb8bcb6f68d173701f4b18e7a291ff193dd615415aada7f9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c026e62c33ae4cde858d3fa6ba489e2bc615ececb4a31edd7349dd/33/1920x1080_6280560/index.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Dangal TV",
+    "url": "https://live-dangal.akamaized.net/liveabr/playlist.m3u8",
+    "category": "SERIAL EPISODE"
+  },
+  {
+    "name": "Colors HD",
+    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorsme.smil/playlist.m3u8",
+    "category": "SERIAL EPISODE"
   },
   {
     "name": "Star Bharat",
@@ -580,54 +700,9 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "Total Bhakti",
-    "url": "https://d34z4embz0hjf6.cloudfront.net/out/v1/d55b3323a9f142638f897378f0b526fe/index.m3u8",
-    "category": "BHAKTI CHANNEL"
-  },
-  {
-    "name": "Zee Bharat",
-    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8",
-    "category": "NEWS"
-  },
-  {
-    "name": "Zee Cinema HD",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Zee Comedy Nation",
-    "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
-    "category": "COMEDY"
-  },
-  {
-    "name": "Zee Uttar Pradesh/Uttarakhand",
-    "url": "https://duw35ict5q7th.cloudfront.net/index_3.m3u8",
-    "category": "NEWS"
-  },
-  {
-    "name": "Cricket Gold",
-    "url": "https://epg.provider.plex.tv/library/parts/698f7631338300003d436270-65e0c8c6d899afe817b9d224.m3u8?includeAllStreams=1&x-plex-product=Plex+Mediaverse&x-plex-token=e5EqzivsgbAdxsZvQZCy&auto=0",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Shemaroo Bollywood",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fepg.provider.plex.tv%2Flibrary%2Fparts%2F698f7631338300003d436270-62d1a58e520656fda09e609d%2Fvariant.m3u8%3Fx-plex-token%3De5EqzivsgbAdxsZvQZCy%26x-plex-advertising-identifier%3D%26x-plex-client-identifier%3D74126c0d-6fa6-44aa-b165-a3b179802b43%26x-plex-playback-id%3Dp_56b4aef1-25f2-448a-9a8d-65ce6449f9dc%26x-plex-playback-session-id%3D%26x-plex-session-id%3D%26x-plex-device%3DWindows%26x-plex-device-name%3DPlex%2BMediaverse%26x-plex-advertising-donottrack%3D0%26x-plex-drm%3D%26x-plex-model%3D%26x-plex-platform%3DEdge%26x-plex-platform-version%3D155.0.0.0%26x-plex-product%3DPlex%2BMediaverse%26x-plex-device-screen-resolution%3D%26x-plex-device-vendor%3D%26x-plex-version%3D%26x-plex-provider-streaming-start%3D1792233183%26auto%3D0%26url%3D6d9341333fb1a9d552ac711716c7ce1c-fe01ca68c39cc915139f49fa7e99d7494f7c79b3e9c0abc1f0ba417dbc1ed69035bcebea730cb434eb86cd2354144d61442e7011fb76438ab05aecaab97fe238e11028252cb7f568f6f93b2e6ff54d8b9c09a5d6d31758ee337aa4902708b99e1c68b1bf7a019ae56831dfea2a3f42c8bbbb31c126a690556c8f9ccca4637f6709617049000c78c6546536641aec48ef9781e17922e3a2196620f5fa46798a979564cb3a22487f925760df2e03803e223cf443c81012d0f04e8bea70e8f7364118edd11fb70718b0fd0817d0a44445e87a2ae814a0a5b590d40ad727fbc92599d131ebeaf1e41ef979bf4ebb40232ad13104a122b0e7bf8c97f22c7a97fe52211dded44f4137e1999c3a0235a5c285302e0cefb9036d9a0c71ea282d6380af3f4a28b57f27daa6910737de45033832ac7adeb82a75706dca136473a48d263e095e8efc9ab4404837ad33d2c3e42ab762efe1765046c4b9f1465b78b4d62f98e9adcf250e229a39466b21f636ae8b5fa41b4066889ec277634af34bbfae063fc16b14b8e5371eaa9c20aaff9311755be5e864182477071075b411a205e927656f4d87cbc97649095b9de891c54b2a9c0bc67ea426a08fb45569650c31e888dcdcf5ff473af71205478771a7c32ac42f755a9a1ec464587ecdb22db35bbabae065b6732a103f08796f060bc5232ecf49db9e5f72bbf623599fedcdd2564ccb3d8e048bcb7fe364d564163aa668a50670e355d38c07c2187510a7474ed47e14ee5545f9da483959a76059057bd719a585b250e84733f4a35661ed621253106bf7937ea10ec720e280c8d02da3a147b1eb25fa9b3d12b00367ca4aad70c89153c82fb609292018e06e22f38f27a91c0006c02ebef14738d58d0bef2047c7e60285843bfb562fd3ee8a1fbf2c3e63f4653bdbaeb9b3ffb34b066be73ede558e32e7336bf1f6601e1bce5c38de05689e5cfb263d58d2c882323ef3301c942e4125d037d6be94e162bdb0c44aa98792c821d5b674f3be414a3e7d9b479dcfdd1f8b27b0ba39df4932f36180825e804bccd67a7678e4cf6da051b559b95e1cc090f8a9bd5add31ca054a4abf68e5de2593072cf664fa2caf81f29664cca2cbb82b3dfb7975d751c314447f4eca208cc72d37fa35b6c91c56f92c9471b92bee8141a3f23d97252d6afceadf0977c2312cb0f2fb003f188e0e4c32342e0a59040ab40e2ec2285b17defb9e565ef639cf5872b40d909ed12225e45d2c544f5ecbf013c0d4e233caca7059e61f0750781fe53525b1f501a228b752581543799b06256d4175d7a7a20953f83968c4397b8062f0128296beec4e9ad0360b602fe57882e9c9e1823438448dfb5989d3f00ac90d820b55bfbc0b06b123c5b97f1b26c9111ebaa46baf49f8ccbb9d61ece8974c42e35f31f3c579cf1aa2ae5f68a19770af7156c97c00756b5534ab482aba21c7d52bc1c433e31e9e9010c87dde0f0ab5ca2a2424387e522977b78fae57a9f5b5ff5bcb71bb3a3190062d79c0d7abff5bd8e6f4b1e05ca36e137e0680987decd56c851610528241c3c93b1934dd782f4287f4eccc0303b1db84e37965ca5d495585d80fe4249e80255765db3a38ae4b4eea53d75881e990a22362dce30cedb908fa8884940444ff69eac460456b3cf0112b79ae43e4ecfad62b973c34ad8c0043d6d823c7929dc77c50a22cedefc6d4a7d0705350929af0e22a09c92422d4c1fd1979c02ae55c13248754b7dd80836a9dfcb7dd8d8989f72a1afd462ed9e1bb1fe319a08c892b64fdb113ee853c502adf082cf70bfb4dd50dddb8b702667b2249dd74dd30091cd1e6a8aff1e1ac4bb51f76f82f4510b1296908dbb4f89ec9b8bfcaa8cc418cd6bfa9b860bb3547969d9337b3908e8754233d688352c6d20a4003ce4fbb2967346edc9f9a5a443c14ed9833e13b0169618ef85c39041b406688e177c912e914a339ba9f8de079f6f6ffa588d2c7a4bd9853f065179eb7d9e1ad926180a948220b90d341a1b712197dd09f9c7616b8b2d202cc827b599c1adeba0d55ef83940856bd9269b5ad14fcf7044ce18d4fff303f15f8c14ea4fe10523caa99d4afcb0afbf7c817af9ab0e77c7a03f7896dce105d5b13c740235df6d5c02fea7e3d9cf95669ae2560f6dcc125998866e25600633c5c84d1ddbbf5acea0c6015b95ddcd3ee89e8cac3964ed41353b41ee63467f3c212a28b4ec1abba2e0e6a2e63d6639b620ef8a97b1fa4c1ba4e5da2e2ec6acdec98e24c174a39195774bd3138159d448680b2f9ac0ac8d605c6e02487bcd6940f336f3af732c5b520beb7dbe34a0d60225329a1bbfea661c1fcd8fad7807ceac105e8a607b81b90681b7cec7ffffdfef0c46d3cefb1f3ac2ac51a9084c65bf45afa1a6ee9c34c30ddb9af66bf27c68f026673a36d6209bb980af1cab3f8c34a63c63f04b4961aa35b3af6fc71fbf276ae787ccde6b0b9a423a302b763dfb89ce9fcaebf68991683b1010973a176f19bef5b96a63625e985c69c0256d5dbf85844236fa4020b0f77e42520f1570cadec50dc8dc0b53e641a4ee330873688855a786826ef3512ae51bd64722233f7a7ee26d1def7b721a0c137ad8c5cd20a53e46cfec6645d3d9173a793fd8488df3edd769145400e76b9a95f570778d46886de02c817e8ce92ac8b5f2674ac9c3559d82cf143b2e74ef7c9fc1b562f70624d2328b74129a03f864de3ad374f012c3a38b0a8cf50f00669d3c39c44f27a7af78b1ca87850f7f34550b10bfa19193d57f4ac05269e54e3f760c0843c7ce54256a3e4165455a02068fe3bc49d3f315d174c6960a44f23dcb1628b1f5f1ba7677d25c77a31288707f739f06779fa793117544b7c4044f3706ea1883b9d55e413cd1f4d0e99e63239977cb0e39095bfedac03da256dbc2bfcd828174605613fb8c9c32027232889ae9233243ef30a0fc9279ccb450f8122796c64eec946e480314850a7bfed5108354c819834f7908c979a0e11d8558c2014d46598bee313b8d8fee7",
-    "category": "MOVIE"
-  },
-  {
     "name": "Colors Rishtey",
     "url": "https://manatv.akamaized.net/090823/smil:ristheyamerica.smil/playlist.m3u8",
     "category": "SERIAL EPISODE"
-  },
-  {
-    "name": "Colors Cineplex",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "DD Urdu",
-    "url": "https://cdn.pishow.tv/ott/live/8/master.m3u8",
-    "category": "NEWS"
   },
   {
     "name": "ZEE TV HD",
@@ -650,39 +725,59 @@
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "POGO TV HINDI",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "Star Sports Select 1",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa026%2Findex.m3u8%3Fhls",
-    "category": "SPORTS"
-  },
-  {
     "name": "Shemaroo TV",
     "url": "https://vodaapp.shemaroome.com/shemarootv/smil:shemarootvadp.smil/chunklist_b1628000_sleng.m3u8?hdnts=st%3D1792822124%7Eexp%3D1792832924%7Eacl%3D*%7Edata%3Dtestdata%7Ehmac%3D9fd3df9de1187ba6758033d64fdb4e3e27cd803c8db99ba8d7b35c92d7e2bd9e",
     "category": "SERIAL EPISODE"
   },
   {
-    "name": "Shemaroo Umang",
-    "url": "https://vodaapp.shemaroome.com/shemarooumang/smil:shemarooumangadp.smil/chunklist_b1628000_sleng.m3u8?hdnts=st%3D1792821898%7Eexp%3D1792832698%7Eacl%3D*%7Edata%3Dtestdata%7Ehmac%3De229d684d238ebe7ca299706e02ab8a4e4a0e845a4e195a366f591a63e5db116",
+    "name": "COMEDY TADKA",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0abe00bb-b6f3-4dcd-bdf6-12e74e08216c/a25a3d56-468f-4c36-a53a-3dc70688e297/1.m3u8",
+    "category": "COMEDY"
+  },
+  {
+    "name": "Zee Comedy Nation",
+    "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c5-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd54e7370a5c7a7b98cd7aca9059fb8bcb6f68d1707d474f18b0a292af1b3d8210175fa0fcf9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c027e4288a2f9cd7c791ef05744fef11c7eaa98ba8026df627e7cf6a/179/1920x1080_6280560/index.m3u8",
+    "category": "COMEDY"
+  },
+  {
+    "name": "Manoranjan Grand",
+    "url": "https://streams.tangotv.in/MANORANJANGRAND/ORIGIN/index.m3u8",
+    "category": "COMEDY"
+  },
+  {
+    "name": "Manoranjan TV",
+    "url": "https://streams.tangotv.in/MANORANJANTV/ORIGIN/index.m3u8",
+    "category": "COMEDY"
+  },
+  {
+    "name": "Zee Comedy Nation",
+    "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
+    "category": "COMEDY"
+  },
+  {
+    "name": "Ishwar Bhakti TV",
+    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+    "category": "BHAKTI CHANNEL"
+  },
+  {
+    "name": "Sanskar TV",
+    "url": "https://d26idhjf0y1p2g.cloudfront.net/out/v1/cd66dd25b9774cb29943bab54bbf3e2f/index.m3u8",
+    "category": "BHAKTI CHANNEL"
+  },
+  {
+    "name": "Total Bhakti",
+    "url": "https://d34z4embz0hjf6.cloudfront.net/out/v1/d55b3323a9f142638f897378f0b526fe/index.m3u8",
+    "category": "BHAKTI CHANNEL"
+  },
+  {
+    "name": "Investigation Discovery",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/id_hd_abr/index.m3u8",
     "category": "CRIME INVESTIGATION"
   },
   {
-    "name": "Colors Cineplex 2",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fraw.githubusercontent.com%2Famazeyourself%2Fadaptive-streams%2Frefs%2Fheads%2Fmain%2Fstreams%2Fgb%2FYuppTV%2FColorsCineplexUK.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Cartoon Network (India)",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/index.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "Disney International HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa018%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON"
+    "name": "Shemaroo Umang",
+    "url": "https://vodaapp.shemaroome.com/shemarooumang/smil:shemarooumangadp.smil/chunklist_b1628000_sleng.m3u8?hdnts=st%3D1792821898%7Eexp%3D1792832698%7Eacl%3D*%7Edata%3Dtestdata%7Ehmac%3De229d684d238ebe7ca299706e02ab8a4e4a0e845a4e195a366f591a63e5db116",
+    "category": "CRIME INVESTIGATION"
   },
   {
     "name": "Doraemon: Nobita's Dinosaur",
@@ -1068,316 +1163,6 @@
     "name": "Oggy Season 6 Ep 25",
     "url": "https://archive.org/download/oggy-and-the-cockroches-season-6-in-hindi-collection/S06E25.ia.mp4",
     "category": "OGGY AND THE COCKROCHES"
-  },
-  {
-    "name": "Ninja Hattori S01 E01",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E01.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E02",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E02.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E03",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E03.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E05",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E05.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E06",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E06.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E07",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E07.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E08",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E08.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E09",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E09.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E10",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E10.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E11",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E11.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E12",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E12.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E13",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E13.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E14",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E14.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E15",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E15.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E16",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E16.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E17",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E17.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E18",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E18.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E19",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E19.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E20",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E20.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E21",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E21.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E22",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E22.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E23",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E23.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E24",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E24.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E26",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E26.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E27",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E27.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E28",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E28.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S01 E29",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E29.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E01-06",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E01-%2006.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E07-12",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E07-12.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E13-18",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E13-18.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E19-24",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E19-24.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E25 & 26",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E25%20%26%2026.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E27-32",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E27-32.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E33-38",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E33-38.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E39-44",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E39-44.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E45-50",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E45-50.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S02 E51 & 52",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E51%20%26%2052.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E01-06",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E01-06.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E07-12",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E07-12.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E13-18",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E13-18.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E19-24",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E19-24.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E25-30",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E25-30.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E31-36",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E31-36.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E43-48",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E43-48.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S03 E49-52",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E49-52.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S04 E07-12",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S04%20E07-12.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S04 E13-16",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S04%20E13-16.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S05 E28-33",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E28-33.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S05 E34-39",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E34-39.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S05 E40-45",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E40-45.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S05 E46-50",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E46-50.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "Ninja Hattori S05 E51-53",
-    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E51-53.mp4",
-    "category": "NINJA HATTORI"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 14",
-    "url": "https://dn721801.ca.archive.org/0/items/motu-patlu-new-episodes-2023-the-race-to-howrah-bridge-motu-patlu-in-hindi-legend-kidz/Motu%20Patlu%20New%20Episodes%202023%20_%20The%20Race%20To%20Howrah%20Bridge%20_%20Motu%20Patlu%20In%20Hindi%20_%20Legend%20Kidz.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 11",
-    "url": "https://archive.org/serve/motu-patlu-king-of-kings-2016/Motu%20Patlu%20-%20King%20of%20Kings%20%282016%29.ia.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 10",
-    "url": "https://dn721608.ca.archive.org/0/items/motu-patlu-in-hindi-pets-home-s-09-hindi-cartoons-spot-1/Motu%20Patlu%20in%20Hindi%20_%20%E0%A4%AE%E0%A5%8B%E0%A4%9F%E0%A5%82%20%E0%A4%AA%E0%A4%A4%E0%A4%B2%E0%A5%82%20_%20Pets%20Home%20_%20S09%20_%20Hindi%20Cartoons_%20%23spot%20%281%29.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 5",
-    "url": "https://archive.org/serve/motu-patlu-dr-wig-key-wigs-new-episode-in-hindi-2023-motu-patlu-cartoon-argent-kidz/Motu%20Patlu%20_%20Dr%20Wig%20Key%20Wigs%20_%20New%20Episode%20in%20Hindi%202023%20_%20Motu%20Patlu%20Cartoon%20_%20Argent%20Kidz.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 4",
-    "url": "https://archive.org/download/motu-patlu-dr-cactus-ke-cactus-new-episode-in-hindi-2023-motu-patlu-cartoon-argent-kidz/Motu%20Patlu%20_%20Dr%20Cactus%20Ke%20Cactus%20_%20New%20Episode%20in%20Hindi%202023%20_%20Motu%20Patlu%20Cartoon%20_%20Argent%20Kidz.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 3",
-    "url": "https://archive.org/download/motu-patlu-and-the-race-to-the-diamond-valley-2024-web-rip-720p/Motu%20Patlu%20And%20The%20Race%20to%20the%20Diamond%20Valley%202024%20WebRip%20720p.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 8",
-    "url": "https://archive.org/serve/motu-patlu-motu-ke-phone-ka-shauk/Motu%20Patlu_Motu%20Ke%20Phone%20Ka%20Shauk.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 7",
-    "url": "https://archive.org/serve/y-2mate.com-motu-patlu-full-episode-motu-patlu-new-episode-motu-patlu-ka-kung-fu-imtehan-720p-fh/y2mate.com%20-%20Motu%20Patlu%20%20%E0%A4%AE%E0%A4%9F%20%E0%A4%AA%E0%A4%A4%E0%A4%B2%20%20Full%20Episode%20%20Motu%20Patlu%20New%20Episode%20%20%20Motu%20Patlu%20Ka%20Kung%20Fu%20Imtehan_720pFH.ia.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 2",
-    "url": "https://archive.org/serve/motu-patlu-and-mission-kung-fu-kid-2024-720p/Motu%20Patlu%20And%20Mission%20Kung%20Fu%20Kid%20%282024%29%20720p.mp4",
-    "category": "MOTU PATLU"
-  },
-  {
-    "name": "MOTU PATLU EPISODE : 1",
-    "url": "https://vod3.cf.dmcdn.net/sec2(fVcL2YTI74H30mHpsZFuJQ1bFFjQLmdCG88lSMdih2SBOxJFxpQCIuOqoCzjfhfRwKk3lbzxR6dtZUuP4LjI5HrNJM3HiyHWul0Q--ncuPHwgyg7rcLrJqVJMNvWdr7YB_2zEuJeGMLeStNEIF9jsnnPzMbjQno-CaUyvsg2adE_7YT383sLTfUjfp77RCuHNcbMpHsBWYdZznPefNpJ1A)/video/fmp4/586532388/h264_aac_fhd/2/manifest.m3u8",
-    "category": "MOTU PATLU"
   },
   {
     "name": "Oggy S1E1 - Bitter Chocolate",
@@ -2370,6 +2155,316 @@
     "category": "OGGY AND THE COCKROCHES"
   },
   {
+    "name": "Ninja Hattori S01 E01",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E01.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E02",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E02.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E03",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E03.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E05",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E05.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E06",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E06.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E07",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E07.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E08",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E08.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E09",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E09.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E10",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E10.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E11",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E11.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E12",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E12.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E13",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E13.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E14",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E14.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E15",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E15.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E16",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E16.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E17",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E17.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E18",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E18.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E19",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E19.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E20",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E20.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E21",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E21.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E22",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E22.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E23",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E23.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E24",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E24.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E26",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E26.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E27",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E27.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E28",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E28.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S01 E29",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S01%20E29.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E01-06",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E01-%2006.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E07-12",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E07-12.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E13-18",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E13-18.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E19-24",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E19-24.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E25 & 26",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E25%20%26%2026.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E27-32",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E27-32.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E33-38",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E33-38.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E39-44",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E39-44.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E45-50",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E45-50.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S02 E51 & 52",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S02%20E51%20%26%2052.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E01-06",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E01-06.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E07-12",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E07-12.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E13-18",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E13-18.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E19-24",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E19-24.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E25-30",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E25-30.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E31-36",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E31-36.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E43-48",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E43-48.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S03 E49-52",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S03%20E49-52.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S04 E07-12",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S04%20E07-12.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S04 E13-16",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S04%20E13-16.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S05 E28-33",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E28-33.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S05 E34-39",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E34-39.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S05 E40-45",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E40-45.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S05 E46-50",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E46-50.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "Ninja Hattori S05 E51-53",
+    "url": "https://archive.org/download/ninja-hattori-s01-5/Ninja%20Hattori%20S05%20E51-53.mp4",
+    "category": "NINJA HATTORI"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 14",
+    "url": "https://dn721801.ca.archive.org/0/items/motu-patlu-new-episodes-2023-the-race-to-howrah-bridge-motu-patlu-in-hindi-legend-kidz/Motu%20Patlu%20New%20Episodes%202023%20_%20The%20Race%20To%20Howrah%20Bridge%20_%20Motu%20Patlu%20In%20Hindi%20_%20Legend%20Kidz.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 11",
+    "url": "https://archive.org/serve/motu-patlu-king-of-kings-2016/Motu%20Patlu%20-%20King%20of%20Kings%20%282016%29.ia.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 10",
+    "url": "https://dn721608.ca.archive.org/0/items/motu-patlu-in-hindi-pets-home-s-09-hindi-cartoons-spot-1/Motu%20Patlu%20in%20Hindi%20_%20%E0%A4%AE%E0%A5%8B%E0%A4%9F%E0%A5%82%20%E0%A4%AA%E0%A4%A4%E0%A4%B2%E0%A5%82%20_%20Pets%20Home%20_%20S09%20_%20Hindi%20Cartoons_%20%23spot%20%281%29.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 5",
+    "url": "https://archive.org/serve/motu-patlu-dr-wig-key-wigs-new-episode-in-hindi-2023-motu-patlu-cartoon-argent-kidz/Motu%20Patlu%20_%20Dr%20Wig%20Key%20Wigs%20_%20New%20Episode%20in%20Hindi%202023%20_%20Motu%20Patlu%20Cartoon%20_%20Argent%20Kidz.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 4",
+    "url": "https://archive.org/download/motu-patlu-dr-cactus-ke-cactus-new-episode-in-hindi-2023-motu-patlu-cartoon-argent-kidz/Motu%20Patlu%20_%20Dr%20Cactus%20Ke%20Cactus%20_%20New%20Episode%20in%20Hindi%202023%20_%20Motu%20Patlu%20Cartoon%20_%20Argent%20Kidz.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 3",
+    "url": "https://archive.org/download/motu-patlu-and-the-race-to-the-diamond-valley-2024-web-rip-720p/Motu%20Patlu%20And%20The%20Race%20to%20the%20Diamond%20Valley%202024%20WebRip%20720p.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 8",
+    "url": "https://archive.org/serve/motu-patlu-motu-ke-phone-ka-shauk/Motu%20Patlu_Motu%20Ke%20Phone%20Ka%20Shauk.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 7",
+    "url": "https://archive.org/serve/y-2mate.com-motu-patlu-full-episode-motu-patlu-new-episode-motu-patlu-ka-kung-fu-imtehan-720p-fh/y2mate.com%20-%20Motu%20Patlu%20%20%E0%A4%AE%E0%A4%9F%20%E0%A4%AA%E0%A4%A4%E0%A4%B2%20%20Full%20Episode%20%20Motu%20Patlu%20New%20Episode%20%20%20Motu%20Patlu%20Ka%20Kung%20Fu%20Imtehan_720pFH.ia.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 2",
+    "url": "https://archive.org/serve/motu-patlu-and-mission-kung-fu-kid-2024-720p/Motu%20Patlu%20And%20Mission%20Kung%20Fu%20Kid%20%282024%29%20720p.mp4",
+    "category": "MOTU PATLU"
+  },
+  {
+    "name": "MOTU PATLU EPISODE : 1",
+    "url": "https://vod3.cf.dmcdn.net/sec2(fVcL2YTI74H30mHpsZFuJQ1bFFjQLmdCG88lSMdih2SBOxJFxpQCIuOqoCzjfhfRwKk3lbzxR6dtZUuP4LjI5HrNJM3HiyHWul0Q--ncuPHwgyg7rcLrJqVJMNvWdr7YB_2zEuJeGMLeStNEIF9jsnnPzMbjQno-CaUyvsg2adE_7YT383sLTfUjfp77RCuHNcbMpHsBWYdZznPefNpJ1A)/video/fmp4/586532388/h264_aac_fhd/2/manifest.m3u8",
+    "category": "MOTU PATLU"
+  },
+  {
     "name": "MOTU PATLU EPISODE : 6",
     "url": "https://vod3.cf.dmcdn.net/sec2(w7IEu9gwRW4EdC_DQ1bVMHu5cm3om5oQqsVyTRcOpQ5ct0cXWpU_8Bj6CgllwKvONzodcXkOAE6yn5ShC1EALz4-YiddDnkc8nMo-sveISZwiNmj9eIe9O6E2_SHyIpeSYua0TE7X2uItvA9EfLDl0xjfYoCy9_jak13HF7yeJQ22pyeFw6AHA1in6MsWLMP)/video/241/645/569546142_mp4_h264_aac_hq_2.m3u8",
     "category": "MOTU PATLU"
@@ -2563,100 +2658,5 @@
     "name": "Chhota Bheem Baloon Adventure",
     "url": "https://vod3.cf.dmcdn.net/sec2(F3MZ41soLQYz-yJyPeblDZnDZZa-7PMD_qq9E-KSO69d5dNPPD9GYtpr0b3PCJ-qW3fthz6OD3I-sAXMTp_826DP0pZOudPifS4l2Rdeb5yrPC4En4MES0gcQr_NHKwEXbJwlOKY9L_eZunNePaayBynDSLHiuRIRpd7i4O6rVOZkjZFkkqIIHQxdswe-hl3jkp2TmUUDbUKl8q6JW80Bw)/video/fmp4/605883572/h264_aac_hd/4/manifest.m3u8",
     "category": "CHHOTA BHEEM"
-  },
-  {
-    "name": "SONY YAY KIDS",
-    "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
-    "category": "KIDS CARTOON"
-  },
-  {
-    "name": "SONY MAX HD",
-    "url": "https://sliv.tgaadi.workers.dev/sonymaxhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY PIX HD",
-    "url": "https://sliv.tgaadi.workers.dev/pixhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony Sports Ten 5 HD",
-    "url": "https://sliv.tgaadi.workers.dev/sonysixhd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 4 HD",
-    "url": "https://sliv.tgaadi.workers.dev/ten4hd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 3 HD",
-    "url": "https://sliv.tgaadi.workers.dev/ten3hd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 2 HD",
-    "url": "https://sliv.tgaadi.workers.dev/ten2hd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 1 HD",
-    "url": "https://sliv.tgaadi.workers.dev/ten1hd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 5",
-    "url": "https://sliv.tgaadi.workers.dev/sonysixsd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 4",
-    "url": "https://sliv.tgaadi.workers.dev/ten4sd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 3",
-    "url": "https://sliv.tgaadi.workers.dev/ten3sd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 2",
-    "url": "https://sliv.tgaadi.workers.dev/ten2sd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony Sports Ten 1",
-    "url": "https://sliv.tgaadi.workers.dev/ten1sd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony BBC Earth HD",
-    "url": "https://sliv.tgaadi.workers.dev/sonybbcearthhd.m3u8",
-    "category": "SPORTS"
-  },
-  {
-    "name": "Sony WAH",
-    "url": "https://sliv.tgaadi.workers.dev/sonywah.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony MAX",
-    "url": "https://sliv.tgaadi.workers.dev/sonymaxsd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony SAB HD",
-    "url": "https://sliv.tgaadi.workers.dev/sabhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY SET HD",
-    "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "NICK JR INDIA",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON"
   }
 ]
