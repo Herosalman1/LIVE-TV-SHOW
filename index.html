@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -249,47 +250,31 @@
             playStream(ch.url, ch.name);
         }
 
-        // Yeh function automatically VLC mein play karega
+        // Bina download kiye direct URL open karne wala VLC function
         function forceVLC(url, name) {
             let isAndroid = /Android/i.test(navigator.userAgent);
-            let isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
             
             if (isAndroid) {
                 let cleanUrl = url.replace(/^https?:\/\//i, '');
                 let scheme = url.startsWith('https') ? 'https' : 'http';
                 window.location.href = `intent://${cleanUrl}#Intent;package=org.videolan.vlc;type=video/*;scheme=${scheme};end;`;
-            } else if (isIOS) {
-                window.location.href = "vlc://" + url;
             } else {
-                let cleanName = name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-                let m3uContent = "#EXTM3U\n#EXTINF:-1, " + name + "\n" + url;
-                let blob = new Blob([m3uContent], { type: "audio/x-mpegurl" });
-                let blobUrl = URL.createObjectURL(blob);
-                let a = document.createElement("a");
-                a.style.display = "none";
-                a.href = blobUrl;
-                a.download = cleanName + ".m3u";
-                document.body.appendChild(a);
-                a.click();
-                URL.revokeObjectURL(blobUrl);
-                document.body.removeChild(a);
+                // PC aur iOS ke liye direct vlc:// protocol. Isse browser direct permission popup dega.
+                window.location.href = "vlc://" + url;
             }
         }
 
         function playStream(url, name) {
-            // Check for restricted domains and open VLC directly
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Opening in VLC: <span>${name}</span>`;
                 
-                // Stop current video if playing
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
                 video.pause();
                 video.removeAttribute('src'); 
                 video.load();
 
-                // Open VLC
                 forceVLC(url, name);
-                return; // Stop here, do not try to play in web player
+                return;
             }
 
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
@@ -412,7 +397,6 @@
             }
         });
 
-        // TV Remote & Arrow Keys Control System (Skip Only)
         document.addEventListener('keydown', function(e) {
             if (!video || (!video.src && !video.currentSrc)) return;
 
