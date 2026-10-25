@@ -251,6 +251,7 @@
         }
 
         function playStream(url, name) {
+            // Check for restricted domains and trigger direct Player 2 logic
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
                 
@@ -271,7 +272,7 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // EXACT PLAYER 2 LOGIC
+                    // EXACT PLAYER 2 LOGIC - DIRECT OPEN WITHOUT EXTENSION
                     const playerWindow = window.open('', '_blank');
                     const htmlContent = `<html><head><title>${name} - Live Stream</title>
                         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
