@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -266,7 +265,7 @@
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
-                    xhrSetup: function (xhr, u) {
+                    xhrSetup: function (xhr, url) {
                         xhr.withCredentials = false;
                     }
                 });
@@ -371,6 +370,7 @@
             }
         });
 
+        // TV Remote & Arrow Keys Control System (Skip Only)
         document.addEventListener('keydown', function(e) {
             if (!video || (!video.src && !video.currentSrc)) return;
 
