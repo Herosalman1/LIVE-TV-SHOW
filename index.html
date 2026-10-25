@@ -250,30 +250,34 @@
             playStream(ch.url, ch.name);
         }
 
-        // Bina download kiye direct URL open karne wala VLC function
-        function forceVLC(url, name) {
-            let isAndroid = /Android/i.test(navigator.userAgent);
-            
-            if (isAndroid) {
-                let cleanUrl = url.replace(/^https?:\/\//i, '');
-                let scheme = url.startsWith('https') ? 'https' : 'http';
-                window.location.href = `intent://${cleanUrl}#Intent;package=org.videolan.vlc;type=video/*;scheme=${scheme};end;`;
-            } else {
-                // PC aur iOS ke liye direct vlc:// protocol. Isse browser direct permission popup dega.
-                window.location.href = "vlc://" + url;
-            }
-        }
-
         function playStream(url, name) {
+            // Check for restricted domains (like workers.dev)
             if (url.includes('workers.dev')) {
-                nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Opening in VLC: <span>${name}</span>`;
+                nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Opening Stream: <span>${name}</span>`;
                 
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
                 video.pause();
                 video.removeAttribute('src'); 
                 video.load();
 
-                forceVLC(url, name);
+                // Device detection
+                let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                if (isMobile) {
+                    // Mobile: Direct VLC Intent
+                    let isAndroid = /Android/i.test(navigator.userAgent);
+                    if (isAndroid) {
+                        let cleanUrl = url.replace(/^https?:\/\//i, '');
+                        let scheme = url.startsWith('https') ? 'https' : 'http';
+                        window.location.href = `intent://${cleanUrl}#Intent;package=org.videolan.vlc;type=video/*;scheme=${scheme};end;`;
+                    } else {
+                        // iOS VLC Intent
+                        window.location.href = "vlc://" + url;
+                    }
+                } else {
+                    // PC: Redirect to new tab for browser extension to take over
+                    window.open(url, '_blank');
+                }
                 return;
             }
 
