@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Yeh line Referer ko block karegi jisse workers.dev URL block nahi hoga -->
+    <meta name="referrer" content="no-referrer">
+    
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -257,26 +260,16 @@
                 hlsInstance = null;
             }
 
-            // --- CORS PROXY BYPASS LOGIC ---
-            let finalUrl = url;
-            // Sirf un URLs mein proxy add karega jo workers.dev ya kisi strict server se hain aur jinme pehle se proxy nahi laga hai
-            if (!url.includes('proxy') && !url.includes('cors') && url.includes('workers.dev')) {
-                finalUrl = "https://corsproxy.io/?" + encodeURIComponent(url);
-            }
-
-            if (finalUrl.includes('.mp4') || finalUrl.endsWith('.mp4') || (!finalUrl.includes('.m3u8') && finalUrl.startsWith('http'))) {
-                video.src = finalUrl;
+            if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
+                video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
                 playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
-                hlsInstance = new Hls({
-                    xhrSetup: function (xhr, u) {
-                        xhr.withCredentials = false;
-                    }
-                });
-                hlsInstance.loadSource(finalUrl);
+                // Extension conflict rokne ke liye simple config use kiya gaya hai
+                hlsInstance = new Hls();
+                hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
@@ -298,13 +291,13 @@
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = finalUrl;
+                video.src = url;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                     playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
-                video.src = finalUrl;
+                video.src = url;
                 video.load();
                 video.play().catch(e => {
                     nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
