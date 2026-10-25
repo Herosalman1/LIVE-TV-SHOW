@@ -2598,5 +2598,95 @@
     "name": "SONY YAY KIDS",
     "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
     "category": "KIDS CARTOON"
+  },
+  {
+    "name": "SONY MAX HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY PIX HD",
+    "url": "https://sliv.tgaadi.workers.dev/pixhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony Sports Ten 5 HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonysixhd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 4 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten4hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 3 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten3hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 2 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten2hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 1 HD",
+    "url": "https://sliv.tgaadi.workers.dev/ten1hd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 5",
+    "url": "https://sliv.tgaadi.workers.dev/sonysixsd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 4",
+    "url": "https://sliv.tgaadi.workers.dev/ten4sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 3",
+    "url": "https://sliv.tgaadi.workers.dev/ten3sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 2",
+    "url": "https://sliv.tgaadi.workers.dev/ten2sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony Sports Ten 1",
+    "url": "https://sliv.tgaadi.workers.dev/ten1sd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony BBC Earth HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonybbcearthhd.m3u8",
+    "category": "SPORTS"
+  },
+  {
+    "name": "Sony WAH",
+    "url": "https://sliv.tgaadi.workers.dev/sonywah.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony MAX",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxsd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony Aath",
+    "url": "https://sliv.tgaadi.workers.dev/sonyaathsd.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "Sony SAB HD",
+    "url": "https://sliv.tgaadi.workers.dev/sabhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY SET HD",
+    "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
+    "category": "MOVIE"
   }
 ]
