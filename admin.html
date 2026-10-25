@@ -555,6 +555,16 @@
         }
 
         async function saveToGitHub() {
+            // JSON update karne se pehle data ko category ke hisaab se group karein
+            let groupedChannels = [];
+            savedCategories.forEach(cat => {
+                const chans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat);
+                groupedChannels = groupedChannels.concat(chans);
+            });
+            
+            const uncategorizedChannels = channelsArray.filter(ch => !savedCategories.includes(ch.category || "UNCATEGORIZED"));
+            channelsArray = groupedChannels.concat(uncategorizedChannels);
+
             const updatedJson = JSON.stringify(channelsArray, null, 2);
             const encodedContent = btoa(unescape(encodeURIComponent(updatedJson)));
             const uploadBtn = document.querySelector('.btn-blue');
@@ -566,7 +576,7 @@
                 const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${GIT_TOKEN}` },
-                    body: JSON.stringify({ message: "Updated via Admin Panel", content: encodedContent, sha: fileSha })
+                    body: JSON.stringify({ message: "Updated via Admin Panel (Auto-Grouped Categories)", content: encodedContent, sha: fileSha })
                 });
 
                 if(response.ok) {
