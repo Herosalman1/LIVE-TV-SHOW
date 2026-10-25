@@ -205,7 +205,7 @@
                 const channelsInCat = savedChannels
                     .map((ch, idx) => ({...ch, originalIndex: idx}))
                     .filter(c => (c.category || "OTHER") === cat)
-                    .sort((a, b) => a.name.localeCompare(b.name, 'hi', { sensitivity: 'base' }));
+                    .sort((a, b) => a.name.localeCompare(b.name, 'hi', { numeric: true, sensitivity: 'base' }));
 
                 if(channelsInCat.length === 0) return;
 
