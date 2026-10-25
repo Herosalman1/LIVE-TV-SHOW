@@ -272,15 +272,16 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // EXACT PLAYER 2 LOGIC - DIRECT OPEN WITHOUT EXTENSION
+                    // EXACT PLAYER 2 LOGIC - BINA CONTROLS KE DIRECT FULL SCREEN FEEL
                     const playerWindow = window.open('', '_blank');
                     const htmlContent = `<html><head><title>${name} - Live Stream</title>
                         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
                         <style>
                             html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; outline: none; }
+                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; outline: none; cursor: pointer; }
+                            video::-webkit-media-controls { display: none !important; }
                         </style>
-                        </head><body><video id="video" controls autoplay></video>
+                        </head><body><video id="video" autoplay></video>
                         <script>
                             var video = document.getElementById('video'); 
                             var videoSrc = "${url}"; 
@@ -296,6 +297,23 @@
                                 video.src = videoSrc;
                                 video.play().catch(e=>console.log(e));
                             }
+
+                            // Single Click for Play/Pause
+                            video.addEventListener('click', function() {
+                                if (video.paused) video.play();
+                                else video.pause();
+                            });
+
+                            // Double Click for Fullscreen
+                            video.addEventListener('dblclick', function() {
+                                if (!document.fullscreenElement) {
+                                    if (video.requestFullscreen) video.requestFullscreen();
+                                    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+                                } else {
+                                    if (document.exitFullscreen) document.exitFullscreen();
+                                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                                }
+                            });
                         <` + `/script></body></html>`;
                     
                     playerWindow.document.write(htmlContent);
