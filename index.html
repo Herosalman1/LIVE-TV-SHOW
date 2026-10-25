@@ -251,7 +251,7 @@
         }
 
         function playStream(url, name) {
-            // Check for restricted domains and open script trigger URL on PC, VLC on Mobile
+            // Check for restricted domains and trigger Script logic
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
                 
@@ -272,7 +272,8 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // PC Par seedha raw url open karega new tab mein, jisse Universal Stream Grabber catch kar lega
+                    // PC Par seedha raw url open karega new tab mein
+                    // Jisse Universal Stream Grabber catch kar lega
                     window.open(url, '_blank');
                 }
                 return;
