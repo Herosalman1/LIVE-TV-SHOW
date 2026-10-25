@@ -396,7 +396,12 @@
   },
   {
     "name": "CN HD+",
-    "url": "https://televizya.app/p?u=https%3A%2F%2Flive20.bozztv.com%2Fgiatvplayout7%2Fgiatv-208314%2Ftracks-v1a1%2Fmono.ts.m3u8",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/tracks-v1a1/mono.ts.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
+    "name": "CN SD",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=235323657",
     "category": "KIDS CARTOON"
   },
   {
