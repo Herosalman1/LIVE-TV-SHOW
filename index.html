@@ -257,19 +257,26 @@
                 hlsInstance = null;
             }
 
-            if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url;
+            // --- CORS PROXY BYPASS LOGIC ---
+            let finalUrl = url;
+            // Sirf un URLs mein proxy add karega jo workers.dev ya kisi strict server se hain aur jinme pehle se proxy nahi laga hai
+            if (!url.includes('proxy') && !url.includes('cors') && url.includes('workers.dev')) {
+                finalUrl = "https://corsproxy.io/?" + encodeURIComponent(url);
+            }
+
+            if (finalUrl.includes('.mp4') || finalUrl.endsWith('.mp4') || (!finalUrl.includes('.m3u8') && finalUrl.startsWith('http'))) {
+                video.src = finalUrl;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
                 playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
-                    xhrSetup: function (xhr, url) {
+                    xhrSetup: function (xhr, u) {
                         xhr.withCredentials = false;
                     }
                 });
-                hlsInstance.loadSource(url);
+                hlsInstance.loadSource(finalUrl);
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
@@ -291,13 +298,13 @@
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = url;
+                video.src = finalUrl;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                     playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
-                video.src = url;
+                video.src = finalUrl;
                 video.load();
                 video.play().catch(e => {
                     nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
