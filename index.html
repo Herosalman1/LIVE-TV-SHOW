@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Yeh line Referer ko block karegi jisse workers.dev URL block nahi hoga -->
     <meta name="referrer" content="no-referrer">
-    
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -267,8 +265,11 @@
                 playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
-                // Extension conflict rokne ke liye simple config use kiya gaya hai
-                hlsInstance = new Hls();
+                hlsInstance = new Hls({
+                    xhrSetup: function (xhr, u) {
+                        xhr.withCredentials = false;
+                    }
+                });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
@@ -370,7 +371,6 @@
             }
         });
 
-        // TV Remote & Arrow Keys Control System (Skip Only)
         document.addEventListener('keydown', function(e) {
             if (!video || (!video.src && !video.currentSrc)) return;
 
