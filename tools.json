@@ -2678,5 +2678,10 @@
     "name": "SONY SET HD",
     "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
     "category": "MOVIE"
+  },
+  {
+    "name": "NICK JR INDIA",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON"
   }
 ]
