@@ -630,11 +630,6 @@
     "category": "MOVIE"
   },
   {
-    "name": "DD Sports",
-    "url": "https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8",
-    "category": "SPORTS"
-  },
-  {
     "name": "DD Urdu",
     "url": "https://cdn.pishow.tv/ott/live/8/master.m3u8",
     "category": "NEWS"
