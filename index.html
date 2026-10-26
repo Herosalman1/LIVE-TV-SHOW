@@ -140,9 +140,9 @@
             </div>
             
             <div class="player-controls-bar">
-                <button class="ctrl-btn" onclick="playPrevChannel()"><i class="fa-solid fa-backward-step"></i> Prev</button>
-                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn"><i class="fa-solid fa-pause" id="playPauseIcon"></i> Pause</button>
-                <button class="ctrl-btn" onclick="playNextChannel()">Next <i class="fa-solid fa-forward-step"></i></button>
+                <button class="ctrl-btn" onclick="playPrevChannel()">Prev</button>
+                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn">Pause</button>
+                <button class="ctrl-btn" onclick="playNextChannel()">Next</button>
                 <button class="ctrl-btn" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i></button>
             </div>
         </div>
@@ -165,7 +165,6 @@
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
         const playPauseBtn = document.getElementById('playPauseBtn');
-        const playPauseIcon = document.getElementById('playPauseIcon');
         
         let hlsInstance = null;
         let savedChannels = [];
@@ -392,7 +391,7 @@
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
-                playPauseIcon.className = "fa-solid fa-pause";
+                playPauseBtn.innerText = "Pause";
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -404,7 +403,7 @@
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
+                    playPauseBtn.innerText = "Pause";
                 });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
@@ -425,7 +424,7 @@
                 video.src = url;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
+                    playPauseBtn.innerText = "Pause";
                 });
             } else {
                 video.src = url;
@@ -439,10 +438,10 @@
         function togglePausePlay() {
             if (video.paused) { 
                 video.play(); 
-                playPauseIcon.className = "fa-solid fa-pause";
+                playPauseBtn.innerText = "Pause";
             } else { 
                 video.pause(); 
-                playPauseIcon.className = "fa-solid fa-play";
+                playPauseBtn.innerText = "Play";
             }
         }
 
@@ -505,18 +504,6 @@
             if (!video || (!video.src && !video.currentSrc)) return;
 
             switch(e.key) {
-                case 'ArrowRight':
-                    if (video.duration) {
-                        video.currentTime = Math.min(video.duration, video.currentTime + 10);
-                    }
-                    e.preventDefault();
-                    break;
-                case 'ArrowLeft':
-                    if (video.duration) {
-                        video.currentTime = Math.max(0, video.currentTime - 10);
-                    }
-                    e.preventDefault();
-                    break;
                 case 'Enter':
                 case ' ':
                     togglePausePlay();
