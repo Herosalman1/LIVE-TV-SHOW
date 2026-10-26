@@ -66,9 +66,17 @@
         }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
+        /* VIDEO CONTAINER */
         .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
-        /* ADDED TRANSITION FOR SMOOTH ZOOMING */
+        
+        /* FULL SCREEN HO JANE PAR BORDERS HATA DENGE */
+        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: contain; display: block; transition: all 0.3s ease; transform: scale(1); }
+
+        /* NATIVE FULLSCREEN BUTTON KO HIDE KARENGE TAAKI HAMARA CUSTOM BUTTON HI USE HO */
+        video::-webkit-media-controls-fullscreen-button { display: none !important; }
 
         .player-controls-bar { 
             display: flex; 
@@ -100,10 +108,7 @@
             transition: all 0.2s ease; 
         }
         
-        .ctrl-btn:hover { 
-            background: rgba(255, 255, 255, 0.1); 
-            color: #ffffff; 
-        }
+        .ctrl-btn:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
         
         .ctrl-btn.main-play { 
             background: var(--accent-red); 
@@ -118,11 +123,7 @@
             margin: 0;
         }
         
-        .ctrl-btn.main-play:hover { 
-            background: #ff1a2b; 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
-        }
+        .ctrl-btn.main-play:hover { background: #ff1a2b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6); }
 
         .sidebar { width: 100%; background: var(--bg-sidebar); border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .sidebar-title { padding: 12px 15px; font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-color); color: #fff; display: flex; align-items: center; gap: 8px; }
@@ -193,8 +194,9 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <div class="video-container">
-                <video id="tvPlayer" controls autoplay></video>
+            <!-- VIDEO CONTAINER WALA BOX JISKO HUMN FULLSCREEN KARENGE -->
+            <div class="video-container" id="vidContainer">
+                <video id="tvPlayer" controls autoplay controlsList="nofullscreen"></video>
             </div>
             
             <div class="player-controls-bar">
@@ -206,7 +208,6 @@
                 <button class="ctrl-btn" onclick="playNextChannel()" title="Next"><i class="fa-solid fa-forward-step"></i></button>
                 <button class="ctrl-btn" onclick="skipVideo(10)" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
                 
-                <!-- NEW VIDEO FIT BUTTON WITH SUPER ZOOM -->
                 <button class="ctrl-btn" onclick="toggleVideoFit()" title="Change Video Fit (Normal, Stretch, Zoom, Super Zoom)"><i class="fa-solid fa-crop-simple"></i></button>
                 
                 <button class="ctrl-btn" onclick="toggleFullScreen()" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
@@ -228,6 +229,7 @@
 
     <script>
         const video = document.getElementById('tvPlayer');
+        const vidContainer = document.getElementById('vidContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
         const playPauseIcon = document.getElementById('playPauseIcon');
@@ -236,12 +238,11 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
 
-        // ADVANCED FIT MODES (WITH SUPER ZOOM FOR HARDCODED BORDERS)
         let fitModes = [
-            { fit: 'contain', scale: 1 },       // 1. Normal
-            { fit: 'fill', scale: 1 },          // 2. Stretch
-            { fit: 'cover', scale: 1 },         // 3. Zoom / Crop
-            { fit: 'contain', scale: 1.35 }     // 4. Super Zoom (Forces out hardcoded black borders)
+            { fit: 'contain', scale: 1 },       
+            { fit: 'fill', scale: 1 },          
+            { fit: 'cover', scale: 1 },         
+            { fit: 'contain', scale: 1.35 }     
         ];
         let fitIndex = 0;
 
@@ -540,20 +541,30 @@
             }
         }
         
-        // VIDEO FIT FUNCTION (WITH SUPER ZOOM FOR HARDCODED BARS)
         function toggleVideoFit() {
             fitIndex = (fitIndex + 1) % fitModes.length;
             video.style.objectFit = fitModes[fitIndex].fit;
             video.style.transform = `scale(${fitModes[fitIndex].scale})`;
         }
 
+        // UPDATED: AB VIDEO KE BAJAYE "VIDEO CONTAINER" KO FULL SCREEN KARENGE
         function toggleFullScreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (vidContainer.requestFullscreen) {
+                    vidContainer.requestFullscreen();
+                } else if (vidContainer.webkitRequestFullscreen) {
+                    vidContainer.webkitRequestFullscreen();
+                } else if (vidContainer.msRequestFullscreen) {
+                    vidContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
         }
         
