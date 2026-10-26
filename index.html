@@ -66,32 +66,89 @@
         }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
-        .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); position: relative; }
+        .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
 
-        .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
-        .ctrl-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 4px; flex: 1; margin: 0 6px; transition: 0.2s; white-space: nowrap; height: 38px; }
-        .ctrl-btn.main-play { background: var(--accent-red); border-color: var(--accent-red); padding: 9px 16px; box-shadow: 0 3px 10px var(--accent-glow); flex: 1.2; }
+        /* VIP BUTTONS - CHAUDE (WIDE) BUTTONS KA DESIGN */
+        .player-controls-bar { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            width: 100%; 
+            max-width: 900px; 
+            margin-top: 10px; 
+            background: #11151c; 
+            border: 2px solid #2a3345; 
+            padding: 12px; 
+            border-radius: 12px; 
+            gap: 8px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        
+        .ctrl-btn { 
+            background: #1c222e; 
+            border: 1px solid #2a3345; 
+            color: #a3a9b5; 
+            flex: 1; /* Button ko chauda karne ke liye flex lagaya */
+            max-width: 90px;
+            height: 42px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: all 0.2s ease; 
+        }
+        
+        .ctrl-btn:hover { 
+            background: #2a3345; 
+            color: #ffffff; 
+            border-color: #3e4a61;
+        }
+        
+        .ctrl-btn.main-play { 
+            background: var(--accent-red); 
+            border: 1px solid var(--accent-red);
+            color: #fff; 
+            flex: 1.5; /* Play button baaki se thoda zyada chauda */
+            max-width: 130px;
+            height: 48px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px var(--accent-glow); 
+            font-size: 20px; 
+            margin: 0;
+        }
+        
+        .ctrl-btn.main-play:hover { 
+            background: #ff1a2b; 
+            border-color: #ff1a2b;
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
 
-        .sidebar { width: 100%; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .sidebar-title { padding: 10px 15px; font-size: 12px; font-weight: 600; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-color); color: #fff; display: flex; align-items: center; gap: 8px; }
+        .sidebar { width: 100%; background: var(--bg-sidebar); border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .sidebar-title { padding: 12px 15px; font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-color); color: #fff; display: flex; align-items: center; gap: 8px; }
         .sidebar-title i { color: var(--accent-red); }
-        .channel-list-container { overflow-y: auto; padding: 8px; -webkit-overflow-scrolling: touch; }
+        .channel-list-container { overflow-y: auto; padding: 10px; -webkit-overflow-scrolling: touch; }
         
-        .category-folder { margin-bottom: 6px; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
-        .category-header { padding: 10px 12px; background: rgba(0,0,0,0.15); font-weight: 600; font-size: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #fff; }
-        .cat-count { font-size: 10px; background: rgba(229, 9, 20, 0.15); color: #ff4d4f; padding: 2px 6px; border-radius: 8px; font-weight: 600; border: 1px solid rgba(229, 9, 20, 0.3); }
+        .category-folder { margin-bottom: 8px; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); transition: 0.2s; }
+        .category-header { padding: 12px 14px; background: rgba(0,0,0,0.15); font-weight: 600; font-size: 13px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #fff; transition: background 0.2s; }
+        .category-header:hover { background: rgba(255,255,255,0.03); }
+        .cat-count { font-size: 10px; background: rgba(229, 9, 20, 0.15); color: #ff4d4f; padding: 2px 8px; border-radius: 12px; font-weight: 700; border: 1px solid rgba(229, 9, 20, 0.3); }
         
-        .category-content { display: none; padding: 6px; background: rgba(0,0,0,0.2); }
+        .category-content { display: none; padding: 8px; background: rgba(0,0,0,0.2); }
         .category-content.open { display: block; }
 
-        .channel-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 10px; margin-bottom: 4px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; }
+        .channel-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 10px 12px; margin-bottom: 6px; border-radius: 8px; cursor: pointer; border: 1px solid transparent; transition: 0.2s; }
+        .channel-item:hover { background: rgba(255,255,255,0.05); }
         .channel-item.active { background: rgba(229, 9, 20, 0.12); border-left: 3px solid var(--accent-red); border-color: rgba(229, 9, 20, 0.3); }
         .channel-item.active .channel-name { color: #fff; font-weight: 600; }
         
-        .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .channel-name { font-weight: 500; font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
         .channel-item.active .channel-name i { color: var(--accent-red); }
-        .play-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; }
+        .play-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 12px; border-radius: 6px; font-size: 10px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .channel-item:hover .play-btn { background: rgba(255,255,255,0.15); }
 
         @media (min-width: 900px) {
             .header { padding: 15px 35px; }
@@ -99,21 +156,20 @@
             .header-brand i.fa-tv { font-size: 22px; }
             .header-brand i.fa-bolt { font-size: 20px; }
             .main-container { max-width: 1550px; height: calc(100vh - 75px); flex-direction: row; overflow: hidden; padding: 25px; gap: 25px; }
-            .sidebar { width: 520px; min-width: 520px; max-height: 100%; height: 100%; margin-top: 0; order: 1; border-radius: 14px; }
-            .sidebar-title { padding: 14px 20px; font-size: 14px; }
-            .channel-list-container { padding: 12px; }
-            .category-folder { border-radius: 10px; margin-bottom: 8px; }
-            .category-header { padding: 12px 16px; font-size: 13px; }
-            .channel-item { padding: 10px 14px; margin-bottom: 6px; border-radius: 8px; }
-            .channel-name { font-size: 13px; gap: 8px; }
-            .play-btn { padding: 5px 14px; border-radius: 6px; font-size: 10px; }
+            .sidebar { width: 450px; min-width: 450px; max-height: 100%; height: 100%; margin-top: 0; order: 1; border-radius: 14px; }
+            .sidebar-title { padding: 16px 20px; font-size: 15px; }
+            .channel-list-container { padding: 15px; }
+            .category-folder { border-radius: 10px; margin-bottom: 10px; }
+            .category-header { padding: 14px 18px; font-size: 14px; }
+            .channel-item { padding: 12px 16px; margin-bottom: 8px; }
+            .channel-name { font-size: 14px; }
             .player-section { flex: 1; height: 100%; justify-content: center; order: 2; }
-            .video-container { max-width: 900px; max-height: 65vh; border-radius: 12px; }
-            .now-playing, .player-controls-bar { max-width: 900px; border-radius: 12px; padding: 12px 20px; }
-            .now-playing { font-size: 14px; margin-bottom: 12px; }
-            .player-controls-bar { margin-top: 12px; }
-            .ctrl-btn { padding: 10px 18px; font-size: 12px; height: 42px; margin: 0 8px; }
-            .ctrl-btn.main-play { padding: 10px 26px; }
+            .video-container { max-width: 950px; max-height: 65vh; border-radius: 14px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+            .now-playing { max-width: 950px; border-radius: 10px; padding: 12px 20px; font-size: 14px; margin-bottom: 15px; }
+            
+            .player-controls-bar { max-width: 950px; padding: 18px 30px; gap: 15px; margin-top: 15px; }
+            .ctrl-btn { max-width: 110px; height: 48px; font-size: 18px; border-radius: 10px; }
+            .ctrl-btn.main-play { max-width: 160px; height: 54px; font-size: 24px; border-radius: 10px; }
         }
     </style>
 </head>
@@ -139,11 +195,16 @@
                 <video id="tvPlayer" controls autoplay></video>
             </div>
             
+            <!-- VIP WIDE CONTROLS -->
             <div class="player-controls-bar">
-                <button class="ctrl-btn" onclick="playPrevChannel()">Prev</button>
-                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn">Pause</button>
-                <button class="ctrl-btn" onclick="playNextChannel()">Next</button>
-                <button class="ctrl-btn" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(-10)" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="ctrl-btn" onclick="playPrevChannel()" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                
+                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
+                
+                <button class="ctrl-btn" onclick="playNextChannel()" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(10)" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="ctrl-btn" onclick="toggleFullScreen()" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
             </div>
         </div>
 
@@ -164,7 +225,7 @@
         const video = document.getElementById('tvPlayer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
-        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
         
         let hlsInstance = null;
         let savedChannels = [];
@@ -391,7 +452,7 @@
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
-                playPauseBtn.innerText = "Pause";
+                playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -403,7 +464,7 @@
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseBtn.innerText = "Pause";
+                    playPauseIcon.className = "fa-solid fa-pause";
                 });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
@@ -424,7 +485,7 @@
                 video.src = url;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseBtn.innerText = "Pause";
+                    playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
                 video.src = url;
@@ -438,10 +499,10 @@
         function togglePausePlay() {
             if (video.paused) { 
                 video.play(); 
-                playPauseBtn.innerText = "Pause";
+                playPauseIcon.className = "fa-solid fa-pause";
             } else { 
                 video.pause(); 
-                playPauseBtn.innerText = "Play";
+                playPauseIcon.className = "fa-solid fa-play";
             }
         }
 
@@ -457,6 +518,12 @@
             let prevIndex = currentPlayingIndex - 1;
             if (prevIndex < 0) prevIndex = savedChannels.length - 1; 
             playChannelByIndex(prevIndex);
+        }
+
+        function skipVideo(seconds) {
+            if (video && video.duration) {
+                video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+            }
         }
 
         function toggleFullScreen() {
