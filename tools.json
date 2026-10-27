@@ -25,6 +25,11 @@
     "category": "NEWS"
   },
   {
+    "name": "Awaaz India TV",
+    "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+    "category": "NEWS"
+  },
+  {
     "name": "DD News",
     "url": "https://mumbai-edge.smartplaytv.in/DDNews/index.m3u8",
     "category": "NEWS"
