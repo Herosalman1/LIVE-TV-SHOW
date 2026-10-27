@@ -115,16 +115,6 @@
     "category": "NEWS"
   },
   {
-    "name": "News 1 India",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8",
-    "category": "NEWS"
-  },
-  {
-    "name": "News 1 India",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/tracks-v1a1/mono.m3u8",
-    "category": "NEWS"
-  },
-  {
     "name": "News 11",
     "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS11BHARAT/index.m3u8",
     "category": "NEWS"
@@ -132,6 +122,11 @@
   {
     "name": "News 24",
     "url": "https://streams.tangotv.in/NEWS24/ORIGIN/tracks-v1a1/mono.m3u8",
+    "category": "NEWS"
+  },
+  {
+    "name": "News India 1",
+    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/tracks-v1a1/mono.m3u8",
     "category": "NEWS"
   },
   {
