@@ -72,7 +72,7 @@
         .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
         
-        /* TV FULLSCREEN FALLBACK (ZABARDASTI FULLSCREEN FOR SMART TVs) */
+        /* TV FULLSCREEN FALLBACK */
         .tv-fullscreen-fallback {
             position: fixed !important;
             top: 0 !important;
@@ -213,18 +213,19 @@
                 <video id="tvPlayer" controls autoplay controlsList="nofullscreen"></video>
             </div>
             
+            <!-- BUTTONS PAR 'this.blur()' ADDED TO PREVENT TV FOCUS PAUSE BUGS -->
             <div class="player-controls-bar">
-                <button class="ctrl-btn" onclick="skipVideo(-10)" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
-                <button class="ctrl-btn" onclick="playPrevChannel()" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(-10); this.blur();" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="ctrl-btn" onclick="playPrevChannel(); this.blur();" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
                 
-                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
+                <button class="ctrl-btn main-play" onclick="togglePausePlay(); this.blur();" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
                 
-                <button class="ctrl-btn" onclick="playNextChannel()" title="Next"><i class="fa-solid fa-forward-step"></i></button>
-                <button class="ctrl-btn" onclick="skipVideo(10)" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="ctrl-btn" onclick="playNextChannel(); this.blur();" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(10); this.blur();" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
                 
-                <button class="ctrl-btn" onclick="toggleVideoFit()" title="Change Video Fit (Normal, Stretch, Zoom, Super Zoom)"><i class="fa-solid fa-crop-simple"></i></button>
+                <button class="ctrl-btn" onclick="toggleVideoFit(); this.blur();" title="Change Video Fit (Normal, Stretch, Zoom, Super Zoom)"><i class="fa-solid fa-crop-simple"></i></button>
                 
-                <button class="ctrl-btn" onclick="toggleFullScreen()" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
+                <button class="ctrl-btn" onclick="toggleFullScreen(); this.blur();" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
             </div>
         </div>
 
@@ -252,7 +253,7 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
 
-        // ADVANCED FIT MODES 
+        // FIT MODES 
         let fitModes = [
             { fit: 'contain', scale: 1 },       
             { fit: 'fill', scale: 1 },          
@@ -261,8 +262,11 @@
         ];
         let fitIndex = 0;
         
-        // DEVICE DETECTION FOR TV SMART-LOGIC
+        // DEVICE DETECTION 
         const isTV = /(SmartTV|Web0S|WebOS|Tizen|TV|Roku|CrKey|BRAVIA|VIDAA)/i.test(navigator.userAgent);
+        
+        // FLAG TO TRACK IF USER ACTUALLY PAUSED IT OR TV DID IT BY MISTAKE
+        let isUserPaused = false;
 
         fetch('tools.json')
             .then(res => res.json())
@@ -347,6 +351,8 @@
             fitIndex = 0;
             video.style.objectFit = fitModes[0].fit;
             video.style.transform = `scale(${fitModes[0].scale})`;
+            
+            isUserPaused = false; // Reset User Pause Flag
 
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
@@ -489,7 +495,6 @@
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
-                playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -501,7 +506,6 @@
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
                 });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
@@ -522,7 +526,6 @@
                 video.src = url;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
                 video.src = url;
@@ -535,11 +538,11 @@
 
         function togglePausePlay() {
             if (video.paused) { 
+                isUserPaused = false;
                 video.play(); 
-                playPauseIcon.className = "fa-solid fa-pause";
             } else { 
+                isUserPaused = true;
                 video.pause(); 
-                playPauseIcon.className = "fa-solid fa-play";
             }
         }
 
@@ -567,21 +570,10 @@
             fitIndex = (fitIndex + 1) % fitModes.length;
             video.style.objectFit = fitModes[fitIndex].fit;
             video.style.transform = `scale(${fitModes[fitIndex].scale})`;
-            
-            // TV par zoom change karte time pause hone se bachane ka logic
-            if (isTV) {
-                setTimeout(() => {
-                    if (video.paused) {
-                        video.play().catch(e => console.log(e));
-                        playPauseIcon.className = "fa-solid fa-pause";
-                    }
-                }, 100);
-            }
         }
 
         function toggleFullScreen() {
             if (isTV) {
-                // TV MODE: CSS based Fallback Fullscreen TAAKI ZOOM BHI BARKARAR RAHE
                 if (vidContainer.classList.contains('tv-fullscreen-fallback')) {
                     vidContainer.classList.remove('tv-fullscreen-fallback');
                     document.body.style.overflow = 'auto';
@@ -589,75 +581,70 @@
                     vidContainer.classList.add('tv-fullscreen-fallback');
                     document.body.style.overflow = 'hidden';
                 }
-                
-                // Force play if TV paused it during fullscreen transition
-                setTimeout(() => {
-                    if (video.paused) {
-                        video.play().catch(e => console.log(e));
-                        playPauseIcon.className = "fa-solid fa-pause";
-                    }
-                }, 150);
-                
             } else {
-                // PC / MOBILE MODE: Standard HTML5 API
                 if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                    if (vidContainer.requestFullscreen) {
-                        vidContainer.requestFullscreen();
-                    } else if (vidContainer.webkitRequestFullscreen) {
-                        vidContainer.webkitRequestFullscreen();
-                    } else if (vidContainer.msRequestFullscreen) {
-                        vidContainer.msRequestFullscreen();
-                    }
+                    if (vidContainer.requestFullscreen) vidContainer.requestFullscreen();
+                    else if (vidContainer.webkitRequestFullscreen) vidContainer.webkitRequestFullscreen();
+                    else if (vidContainer.msRequestFullscreen) vidContainer.msRequestFullscreen();
                 } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
+                    if (document.exitFullscreen) document.exitFullscreen();
+                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                    else if (document.msExitFullscreen) document.msExitFullscreen();
                 }
             }
         }
         
-        video.addEventListener('ended', function() {
-            if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
-
-            const currentChannel = savedChannels[currentPlayingIndex];
-            const currentCategory = currentChannel.category || "OTHER";
-
-            let nextIndex = -1;
-            
-            for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
-                const checkCat = savedChannels[i].category || "OTHER";
-                if (checkCat === currentCategory) {
-                    nextIndex = i;
-                    break;
-                }
-            }
-            
-            if (nextIndex === -1) {
-                for (let i = 0; i < currentPlayingIndex; i++) {
-                    const checkCat = savedChannels[i].category || "OTHER";
-                    if (checkCat === currentCategory) {
-                        nextIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            if (nextIndex !== -1) {
-                playChannelByIndex(nextIndex);
+        // --- SMART PAUSE/PLAY EVENT LISTENERS ---
+        video.addEventListener('play', function() {
+            isUserPaused = false;
+            playPauseIcon.className = "fa-solid fa-pause";
+        });
+        
+        video.addEventListener('pause', function() {
+            // Agar TV ne galti se pause kiya hai (user ne Pause button nahi dabaya)
+            if (isTV && !isUserPaused) {
+                video.play().catch(e => console.log("Forced Resume blocked:", e));
+            } else {
+                playPauseIcon.className = "fa-solid fa-play";
             }
         });
 
+        video.addEventListener('ended', function() {
+            if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
+            const currentChannel = savedChannels[currentPlayingIndex];
+            const currentCategory = currentChannel.category || "OTHER";
+            let nextIndex = -1;
+            
+            for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
+                if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
+            }
+            if (nextIndex === -1) {
+                for (let i = 0; i < currentPlayingIndex; i++) {
+                    if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
+                }
+            }
+            if (nextIndex !== -1) playChannelByIndex(nextIndex);
+        });
+
+        // HANDLE PHYSICAL MEDIA KEYS ON TV REMOTE & KEYBOARD
         document.addEventListener('keydown', function(e) {
             if (!video || (!video.src && !video.currentSrc)) return;
 
             switch(e.key) {
                 case 'Enter':
                 case ' ':
+                case 'MediaPlayPause':
                     togglePausePlay();
+                    e.preventDefault();
+                    break;
+                case 'MediaPlay':
+                    isUserPaused = false;
+                    video.play();
+                    e.preventDefault();
+                    break;
+                case 'MediaPause':
+                    isUserPaused = true;
+                    video.pause();
                     e.preventDefault();
                     break;
             }
