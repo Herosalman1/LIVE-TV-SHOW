@@ -59,7 +59,6 @@
         
         .player-section { width: 100%; display: flex; flex-direction: column; align-items: center; order: 1; }
         
-        /* TOP BAR (Select a channel...) */
         .now-playing { 
             width: 100%; max-width: 900px; margin-bottom: 8px; font-size: 12px; color: var(--text-muted); 
             text-align: center; font-weight: 500; background: var(--bg-card); padding: 8px 12px; 
@@ -67,16 +66,31 @@
         }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
-        /* VIDEO CONTAINER */
         .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
         
-        /* FULL SCREEN HO JANE PAR BORDERS HATA DENGE */
-        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
-        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        /* STANDARD FULL SCREEN FIXES */
+        .video-container:fullscreen { width: 100vw !important; height: 100vh !important; max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+        .video-container:-webkit-full-screen { width: 100vw !important; height: 100vh !important; max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
         
-        video { width: 100%; height: 100%; outline: none; background: #000; object-fit: contain; display: block; transition: all 0.3s ease; transform: scale(1); }
+        /* TV FULLSCREEN FALLBACK (ZABARDASTI FULLSCREEN FOR SMART TVs) */
+        .tv-fullscreen-fallback {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+            z-index: 999999 !important;
+            border-radius: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #000 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
 
-        /* NATIVE FULLSCREEN BUTTON KO HIDE KARENGE TAAKI HAMARA CUSTOM BUTTON HI USE HO */
+        video { width: 100%; height: 100%; outline: none; background: #000; object-fit: contain; display: block; transition: all 0.3s ease; transform: scale(1); }
         video::-webkit-media-controls-fullscreen-button { display: none !important; }
 
         .player-controls-bar { 
@@ -238,12 +252,11 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
 
-        // ADVANCED FIT MODES 
         let fitModes = [
-            { fit: 'contain', scale: 1 },       // 1. Normal
-            { fit: 'fill', scale: 1 },          // 2. Stretch
-            { fit: 'cover', scale: 1 },         // 3. Zoom / Crop
-            { fit: 'contain', scale: 1.35 }     // 4. Super Zoom (Forces out hardcoded black borders)
+            { fit: 'contain', scale: 1 },       
+            { fit: 'fill', scale: 1 },          
+            { fit: 'cover', scale: 1 },         
+            { fit: 'contain', scale: 1.35 }     
         ];
         let fitIndex = 0;
 
@@ -327,7 +340,6 @@
         }
 
         function playStream(url, name) {
-            // JAB BHI NAYA CHANNEL PLAY HOGA, VIDEO FIT 'NORMAL' PAR RESET HO JAYEGA
             fitIndex = 0;
             video.style.objectFit = fitModes[0].fit;
             video.style.transform = `scale(${fitModes[0].scale})`;
@@ -553,23 +565,52 @@
             video.style.transform = `scale(${fitModes[fitIndex].scale})`;
         }
 
+        // TV-SUPPORTED MEGA FULLSCREEN LOGIC
         function toggleFullScreen() {
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                if (vidContainer.requestFullscreen) {
-                    vidContainer.requestFullscreen();
-                } else if (vidContainer.webkitRequestFullscreen) {
-                    vidContainer.webkitRequestFullscreen();
-                } else if (vidContainer.msRequestFullscreen) {
-                    vidContainer.msRequestFullscreen();
+            // Agar pehle se CSS fallback mode (TVs ke liye) chal raha hai, toh hatao
+            if (vidContainer.classList.contains('tv-fullscreen-fallback')) {
+                vidContainer.classList.remove('tv-fullscreen-fallback');
+                document.body.style.overflow = 'auto';
+                return;
+            }
+
+            // Normal Fullscreen API check
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                
+                let req = vidContainer.requestFullscreen || vidContainer.webkitRequestFullscreen || vidContainer.mozRequestFullScreen || vidContainer.msRequestFullscreen;
+                
+                if (req) {
+                    try {
+                        let promise = req.call(vidContainer);
+                        if (promise && promise.catch) {
+                            promise.catch(err => {
+                                // Agar Smart TV reject kare toh seedha CSS fallback
+                                fallbackToVideoFullscreen();
+                            });
+                        }
+                    } catch (e) {
+                        fallbackToVideoFullscreen();
+                    }
+                } else {
+                    fallbackToVideoFullscreen();
                 }
             } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
+                // Exit Fullscreen
+                let exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+                if (exit) {
+                    exit.call(document);
                 }
+            }
+        }
+
+        // AGAR BROWSER API FAIL HOTA HAI (SMART TV PROBLEM), TOH YE CHALEGA
+        function fallbackToVideoFullscreen() {
+            if (video.webkitEnterFullscreen) {
+                video.webkitEnterFullscreen(); // iOS Safari & Some WebOS TVs
+            } else {
+                // Ultimate CSS force full-screen (Works 100% on any device)
+                vidContainer.classList.add('tv-fullscreen-fallback');
+                document.body.style.overflow = 'hidden';
             }
         }
         
