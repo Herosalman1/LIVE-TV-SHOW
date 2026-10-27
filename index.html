@@ -68,19 +68,17 @@
         .now-playing i { margin-right: 8px; }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
-        /* Video Container modified for Center Play/Pause button */
         .video-container { 
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
             position: relative; cursor: pointer;
         }
         
-        /* Hiding Native Video Controls completely for a clean look */
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* Center Screen Play/Pause Button */
+        /* Updated Center Icon Animation */
         .center-icon-overlay {
             position: absolute;
             top: 50%;
@@ -100,7 +98,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none; /* Let clicks pass to the video */
+            pointer-events: none; 
             z-index: 10;
         }
         .center-icon-overlay.show {
@@ -108,9 +106,8 @@
             visibility: visible;
             transform: translate(-50%, -50%) scale(1);
         }
-        .center-icon-overlay i.fa-play {
-            margin-left: 6px; /* Perfect centering for play icon */
-        }
+        .center-icon-overlay i.fa-play { margin-left: 6px; }
+        .center-icon-overlay i.fa-pause { margin-left: 0; }
 
         .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
         
@@ -186,10 +183,8 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <!-- Added onclick to container so clicking the video toggles Play/Pause -->
             <div class="video-container" onclick="togglePausePlay()">
                 <video id="tvPlayer" autoplay></video>
-                <!-- Screen Ke Beech Ka Play/Pause Button -->
                 <div class="center-icon-overlay" id="centerIconOverlay">
                     <i class="fa-solid fa-play" id="centerIcon"></i>
                 </div>
@@ -229,6 +224,7 @@
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
+        let centerIconTimer;
 
         fetch('tools.json')
             .then(res => res.json())
@@ -362,7 +358,6 @@
             }
         }
 
-        // Toggles Play and Pause directly
         function togglePausePlay() {
             if (video.paused) { 
                 video.play(); 
@@ -371,18 +366,34 @@
             }
         }
 
-        // Event listeners automatically update all icons (center + bottom bar) based on video state
+        // Action Function for Play/Pause Center Animation
+        function triggerCenterAnimation(action) {
+            if (action === 'play') {
+                centerIcon.className = "fa-solid fa-play";
+            } else {
+                centerIcon.className = "fa-solid fa-pause";
+            }
+            
+            centerIconOverlay.classList.remove('show');
+            void centerIconOverlay.offsetWidth; 
+            centerIconOverlay.classList.add('show');
+            
+            clearTimeout(centerIconTimer);
+            centerIconTimer = setTimeout(() => {
+                centerIconOverlay.classList.remove('show');
+            }, 600);
+        }
+
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
             playPauseText.innerText = "Pause";
-            centerIconOverlay.classList.remove('show');
+            triggerCenterAnimation('play');
         });
 
         video.addEventListener('pause', () => {
             playPauseIcon.className = "fa-solid fa-play";
             playPauseText.innerText = "Play";
-            centerIcon.className = "fa-solid fa-play"; // Screen ke beech me play button dikhega
-            centerIconOverlay.classList.add('show');
+            triggerCenterAnimation('pause');
         });
 
         function playNextChannel() {
@@ -409,7 +420,6 @@
             }
         }
         
-        // Auto Play Next Video within the Same Category
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
