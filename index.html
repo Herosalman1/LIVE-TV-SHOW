@@ -69,8 +69,8 @@
         .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
         
         /* STANDARD FULL SCREEN FIXES */
-        .video-container:fullscreen { width: 100vw !important; height: 100vh !important; max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
-        .video-container:-webkit-full-screen { width: 100vw !important; height: 100vh !important; max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
         
         /* TV FULLSCREEN FALLBACK (ZABARDASTI FULLSCREEN FOR SMART TVs) */
         .tv-fullscreen-fallback {
@@ -252,6 +252,7 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
 
+        // ADVANCED FIT MODES 
         let fitModes = [
             { fit: 'contain', scale: 1 },       
             { fit: 'fill', scale: 1 },          
@@ -259,6 +260,9 @@
             { fit: 'contain', scale: 1.35 }     
         ];
         let fitIndex = 0;
+        
+        // DEVICE DETECTION FOR TV SMART-LOGIC
+        const isTV = /(SmartTV|Web0S|WebOS|Tizen|TV|Roku|CrKey|BRAVIA|VIDAA)/i.test(navigator.userAgent);
 
         fetch('tools.json')
             .then(res => res.json())
@@ -563,54 +567,56 @@
             fitIndex = (fitIndex + 1) % fitModes.length;
             video.style.objectFit = fitModes[fitIndex].fit;
             video.style.transform = `scale(${fitModes[fitIndex].scale})`;
+            
+            // TV par zoom change karte time pause hone se bachane ka logic
+            if (isTV) {
+                setTimeout(() => {
+                    if (video.paused) {
+                        video.play().catch(e => console.log(e));
+                        playPauseIcon.className = "fa-solid fa-pause";
+                    }
+                }, 100);
+            }
         }
 
-        // TV-SUPPORTED MEGA FULLSCREEN LOGIC
         function toggleFullScreen() {
-            // Agar pehle se CSS fallback mode (TVs ke liye) chal raha hai, toh hatao
-            if (vidContainer.classList.contains('tv-fullscreen-fallback')) {
-                vidContainer.classList.remove('tv-fullscreen-fallback');
-                document.body.style.overflow = 'auto';
-                return;
-            }
-
-            // Normal Fullscreen API check
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+            if (isTV) {
+                // TV MODE: CSS based Fallback Fullscreen TAAKI ZOOM BHI BARKARAR RAHE
+                if (vidContainer.classList.contains('tv-fullscreen-fallback')) {
+                    vidContainer.classList.remove('tv-fullscreen-fallback');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    vidContainer.classList.add('tv-fullscreen-fallback');
+                    document.body.style.overflow = 'hidden';
+                }
                 
-                let req = vidContainer.requestFullscreen || vidContainer.webkitRequestFullscreen || vidContainer.mozRequestFullScreen || vidContainer.msRequestFullscreen;
+                // Force play if TV paused it during fullscreen transition
+                setTimeout(() => {
+                    if (video.paused) {
+                        video.play().catch(e => console.log(e));
+                        playPauseIcon.className = "fa-solid fa-pause";
+                    }
+                }, 150);
                 
-                if (req) {
-                    try {
-                        let promise = req.call(vidContainer);
-                        if (promise && promise.catch) {
-                            promise.catch(err => {
-                                // Agar Smart TV reject kare toh seedha CSS fallback
-                                fallbackToVideoFullscreen();
-                            });
-                        }
-                    } catch (e) {
-                        fallbackToVideoFullscreen();
+            } else {
+                // PC / MOBILE MODE: Standard HTML5 API
+                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                    if (vidContainer.requestFullscreen) {
+                        vidContainer.requestFullscreen();
+                    } else if (vidContainer.webkitRequestFullscreen) {
+                        vidContainer.webkitRequestFullscreen();
+                    } else if (vidContainer.msRequestFullscreen) {
+                        vidContainer.msRequestFullscreen();
                     }
                 } else {
-                    fallbackToVideoFullscreen();
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
                 }
-            } else {
-                // Exit Fullscreen
-                let exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
-                if (exit) {
-                    exit.call(document);
-                }
-            }
-        }
-
-        // AGAR BROWSER API FAIL HOTA HAI (SMART TV PROBLEM), TOH YE CHALEGA
-        function fallbackToVideoFullscreen() {
-            if (video.webkitEnterFullscreen) {
-                video.webkitEnterFullscreen(); // iOS Safari & Some WebOS TVs
-            } else {
-                // Ultimate CSS force full-screen (Works 100% on any device)
-                vidContainer.classList.add('tv-fullscreen-fallback');
-                document.body.style.overflow = 'hidden';
             }
         }
         
