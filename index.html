@@ -177,7 +177,8 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <div class="video-container" onclick="togglePausePlay()">
+            <!-- Removed inline onclick, handled in JS to support double click perfectly -->
+            <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay></video>
                 <div class="center-icon-overlay" id="centerIconOverlay">
                     <i class="fa-solid fa-play" id="centerIcon"></i>
@@ -207,6 +208,7 @@
 
     <script>
         const video = document.getElementById('tvPlayer');
+        const videoContainer = document.getElementById('videoContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
         const playPauseBtn = document.getElementById('playPauseBtn');
@@ -220,6 +222,7 @@
         let currentPlayingIndex = -1;
         let centerIconTimer;
         let isVideoActive = false; 
+        let clickTimer = null; // Timer to separate single and double clicks
 
         fetch('tools.json')
             .then(res => res.json())
@@ -387,6 +390,21 @@
             }
         }
 
+        // SMART CLICK SYSTEM: Handles Single Click (Play/Pause) vs Double Click (Full Screen)
+        videoContainer.addEventListener('click', function(e) {
+            // Agar detail 1 hai matlab single click
+            if (e.detail === 1) {
+                clickTimer = setTimeout(() => {
+                    togglePausePlay();
+                }, 250); // 250ms wait karega double click check karne ke liye
+            } 
+            // Agar detail 2 hai matlab double click
+            else if (e.detail === 2) {
+                clearTimeout(clickTimer); // Single click ka action rok dega
+                toggleFullScreen(); // Full Screen ko On/Off karega
+            }
+        });
+
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
             playPauseText.innerText = "Pause";
@@ -397,7 +415,6 @@
             playPauseText.innerText = "Play";
         });
 
-        // Event listener update for isVideoActive status
         video.addEventListener('playing', () => {
              isVideoActive = true; 
         });
@@ -416,13 +433,28 @@
             playChannelByIndex(prevIndex);
         }
 
+        // Updated toggleFullScreen logic for smooth entry and exit
         function toggleFullScreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            if (!isFullScreen) {
+                // Enter Full Screen on Container (keeps custom icons working)
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+            } else {
+                // Exit Full Screen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
         }
         
@@ -457,7 +489,6 @@
             }
         });
 
-        // Arrow key for Skip (Left/Right)
         document.addEventListener('keydown', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
@@ -474,20 +505,17 @@
             }
         });
 
-        // NAYA FEATURE: Full Screen me Mouse Wheel (Scroll) se Volume Up/Down
         document.addEventListener('wheel', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
-            if (isFullScreen) {
+            if (isFullScreen || videoContainer.contains(event.target)) {
                 event.preventDefault(); 
                 
                 let currentVolume = video.volume;
                 
-                // Scroll Up -> Volume Increase
                 if (event.deltaY < 0) {
                     currentVolume = Math.min(1, currentVolume + 0.05); 
                 } 
-                // Scroll Down -> Volume Decrease
                 else if (event.deltaY > 0) {
                     currentVolume = Math.max(0, currentVolume - 0.05); 
                 }
