@@ -78,7 +78,6 @@
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* Updated Center Icon Animation */
         .center-icon-overlay {
             position: absolute;
             top: 50%;
@@ -366,7 +365,6 @@
             }
         }
 
-        // Action Function for Play/Pause Center Animation
         function triggerCenterAnimation(action) {
             if (action === 'play') {
                 centerIcon.className = "fa-solid fa-play";
@@ -448,6 +446,26 @@
 
             if (nextIndex !== -1) {
                 playChannelByIndex(nextIndex);
+            }
+        });
+
+        // NAYA FEATURE: Full Screen me Left/Right Arrow key se 10 sec Video Skip krna
+        document.addEventListener('keydown', function(event) {
+            // Check agar koi element fullscreen me hai ya nahi
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            if (isFullScreen) {
+                if (event.key === 'ArrowRight') {
+                    // 10 Seconds Aage (Forward)
+                    video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                    triggerCenterAnimation('play'); // Animation dikhane ke liye
+                    event.preventDefault(); // Browser ka default scroll rokne ke liye
+                } else if (event.key === 'ArrowLeft') {
+                    // 10 Seconds Piche (Rewind)
+                    video.currentTime = Math.max(0, video.currentTime - 10);
+                    triggerCenterAnimation('play'); 
+                    event.preventDefault();
+                }
             }
         });
         
