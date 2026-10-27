@@ -40,11 +40,6 @@
     "category": "NEWS"
   },
   {
-    "name": "DD Urdu",
-    "url": "https://cdn.pishow.tv/ott/live/8/master.m3u8",
-    "category": "NEWS"
-  },
-  {
     "name": "GNT NEWS",
     "url": "https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8",
     "category": "NEWS"
@@ -783,6 +778,11 @@
     "name": "Zee Comedy Nation",
     "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
     "category": "COMEDY"
+  },
+  {
+    "name": "DD Urdu",
+    "url": "https://cdn.pishow.tv/ott/live/8/master.m3u8",
+    "category": "BHAKTI CHANNEL"
   },
   {
     "name": "Ishwar Bhakti TV",
