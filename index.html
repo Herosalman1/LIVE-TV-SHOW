@@ -36,11 +36,12 @@
             align-items: center; 
             position: sticky; top: 0; z-index: 100;
         }
-        .header-brand { display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; color: #fff; }
-        .header-brand i.fa-tv, .header-brand i.fa-bolt { color: var(--accent-red); font-size: 20px; filter: drop-shadow(0 0 6px var(--accent-glow)); }
+        .header-brand { display: flex; align-items: center; font-size: 18px; font-weight: 700; color: #fff; }
+        .header-brand i.fa-tv { margin-right: 12px; color: var(--accent-red); font-size: 20px; filter: drop-shadow(0 0 6px var(--accent-glow)); }
+        .header-brand i.fa-bolt { margin-left: 12px; color: var(--accent-red); font-size: 20px; filter: drop-shadow(0 0 6px var(--accent-glow)); }
         
         .live-badge {
-            display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center;
             background: rgba(229, 9, 20, 0.15); border: 1px solid rgba(229, 9, 20, 0.4);
             padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; color: #ff4d4f; text-transform: uppercase;
         }
@@ -67,12 +68,49 @@
         .now-playing i { margin-right: 8px; }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
-        .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); position: relative; }
+        /* Video Container modified for Center Play/Pause button */
+        .video-container { 
+            width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
+            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
+            position: relative; cursor: pointer;
+        }
         
         /* Hiding Native Video Controls completely for a clean look */
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
+
+        /* Center Screen Play/Pause Button */
+        .center-icon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            width: 75px;
+            height: 75px;
+            background: rgba(0, 0, 0, 0.65);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none; /* Let clicks pass to the video */
+            z-index: 10;
+        }
+        .center-icon-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .center-icon-overlay i.fa-play {
+            margin-left: 6px; /* Perfect centering for play icon */
+        }
 
         .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
         
@@ -125,6 +163,8 @@
             .player-controls-bar { margin-top: 12px; }
             .ctrl-btn { padding: 10px 18px; font-size: 12px; height: 42px; margin: 0 8px; }
             .ctrl-btn.main-play { padding: 10px 26px; }
+            
+            .center-icon-overlay { width: 90px; height: 90px; font-size: 35px; }
         }
     </style>
 </head>
@@ -146,14 +186,18 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <div class="video-container">
-                <!-- TV Fix: Removed 'controls' to completely hide default white player bar -->
+            <!-- Added onclick to container so clicking the video toggles Play/Pause -->
+            <div class="video-container" onclick="togglePausePlay()">
                 <video id="tvPlayer" autoplay></video>
+                <!-- Screen Ke Beech Ka Play/Pause Button -->
+                <div class="center-icon-overlay" id="centerIconOverlay">
+                    <i class="fa-solid fa-play" id="centerIcon"></i>
+                </div>
             </div>
             
             <div class="player-controls-bar">
                 <button class="ctrl-btn" onclick="playPrevChannel()"><i class="fa-solid fa-backward-step"></i> Prev</button>
-                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn"><i class="fa-solid fa-pause" id="playPauseIcon"></i> Pause</button>
+                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn"><i class="fa-solid fa-pause" id="playPauseIcon"></i> <span id="playPauseText">Pause</span></button>
                 <button class="ctrl-btn" onclick="playNextChannel()">Next <i class="fa-solid fa-forward-step"></i></button>
                 <button class="ctrl-btn" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i></button>
             </div>
@@ -178,6 +222,9 @@
         const channelListEl = document.getElementById('channelList');
         const playPauseBtn = document.getElementById('playPauseBtn');
         const playPauseIcon = document.getElementById('playPauseIcon');
+        const playPauseText = document.getElementById('playPauseText');
+        const centerIconOverlay = document.getElementById('centerIconOverlay');
+        const centerIcon = document.getElementById('centerIcon');
         
         let hlsInstance = null;
         let savedChannels = [];
@@ -274,7 +321,6 @@
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
-                playPauseIcon.className = "fa-solid fa-pause";
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -286,7 +332,6 @@
                 hlsInstance.attachMedia(video);
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
                 });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
@@ -307,7 +352,6 @@
                 video.src = url;
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
-                    playPauseIcon.className = "fa-solid fa-pause";
                 });
             } else {
                 video.src = url;
@@ -318,15 +362,28 @@
             }
         }
 
+        // Toggles Play and Pause directly
         function togglePausePlay() {
             if (video.paused) { 
                 video.play(); 
-                playPauseIcon.className = "fa-solid fa-pause";
             } else { 
                 video.pause(); 
-                playPauseIcon.className = "fa-solid fa-play";
             }
         }
+
+        // Event listeners automatically update all icons (center + bottom bar) based on video state
+        video.addEventListener('play', () => {
+            playPauseIcon.className = "fa-solid fa-pause";
+            playPauseText.innerText = "Pause";
+            centerIconOverlay.classList.remove('show');
+        });
+
+        video.addEventListener('pause', () => {
+            playPauseIcon.className = "fa-solid fa-play";
+            playPauseText.innerText = "Play";
+            centerIcon.className = "fa-solid fa-play"; // Screen ke beech me play button dikhega
+            centerIconOverlay.classList.add('show');
+        });
 
         function playNextChannel() {
             if(savedChannels.length === 0) return;
@@ -352,6 +409,7 @@
             }
         }
         
+        // Auto Play Next Video within the Same Category
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
