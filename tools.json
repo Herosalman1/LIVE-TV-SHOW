@@ -430,6 +430,11 @@
     "category": "KIDS CARTOON"
   },
   {
+    "name": "Green Gold TV",
+    "url": "https://cc-szrmqvu8zkg16.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-szrmqvu8zkg16/bdb2e832-cd4c-45ef-85a6-6e7cec156b82/0.m3u8",
+    "category": "KIDS CARTOON"
+  },
+  {
     "name": "HUNGAMA TV",
     "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
     "category": "KIDS CARTOON"
@@ -451,7 +456,7 @@
   },
   {
     "name": "POGO TV HINDI",
-    "url": "http://103.151.60.162:2122/play/a01e/index.m3u8?hls",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
     "category": "KIDS CARTOON"
   },
   {
