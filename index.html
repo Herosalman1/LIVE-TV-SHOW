@@ -78,7 +78,6 @@
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* NAYA CLEAN TRANSPARENT ICON DESIGN */
         .center-icon-overlay {
             position: absolute;
             top: 50%;
@@ -87,12 +86,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px; /* Bada PNG jaisa Icon */
+            font-size: 50px; 
             color: rgba(255, 255, 255, 0.95);
-            /* Black background aur border hata diya hai */
             background: transparent;
             border: none;
-            /* Drop shadow add ki hai taaki icon clear dikhe */
             filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.8));
             opacity: 0;
             visibility: hidden;
@@ -222,6 +219,9 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let centerIconTimer;
+        
+        // Naya variable video ke start status ko track karne ke liye
+        let isVideoActive = false; 
 
         fetch('tools.json')
             .then(res => res.json())
@@ -305,6 +305,10 @@
         function playStream(url, name) {
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
+            // Jab naya video lagaya jaye, to active state reset kar do aur icon chupa do
+            isVideoActive = false; 
+            centerIconOverlay.classList.remove('show');
+
             if (hlsInstance) {
                 hlsInstance.destroy();
                 hlsInstance = null;
@@ -383,13 +387,23 @@
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
             playPauseText.innerText = "Pause";
-            triggerCenterAnimation('play');
+            
+            // Animation tabhi aayega jab video already active ho
+            if (isVideoActive) {
+                triggerCenterAnimation('play');
+            }
+            // Ek baar play hone par isko true kar diya
+            isVideoActive = true; 
         });
 
         video.addEventListener('pause', () => {
             playPauseIcon.className = "fa-solid fa-play";
             playPauseText.innerText = "Play";
-            triggerCenterAnimation('pause');
+            
+            // Animation tabhi aayega jab video actually start ho chuka ho
+            if (isVideoActive) {
+                triggerCenterAnimation('pause');
+            }
         });
 
         function playNextChannel() {
