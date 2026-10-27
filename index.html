@@ -21,7 +21,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+        body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; user-select: none; }
         
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--bg-main); }
@@ -68,11 +68,9 @@
 
         .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
         
-        /* STANDARD FULL SCREEN FIXES */
         .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
         
-        /* TV FULLSCREEN FALLBACK */
         .tv-fullscreen-fallback {
             position: fixed !important;
             top: 0 !important;
@@ -107,6 +105,7 @@
             gap: 8px; 
         }
         
+        /* CHANGED FROM <button> to <div> STYLING TO AVOID TV FOCUS ISSUES */
         .ctrl-btn { 
             background: rgba(255, 255, 255, 0.04); 
             border: 1px solid rgba(255, 255, 255, 0.04); 
@@ -121,9 +120,11 @@
             align-items: center; 
             justify-content: center; 
             transition: all 0.2s ease; 
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
-        .ctrl-btn:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
+        .ctrl-btn:hover, .ctrl-btn:active { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
         
         .ctrl-btn.main-play { 
             background: var(--accent-red); 
@@ -138,7 +139,7 @@
             margin: 0;
         }
         
-        .ctrl-btn.main-play:hover { background: #ff1a2b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6); }
+        .ctrl-btn.main-play:hover, .ctrl-btn.main-play:active { background: #ff1a2b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6); }
 
         .sidebar { width: 100%; background: var(--bg-sidebar); border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .sidebar-title { padding: 12px 15px; font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-color); color: #fff; display: flex; align-items: center; gap: 8px; }
@@ -213,19 +214,19 @@
                 <video id="tvPlayer" controls autoplay controlsList="nofullscreen"></video>
             </div>
             
-            <!-- BUTTONS PAR 'this.blur()' ADDED TO PREVENT TV FOCUS PAUSE BUGS -->
+            <!-- REPLACED <button> WITH <div> TO PREVENT TV FOCUS PAUSING -->
             <div class="player-controls-bar">
-                <button class="ctrl-btn" onclick="skipVideo(-10); this.blur();" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
-                <button class="ctrl-btn" onclick="playPrevChannel(); this.blur();" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                <div class="ctrl-btn" onclick="handleAction(event, 'skip', -10)" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></div>
+                <div class="ctrl-btn" onclick="handleAction(event, 'prev')" title="Previous"><i class="fa-solid fa-backward-step"></i></div>
                 
-                <button class="ctrl-btn main-play" onclick="togglePausePlay(); this.blur();" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
+                <div class="ctrl-btn main-play" onclick="handleAction(event, 'playpause')" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></div>
                 
-                <button class="ctrl-btn" onclick="playNextChannel(); this.blur();" title="Next"><i class="fa-solid fa-forward-step"></i></button>
-                <button class="ctrl-btn" onclick="skipVideo(10); this.blur();" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
+                <div class="ctrl-btn" onclick="handleAction(event, 'next')" title="Next"><i class="fa-solid fa-forward-step"></i></div>
+                <div class="ctrl-btn" onclick="handleAction(event, 'skip', 10)" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></div>
                 
-                <button class="ctrl-btn" onclick="toggleVideoFit(); this.blur();" title="Change Video Fit (Normal, Stretch, Zoom, Super Zoom)"><i class="fa-solid fa-crop-simple"></i></button>
+                <div class="ctrl-btn" onclick="handleAction(event, 'fit')" title="Change Video Fit (Normal, Stretch, Zoom, Super Zoom)"><i class="fa-solid fa-crop-simple"></i></div>
                 
-                <button class="ctrl-btn" onclick="toggleFullScreen(); this.blur();" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
+                <div class="ctrl-btn" onclick="handleAction(event, 'fullscreen')" title="Full Screen"><i class="fa-solid fa-expand"></i></div>
             </div>
         </div>
 
@@ -253,7 +254,6 @@
         let savedChannels = [];
         let currentPlayingIndex = -1;
 
-        // FIT MODES 
         let fitModes = [
             { fit: 'contain', scale: 1 },       
             { fit: 'fill', scale: 1 },          
@@ -262,10 +262,7 @@
         ];
         let fitIndex = 0;
         
-        // DEVICE DETECTION 
         const isTV = /(SmartTV|Web0S|WebOS|Tizen|TV|Roku|CrKey|BRAVIA|VIDAA)/i.test(navigator.userAgent);
-        
-        // FLAG TO TRACK IF USER ACTUALLY PAUSED IT OR TV DID IT BY MISTAKE
         let isUserPaused = false;
 
         fetch('tools.json')
@@ -328,7 +325,7 @@
 
                     item.innerHTML = `
                         <span class="channel-name"><i class="fa-solid fa-tv"></i> ${ch.name}</span>
-                        <button class="play-btn">PLAY</button>
+                        <div class="play-btn">PLAY</div>
                     `;
                     contentEl.appendChild(item);
                 });
@@ -352,7 +349,7 @@
             video.style.objectFit = fitModes[0].fit;
             video.style.transform = `scale(${fitModes[0].scale})`;
             
-            isUserPaused = false; // Reset User Pause Flag
+            isUserPaused = false; 
 
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
@@ -382,91 +379,36 @@
                             video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
                             video::-webkit-media-controls { display: none !important; }
                             
-                            /* Simple Transparent Play/Pause Overlay */
-                            #centerIcon {
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                width: 70px;
-                                height: 70px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                pointer-events: none;
-                                z-index: 10;
-                                opacity: 0;
-                                transition: opacity 0.2s ease;
-                                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
-                            }
-                            #centerIcon.show {
-                                opacity: 1;
-                            }
-                            #centerIcon svg {
-                                width: 60px;
-                                height: 60px;
-                                display: none;
-                                fill: white;
-                            }
+                            #centerIcon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.2s ease; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8)); }
+                            #centerIcon.show { opacity: 1; }
+                            #centerIcon svg { width: 60px; height: 60px; display: none; fill: white; }
                             #centerIcon.mode-play .svg-play { display: block; }
                             #centerIcon.mode-pause .svg-pause { display: block; }
                         </style>
                         </head><body>
                         <video id="video" autoplay></video>
-                        
                         <div id="centerIcon" class="show mode-play">
-                            <!-- Simple Play Icon -->
-                            <svg class="svg-play" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            <!-- Simple Pause Icon -->
-                            <svg class="svg-pause" viewBox="0 0 24 24">
-                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                            </svg>
+                            <svg class="svg-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="svg-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                         </div>
-
                         <script>
                             var video = document.getElementById('video'); 
                             var icon = document.getElementById('centerIcon');
                             var videoSrc = "${url}"; 
                             var hideTimeout;
-
                             function flashIcon(mode, autoHide) {
                                 icon.className = 'show mode-' + mode;
                                 clearTimeout(hideTimeout);
-                                if (autoHide) {
-                                    hideTimeout = setTimeout(function() {
-                                        icon.className = 'mode-' + mode;
-                                    }, 600);
-                                }
+                                if (autoHide) { hideTimeout = setTimeout(function() { icon.className = 'mode-' + mode; }, 600); }
                             }
-
                             if (window.Hls && Hls.isSupported()) { 
-                                var hls = new Hls(); 
-                                hls.loadSource(videoSrc); 
-                                hls.attachMedia(video); 
-                                hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                                var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
                             } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                video.src = videoSrc; 
-                                video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
-                            } else {
-                                video.src = videoSrc;
-                                video.play().catch(e=>console.log(e));
-                            }
-
-                            video.addEventListener('play', function() {
-                                flashIcon('pause', true);
-                            });
-                            
-                            video.addEventListener('pause', function() {
-                                flashIcon('play', false);
-                            });
-
-                            video.addEventListener('click', function() {
-                                if (video.paused) video.play();
-                                else video.pause();
-                            });
-
+                                video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
+                            } else { video.src = videoSrc; video.play().catch(e=>console.log(e)); }
+                            video.addEventListener('play', function() { flashIcon('pause', true); });
+                            video.addEventListener('pause', function() { flashIcon('play', false); });
+                            video.addEventListener('click', function() { if (video.paused) video.play(); else video.pause(); });
                             video.addEventListener('dblclick', function() {
                                 if (!document.fullscreenElement) {
                                     if (video.requestFullscreen) video.requestFullscreen();
@@ -477,7 +419,6 @@
                                 }
                             });
                         <` + `/script></body></html>`;
-                    
                     playerWindow.document.write(htmlContent);
                     playerWindow.document.close();
                 }
@@ -486,53 +427,58 @@
 
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
             
-            if (hlsInstance) {
-                hlsInstance.destroy();
-                hlsInstance = null;
-            }
+            if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
-                video.play().catch(e => console.log("Auto-play blocked"));
-            } 
-            else if (Hls.isSupported()) {
-                hlsInstance = new Hls({
-                    xhrSetup: function (xhr, url) {
-                        xhr.withCredentials = false;
-                    }
-                });
+                video.play().catch(e => console.log(e));
+            } else if (Hls.isSupported()) {
+                hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; }});
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video.play().catch(e => console.log("Auto-play blocked"));
-                });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log(e)); });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                hlsInstance.startLoad();
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                hlsInstance.recoverMediaError();
-                                break;
-                            default:
-                                hlsInstance.destroy();
-                                break;
+                            case Hls.ErrorTypes.NETWORK_ERROR: hlsInstance.startLoad(); break;
+                            case Hls.ErrorTypes.MEDIA_ERROR: hlsInstance.recoverMediaError(); break;
+                            default: hlsInstance.destroy(); break;
                         }
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => {
-                    video.play().catch(e => console.log("Auto-play blocked"));
-                });
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log(e)); });
             } else {
                 video.src = url;
                 video.load();
-                video.play().catch(e => {
-                    nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
-                });
+                video.play().catch(e => { nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported</span>`; });
+            }
+        }
+
+        // TV SAFE ACTION HANDLER
+        function handleAction(e, action, value) {
+            // STOP TV FROM KNOWING WE CLICKED A "BUTTON"
+            if(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // EXECUTE THE RIGHT FUNCTION
+            if(action === 'skip') skipVideo(value);
+            if(action === 'prev') playPrevChannel();
+            if(action === 'next') playNextChannel();
+            if(action === 'playpause') togglePausePlay();
+            if(action === 'fit') toggleVideoFit();
+            if(action === 'fullscreen') toggleFullScreen();
+
+            // ANTI-TV-PAUSE LOGIC: Agar kisi aur button ko dabane pe TV ne galti se pause kar diya toh force resume karo
+            if (action !== 'playpause' && video.paused && !isUserPaused) {
+                setTimeout(() => {
+                    video.play().catch(err => console.log(err));
+                    playPauseIcon.className = "fa-solid fa-pause";
+                }, 50);
             }
         }
 
@@ -594,16 +540,15 @@
             }
         }
         
-        // --- SMART PAUSE/PLAY EVENT LISTENERS ---
         video.addEventListener('play', function() {
             isUserPaused = false;
             playPauseIcon.className = "fa-solid fa-pause";
         });
         
         video.addEventListener('pause', function() {
-            // Agar TV ne galti se pause kiya hai (user ne Pause button nahi dabaya)
-            if (isTV && !isUserPaused) {
-                video.play().catch(e => console.log("Forced Resume blocked:", e));
+            // AGAR TV NE GALTI SE PAUSE KIYA TOH WAPAS PLAY KARO
+            if (!isUserPaused) {
+                video.play().catch(e => console.log(e));
             } else {
                 playPauseIcon.className = "fa-solid fa-play";
             }
@@ -614,7 +559,6 @@
             const currentChannel = savedChannels[currentPlayingIndex];
             const currentCategory = currentChannel.category || "OTHER";
             let nextIndex = -1;
-            
             for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
                 if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
             }
@@ -626,10 +570,8 @@
             if (nextIndex !== -1) playChannelByIndex(nextIndex);
         });
 
-        // HANDLE PHYSICAL MEDIA KEYS ON TV REMOTE & KEYBOARD
         document.addEventListener('keydown', function(e) {
             if (!video || (!video.src && !video.currentSrc)) return;
-
             switch(e.key) {
                 case 'Enter':
                 case ' ':
