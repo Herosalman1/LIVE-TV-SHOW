@@ -73,6 +73,12 @@
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
             position: relative; cursor: pointer;
         }
+
+        /* TV FULL SCREEN FIX: Forces container to stretch completely ignoring max-width */
+        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:-moz-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
         video::-webkit-media-controls { display: none !important; }
@@ -177,7 +183,6 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <!-- Removed inline onclick, handled in JS to support double click perfectly -->
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay></video>
                 <div class="center-icon-overlay" id="centerIconOverlay">
@@ -222,7 +227,7 @@
         let currentPlayingIndex = -1;
         let centerIconTimer;
         let isVideoActive = false; 
-        let clickTimer = null; // Timer to separate single and double clicks
+        let clickTimer = null; 
 
         fetch('tools.json')
             .then(res => res.json())
@@ -390,18 +395,15 @@
             }
         }
 
-        // SMART CLICK SYSTEM: Handles Single Click (Play/Pause) vs Double Click (Full Screen)
         videoContainer.addEventListener('click', function(e) {
-            // Agar detail 1 hai matlab single click
             if (e.detail === 1) {
                 clickTimer = setTimeout(() => {
                     togglePausePlay();
-                }, 250); // 250ms wait karega double click check karne ke liye
+                }, 250); 
             } 
-            // Agar detail 2 hai matlab double click
             else if (e.detail === 2) {
-                clearTimeout(clickTimer); // Single click ka action rok dega
-                toggleFullScreen(); // Full Screen ko On/Off karega
+                clearTimeout(clickTimer); 
+                toggleFullScreen(); 
             }
         });
 
@@ -433,12 +435,10 @@
             playChannelByIndex(prevIndex);
         }
 
-        // Updated toggleFullScreen logic for smooth entry and exit
         function toggleFullScreen() {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
             if (!isFullScreen) {
-                // Enter Full Screen on Container (keeps custom icons working)
                 if (videoContainer.requestFullscreen) {
                     videoContainer.requestFullscreen();
                 } else if (videoContainer.webkitRequestFullscreen) {
@@ -447,7 +447,6 @@
                     videoContainer.msRequestFullscreen();
                 }
             } else {
-                // Exit Full Screen
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 } else if (document.webkitExitFullscreen) {
