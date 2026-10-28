@@ -72,7 +72,7 @@
         .video-container { 
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
-            position: relative; cursor: pointer;
+            position: relative; 
         }
 
         /* TV FULL SCREEN FIX: Forces container to stretch completely ignoring max-width */
@@ -228,7 +228,6 @@
         let currentPlayingIndex = -1;
         let centerIconTimer;
         let isVideoActive = false; 
-        let clickTimer = null; 
 
         fetch('tools.json')
             .then(res => res.json())
@@ -514,18 +513,6 @@
                 triggerCenterAnimation('pause'); 
             }
         }
-
-        videoContainer.addEventListener('click', function(e) {
-            if (e.detail === 1) {
-                clickTimer = setTimeout(() => {
-                    togglePausePlay();
-                }, 250); 
-            } 
-            else if (e.detail === 2) {
-                clearTimeout(clickTimer); 
-                toggleFullScreen(); 
-            }
-        });
 
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
