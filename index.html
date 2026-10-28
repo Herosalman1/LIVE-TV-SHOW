@@ -136,7 +136,7 @@
             </div>
             
             <div class="video-container">
-                <video id="tvPlayer" controls autoplay playsinline></video>
+                <video id="tvPlayer" controls autoplay></video>
             </div>
             
             <div class="player-controls-bar">
@@ -271,27 +271,57 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // PC Desktop Route: EXACTLY WHAT WORKS IN YOUR OFFLINE PLAYER
-                    // Creates an about:blank tab and writes your exact Universal Stream Player HTML into it
-                    const playerWindow = window.open('', '_blank');
-                    const htmlContent = `<html><head><title>Universal Stream Player</title>
-                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
+                    // PC Desktop Route: Use Blob URL to prevent extension breakage
+                    const htmlContent = `<html><head><title>${name} - Live Stream</title>
+                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
                         <style>
                             html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; outline: none; }
-                            .header { position: absolute; top: 15px; left: 15px; z-index: 10; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.5); padding: 5px 8px; border-radius: 6px; backdrop-filter: blur(5px); }
-                            .copy-emoji { background: transparent; border: none; cursor: pointer; font-size: 22px; padding: 2px; color: white; transition: transform 0.2s ease; }
-                            .copy-emoji:hover { transform: scale(1.15); }
+                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
+                            video::-webkit-media-controls { display: none !important; }
+                            
+                            #centerIcon {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 70px;
+                                height: 70px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                pointer-events: none;
+                                z-index: 10;
+                                opacity: 0;
+                                transition: opacity 0.2s ease;
+                                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+                            }
+                            #centerIcon.show { opacity: 1; }
+                            #centerIcon svg { width: 60px; height: 60px; display: none; fill: white; }
+                            #centerIcon.mode-play .svg-play { display: block; }
+                            #centerIcon.mode-pause .svg-pause { display: block; }
                         </style>
-                        </head><body><div class="header"><button id="copy-player-btn" class="copy-emoji" title="Copy Stream URL">📋</button></div><video id="video" controls autoplay></video>
+                        </head><body>
+                        <video id="video" autoplay></video>
+                        <div id="centerIcon" class="mode-pause">
+                            <svg class="svg-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                            <svg class="svg-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+                        </div>
                         <script>
                             var video = document.getElementById('video'); 
+                            var icon = document.getElementById('centerIcon');
                             var videoSrc = "${url}"; 
-                            document.getElementById('copy-player-btn').addEventListener('click', function() { 
-                                navigator.clipboard.writeText(videoSrc); 
-                                this.innerText = '✅'; 
-                                setTimeout(() => { this.innerText = '📋'; }, 1500); 
-                            }); 
+                            var hideTimeout;
+
+                            function flashIcon(mode, autoHide) {
+                                icon.className = 'show mode-' + mode;
+                                clearTimeout(hideTimeout);
+                                if (autoHide) {
+                                    hideTimeout = setTimeout(function() {
+                                        icon.className = 'mode-' + mode;
+                                    }, 600);
+                                }
+                            }
+
                             if (window.Hls && Hls.isSupported()) { 
                                 var hls = new Hls(); 
                                 hls.loadSource(videoSrc); 
@@ -304,10 +334,29 @@
                                 video.src = videoSrc;
                                 video.play().catch(e=>console.log(e));
                             }
-                        <` + `/script></body></html>`;
+
+                            video.addEventListener('play', function() { flashIcon('pause', true); });
+                            video.addEventListener('pause', function() { flashIcon('play', false); });
+
+                            video.addEventListener('click', function() {
+                                if (video.paused) video.play();
+                                else video.pause();
+                            });
+
+                            video.addEventListener('dblclick', function() {
+                                if (!document.fullscreenElement) {
+                                    if (video.requestFullscreen) video.requestFullscreen();
+                                    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+                                } else {
+                                    if (document.exitFullscreen) document.exitFullscreen();
+                                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                                }
+                            });
+                        <\/script></body></html>`;
                     
-                    playerWindow.document.write(htmlContent);
-                    playerWindow.document.close();
+                    const blob = new Blob([htmlContent], { type: 'text/html' });
+                    const blobUrl = URL.createObjectURL(blob);
+                    window.open(blobUrl, '_blank');
                 }
                 return;
             }
