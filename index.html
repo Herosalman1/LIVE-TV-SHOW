@@ -271,8 +271,8 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // PC Desktop Route: EXACTLY WHAT WORKS IN YOUR TAMPERMONKEY
-                    // Creates an about:blank tab and writes your exact 100% working HTML into it
+                    // PC Desktop Route: EXACTLY WHAT WORKS IN YOUR OFFLINE PLAYER
+                    // Creates an about:blank tab and writes your exact Universal Stream Player HTML into it
                     const playerWindow = window.open('', '_blank');
                     const htmlContent = `<html><head><title>Universal Stream Player</title>
                         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
