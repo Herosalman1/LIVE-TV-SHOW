@@ -74,7 +74,6 @@
             position: relative; cursor: pointer;
         }
 
-        /* TV FULL SCREEN FIX: Forces container to stretch completely ignoring max-width */
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:-moz-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
@@ -134,7 +133,8 @@
         
         .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; line-height: 1.4; word-break: break-word; }
         .channel-name i { color: var(--accent-red); margin-right: 8px; flex-shrink: 0; }
-        .play-btn { margin-left: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+        .play-btn { margin-left: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; transition: 0.2s; }
+        .play-btn:hover { background: rgba(255,255,255,0.15); }
 
         @media (min-width: 900px) {
             .header { padding: 15px 35px; }
@@ -308,6 +308,42 @@
             playStream(ch.url, ch.name);
         }
 
+        // Redirect Fallback Logic (PC/Mobile)
+        function openExternalPlayer(url) {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Mobile me VLC app open karega
+                window.location.href = "vlc://" + url;
+            } else {
+                // PC me naye about:blank tab mein Native Player inject karega (For Extension Hook)
+                let newWin = window.open('about:blank', '_blank');
+                if (newWin) {
+                    newWin.document.write(`
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>Live Stream Player</title>
+                            <style>
+                                body { margin: 0; padding: 0; background-color: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+                                video { width: 100vw; height: 100vh; outline: none; }
+                            </style>
+                        </head>
+                        <body>
+                            <video controls autoplay name="media">
+                                <source src="${url}" type="application/x-mpegURL">
+                            </video>
+                        </body>
+                        </html>
+                    `);
+                    newWin.document.close();
+                } else {
+                    alert("Popup blocked! External player open karne ke liye browser popups allow karein.");
+                }
+            }
+        }
+
         function playStream(url, name) {
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
@@ -319,10 +355,18 @@
                 hlsInstance = null;
             }
 
+            // SMART BYPASS: Agar URL workers.dev ka hai to direct external bhej do bina error ka wait kiye
+            if (url.includes('.workers.dev')) {
+                nowPlayingText.innerHTML = `<i class="fa-solid fa-up-right-from-square" style="color: #ff9800; margin-right: 8px;"></i> Redirecting External: <span style="margin-left: 8px;">${name}</span>`;
+                openExternalPlayer(url);
+                return; 
+            }
+
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
+                video.onerror = () => openExternalPlayer(url);
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -335,19 +379,13 @@
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                 });
+                
+                // Agar HLS support karta hai par stream load hone me fatal error aati hai
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
-                        switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                hlsInstance.startLoad();
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                hlsInstance.recoverMediaError();
-                                break;
-                            default:
-                                hlsInstance.destroy();
-                                break;
-                        }
+                        nowPlayingText.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color: #ff9800; margin-right: 8px;"></i> Stream Error. Redirecting: <span style="margin-left: 8px;">${name}</span>`;
+                        hlsInstance.destroy();
+                        openExternalPlayer(url);
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
@@ -355,12 +393,9 @@
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                 });
+                video.onerror = () => openExternalPlayer(url);
             } else {
-                video.src = url;
-                video.load();
-                video.play().catch(e => {
-                    nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
-                });
+                openExternalPlayer(url);
             }
         }
 
