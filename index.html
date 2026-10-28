@@ -183,7 +183,7 @@
             </div>
             
             <div class="video-container" id="videoContainer">
-                <video id="tvPlayer" autoplay></video>
+                <video id="tvPlayer" autoplay playsinline></video>
                 <div class="center-icon-overlay" id="centerIconOverlay">
                     <i class="fa-solid fa-play" id="centerIcon"></i>
                 </div>
@@ -221,9 +221,11 @@
         const centerIconOverlay = document.getElementById('centerIconOverlay');
         const centerIcon = document.getElementById('centerIcon');
         
+        let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let centerIconTimer;
+        let isVideoActive = false; 
         let clickTimer = null; 
 
         fetch('tools.json')
@@ -306,15 +308,187 @@
         }
 
         // ==========================================
-        // AUTO RE-DIRECT TO PLAYER 2 WITH ORIGINAL URL
+        // SMART AUTO-FALLBACK LOGIC
         // ==========================================
         function playStream(url, name) {
-            nowPlayingText.innerHTML = `<i class="fa-solid fa-spinner fa-spin" style="color: var(--accent-red); margin-right: 8px;"></i> Redirecting to Player 2: <span style="margin-left: 8px;">${name}</span>`;
+            nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
-            // Ye line click karte hi original URL (expire time ke sath) ko 
-            // seedha aapke "IPTV CORS PLAYER_2.html" mein bhej degi aur play kar degi.
-            window.location.href = "IPTV CORS PLAYER_2.html?url=" + encodeURIComponent(url);
+            isVideoActive = false; 
+            centerIconOverlay.classList.remove('show');
+            let hasRedirected = false; // Prevent multiple tabs from opening
+
+            // Ye function sirf tab chalega jab video load hone mein fail hogi
+            function fallbackToPlayer2() {
+                if(hasRedirected) return;
+                hasRedirected = true;
+                
+                nowPlayingText.innerHTML = `<i class="fa-solid fa-external-link-alt" style="color: var(--accent-red); margin-right: 8px;"></i> CORS/Load Error. Auto-redirected to Player 2: <span style="margin-left: 8px; color: var(--accent-green);">${name}</span>`;
+                
+                const newWin = window.open('about:blank', '_blank');
+                
+                const playerHTML = `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Player 2 - ${name}</title>
+                    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+                    <style>
+                        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; --text-muted: #94a3b8; --input-bg: #0b1120; --border-color: #334155; --accent-yellow: #f59e0b; --accent-green: #10b981; }
+                        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); background-image: radial-gradient(circle at top right, #1e293b, #0f172a); color: var(--text-main); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+                        .card { background-color: var(--card-bg); padding: 30px; border-radius: 16px; max-width: 800px; width: 100%; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); }
+                        h2 { margin-top: 0; margin-bottom: 24px; text-align: center; font-weight: 700; font-size: 24px; color: #ffffff; }
+                        .input-group { margin-bottom: 20px; }
+                        label { display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; }
+                        input[type="text"] { width: 100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--input-bg); color: var(--text-main); box-sizing: border-box; font-size: 14px; outline: none; margin-bottom: 16px; }
+                        .status-box { font-size: 13px; color: var(--accent-green); margin-bottom: 20px; background: rgba(16, 185, 129, 0.05); padding: 12px; border-radius: 8px; text-align: center; font-weight: 500; border: 1px solid rgba(16, 185, 129, 0.2); }
+                        video { width: 100%; border-radius: 12px; background-color: #000; aspect-ratio: 16 / 9; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 1px solid var(--border-color); outline: none; }
+                    </style>
+                </head>
+                <body>
+                <div class="card">
+                    <h2>Premium Stream Player (Memory Mode)</h2>
+                    <div class="input-group">
+                        <label>Active Original URL (Bypassing CORS)</label>
+                        <input type="text" readonly value="${url}">
+                    </div>
+                    <div class="status-box" id="statusBox">Playing Directly from Original Source!</div>
+                    <video id="videoPlayer" controls autoplay playsinline></video>
+                </div>
+                <script>
+                    const video = document.getElementById("videoPlayer");
+                    const targetUrl = "${url}";
+                    
+                    if (Hls.isSupported()) {
+                        const hlsInstance = new Hls({ enableWorker: true, lowLatencyMode: true });
+                        hlsInstance.loadSource(targetUrl);
+                        hlsInstance.attachMedia(video);
+                        hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
+                            video.play().catch(e => console.log("Autoplay blocked:", e));
+                        });
+                        hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+                            if (data.fatal) {
+                                document.getElementById('statusBox').innerText = "STREAM EXPIRED OR CORS ERROR !";
+                                document.getElementById('statusBox').style.color = "#ef4444";
+                                document.getElementById('statusBox').style.borderColor = "rgba(239, 68, 68, 0.2)";
+                                document.getElementById('statusBox').style.backgroundColor = "rgba(239, 68, 68, 0.05)";
+                            }
+                        });
+                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        video.src = targetUrl;
+                        video.addEventListener('loadedmetadata', function () {
+                            video.play().catch(e => console.log(e));
+                        });
+                    }
+                <\/script>
+                </body>
+                </html>`;
+
+                newWin.document.open();
+                newWin.document.write(playerHTML);
+                newWin.document.close();
+            }
+
+            // Normal Playback Try
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+
+            // Agar native video block ho jaye
+            video.onerror = function() {
+                fallbackToPlayer2();
+            };
+
+            if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
+                video.src = url;
+                video.load();
+                video.play().catch(e => console.log("Auto-play blocked"));
+            } 
+            else if (Hls.isSupported()) {
+                hlsInstance = new Hls({
+                    xhrSetup: function (xhr, u) {
+                        xhr.withCredentials = false;
+                    }
+                });
+                hlsInstance.loadSource(url);
+                hlsInstance.attachMedia(video);
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().catch(e => console.log("Auto-play blocked"));
+                });
+                hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+                    // Agar CORS error ya koi aur fatal error aaya, tabhi Player 2 kholega
+                    if (data.fatal) {
+                        fallbackToPlayer2();
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = url;
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(e => console.log("Auto-play blocked"));
+                });
+            } else {
+                fallbackToPlayer2();
+            }
         }
+
+        function triggerCenterAnimation(action) {
+            if (action === 'play') {
+                centerIcon.className = "fa-solid fa-play";
+                if(window.innerWidth > 900) { centerIcon.style.marginLeft = "6px"; } else { centerIcon.style.marginLeft = "4px"; }
+            } else {
+                centerIcon.className = "fa-solid fa-pause";
+                centerIcon.style.marginLeft = "0px";
+            }
+            
+            centerIconOverlay.classList.remove('show');
+            void centerIconOverlay.offsetWidth; 
+            centerIconOverlay.classList.add('show');
+            
+            clearTimeout(centerIconTimer);
+            centerIconTimer = setTimeout(() => {
+                centerIconOverlay.classList.remove('show');
+            }, 500); 
+        }
+
+        function togglePausePlay() {
+            if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
+
+            if (video.paused) { 
+                video.play();
+                triggerCenterAnimation('play'); 
+            } else { 
+                video.pause(); 
+                triggerCenterAnimation('pause'); 
+            }
+        }
+
+        videoContainer.addEventListener('click', function(e) {
+            if (e.detail === 1) {
+                clickTimer = setTimeout(() => {
+                    togglePausePlay();
+                }, 250); 
+            } 
+            else if (e.detail === 2) {
+                clearTimeout(clickTimer); 
+                toggleFullScreen(); 
+            }
+        });
+
+        video.addEventListener('play', () => {
+            playPauseIcon.className = "fa-solid fa-pause";
+            playPauseText.innerText = "Pause";
+        });
+
+        video.addEventListener('pause', () => {
+            playPauseIcon.className = "fa-solid fa-play";
+            playPauseText.innerText = "Play";
+        });
+
+        video.addEventListener('playing', () => {
+             isVideoActive = true; 
+        });
 
         function playNextChannel() {
             if(savedChannels.length === 0) return;
@@ -332,6 +506,7 @@
 
         function toggleFullScreen() {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
             if (!isFullScreen) {
                 if (videoContainer.requestFullscreen) {
                     videoContainer.requestFullscreen();
@@ -345,9 +520,78 @@
                     document.exitFullscreen();
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
                 }
             }
         }
+        
+        video.addEventListener('ended', function() {
+            if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
+
+            const currentChannel = savedChannels[currentPlayingIndex];
+            const currentCategory = currentChannel.category || "OTHER";
+
+            let nextIndex = -1;
+            
+            for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
+                const checkCat = savedChannels[i].category || "OTHER";
+                if (checkCat === currentCategory) {
+                    nextIndex = i;
+                    break;
+                }
+            }
+            
+            if (nextIndex === -1) {
+                for (let i = 0; i < currentPlayingIndex; i++) {
+                    const checkCat = savedChannels[i].category || "OTHER";
+                    if (checkCat === currentCategory) {
+                        nextIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (nextIndex !== -1) {
+                playChannelByIndex(nextIndex);
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            if (isFullScreen) {
+                if (event.key === 'ArrowRight') {
+                    video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                    triggerCenterAnimation('play'); 
+                    event.preventDefault(); 
+                } else if (event.key === 'ArrowLeft') {
+                    video.currentTime = Math.max(0, video.currentTime - 10);
+                    triggerCenterAnimation('play'); 
+                    event.preventDefault();
+                }
+            }
+        });
+
+        document.addEventListener('wheel', function(event) {
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            if (isFullScreen || videoContainer.contains(event.target)) {
+                event.preventDefault(); 
+                
+                let currentVolume = video.volume;
+                
+                if (event.deltaY < 0) {
+                    currentVolume = Math.min(1, currentVolume + 0.05); 
+                } 
+                else if (event.deltaY > 0) {
+                    currentVolume = Math.max(0, currentVolume - 0.05); 
+                }
+                
+                video.volume = currentVolume;
+            }
+        }, { passive: false }); 
+        
     </script>
 </body>
 </html>
