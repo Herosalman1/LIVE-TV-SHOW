@@ -66,8 +66,46 @@
         }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
-        .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); position: relative; }
+        .video-container { 
+            width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); position: relative; cursor: pointer;
+        }
+
+        /* TV & PC Full Screen Fix */
+        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:-moz-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
+
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
+        video::-webkit-media-controls { display: none !important; }
+        video::-webkit-media-controls-enclosure { display: none !important; }
+
+        /* Smooth Center Play/Pause Animation Overlay */
+        .center-icon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px; 
+            color: rgba(255, 255, 255, 0.95);
+            background: transparent;
+            border: none;
+            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.8));
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.15s ease-out; 
+            pointer-events: none; 
+            z-index: 10;
+        }
+        .center-icon-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
         .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
         .ctrl-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 4px; flex: 1; margin: 0 6px; transition: 0.2s; white-space: nowrap; height: 38px; }
@@ -114,6 +152,7 @@
             .player-controls-bar { margin-top: 12px; }
             .ctrl-btn { padding: 10px 18px; font-size: 12px; height: 42px; margin: 0 8px; }
             .ctrl-btn.main-play { padding: 10px 26px; }
+            .center-icon-overlay { font-size: 70px; }
         }
     </style>
 </head>
@@ -135,8 +174,11 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <div class="video-container">
-                <video id="tvPlayer" controls autoplay playsinline></video>
+            <div class="video-container" id="videoContainer">
+                <video id="tvPlayer" autoplay playsinline></video>
+                <div class="center-icon-overlay" id="centerIconOverlay">
+                    <i class="fa-solid fa-play" id="centerIcon"></i>
+                </div>
             </div>
             
             <div class="player-controls-bar">
@@ -162,13 +204,18 @@
 
     <script>
         const video = document.getElementById('tvPlayer');
+        const videoContainer = document.getElementById('videoContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
         const playPauseBtn = document.getElementById('playPauseBtn');
+        const centerIconOverlay = document.getElementById('centerIconOverlay');
+        const centerIcon = document.getElementById('centerIcon');
         
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
+        let centerIconTimer;
+        let clickTimer = null;
 
         fetch('tools.json')
             .then(res => res.json())
@@ -270,10 +317,9 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // EXACT OFFLINE PLAYER METHOD: Force about:blank using document-write mechanism without blob
+                    // Working TV & PC Extension Popup method from your trusted old setup
                     const playerWindow = window.open('about:blank', '_blank');
                     
-                    // Thoda sa delay dekar write karna taaki about:blank tab fully ready ho jaye
                     setTimeout(() => {
                         const htmlContent = `<!DOCTYPE html>
                         <html>
@@ -426,15 +472,52 @@
             }
         }
 
+        function triggerCenterAnimation(action) {
+            if (action === 'play') {
+                centerIcon.className = "fa-solid fa-play";
+            } else {
+                centerIcon.className = "fa-solid fa-pause";
+            }
+            centerIconOverlay.classList.remove('show');
+            void centerIconOverlay.offsetWidth; 
+            centerIconOverlay.classList.add('show');
+            clearTimeout(centerIconTimer);
+            centerIconTimer = setTimeout(() => {
+                centerIconOverlay.classList.remove('show');
+            }, 500); 
+        }
+
         function togglePausePlay() {
             if (video.paused) { 
                 video.play(); 
                 playPauseBtn.innerText = "Pause";
+                triggerCenterAnimation('play');
             } else { 
                 video.pause(); 
                 playPauseBtn.innerText = "Play";
+                triggerCenterAnimation('pause');
             }
         }
+
+        // Smart Single/Double Click Handling on Main Player
+        videoContainer.addEventListener('click', function(e) {
+            if (e.detail === 1) {
+                clickTimer = setTimeout(() => {
+                    togglePausePlay();
+                }, 250);
+            } else if (e.detail === 2) {
+                clearTimeout(clickTimer);
+                toggleFullScreen();
+            }
+        });
+
+        video.addEventListener('play', () => {
+            playPauseBtn.innerText = "Pause";
+        });
+
+        video.addEventListener('pause', () => {
+            playPauseBtn.innerText = "Play";
+        });
 
         function playNextChannel() {
             if(savedChannels.length === 0) return;
@@ -451,57 +534,66 @@
         }
 
         function toggleFullScreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (!isFullScreen) {
+                if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
+                else if (videoContainer.webkitRequestFullscreen) videoContainer.webkitRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
             }
         }
         
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
-
             const currentChannel = savedChannels[currentPlayingIndex];
             const currentCategory = currentChannel.category || "OTHER";
-
             let nextIndex = -1;
             
             for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
-                const checkCat = savedChannels[i].category || "OTHER";
-                if (checkCat === currentCategory) {
-                    nextIndex = i;
-                    break;
-                }
+                if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
             }
-            
             if (nextIndex === -1) {
                 for (let i = 0; i < currentPlayingIndex; i++) {
-                    const checkCat = savedChannels[i].category || "OTHER";
-                    if (checkCat === currentCategory) {
-                        nextIndex = i;
-                        break;
-                    }
+                    if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
                 }
             }
-
-            if (nextIndex !== -1) {
-                playChannelByIndex(nextIndex);
-            }
+            if (nextIndex !== -1) playChannelByIndex(nextIndex);
         });
 
+        // Keyboard Controls (Arrow Keys for Seek, Space for Play/Pause)
         document.addEventListener('keydown', function(e) {
-            if (!video || (!video.src && !video.currentSrc)) return;
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            if (e.key === ' ' || e.key === 'Enter') {
+                togglePausePlay();
+                e.preventDefault();
+            }
 
-            switch(e.key) {
-                case 'Enter':
-                case ' ':
-                    togglePausePlay();
+            if (isFullScreen) {
+                if (e.key === 'ArrowRight') {
+                    video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                    triggerCenterAnimation('play');
                     e.preventDefault();
-                    break;
+                } else if (e.key === 'ArrowLeft') {
+                    video.currentTime = Math.max(0, video.currentTime - 10);
+                    triggerCenterAnimation('play');
+                    e.preventDefault();
+                }
             }
         });
+
+        // Mouse Wheel Volume Control
+        document.addEventListener('wheel', function(e) {
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (isFullScreen || videoContainer.contains(e.target)) {
+                e.preventDefault();
+                let vol = video.volume;
+                if (e.deltaY < 0) vol = Math.min(1, vol + 0.05);
+                else if (e.deltaY > 0) vol = Math.max(0, vol - 0.05);
+                video.volume = vol;
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
