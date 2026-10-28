@@ -136,7 +136,7 @@
             </div>
             
             <div class="video-container">
-                <video id="tvPlayer" controls autoplay></video>
+                <video id="tvPlayer" controls autoplay playsinline></video>
             </div>
             
             <div class="player-controls-bar">
@@ -261,7 +261,6 @@
                 let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 
                 if (isMobile) {
-                    // Mobile VLC Direct Route
                     let isAndroid = /Android/i.test(navigator.userAgent);
                     if (isAndroid) {
                         let cleanUrl = url.replace(/^https?:\/\//i, '');
@@ -271,97 +270,107 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    // PC Desktop Route: Use Blob URL to prevent extension breakage
-                    const htmlContent = `<html><head><title>${name} - Live Stream</title>
-                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                        <style>
-                            html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
-                            video::-webkit-media-controls { display: none !important; }
-                            
-                            #centerIcon {
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                width: 70px;
-                                height: 70px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                pointer-events: none;
-                                z-index: 10;
-                                opacity: 0;
-                                transition: opacity 0.2s ease;
-                                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
-                            }
-                            #centerIcon.show { opacity: 1; }
-                            #centerIcon svg { width: 60px; height: 60px; display: none; fill: white; }
-                            #centerIcon.mode-play .svg-play { display: block; }
-                            #centerIcon.mode-pause .svg-pause { display: block; }
-                        </style>
-                        </head><body>
-                        <video id="video" autoplay></video>
-                        <div id="centerIcon" class="mode-pause">
-                            <svg class="svg-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                            <svg class="svg-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-                        </div>
-                        <script>
-                            var video = document.getElementById('video'); 
-                            var icon = document.getElementById('centerIcon');
-                            var videoSrc = "${url}"; 
-                            var hideTimeout;
-
-                            function flashIcon(mode, autoHide) {
-                                icon.className = 'show mode-' + mode;
-                                clearTimeout(hideTimeout);
-                                if (autoHide) {
-                                    hideTimeout = setTimeout(function() {
-                                        icon.className = 'mode-' + mode;
-                                    }, 600);
-                                }
-                            }
-
-                            if (window.Hls && Hls.isSupported()) { 
-                                var hls = new Hls(); 
-                                hls.loadSource(videoSrc); 
-                                hls.attachMedia(video); 
-                                hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
-                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                video.src = videoSrc; 
-                                video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
-                            } else {
-                                video.src = videoSrc;
-                                video.play().catch(e=>console.log(e));
-                            }
-
-                            video.addEventListener('play', function() { flashIcon('pause', true); });
-                            video.addEventListener('pause', function() { flashIcon('play', false); });
-
-                            video.addEventListener('click', function() {
-                                if (video.paused) video.play();
-                                else video.pause();
-                            });
-
-                            video.addEventListener('dblclick', function() {
-                                if (!document.fullscreenElement) {
-                                    if (video.requestFullscreen) video.requestFullscreen();
-                                    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-                                } else {
-                                    if (document.exitFullscreen) document.exitFullscreen();
-                                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                                }
-                            });
-                        <\/script></body></html>`;
+                    // EXACT OFFLINE PLAYER METHOD: Force about:blank using document-write mechanism without blob
+                    const playerWindow = window.open('about:blank', '_blank');
                     
-                    const blob = new Blob([htmlContent], { type: 'text/html' });
-                    const blobUrl = URL.createObjectURL(blob);
-                    window.open(blobUrl, '_blank');
+                    // Thoda sa delay dekar write karna taaki about:blank tab fully ready ho jaye
+                    setTimeout(() => {
+                        const htmlContent = `<!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>${name} - Live Stream</title>
+                            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
+                            <style>
+                                html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+                                video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
+                                video::-webkit-media-controls { display: none !important; }
+                                
+                                #centerIcon {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 70px;
+                                    height: 70px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    pointer-events: none;
+                                    z-index: 10;
+                                    opacity: 0;
+                                    transition: opacity 0.2s ease;
+                                    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+                                }
+                                #centerIcon.show { opacity: 1; }
+                                #centerIcon svg { width: 60px; height: 60px; display: none; fill: white; }
+                                #centerIcon.mode-play .svg-play { display: block; }
+                                #centerIcon.mode-pause .svg-pause { display: block; }
+                            </style>
+                        </head>
+                        <body>
+                            <video id="video" autoplay playsinline></video>
+                            <div id="centerIcon" class="mode-pause">
+                                <svg class="svg-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="svg-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                            </div>
+                            <script>
+                                var video = document.getElementById('video'); 
+                                var icon = document.getElementById('centerIcon');
+                                var videoSrc = "${url}"; 
+                                var hideTimeout;
+
+                                function flashIcon(mode, autoHide) {
+                                    icon.className = 'show mode-' + mode;
+                                    clearTimeout(hideTimeout);
+                                    if (autoHide) {
+                                        hideTimeout = setTimeout(function() {
+                                            icon.className = 'mode-' + mode;
+                                        }, 600);
+                                    }
+                                }
+
+                                if (window.Hls && Hls.isSupported()) { 
+                                    var hls = new Hls(); 
+                                    hls.loadSource(videoSrc); 
+                                    hls.attachMedia(video); 
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                                } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
+                                    video.src = videoSrc; 
+                                    video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
+                                } else {
+                                    video.src = videoSrc;
+                                    video.play().catch(e=>console.log(e));
+                                }
+
+                                video.addEventListener('play', function() { flashIcon('pause', true); });
+                                video.addEventListener('pause', function() { flashIcon('play', false); });
+
+                                video.addEventListener('click', function() {
+                                    if (video.paused) video.play();
+                                    else video.pause();
+                                });
+
+                                video.addEventListener('dblclick', function() {
+                                    if (!document.fullscreenElement) {
+                                        if (video.requestFullscreen) video.requestFullscreen();
+                                        else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+                                    } else {
+                                        if (document.exitFullscreen) document.exitFullscreen();
+                                        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                                    }
+                                });
+                            <\/script>
+                        </body>
+                        </html>`;
+                        
+                        playerWindow.document.open();
+                        playerWindow.document.write(htmlContent);
+                        playerWindow.document.close();
+                    }, 200);
                 }
                 return;
             }
 
-            // Normal Playback (non-workers.dev links)
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
             
             if (hlsInstance) {
