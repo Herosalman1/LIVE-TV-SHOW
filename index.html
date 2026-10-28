@@ -285,6 +285,7 @@
                     const item = document.createElement('div');
                     item.className = 'channel-item';
                     item.setAttribute('data-index', ch.originalIndex);
+                    
                     item.onclick = () => playChannelByIndex(ch.originalIndex);
 
                     item.innerHTML = `
@@ -305,18 +306,25 @@
             const activeItem = document.querySelector(`.channel-item[data-index="${index}"]`);
             if(activeItem) activeItem.classList.add('active');
 
-            playStream(ch.url, ch.name);
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            // Mobile (VLC) fallback
+            if (isMobile && (ch.url.includes('.workers.dev') || ch.url.includes('tgaadi'))) {
+                nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Opening in VLC: <span style="margin-left: 8px;">${ch.name}</span>`;
+                window.location.href = "vlc://" + ch.url;
+            } else {
+                playStream(ch.url, ch.name);
+            }
         }
 
-        // Redirect Fallback Logic (PC/Mobile)
-        function openExternalPlayer(url) {
+        // ABOUT:BLANK PLAYER 2 CODE (PC EXTENSION SUPPORT)
+        function openPlayer2(url, name) {
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             
             if (isMobile) {
-                // Mobile me VLC app open karega
                 window.location.href = "vlc://" + url;
             } else {
-                // PC me naye about:blank tab mein Native Player inject karega (For Extension Hook)
+                nowPlayingText.innerHTML = `<i class="fa-solid fa-up-right-from-square" style="color: #ff9800; margin-right: 8px;"></i> Running in Extension: <span style="margin-left: 8px;">${name}</span>`;
                 let newWin = window.open('about:blank', '_blank');
                 if (newWin) {
                     newWin.document.write(`
@@ -324,22 +332,48 @@
                         <html lang="en">
                         <head>
                             <meta charset="UTF-8">
-                            <title>Live Stream Player</title>
+                            <title>Universal Stream Player</title>
+                            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
                             <style>
-                                body { margin: 0; padding: 0; background-color: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-                                video { width: 100vw; height: 100vh; outline: none; }
+                                html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+                                video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; outline: none; }
+                                .header { position: absolute; top: 15px; left: 15px; z-index: 10; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.5); padding: 5px 8px; border-radius: 6px; backdrop-filter: blur(5px); }
+                                .copy-emoji { background: transparent; border: none; cursor: pointer; font-size: 22px; padding: 2px; color: white; transition: transform 0.2s ease; }
+                                .copy-emoji:hover { transform: scale(1.15); }
                             </style>
                         </head>
                         <body>
-                            <video controls autoplay name="media">
-                                <source src="${url}" type="application/x-mpegURL">
-                            </video>
+                            <div class="header">
+                                <button id="copy-player-btn" class="copy-emoji" title="Copy Stream URL">📋</button>
+                            </div>
+                            <video id="video" controls autoplay></video>
+                            <script>
+                                var video = document.getElementById('video'); 
+                                var videoSrc = "${url}"; 
+                                document.getElementById('copy-player-btn').addEventListener('click', function() { 
+                                    navigator.clipboard.writeText(videoSrc); 
+                                    this.innerText = '✅'; 
+                                    setTimeout(() => { this.innerText = '📋'; }, 1500); 
+                                });
+                                if (window.Hls && Hls.isSupported()) { 
+                                    var hls = new Hls(); 
+                                    hls.loadSource(videoSrc); 
+                                    hls.attachMedia(video); 
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); }); 
+                                } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
+                                    video.src = videoSrc; 
+                                    video.addEventListener('loadedmetadata', function() { video.play(); }); 
+                                } else {
+                                    video.src = videoSrc;
+                                    video.play().catch(()=>{});
+                                }
+                            <\/script>
                         </body>
                         </html>
                     `);
                     newWin.document.close();
                 } else {
-                    alert("Popup blocked! External player open karne ke liye browser popups allow karein.");
+                    alert("Popup blocked! Please allow popups to open the external player.");
                 }
             }
         }
@@ -355,18 +389,17 @@
                 hlsInstance = null;
             }
 
-            // SMART BYPASS: Agar URL workers.dev ka hai to direct external bhej do bina error ka wait kiye
-            if (url.includes('.workers.dev')) {
-                nowPlayingText.innerHTML = `<i class="fa-solid fa-up-right-from-square" style="color: #ff9800; margin-right: 8px;"></i> Redirecting External: <span style="margin-left: 8px;">${name}</span>`;
-                openExternalPlayer(url);
-                return; 
+            // SMART REDIRECT FOR WORKERS URLS OR KNOWN BLOCKED
+            if (url.includes('.workers.dev') || url.includes('tgaadi')) {
+                openPlayer2(url, name);
+                return;
             }
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
                 video.play().catch(e => console.log("Auto-play blocked"));
-                video.onerror = () => openExternalPlayer(url);
+                video.onerror = () => openPlayer2(url, name);
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({
@@ -379,13 +412,11 @@
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                 });
-                
-                // Agar HLS support karta hai par stream load hone me fatal error aati hai
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
-                        nowPlayingText.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color: #ff9800; margin-right: 8px;"></i> Stream Error. Redirecting: <span style="margin-left: 8px;">${name}</span>`;
+                        // Agar stream block hui toh Player 2 mein daal do
                         hlsInstance.destroy();
-                        openExternalPlayer(url);
+                        openPlayer2(url, name);
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
@@ -393,9 +424,9 @@
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.log("Auto-play blocked"));
                 });
-                video.onerror = () => openExternalPlayer(url);
+                video.onerror = () => openPlayer2(url, name);
             } else {
-                openExternalPlayer(url);
+                openPlayer2(url, name);
             }
         }
 
