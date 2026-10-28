@@ -67,7 +67,29 @@
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; }
 
         .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); position: relative; }
+        
+        .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+        
+        .tv-fullscreen-fallback {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+            z-index: 999999 !important;
+            border-radius: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #000 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: contain; display: block; transition: all 0.3s ease; transform: scale(1); }
+        video::-webkit-media-controls-fullscreen-button { display: none !important; }
 
         .player-controls-bar { 
             display: flex; 
@@ -185,22 +207,22 @@
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
             
-            <div class="video-container">
+            <div class="video-container" id="vidContainer">
                 <video id="tvPlayer" controls autoplay></video>
             </div>
             
             <div class="player-controls-bar">
-                <button class="ctrl-btn" onclick="skipVideo(-10)" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
-                <button class="ctrl-btn" onclick="playPrevChannel()" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(-10); this.blur();" title="Skip -10s"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="ctrl-btn" onclick="playPrevChannel(); this.blur();" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
                 
-                <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
+                <button class="ctrl-btn main-play" onclick="togglePausePlay(); this.blur();" id="playPauseBtn" title="Play/Pause"><i class="fa-solid fa-pause" id="playPauseIcon"></i></button>
                 
-                <button class="ctrl-btn" onclick="playNextChannel()" title="Next"><i class="fa-solid fa-forward-step"></i></button>
-                <button class="ctrl-btn" onclick="skipVideo(10)" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="ctrl-btn" onclick="playNextChannel(); this.blur();" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="ctrl-btn" onclick="skipVideo(10); this.blur();" title="Skip +10s"><i class="fa-solid fa-rotate-right"></i></button>
                 
-                <button class="ctrl-btn" onclick="toggleVideoFit()" title="Change Video Fit"><i class="fa-solid fa-crop-simple"></i></button>
+                <button class="ctrl-btn" onclick="toggleVideoFit(); this.blur();" title="Change Video Fit"><i class="fa-solid fa-crop-simple"></i></button>
                 
-                <button class="ctrl-btn" onclick="toggleFullScreen()" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
+                <button class="ctrl-btn" onclick="toggleFullScreen(); this.blur();" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
             </div>
         </div>
 
@@ -219,6 +241,7 @@
 
     <script>
         const video = document.getElementById('tvPlayer');
+        const vidContainer = document.getElementById('vidContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
         const playPauseIcon = document.getElementById('playPauseIcon');
@@ -235,19 +258,18 @@
         ];
         let fitIndex = 0;
 
-        // HANDLE EXTERNAL STREAM URL FROM SCRIPT
+        // HANDLE EXTERNAL STREAM URL FROM SCRIPT (For Tampermonkey PLAYER 2 Button)
         const urlParams = new URLSearchParams(window.location.search);
         const externalStreamUrl = urlParams.get('stream');
-
-        if(externalStreamUrl) {
-             playStream(externalStreamUrl, "Captured Stream");
-        }
 
         fetch('tools.json')
             .then(res => res.json())
             .then(data => {
                 savedChannels = data;
                 renderChannels();
+                if(externalStreamUrl) {
+                    playStream(externalStreamUrl, "Captured Stream");
+                }
             })
             .catch(err => {
                 channelListEl.innerHTML = '<div style="color:#ff4d4f; text-align:center; padding:30px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading channels! Please check tools.json file.</div>';
@@ -327,136 +349,6 @@
             video.style.objectFit = fitModes[0].fit;
             video.style.transform = `scale(${fitModes[0].scale})`;
 
-            if (url.includes('workers.dev')) {
-                nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77;"></i> Redirecting: <span>${name}</span>`;
-                
-                if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
-                video.pause();
-                video.removeAttribute('src'); 
-                video.load();
-
-                let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                
-                if (isMobile) {
-                    let isAndroid = /Android/i.test(navigator.userAgent);
-                    if (isAndroid) {
-                        let cleanUrl = url.replace(/^https?:\/\//i, '');
-                        let scheme = url.startsWith('https') ? 'https' : 'http';
-                        window.location.href = `intent://${cleanUrl}#Intent;package=org.videolan.vlc;type=video/*;scheme=${scheme};end;`;
-                    } else {
-                        window.location.href = "vlc://" + url;
-                    }
-                } else {
-                    const playerWindow = window.open('', '_blank');
-                    const htmlContent = `<html><head><title>${name} - Live Stream</title>
-                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><` + `/script>
-                        <style>
-                            html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-                            video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
-                            video::-webkit-media-controls { display: none !important; }
-                            
-                            /* Simple Transparent Play/Pause Overlay */
-                            #centerIcon {
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                width: 70px;
-                                height: 70px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                pointer-events: none;
-                                z-index: 10;
-                                opacity: 0;
-                                transition: opacity 0.2s ease;
-                                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
-                            }
-                            #centerIcon.show {
-                                opacity: 1;
-                            }
-                            #centerIcon svg {
-                                width: 60px;
-                                height: 60px;
-                                display: none;
-                                fill: white;
-                            }
-                            #centerIcon.mode-play .svg-play { display: block; }
-                            #centerIcon.mode-pause .svg-pause { display: block; }
-                        </style>
-                        </head><body>
-                        <video id="video" autoplay></video>
-                        
-                        <div id="centerIcon" class="show mode-play">
-                            <!-- Simple Play Icon -->
-                            <svg class="svg-play" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            <!-- Simple Pause Icon -->
-                            <svg class="svg-pause" viewBox="0 0 24 24">
-                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                            </svg>
-                        </div>
-
-                        <script>
-                            var video = document.getElementById('video'); 
-                            var icon = document.getElementById('centerIcon');
-                            var videoSrc = "${url}"; 
-                            var hideTimeout;
-
-                            function flashIcon(mode, autoHide) {
-                                icon.className = 'show mode-' + mode;
-                                clearTimeout(hideTimeout);
-                                if (autoHide) {
-                                    hideTimeout = setTimeout(function() {
-                                        icon.className = 'mode-' + mode;
-                                    }, 600);
-                                }
-                            }
-
-                            if (window.Hls && Hls.isSupported()) { 
-                                var hls = new Hls(); 
-                                hls.loadSource(videoSrc); 
-                                hls.attachMedia(video); 
-                                hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
-                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                video.src = videoSrc; 
-                                video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
-                            } else {
-                                video.src = videoSrc;
-                                video.play().catch(e=>console.log(e));
-                            }
-
-                            video.addEventListener('play', function() {
-                                flashIcon('pause', true);
-                            });
-                            
-                            video.addEventListener('pause', function() {
-                                flashIcon('play', false);
-                            });
-
-                            video.addEventListener('click', function() {
-                                if (video.paused) video.play();
-                                else video.pause();
-                            });
-
-                            video.addEventListener('dblclick', function() {
-                                if (!document.fullscreenElement) {
-                                    if (video.requestFullscreen) video.requestFullscreen();
-                                    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-                                } else {
-                                    if (document.exitFullscreen) document.exitFullscreen();
-                                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                                }
-                            });
-                        <` + `/script></body></html>`;
-                    
-                    playerWindow.document.write(htmlContent);
-                    playerWindow.document.close();
-                }
-                return;
-            }
-
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Now Playing: <span>${name}</span>`;
             
             if (hlsInstance) {
@@ -464,6 +356,7 @@
                 hlsInstance = null;
             }
 
+            // REDIRECT HATA DIYA - SAB YAHI PLAY HOGA
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url;
                 video.load();
@@ -549,12 +442,22 @@
         }
 
         function toggleFullScreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (vidContainer.requestFullscreen) {
+                    vidContainer.requestFullscreen();
+                } else if (vidContainer.webkitRequestFullscreen) {
+                    vidContainer.webkitRequestFullscreen();
+                } else if (vidContainer.msRequestFullscreen) {
+                    vidContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
         }
         
