@@ -2,7 +2,6 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <!-- ⚡ NOTCH FIX: viewport-fit=cover jisse black borders hatenge aur video camera area tak jayegi -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
@@ -74,27 +73,20 @@
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
             position: relative; 
-            /* ⚡ EDGE BROWSER ZOOM FIX */
             touch-action: none;
         }
 
-        /* TV FULL SCREEN FIX */
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:-moz-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         
-        /* Native Player Blocked for Mobile Touches */
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; pointer-events: none; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* TOUCH LAYER TO CATCH CLICKS SAFELY */
         .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
 
-        /* ========================================= */
-        /* ⚡ CUSTOM ON-SCREEN OVERLAY (LIKE IMAGE)  */
-        /* ========================================= */
         .custom-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.55);
@@ -125,7 +117,6 @@
         .time-text { color: #fff; font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
         .vol-btn { background: transparent; border: none; color: #fff; font-size: 16px; cursor: pointer; padding: 5px;}
         
-        /* ⚡ ANIMATION FEEDBACK (For Double Tap visually) */
         .feedback-icon {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5);
             font-size: 50px; color: rgba(255, 255, 255, 0.9); opacity: 0; pointer-events: none;
@@ -141,7 +132,6 @@
             .vol-btn { font-size: 20px; }
             .seek-bar::-webkit-slider-thumb { width: 18px; height: 18px; }
         }
-        /* ========================================= */
 
         .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
         .ctrl-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex: 1; margin: 0 6px; transition: 0.2s; white-space: nowrap; height: 38px; }
@@ -210,15 +200,12 @@
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
                 
-                <!-- Feedback animation icon for double tap -->
                 <i class="fa-solid fa-play feedback-icon" id="feedbackIcon"></i>
 
-                <!-- Invisible layer to catch taps and stop native player interference -->
                 <div class="touch-catcher" id="touchCatcher"></div>
 
-                <!-- ⚡ CUSTOM ON-SCREEN OVERLAY START -->
                 <div class="custom-overlay" id="customOverlay">
-                    <div style="flex:0.2;"></div> <!-- spacer -->
+                    <div style="flex:0.2;"></div>
                     
                     <div class="overlay-center">
                         <button class="overlay-btn" onclick="safeSeek(-10, event)">
@@ -247,7 +234,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ⚡ CUSTOM OVERLAY END -->
             </div>
             
             <div class="player-controls-bar">
@@ -280,7 +266,6 @@
         const playPauseIcon = document.getElementById('playPauseIcon');
         const playPauseText = document.getElementById('playPauseText');
         
-        // Custom Overlay Elements
         const touchCatcher = document.getElementById('touchCatcher');
         const customOverlay = document.getElementById('customOverlay');
         const overlayPlayBtn = document.getElementById('overlayPlayBtn');
@@ -461,14 +446,38 @@
         }
 
         // ==========================================
-        // ⚡ SAFE SEEK LOGIC (EDGE RESTART FIX)
+        // ⚡ INSTANT UI SYNC LOGIC (Timer Fix)
         // ==========================================
+        
+        function formatTime(sec) {
+            if (isNaN(sec) || sec === Infinity) return "LIVE";
+            let h = Math.floor(sec / 3600);
+            let m = Math.floor((sec % 3600) / 60);
+            let s = Math.floor(sec % 60);
+            if (h > 0) return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        // Update progress UI instantly
+        function updateProgressUI() {
+            if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
+                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
+                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            } else {
+                overlaySeekBar.value = 100;
+                overlayTime.innerText = "LIVE";
+            }
+        }
+
+        // Standard time update listener
+        video.addEventListener('timeupdate', updateProgressUI);
+        video.addEventListener('seeking', updateProgressUI);
+
         function safeSeek(seconds, event) {
-            if(event) event.stopPropagation(); // Stop tap from hiding overlay
+            if(event) event.stopPropagation(); 
             
             let newTime = video.currentTime + seconds;
             
-            // Edge Browser Safety: Live stream / buffering protection so video doesn't restart from 0
             if (seconds > 0) {
                 if (video.buffered && video.buffered.length > 0) {
                     let maxBuffered = video.buffered.end(video.buffered.length - 1);
@@ -479,6 +488,10 @@
                 }
             }
             video.currentTime = Math.max(0, newTime);
+            
+            // ⚡ Force instant UI update immediately after jump
+            updateProgressUI(); 
+            
             showOverlay();
             showFeedbackIcon(seconds > 0 ? 'forward' : 'backward');
         }
@@ -492,9 +505,6 @@
             feedbackTimer = setTimeout(() => { feedbackIcon.classList.remove('show'); }, 400); 
         }
 
-        // ==========================================
-        // ⚡ MOBILE TOUCH CONTROLS LOGIC (All Browsers)
-        // ==========================================
         let lastClickTime = 0;
 
         function showOverlay() {
@@ -509,49 +519,27 @@
             customOverlay.classList.remove('show');
         }
 
-        // Catch touches safely without native browser zoom/pause
         touchCatcher.addEventListener('click', function(e) {
             const currentTime = new Date().getTime();
             const tapDelay = currentTime - lastClickTime;
 
             if (tapDelay < 350 && tapDelay > 0) {
-                // Double tap detected!
                 const rect = touchCatcher.getBoundingClientRect();
                 const tapX = e.clientX - rect.left;
                 if (tapX > rect.width / 2) { safeSeek(10); } 
                 else { safeSeek(-10); } 
                 lastClickTime = 0; 
             } else {
-                // Single tap detected -> Show/Hide Overlay
                 if (customOverlay.classList.contains('show') && !video.paused) { hideOverlay(); }
                 else { showOverlay(); }
                 lastClickTime = currentTime;
             }
         });
 
-        // Overlay Updates (Time & Seekbar)
-        function formatTime(sec) {
-            if (isNaN(sec) || sec === Infinity) return "LIVE";
-            let h = Math.floor(sec / 3600);
-            let m = Math.floor((sec % 3600) / 60);
-            let s = Math.floor(sec % 60);
-            if (h > 0) return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
-            return `${m}:${s < 10 ? '0' : ''}${s}`;
-        }
-
-        video.addEventListener('timeupdate', () => {
-            if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
-                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
-                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-            } else {
-                overlaySeekBar.value = 100;
-                overlayTime.innerText = "LIVE";
-            }
-        });
-
         overlaySeekBar.addEventListener('input', () => {
             if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
                 video.currentTime = (overlaySeekBar.value / 100) * video.duration;
+                updateProgressUI(); // ⚡ Instant sync during drag
             }
             showOverlay();
         });
@@ -604,9 +592,6 @@
             playChannelByIndex(prevIndex);
         }
 
-        // ==========================================
-        // ⚡ MOBILE FULLSCREEN AUTO-ROTATE
-        // ==========================================
         function toggleFullScreen(event) {
             if(event) event.stopPropagation();
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
