@@ -1,5 +1,180 @@
 [
   {
+    "name": "Awarapan 2",
+    "url": "https://moon.goldenkite.top/vd/aHEzSGtvaHVOVzBQWU9jYUpqZEo4ZzpISk4wQWRDeWQ1RGxzbC11ODVpRmR3REtTRzFKd29PWnY1VE9OR08tSEtr/master.m3u8",
+    "category": "NEW MOVIE 2026"
+  },
+  {
+    "name": "Jailer 2",
+    "url": "https://lizer123.site/getm3u8/8MZLOD9K?ext=.m3u8",
+    "category": "NEW MOVIE 2026"
+  },
+  {
+    "name": "Ramayana 2026",
+    "url": "https://1e944b5039411ad4aa3552df9a08743d.r2.cloudflarestorage.com/hub/Movies4u.Foo.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=7803139bd4211b35657cd27a635eb75b%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T123608Z&X-Amz-Expires=18000&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv%22&X-Amz-Signature=9a3db33b181952d59a030c40f3d34b2ecf179a640c61d32d26cfc073e2a96595",
+    "category": "NEW MOVIE 2026"
+  },
+  {
+    "name": "Ranabaali 2026",
+    "url": "https://lizer123.site/getm3u8/G2EFVC3J?ext=.m3u8",
+    "category": "NEW MOVIE 2026"
+  },
+  {
+    "name": "The Vvaan: Force of the Forrest 2026",
+    "url": "https://5cf443a1e229c0b4715020b95fafcbc9.r2.cloudflarestorage.com/hub2/1e77fc81e311192824606e2039c18b39?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=73154f7d03f398dbc4ecfff413ad3db3%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T160240Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.The.Vvaan.2026.1080p.V2-HDTC.Hindi-LiNE.x264.mkv%22&X-Amz-Signature=047f93f794e004b9fb78cd9bac84b03126c69d70a906ee20586b5c69adf9fef5",
+    "category": "NEW MOVIE 2026"
+  },
+  {
+    "name": "B4U KADAK",
+    "url": "https://cdn.pishow.tv/ott/live/227/227_1.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "B4U MOVIES",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UMOVIES%2FORIGIN%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Bhojpuri Cinema",
+    "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "BOLLYWOOD 4U Live",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Bollywood HD",
+    "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Colors Cineplex",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Colors Cineplex 2",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fraw.githubusercontent.com%2Famazeyourself%2Fadaptive-streams%2Frefs%2Fheads%2Fmain%2Fstreams%2Fgb%2FYuppTV%2FColorsCineplexUK.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "E24 Live",
+    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0fb3790a-b5ad-4da8-bce8-2e7af21f7252/dd07b63d-a0a0-4ebe-bfcc-b19855d1313d/1.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines",
+    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines 2",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Goldmines Movies",
+    "url": "https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Mango",
+    "url": "https://stmv6.voxtvhd.com.br/cinehindi/cinehindi/playlist.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Pocket Films Live",
+    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/b8ada260-bb81-472b-b7c1-3a79213a84b8/980ac4be-94d9-4a0a-ba7d-624de8069ae5/3.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SHEMAROO BOLLYWOOD",
+    "url": "https://amg00864-shemarooenterta-shemabollywood-ono-nlwbw.amagi.tv/ts-us-w2-n1/playlist/amg00864-shemarooenterta-shemabollywood-ono/cb573d1b796c608684c33978d2f14382967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8704cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6abfb102488b2f57f38443cf804aed838046ca438f23ec159cc4f196db458ad78c32ab01e7305159772a9ad52fa1e237d9b20cb614e61301685c30cfad97f74f4ee92d217dcb8f003bf89d69aaa83688614ddb4af81dc758020cdb9431f4ce5cccefff3b8ba816e959411480afccabe83c32f24df4aee2dc677da35175125ae462c22b273491b29e5ad4835da1bf2d81bb7e0e78eea505cacdfcd3b4f0ba4392739e9cb4806b16072325129651a7ad68d902d46ce79b4076121e12edd27eecb2f4727c22438f8b5b94341ebad084ca9f2d33d86f165fa7318c0d4b3c8264222ca51ef89c3d7e80695fd66273a80e75a546fbf77da0f195b5486bfb8eb5379505d8bc04d6f915ba2d6d0970d4dc181f141c33809429675954ca46f6dcd9ee711d7285dac4fdd25c2b083f032862aee6e075dbc3801e1418c55c31733677339317dd7dd01043637f9d4e33cd999c1cb0474a2b8df1456b6b90f753f34d54157d77/140/1920x1080_6046040/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Shemaroo Josh",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony MAX",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxsd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY MAX 2",
+    "url": "https://sliv.tgaadi.workers.dev/max2.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY MAX HD",
+    "url": "https://sliv.tgaadi.workers.dev/sonymaxhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY PIX HD",
+    "url": "https://sliv.tgaadi.workers.dev/pixhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony SAB HD",
+    "url": "https://sliv.tgaadi.workers.dev/sabhd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "SONY SET HD",
+    "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Sony WAH",
+    "url": "https://sliv.tgaadi.workers.dev/sonywah.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "South Station",
+    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR GOLD 2 HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01v%2Findex.m3u8%3Fhls",
+    "category": "MOVIE"
+  },
+  {
+    "name": "STAR GOLD HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F41.205.93.154%2FSTAR-GOLD%2Findex.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "The Movie Club +2",
+    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Tolly TV",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Z  ACTION",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fzeeaction%2Findex.m3u8%3Ftoken%3Dtest",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Z CINE CLASSIC",
+    "url": "https://amg00862-amg00862c8-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c8-amgplt0016/cb7f3e1a7b7b6f8a9a9e3d6cd1a04af5880e6a8b5363d36765fe5cc57ccb180dd6eefbcbbf49bd4a11e24094385631004262d519ce64669e802ef716776c69108a99b265d992026eeb86092e21a3321855e71e6490650f77eeec18238c29fa2c5644a65a38167aa6953dd00a4ed5dc53d02a39fcf88e3a66644a2cc71f02b8f541a2fae34345c66cbfb10c2bc47914a5db5dccd71ba583d24beb17d169f0119f8cf095d30e82948536a052e4615a017a309ad87dc0840ce7dccb24609825710b1b07e0a296f81f6ad51e470ba28ca1d864fb00808d2c85125fd166837fb719ae76f071cd864fa4bef5db4c554bc9ae307a1381d787afcf1a03897ba1e283b372788ab8156857f669d72f2a319e8fa57ee8d834a6861ca19b443c11ee8c1fe7f7de82eba3c34b8c35f5c9f595383022096e19a76d92a543fa04f865f2be79485d4957e3995ad496d82c53082ed6b274be7c732f04a6f9bd271588053254ec69d8296a06ae155f0c2ea964f84608a83503844f5db13867c22af8c9b163b25b19676f95a70dd34d42ed9539f2bc6e887e35584d98fd205444587cea4907672d54cc5feddfc6e0385c4ebcb785c9c95d3c082e041222bfa2b620d5de9b692a1fcf05723b340841c24d9648cf10450519cc1cf8a51d3bd0557663b5f17f157144a2e59dcdc7dac34fb03ff4cafe3220721940b5210a2b6b9ce7d80bb368052e340dc03c6545bc15530dbfc69eabcad62eeb9863e56937462d95be470f5920060960ac9966d351f5805de8cbb83be2dbcd4315cb6cd94e7af7fdd56feae292c8491be2c37a106485dc34ca7539bd79f12f8fd73095f0620f12384f5fd1cc33db5aaad48ec83b904ffc1b509e8bde3f3855d5362fd3da6bc959144a341310aa5acab2/143/426x240_923520/index.m3u8",
+    "category": "MOVIE"
+  },
+  {
+    "name": "Zee Cinema HD",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
+    "category": "MOVIE"
+  },
+  {
     "name": "1ST India News",
     "url": "https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8",
     "category": "NEWS"
@@ -233,181 +408,6 @@
     "name": "Zee Uttar Pradesh/Uttarakhand",
     "url": "https://duw35ict5q7th.cloudfront.net/index_3.m3u8",
     "category": "NEWS"
-  },
-  {
-    "name": "B4U KADAK",
-    "url": "https://cdn.pishow.tv/ott/live/227/227_1.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "B4U MOVIES",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fstreams.tangotv.in%2FB4UMOVIES%2FORIGIN%2Findex.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Bhojpuri Cinema",
-    "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "BOLLYWOOD 4U Live",
-    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/ff17befd-b660-4b66-ba70-afe6e8b8501a/1.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Bollywood HD",
-    "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Colors Cineplex",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Colors Cineplex 2",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fraw.githubusercontent.com%2Famazeyourself%2Fadaptive-streams%2Frefs%2Fheads%2Fmain%2Fstreams%2Fgb%2FYuppTV%2FColorsCineplexUK.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "E24 Live",
-    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0fb3790a-b5ad-4da8-bce8-2e7af21f7252/dd07b63d-a0a0-4ebe-bfcc-b19855d1313d/1.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines",
-    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines 2",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Goldmines Movies",
-    "url": "https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Mango",
-    "url": "https://stmv6.voxtvhd.com.br/cinehindi/cinehindi/playlist.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Pocket Films Live",
-    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/b8ada260-bb81-472b-b7c1-3a79213a84b8/980ac4be-94d9-4a0a-ba7d-624de8069ae5/3.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SHEMAROO BOLLYWOOD",
-    "url": "https://amg00864-shemarooenterta-shemabollywood-ono-nlwbw.amagi.tv/ts-us-w2-n1/playlist/amg00864-shemarooenterta-shemabollywood-ono/cb573d1b796c608684c33978d2f14382967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8704cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6abfb102488b2f57f38443cf804aed838046ca438f23ec159cc4f196db458ad78c32ab01e7305159772a9ad52fa1e237d9b20cb614e61301685c30cfad97f74f4ee92d217dcb8f003bf89d69aaa83688614ddb4af81dc758020cdb9431f4ce5cccefff3b8ba816e959411480afccabe83c32f24df4aee2dc677da35175125ae462c22b273491b29e5ad4835da1bf2d81bb7e0e78eea505cacdfcd3b4f0ba4392739e9cb4806b16072325129651a7ad68d902d46ce79b4076121e12edd27eecb2f4727c22438f8b5b94341ebad084ca9f2d33d86f165fa7318c0d4b3c8264222ca51ef89c3d7e80695fd66273a80e75a546fbf77da0f195b5486bfb8eb5379505d8bc04d6f915ba2d6d0970d4dc181f141c33809429675954ca46f6dcd9ee711d7285dac4fdd25c2b083f032862aee6e075dbc3801e1418c55c31733677339317dd7dd01043637f9d4e33cd999c1cb0474a2b8df1456b6b90f753f34d54157d77/140/1920x1080_6046040/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Shemaroo Josh",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony MAX",
-    "url": "https://sliv.tgaadi.workers.dev/sonymaxsd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY MAX 2",
-    "url": "https://sliv.tgaadi.workers.dev/max2.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY MAX HD",
-    "url": "https://sliv.tgaadi.workers.dev/sonymaxhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY PIX HD",
-    "url": "https://sliv.tgaadi.workers.dev/pixhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony SAB HD",
-    "url": "https://sliv.tgaadi.workers.dev/sabhd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "SONY SET HD",
-    "url": "https://sliv.tgaadi.workers.dev/sethd.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Sony WAH",
-    "url": "https://sliv.tgaadi.workers.dev/sonywah.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "South Station",
-    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "STAR GOLD 2 HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01v%2Findex.m3u8%3Fhls",
-    "category": "MOVIE"
-  },
-  {
-    "name": "STAR GOLD HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F41.205.93.154%2FSTAR-GOLD%2Findex.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "The Movie Club +2",
-    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Tolly TV",
-    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Z  ACTION",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F107.167.16.138%2Fzeeaction%2Findex.m3u8%3Ftoken%3Dtest",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Z CINE CLASSIC",
-    "url": "https://amg00862-amg00862c8-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c8-amgplt0016/cb7f3e1a7b7b6f8a9a9e3d6cd1a04af5880e6a8b5363d36765fe5cc57ccb180dd6eefbcbbf49bd4a11e24094385631004262d519ce64669e802ef716776c69108a99b265d992026eeb86092e21a3321855e71e6490650f77eeec18238c29fa2c5644a65a38167aa6953dd00a4ed5dc53d02a39fcf88e3a66644a2cc71f02b8f541a2fae34345c66cbfb10c2bc47914a5db5dccd71ba583d24beb17d169f0119f8cf095d30e82948536a052e4615a017a309ad87dc0840ce7dccb24609825710b1b07e0a296f81f6ad51e470ba28ca1d864fb00808d2c85125fd166837fb719ae76f071cd864fa4bef5db4c554bc9ae307a1381d787afcf1a03897ba1e283b372788ab8156857f669d72f2a319e8fa57ee8d834a6861ca19b443c11ee8c1fe7f7de82eba3c34b8c35f5c9f595383022096e19a76d92a543fa04f865f2be79485d4957e3995ad496d82c53082ed6b274be7c732f04a6f9bd271588053254ec69d8296a06ae155f0c2ea964f84608a83503844f5db13867c22af8c9b163b25b19676f95a70dd34d42ed9539f2bc6e887e35584d98fd205444587cea4907672d54cc5feddfc6e0385c4ebcb785c9c95d3c082e041222bfa2b620d5de9b692a1fcf05723b340841c24d9648cf10450519cc1cf8a51d3bd0557663b5f17f157144a2e59dcdc7dac34fb03ff4cafe3220721940b5210a2b6b9ce7d80bb368052e340dc03c6545bc15530dbfc69eabcad62eeb9863e56937462d95be470f5920060960ac9966d351f5805de8cbb83be2dbcd4315cb6cd94e7af7fdd56feae292c8491be2c37a106485dc34ca7539bd79f12f8fd73095f0620f12384f5fd1cc33db5aaad48ec83b904ffc1b509e8bde3f3855d5362fd3da6bc959144a341310aa5acab2/143/426x240_923520/index.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Zee Cinema HD",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
-    "category": "MOVIE"
-  },
-  {
-    "name": "Awarapan 2",
-    "url": "https://moon.goldenkite.top/vd/aHEzSGtvaHVOVzBQWU9jYUpqZEo4ZzpISk4wQWRDeWQ1RGxzbC11ODVpRmR3REtTRzFKd29PWnY1VE9OR08tSEtr/master.m3u8",
-    "category": "NEW MOVIE 2026"
-  },
-  {
-    "name": "Jailer 2",
-    "url": "https://lizer123.site/getm3u8/8MZLOD9K?ext=.m3u8",
-    "category": "NEW MOVIE 2026"
-  },
-  {
-    "name": "Ramayana 2026",
-    "url": "https://1e944b5039411ad4aa3552df9a08743d.r2.cloudflarestorage.com/hub/Movies4u.Foo.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=7803139bd4211b35657cd27a635eb75b%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T123608Z&X-Amz-Expires=18000&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv%22&X-Amz-Signature=9a3db33b181952d59a030c40f3d34b2ecf179a640c61d32d26cfc073e2a96595",
-    "category": "NEW MOVIE 2026"
-  },
-  {
-    "name": "Ranabaali 2026",
-    "url": "https://lizer123.site/getm3u8/G2EFVC3J?ext=.m3u8",
-    "category": "NEW MOVIE 2026"
-  },
-  {
-    "name": "The Vvaan: Force of the Forrest 2026",
-    "url": "https://5cf443a1e229c0b4715020b95fafcbc9.r2.cloudflarestorage.com/hub2/1e77fc81e311192824606e2039c18b39?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=73154f7d03f398dbc4ecfff413ad3db3%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T160240Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.The.Vvaan.2026.1080p.V2-HDTC.Hindi-LiNE.x264.mkv%22&X-Amz-Signature=047f93f794e004b9fb78cd9bac84b03126c69d70a906ee20586b5c69adf9fef5",
-    "category": "NEW MOVIE 2026"
   },
   {
     "name": "CARTOON NETWORK",
