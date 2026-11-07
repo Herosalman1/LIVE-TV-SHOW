@@ -620,6 +620,7 @@
             }
         });
 
+        // TV / Desktop Keyword Controls (Old Settings - Untouched)
         document.addEventListener('keydown', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
@@ -636,6 +637,7 @@
             }
         });
 
+        // TV / Desktop Mouse Wheel Volume (Old Settings - Untouched)
         document.addEventListener('wheel', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
@@ -656,35 +658,32 @@
         }, { passive: false }); 
 
         // ==========================================
-        // ⚡ NAYI UPDATE: DOUBLE TAP TO SKIP (+10/-10) MOBILE KE LIYE
+        // ⚡ NAYI UPDATE: DOUBLE CLICK/TAP TO SKIP RAW (NO LIMITS)
         // ==========================================
         let lastTapTime = 0;
-        videoContainer.addEventListener('touchend', function(event) {
+        videoContainer.addEventListener('click', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
-            // Sirf jab video Full Screen me ho tabhi ye skip features kaam aayenge
             if (!isFullScreen) return;
 
             const currentTime = new Date().getTime();
             const tapDelay = currentTime - lastTapTime;
 
-            if (tapDelay < 300 && tapDelay > 0) {
-                // Double tap detect ho gaya!
-                const touch = event.changedTouches[0];
+            if (tapDelay < 350 && tapDelay > 0) {
                 const rect = videoContainer.getBoundingClientRect();
-                const tapX = touch.clientX - rect.left;
+                const tapX = event.clientX - rect.left;
                 const containerWidth = rect.width;
 
                 if (tapX > containerWidth / 2) {
-                    // Right Side Double Tap = Forward 10 seconds
-                    video.currentTime = Math.min(video.duration || 99999, video.currentTime + 10);
+                    // Right Side Double Click = +10s (Bina kisi load limitation ke)
+                    video.currentTime = video.currentTime + 10;
                     triggerCenterAnimation('play'); 
                 } else {
-                    // Left Side Double Tap = Backward 10 seconds
+                    // Left Side Double Click = -10s
                     video.currentTime = Math.max(0, video.currentTime - 10);
                     triggerCenterAnimation('play');
                 }
-                event.preventDefault(); // Kisi unwanted zoom ya click ko rokne ke liye
+                event.preventDefault(); 
             }
             lastTapTime = currentTime;
         });
