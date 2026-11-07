@@ -542,27 +542,52 @@
             playChannelByIndex(prevIndex);
         }
 
+        // ==========================================
+        // ⚡ NAYI UPDATE: MOBILE FULLSCREEN AUTO-ROTATE 
+        // ==========================================
         function toggleFullScreen() {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
             if (!isFullScreen) {
                 if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
+                    videoContainer.requestFullscreen().then(lockLandscape).catch(e=>console.log(e));
                 } else if (videoContainer.webkitRequestFullscreen) {
-                    videoContainer.webkitRequestFullscreen();
+                    videoContainer.webkitRequestFullscreen(); lockLandscape();
                 } else if (videoContainer.msRequestFullscreen) {
-                    videoContainer.msRequestFullscreen();
+                    videoContainer.msRequestFullscreen(); lockLandscape();
                 }
             } else {
                 if (document.exitFullscreen) {
-                    document.exitFullscreen();
+                    document.exitFullscreen().then(unlockOrientation).catch(e=>console.log(e));
                 } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
+                    document.webkitExitFullscreen(); unlockOrientation();
                 } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
+                    document.msExitFullscreen(); unlockOrientation();
                 }
             }
         }
+
+        function lockLandscape() {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(function(error) {
+                    console.log('Orientation lock failed or not supported:', error);
+                });
+            }
+        }
+
+        function unlockOrientation() {
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) unlockOrientation();
+        });
+        document.addEventListener('webkitfullscreenchange', function() {
+            if (!document.webkitFullscreenElement) unlockOrientation();
+        });
+        // ==========================================
         
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
@@ -629,6 +654,41 @@
                 video.volume = currentVolume;
             }
         }, { passive: false }); 
+
+        // ==========================================
+        // ⚡ NAYI UPDATE: DOUBLE TAP TO SKIP (+10/-10) MOBILE KE LIYE
+        // ==========================================
+        let lastTapTime = 0;
+        videoContainer.addEventListener('touchend', function(event) {
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            
+            // Sirf jab video Full Screen me ho tabhi ye skip features kaam aayenge
+            if (!isFullScreen) return;
+
+            const currentTime = new Date().getTime();
+            const tapDelay = currentTime - lastTapTime;
+
+            if (tapDelay < 300 && tapDelay > 0) {
+                // Double tap detect ho gaya!
+                const touch = event.changedTouches[0];
+                const rect = videoContainer.getBoundingClientRect();
+                const tapX = touch.clientX - rect.left;
+                const containerWidth = rect.width;
+
+                if (tapX > containerWidth / 2) {
+                    // Right Side Double Tap = Forward 10 seconds
+                    video.currentTime = Math.min(video.duration || 99999, video.currentTime + 10);
+                    triggerCenterAnimation('play'); 
+                } else {
+                    // Left Side Double Tap = Backward 10 seconds
+                    video.currentTime = Math.max(0, video.currentTime - 10);
+                    triggerCenterAnimation('play');
+                }
+                event.preventDefault(); // Kisi unwanted zoom ya click ko rokne ke liye
+            }
+            lastTapTime = currentTime;
+        });
+        // ==========================================
         
     </script>
 </body>
