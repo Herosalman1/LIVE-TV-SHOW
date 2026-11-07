@@ -658,35 +658,49 @@
         }, { passive: false }); 
 
         // ==========================================
-        // ⚡ NAYI UPDATE: DOUBLE CLICK/TAP TO SKIP RAW (NO LIMITS)
+        // ⚡ NAYI UPDATE: DOUBLE TAP TO SKIP (FIXED MOBILE PAUSE & RESTART ISSUE)
         // ==========================================
         let lastTapTime = 0;
-        videoContainer.addEventListener('click', function(event) {
+        videoContainer.addEventListener('touchend', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
             if (!isFullScreen) return;
 
+            // NATIVE BROWSER KA SINGLE-TAP PAUSE ROKNE KE LIYE YEH ZAROORI HAI:
+            event.preventDefault(); 
+
             const currentTime = new Date().getTime();
             const tapDelay = currentTime - lastTapTime;
 
-            if (tapDelay < 350 && tapDelay > 0) {
+            if (tapDelay < 400 && tapDelay > 0) {
+                const touch = event.changedTouches[0];
                 const rect = videoContainer.getBoundingClientRect();
-                const tapX = event.clientX - rect.left;
+                const tapX = touch.clientX - rect.left;
                 const containerWidth = rect.width;
 
                 if (tapX > containerWidth / 2) {
-                    // Right Side Double Click = +10s (Bina kisi load limitation ke)
-                    video.currentTime = video.currentTime + 10;
+                    // Right Side Double Tap = +10s
+                    let newTime = video.currentTime + 10;
+                    
+                    // Stream break hokar restart na ho, iske liye ek halki safety limit
+                    if (video.seekable && video.seekable.length > 0) {
+                        let maxSeek = video.seekable.end(video.seekable.length - 1);
+                        if (newTime >= maxSeek - 1) {
+                            newTime = Math.max(0, maxSeek - 2); // Jahan tak video load hui hai usse 2 second pehle rok dega taaki error na aaye
+                        }
+                    }
+                    video.currentTime = newTime;
                     triggerCenterAnimation('play'); 
                 } else {
-                    // Left Side Double Click = -10s
+                    // Left Side Double Tap = -10s
                     video.currentTime = Math.max(0, video.currentTime - 10);
                     triggerCenterAnimation('play');
                 }
-                event.preventDefault(); 
+                lastTapTime = 0; 
+            } else {
+                lastTapTime = currentTime;
             }
-            lastTapTime = currentTime;
-        });
+        }, { passive: false });
         // ==========================================
         
     </script>
