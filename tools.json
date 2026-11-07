@@ -385,6 +385,11 @@
     "category": "MOVIE"
   },
   {
+    "name": "Ramayana 2026",
+    "url": "https://1e944b5039411ad4aa3552df9a08743d.r2.cloudflarestorage.com/hub/Movies4u.Foo.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=7803139bd4211b35657cd27a635eb75b%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T123608Z&X-Amz-Expires=18000&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv%22&X-Amz-Signature=9a3db33b181952d59a030c40f3d34b2ecf179a640c61d32d26cfc073e2a96595",
+    "category": "NEW MOVIE 2026"
+  },
+  {
     "name": "CARTOON NETWORK",
     "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=238128018",
     "category": "KIDS CARTOON"
@@ -2708,10 +2713,5 @@
     "name": "CHHOTA BHEEM EPISODE : 34",
     "url": "https://vod3.cf.dmcdn.net/sec2(F3MZ41soLQYz-yJyPeblDZnDZZa-7PMD_qq9E-KSO69d5dNPPD9GYtpr0b3PCJ-qW3fthz6OD3I-sAXMTp_826DP0pZOudPifS4l2Rdeb5yrPC4En4MES0gcQr_NHKwEXbJwlOKY9L_eZunNePaayBynDSLHiuRIRpd7i4O6rVOZkjZFkkqIIHQxdswe-hl3jkp2TmUUDbUKl8q6JW80Bw)/video/fmp4/605883572/h264_aac_hd/4/manifest.m3u8",
     "category": "CHHOTA BHEEM"
-  },
-  {
-    "name": "Ramayana 2026",
-    "url": "https://1e944b5039411ad4aa3552df9a08743d.r2.cloudflarestorage.com/hub/Movies4u.Foo.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=7803139bd4211b35657cd27a635eb75b%2F20261107%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261107T123608Z&X-Amz-Expires=18000&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22%28Movies4u.Foo%29.Ramayana.2026.V2-1080p.HDTC.Hindi-MULTi-ORG.2.0.x264.mkv%22&X-Amz-Signature=9a3db33b181952d59a030c40f3d34b2ecf179a640c61d32d26cfc073e2a96595",
-    "category": "NEW MOVIE 2026"
   }
 ]
