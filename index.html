@@ -207,6 +207,7 @@
                 <div class="custom-overlay" id="customOverlay">
                     <div style="flex:0.2;"></div>
                     
+                    <!-- Dhyan rakhein: Yahan se skip buttons hata diye gaye hain jaisa aapne screenshot mein dikhaya tha -->
                     <div class="overlay-center">
                         <button class="overlay-btn play-pause-btn" onclick="togglePausePlay(event)" id="overlayPlayBtn">
                             <i class="fa-solid fa-pause"></i>
@@ -348,6 +349,10 @@
         }
 
         function playStream(url, name) {
+            // ⚡ GLITCH FIX: Nayi video lagate hi progress bar ko 0 par reset karna, taaki LIVE/100% wala glitch na aaye
+            overlaySeekBar.value = 0;
+            overlayTime.innerText = "0:00 / 0:00";
+
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77; margin-right: 8px;"></i> Redirecting: <span style="margin-left: 8px;">${name}</span>`;
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
@@ -452,12 +457,15 @@
 
         // Update progress UI instantly
         function updateProgressUI() {
-            if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
-                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
-                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-            } else {
+            // ⚡ Agar duration check na ho paye tab tak purane time ko na chhede, waise hi zero rakhe
+            if (!video.duration || isNaN(video.duration)) return; 
+
+            if (video.duration === Infinity) {
                 overlaySeekBar.value = 100;
                 overlayTime.innerText = "LIVE";
+            } else {
+                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
+                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
             }
         }
 
@@ -481,7 +489,7 @@
             }
             video.currentTime = Math.max(0, newTime);
             
-            // ⚡ Force instant UI update immediately after jump
+            // Force instant UI update immediately after jump
             updateProgressUI(); 
             
             showOverlay();
@@ -531,7 +539,7 @@
         overlaySeekBar.addEventListener('input', () => {
             if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
                 video.currentTime = (overlaySeekBar.value / 100) * video.duration;
-                updateProgressUI(); // ⚡ Instant sync during drag
+                updateProgressUI(); // Instant sync during drag
             }
             showOverlay();
         });
