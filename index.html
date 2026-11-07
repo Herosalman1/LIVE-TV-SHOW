@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <!-- ⚡ YAHAN UPDATE HAI: viewport-fit=cover add kiya hai Notch (Camera) ke paas ki black screen hatane ke liye -->
+    <!-- ⚡ NOTCH FIX: viewport-fit=cover jisse black borders hatenge aur video camera area tak jayegi -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
@@ -74,7 +74,7 @@
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
             position: relative; 
-            /* ⚡ YAHAN UPDATE HAI: touch-action: none; Edge Browser mein Double-Tap-to-Zoom block karne ke liye */
+            /* ⚡ EDGE BROWSER ZOOM FIX */
             touch-action: none;
         }
 
@@ -84,37 +84,66 @@
         .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         
-        video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; }
+        /* Native Player Blocked for Mobile Touches */
+        video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; pointer-events: none; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        .center-icon-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px; 
-            color: rgba(255, 255, 255, 0.95);
-            background: transparent;
-            border: none;
-            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.8));
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.15s ease-out; 
-            pointer-events: none; 
-            z-index: 10;
+        /* TOUCH LAYER TO CATCH CLICKS SAFELY */
+        .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
+
+        /* ========================================= */
+        /* ⚡ CUSTOM ON-SCREEN OVERLAY (LIKE IMAGE)  */
+        /* ========================================= */
+        .custom-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex; flex-direction: column; justify-content: space-between;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+            z-index: 20;
         }
-        .center-icon-overlay.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
+        .custom-overlay.show { opacity: 1; pointer-events: auto; }
+        
+        .overlay-center {
+            display: flex; justify-content: center; align-items: center; gap: 40px; flex: 1;
         }
+        .overlay-btn {
+            background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8));
+        }
+        .overlay-btn:active { transform: scale(0.9); color: var(--accent-red); }
+        .overlay-btn span { font-size: 11px; font-weight: 600; margin-top: 5px; }
+        .play-pause-btn { font-size: 45px; }
+        
+        .overlay-bottom { padding: 15px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .progress-container { width: 100%; display: flex; align-items: center; margin-bottom: 8px; }
+        .seek-bar { -webkit-appearance: none; width: 100%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 5px; outline: none; cursor: pointer; }
+        .seek-bar::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #fff; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+        
+        .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .time-text { color: #fff; font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
+        .vol-btn { background: transparent; border: none; color: #fff; font-size: 16px; cursor: pointer; padding: 5px;}
+        
+        /* ⚡ ANIMATION FEEDBACK (For Double Tap visually) */
+        .feedback-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5);
+            font-size: 50px; color: rgba(255, 255, 255, 0.9); opacity: 0; pointer-events: none;
+            transition: all 0.2s ease-out; z-index: 25; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+        }
+        .feedback-icon.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        @media (min-width: 900px) {
+            .overlay-center { gap: 80px; }
+            .overlay-btn { font-size: 35px; }
+            .play-pause-btn { font-size: 60px; }
+            .time-text { font-size: 14px; }
+            .vol-btn { font-size: 20px; }
+            .seek-bar::-webkit-slider-thumb { width: 18px; height: 18px; }
+        }
+        /* ========================================= */
 
         .player-controls-bar { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 900px; margin-top: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; }
-        
         .ctrl-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex: 1; margin: 0 6px; transition: 0.2s; white-space: nowrap; height: 38px; }
         .ctrl-btn i { margin: 0 8px; }
         .ctrl-btn.main-play { background: var(--accent-red); border-color: var(--accent-red); padding: 9px 16px; box-shadow: 0 3px 10px var(--accent-glow); flex: 1.2; }
@@ -124,18 +153,14 @@
         .sidebar-title i { color: var(--accent-red); margin-right: 8px; }
         
         .channel-list-container { overflow-y: auto; padding: 8px; -webkit-overflow-scrolling: touch; }
-        
         .category-folder { margin-bottom: 6px; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .category-header { padding: 10px 12px; background: rgba(0,0,0,0.15); font-weight: 600; font-size: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #fff; }
         .cat-count { font-size: 10px; background: rgba(229, 9, 20, 0.15); color: #ff4d4f; padding: 2px 6px; border-radius: 8px; font-weight: 600; border: 1px solid rgba(229, 9, 20, 0.3); }
-        
         .category-content { display: none; padding: 6px; background: rgba(0,0,0,0.2); }
         .category-content.open { display: block; }
-
         .channel-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 10px; margin-bottom: 4px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; gap: 10px; }
         .channel-item.active { background: rgba(229, 9, 20, 0.12); border-left: 3px solid var(--accent-red); border-color: rgba(229, 9, 20, 0.3); }
         .channel-item.active .channel-name { color: #fff; font-weight: 600; }
-        
         .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; line-height: 1.4; word-break: break-word; }
         .channel-name i { color: var(--accent-red); margin-right: 8px; flex-shrink: 0; }
         .play-btn { margin-left: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
@@ -145,9 +170,7 @@
             .header-brand { font-size: 20px; }
             .header-brand i.fa-tv { font-size: 22px; }
             .header-brand i.fa-bolt { font-size: 20px; }
-            
             .main-container { max-width: 1500px; height: calc(100vh - 75px); flex-direction: row; overflow: hidden; padding: 25px; }
-            
             .sidebar { margin-right: 30px; width: 550px; min-width: 550px; max-height: 100%; height: 100%; margin-top: 0; order: 1; border-radius: 14px; }
             .sidebar-title { padding: 16px 20px; font-size: 16px; }
             .channel-list-container { padding: 12px; }
@@ -156,7 +179,6 @@
             .channel-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; }
             .channel-name { font-size: 14px; }
             .play-btn { padding: 6px 14px; border-radius: 6px; font-size: 11px; }
-            
             .player-section { flex: 1; height: 100%; justify-content: center; order: 2; margin-bottom: 0; }
             .video-container { max-width: 900px; max-height: 65vh; border-radius: 12px; }
             .now-playing, .player-controls-bar { max-width: 900px; border-radius: 12px; padding: 12px 20px; }
@@ -164,8 +186,6 @@
             .player-controls-bar { margin-top: 12px; }
             .ctrl-btn { padding: 10px 18px; font-size: 12px; height: 42px; margin: 0 8px; }
             .ctrl-btn.main-play { padding: 10px 26px; }
-            
-            .center-icon-overlay { font-size: 70px; }
         }
     </style>
 </head>
@@ -189,9 +209,45 @@
             
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
-                <div class="center-icon-overlay" id="centerIconOverlay">
-                    <i class="fa-solid fa-play" id="centerIcon"></i>
+                
+                <!-- Feedback animation icon for double tap -->
+                <i class="fa-solid fa-play feedback-icon" id="feedbackIcon"></i>
+
+                <!-- Invisible layer to catch taps and stop native player interference -->
+                <div class="touch-catcher" id="touchCatcher"></div>
+
+                <!-- ⚡ CUSTOM ON-SCREEN OVERLAY START -->
+                <div class="custom-overlay" id="customOverlay">
+                    <div style="flex:0.2;"></div> <!-- spacer -->
+                    
+                    <div class="overlay-center">
+                        <button class="overlay-btn" onclick="safeSeek(-10, event)">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <span>10</span>
+                        </button>
+                        <button class="overlay-btn play-pause-btn" onclick="togglePausePlay(event)" id="overlayPlayBtn">
+                            <i class="fa-solid fa-pause"></i>
+                        </button>
+                        <button class="overlay-btn" onclick="safeSeek(10, event)">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>10</span>
+                        </button>
+                    </div>
+                    
+                    <div class="overlay-bottom" onclick="event.stopPropagation();">
+                        <div class="progress-container">
+                            <input type="range" class="seek-bar" id="overlaySeekBar" value="0" step="0.1">
+                        </div>
+                        <div class="time-volume-row">
+                            <span class="time-text" id="overlayTime">0:00 / 0:00</span>
+                            <div>
+                                <button class="vol-btn" onclick="toggleMute(event)" id="overlayMuteBtn"><i class="fa-solid fa-volume-high"></i></button>
+                                <button class="vol-btn" onclick="toggleFullScreen(event)" style="margin-left:15px;"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- ⚡ CUSTOM OVERLAY END -->
             </div>
             
             <div class="player-controls-bar">
@@ -223,14 +279,21 @@
         const playPauseBtn = document.getElementById('playPauseBtn');
         const playPauseIcon = document.getElementById('playPauseIcon');
         const playPauseText = document.getElementById('playPauseText');
-        const centerIconOverlay = document.getElementById('centerIconOverlay');
-        const centerIcon = document.getElementById('centerIcon');
+        
+        // Custom Overlay Elements
+        const touchCatcher = document.getElementById('touchCatcher');
+        const customOverlay = document.getElementById('customOverlay');
+        const overlayPlayBtn = document.getElementById('overlayPlayBtn');
+        const overlaySeekBar = document.getElementById('overlaySeekBar');
+        const overlayTime = document.getElementById('overlayTime');
+        const overlayMuteBtn = document.getElementById('overlayMuteBtn');
+        const feedbackIcon = document.getElementById('feedbackIcon');
+        let overlayTimer;
         
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
-        let centerIconTimer;
-        let isVideoActive = false; 
+        let feedbackTimer;
 
         fetch('tools.json')
             .then(res => res.json())
@@ -246,16 +309,12 @@
             const content = document.getElementById('folder-' + catId);
             content.classList.toggle('open');
             const icon = document.getElementById('icon-' + catId);
-            if(content.classList.contains('open')) {
-                icon.className = "fa-solid fa-folder-open";
-            } else {
-                icon.className = "fa-solid fa-folder";
-            }
+            if(content.classList.contains('open')) { icon.className = "fa-solid fa-folder-open"; } 
+            else { icon.className = "fa-solid fa-folder"; }
         }
 
         function renderChannels() {
             channelListEl.innerHTML = '';
-            
             const categories = [];
             savedChannels.forEach(ch => {
                 const cat = ch.category || "OTHER";
@@ -314,14 +373,10 @@
         function playStream(url, name) {
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77; margin-right: 8px;"></i> Redirecting: <span style="margin-left: 8px;">${name}</span>`;
-                
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
-                video.pause();
-                video.removeAttribute('src'); 
-                video.load();
+                video.pause(); video.removeAttribute('src'); video.load();
 
                 let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                
                 if (isMobile) {
                     let isAndroid = /Android/i.test(navigator.userAgent);
                     if (isAndroid) {
@@ -333,7 +388,6 @@
                     }
                 } else {
                     const playerWindow = window.open('about:blank', '_blank');
-                    
                     setTimeout(() => {
                         const htmlContent = `<!DOCTYPE html>
                         <html>
@@ -344,50 +398,13 @@
                                 html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
                                 video { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; object-fit: fill; background: #000; outline: none; cursor: pointer; }
                                 video::-webkit-media-controls { display: none !important; }
-                                
-                                #centerIcon {
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                    width: 70px;
-                                    height: 70px;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    pointer-events: none;
-                                    z-index: 10;
-                                    opacity: 0;
-                                    transition: opacity 0.2s ease;
-                                    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
-                                }
-                                #centerIcon.show { opacity: 1; }
-                                #centerIcon svg { width: 60px; height: 60px; display: none; fill: white; }
-                                #centerIcon.mode-play .svg-play { display: block; }
-                                #centerIcon.mode-pause .svg-pause { display: block; }
                             </style>
                         </head>
                         <body>
-                            <video id="video" autoplay playsinline></video>
-                            <div id="centerIcon" class="mode-pause">
-                                <svg class="svg-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="svg-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                            </div>
+                            <video id="video" autoplay playsinline controls></video>
                             <script>
                                 var video = document.getElementById('video'); 
-                                var icon = document.getElementById('centerIcon');
                                 var videoSrc = "${url}"; 
-                                var hideTimeout;
-
-                                function flashIcon(mode, autoHide) {
-                                    icon.className = 'show mode-' + mode;
-                                    clearTimeout(hideTimeout);
-                                    if (autoHide) {
-                                        hideTimeout = setTimeout(function() {
-                                            icon.className = 'mode-' + mode;
-                                        }, 600);
-                                    }
-                                }
 
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); 
@@ -401,24 +418,6 @@
                                     video.src = videoSrc;
                                     video.play().catch(e=>console.log(e));
                                 }
-
-                                video.addEventListener('play', function() { flashIcon('pause', true); });
-                                video.addEventListener('pause', function() { flashIcon('play', false); });
-
-                                video.addEventListener('click', function() {
-                                    if (video.paused) video.play();
-                                    else video.pause();
-                                });
-
-                                video.addEventListener('dblclick', function() {
-                                    if (!document.fullscreenElement) {
-                                        if (video.requestFullscreen) video.requestFullscreen();
-                                        else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-                                    } else {
-                                        if (document.exitFullscreen) document.exitFullscreen();
-                                        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                                    }
-                                });
                             <\/script>
                         </body>
                         </html>`;
@@ -433,102 +432,162 @@
 
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
-            isVideoActive = false; 
-            centerIconOverlay.classList.remove('show');
-
-            if (hlsInstance) {
-                hlsInstance.destroy();
-                hlsInstance = null;
-            }
+            if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url;
-                video.load();
-                video.play().catch(e => console.log("Auto-play blocked"));
+                video.src = url; video.load(); video.play().catch(e => console.log("Auto-play blocked"));
             } 
             else if (Hls.isSupported()) {
-                hlsInstance = new Hls({
-                    xhrSetup: function (xhr, url) {
-                        xhr.withCredentials = false;
-                    }
-                });
+                hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video.play().catch(e => console.log("Auto-play blocked"));
-                });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log("Auto-play blocked")); });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                hlsInstance.startLoad();
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                hlsInstance.recoverMediaError();
-                                break;
-                            default:
-                                hlsInstance.destroy();
-                                break;
+                            case Hls.ErrorTypes.NETWORK_ERROR: hlsInstance.startLoad(); break;
+                            case Hls.ErrorTypes.MEDIA_ERROR: hlsInstance.recoverMediaError(); break;
+                            default: hlsInstance.destroy(); break;
                         }
                     }
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => {
-                    video.play().catch(e => console.log("Auto-play blocked"));
-                });
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
             } else {
-                video.src = url;
-                video.load();
-                video.play().catch(e => {
-                    nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`;
-                });
+                video.src = url; video.load();
+                video.play().catch(e => { nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`; });
             }
         }
 
-        function triggerCenterAnimation(action) {
-            if (action === 'play') {
-                centerIcon.className = "fa-solid fa-play";
-                if(window.innerWidth > 900) { centerIcon.style.marginLeft = "6px"; } else { centerIcon.style.marginLeft = "4px"; }
-            } else {
-                centerIcon.className = "fa-solid fa-pause";
-                centerIcon.style.marginLeft = "0px";
+        // ==========================================
+        // ⚡ SAFE SEEK LOGIC (EDGE RESTART FIX)
+        // ==========================================
+        function safeSeek(seconds, event) {
+            if(event) event.stopPropagation(); // Stop tap from hiding overlay
+            
+            let newTime = video.currentTime + seconds;
+            
+            // Edge Browser Safety: Live stream / buffering protection so video doesn't restart from 0
+            if (seconds > 0) {
+                if (video.buffered && video.buffered.length > 0) {
+                    let maxBuffered = video.buffered.end(video.buffered.length - 1);
+                    if (newTime >= maxBuffered - 1) newTime = Math.max(0, maxBuffered - 2); 
+                } else if (video.seekable && video.seekable.length > 0) {
+                    let maxSeek = video.seekable.end(video.seekable.length - 1);
+                    if (newTime >= maxSeek - 1) newTime = Math.max(0, maxSeek - 2); 
+                }
             }
-            
-            centerIconOverlay.classList.remove('show');
-            void centerIconOverlay.offsetWidth; 
-            centerIconOverlay.classList.add('show');
-            
-            clearTimeout(centerIconTimer);
-            centerIconTimer = setTimeout(() => {
-                centerIconOverlay.classList.remove('show');
-            }, 500); 
+            video.currentTime = Math.max(0, newTime);
+            showOverlay();
+            showFeedbackIcon(seconds > 0 ? 'forward' : 'backward');
         }
 
-        function togglePausePlay() {
+        function showFeedbackIcon(action) {
+            feedbackIcon.className = action === 'forward' ? "fa-solid fa-rotate-right feedback-icon" : "fa-solid fa-rotate-left feedback-icon";
+            feedbackIcon.classList.remove('show');
+            void feedbackIcon.offsetWidth; 
+            feedbackIcon.classList.add('show');
+            clearTimeout(feedbackTimer);
+            feedbackTimer = setTimeout(() => { feedbackIcon.classList.remove('show'); }, 400); 
+        }
+
+        // ==========================================
+        // ⚡ MOBILE TOUCH CONTROLS LOGIC (All Browsers)
+        // ==========================================
+        let lastClickTime = 0;
+
+        function showOverlay() {
+            customOverlay.classList.add('show');
+            clearTimeout(overlayTimer);
+            overlayTimer = setTimeout(() => {
+                if(!video.paused) hideOverlay();
+            }, 4000);
+        }
+
+        function hideOverlay() {
+            customOverlay.classList.remove('show');
+        }
+
+        // Catch touches safely without native browser zoom/pause
+        touchCatcher.addEventListener('click', function(e) {
+            const currentTime = new Date().getTime();
+            const tapDelay = currentTime - lastClickTime;
+
+            if (tapDelay < 350 && tapDelay > 0) {
+                // Double tap detected!
+                const rect = touchCatcher.getBoundingClientRect();
+                const tapX = e.clientX - rect.left;
+                if (tapX > rect.width / 2) { safeSeek(10); } 
+                else { safeSeek(-10); } 
+                lastClickTime = 0; 
+            } else {
+                // Single tap detected -> Show/Hide Overlay
+                if (customOverlay.classList.contains('show') && !video.paused) { hideOverlay(); }
+                else { showOverlay(); }
+                lastClickTime = currentTime;
+            }
+        });
+
+        // Overlay Updates (Time & Seekbar)
+        function formatTime(sec) {
+            if (isNaN(sec) || sec === Infinity) return "LIVE";
+            let h = Math.floor(sec / 3600);
+            let m = Math.floor((sec % 3600) / 60);
+            let s = Math.floor(sec % 60);
+            if (h > 0) return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        video.addEventListener('timeupdate', () => {
+            if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
+                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
+                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            } else {
+                overlaySeekBar.value = 100;
+                overlayTime.innerText = "LIVE";
+            }
+        });
+
+        overlaySeekBar.addEventListener('input', () => {
+            if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
+                video.currentTime = (overlaySeekBar.value / 100) * video.duration;
+            }
+            showOverlay();
+        });
+        
+        function toggleMute(event) {
+            if(event) event.stopPropagation();
+            video.muted = !video.muted;
+            if(video.muted) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            showOverlay();
+        }
+
+        function togglePausePlay(event) {
+            if(event) event.stopPropagation();
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
             if (video.paused) { 
                 video.play();
-                triggerCenterAnimation('play'); 
+                showOverlay(); 
             } else { 
                 video.pause(); 
-                triggerCenterAnimation('pause'); 
+                customOverlay.classList.add('show'); 
+                clearTimeout(overlayTimer);
             }
         }
 
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
             playPauseText.innerText = "Pause";
+            overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
         });
 
         video.addEventListener('pause', () => {
             playPauseIcon.className = "fa-solid fa-play";
             playPauseText.innerText = "Play";
-        });
-
-        video.addEventListener('playing', () => {
-             isVideoActive = true; 
+            overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
         });
 
         function playNextChannel() {
@@ -546,9 +605,10 @@
         }
 
         // ==========================================
-        // ⚡ NAYI UPDATE: MOBILE FULLSCREEN AUTO-ROTATE 
+        // ⚡ MOBILE FULLSCREEN AUTO-ROTATE
         // ==========================================
-        function toggleFullScreen() {
+        function toggleFullScreen(event) {
+            if(event) event.stopPropagation();
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             
             if (!isFullScreen) {
@@ -568,151 +628,65 @@
                     document.msExitFullscreen(); unlockOrientation();
                 }
             }
+            showOverlay();
         }
 
         function lockLandscape() {
             if (screen.orientation && screen.orientation.lock) {
                 screen.orientation.lock('landscape').catch(function(error) {
-                    console.log('Orientation lock failed or not supported:', error);
+                    console.log('Orientation lock failed:', error);
                 });
             }
         }
 
         function unlockOrientation() {
-            if (screen.orientation && screen.orientation.unlock) {
-                screen.orientation.unlock();
-            }
+            if (screen.orientation && screen.orientation.unlock) { screen.orientation.unlock(); }
         }
 
-        document.addEventListener('fullscreenchange', function() {
-            if (!document.fullscreenElement) unlockOrientation();
-        });
-        document.addEventListener('webkitfullscreenchange', function() {
-            if (!document.webkitFullscreenElement) unlockOrientation();
-        });
-        // ==========================================
+        document.addEventListener('fullscreenchange', function() { if (!document.fullscreenElement) unlockOrientation(); });
+        document.addEventListener('webkitfullscreenchange', function() { if (!document.webkitFullscreenElement) unlockOrientation(); });
         
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
-
-            const currentChannel = savedChannels[currentPlayingIndex];
-            const currentCategory = currentChannel.category || "OTHER";
-
+            const currentCategory = savedChannels[currentPlayingIndex].category || "OTHER";
             let nextIndex = -1;
             
             for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
-                const checkCat = savedChannels[i].category || "OTHER";
-                if (checkCat === currentCategory) {
-                    nextIndex = i;
-                    break;
-                }
+                if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
             }
-            
             if (nextIndex === -1) {
                 for (let i = 0; i < currentPlayingIndex; i++) {
-                    const checkCat = savedChannels[i].category || "OTHER";
-                    if (checkCat === currentCategory) {
-                        nextIndex = i;
-                        break;
-                    }
+                    if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
                 }
             }
-
-            if (nextIndex !== -1) {
-                playChannelByIndex(nextIndex);
-            }
+            if (nextIndex !== -1) { playChannelByIndex(nextIndex); }
         });
 
-        // TV / Desktop Keyword Controls (Old Settings - Untouched)
+        // ==========================================
+        // ⚡ TV / DESKTOP SETTINGS (Untouched)
+        // ==========================================
         document.addEventListener('keydown', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            
             if (isFullScreen) {
-                if (event.key === 'ArrowRight') {
-                    video.currentTime = Math.min(video.duration, video.currentTime + 10);
-                    triggerCenterAnimation('play'); 
-                    event.preventDefault(); 
-                } else if (event.key === 'ArrowLeft') {
-                    video.currentTime = Math.max(0, video.currentTime - 10);
-                    triggerCenterAnimation('play'); 
-                    event.preventDefault();
-                }
+                if (event.key === 'ArrowRight') { safeSeek(10); event.preventDefault(); } 
+                else if (event.key === 'ArrowLeft') { safeSeek(-10); event.preventDefault(); }
             }
         });
 
-        // TV / Desktop Mouse Wheel Volume (Old Settings - Untouched)
         document.addEventListener('wheel', function(event) {
             const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            
             if (isFullScreen || videoContainer.contains(event.target)) {
                 event.preventDefault(); 
-                
                 let currentVolume = video.volume;
-                
-                if (event.deltaY < 0) {
-                    currentVolume = Math.min(1, currentVolume + 0.05); 
-                } 
-                else if (event.deltaY > 0) {
-                    currentVolume = Math.max(0, currentVolume - 0.05); 
-                }
-                
+                if (event.deltaY < 0) { currentVolume = Math.min(1, currentVolume + 0.05); } 
+                else if (event.deltaY > 0) { currentVolume = Math.max(0, currentVolume - 0.05); }
                 video.volume = currentVolume;
+                
+                if (currentVolume === 0) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             }
         }, { passive: false }); 
 
-        // ==========================================
-        // ⚡ NAYI UPDATE: EDGE BROWSER & MOBILE DOUBLE TAP FIX
-        // ==========================================
-        let lastTapTime = 0;
-        videoContainer.addEventListener('touchend', function(event) {
-            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            
-            if (!isFullScreen) return;
-
-            const currentTime = new Date().getTime();
-            const tapDelay = currentTime - lastTapTime;
-
-            if (tapDelay < 400 && tapDelay > 0) {
-                const touch = event.changedTouches[0];
-                const rect = videoContainer.getBoundingClientRect();
-                const tapX = touch.clientX - rect.left;
-                const containerWidth = rect.width;
-
-                if (tapX > containerWidth / 2) {
-                    // Right Side Double Tap = +10s
-                    let newTime = video.currentTime + 10;
-                    
-                    // Edge Browser ko crash / restart se rokne ke liye Buffer Check
-                    if (video.buffered && video.buffered.length > 0) {
-                        let maxBuffered = video.buffered.end(video.buffered.length - 1);
-                        if (newTime >= maxBuffered) {
-                            newTime = Math.max(0, maxBuffered - 2); 
-                        }
-                    } else if (video.seekable && video.seekable.length > 0) {
-                        let maxSeek = video.seekable.end(video.seekable.length - 1);
-                        if (newTime >= maxSeek) {
-                            newTime = Math.max(0, maxSeek - 2); 
-                        }
-                    }
-                    video.currentTime = newTime;
-                    triggerCenterAnimation('play'); 
-                } else {
-                    // Left Side Double Tap = -10s
-                    video.currentTime = Math.max(0, video.currentTime - 10);
-                    triggerCenterAnimation('play');
-                }
-                
-                // Native zoom aur double-click actions ko Edge aur baaki browsers mein rokne ke liye
-                if(event.cancelable) {
-                    event.preventDefault(); 
-                }
-                lastTapTime = 0; 
-            } else {
-                lastTapTime = currentTime;
-            }
-        }, { passive: false });
-        // ==========================================
-        
     </script>
 </body>
 </html>
