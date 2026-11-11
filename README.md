@@ -1,11 +1,23 @@
-# HeroSalman1 Live TV ⚡
+# LIVE-TV-SHOW
 
-Welcome to the HeroSalman1 Live TV and Offline Stream repository! 
+A simple static website hosted on GitHub Pages.
 
-## 📂 Project Structure:
-* **`index.html`**: The main front-end media player. Features custom UI, HLS streaming support, TV/PC keyboard shortcuts (Space to pause, F2/F3/F4 for volume, Arrow keys for fast-seek without buffer limits).
-* **`admin.html`**: The secure admin control room. Used to add, edit, drag-and-drop reorder, and delete folders/channels. It auto-updates the database directly via GitHub API.
-* **`tools.json`**: The JSON database that stores all live TV and offline movie links, categories, and structure.
+## Live Demo
+https://herosalman1.github.io/LIVE-TV-SHOW/
 
----
-*Note: This commit is to refresh and trigger the GitHub Pages build and deployment workflow.*
+## Project Structure
+- `index.html` — main website page
+- `README.md` — project documentation
+- `.github/workflows/pages.yml` — GitHub Pages deployment workflow
+- `COPYRIGHT.md` — copyright notice
+- `LICENSE` — open-source license
+- `.gitignore` — ignores local/system junk files
+
+## Deployment
+This project is deployed using GitHub Pages via GitHub Actions.
+
+## Local Preview
+Open `index.html` directly in a browser or run a local static server if needed.
+
+## Author
+Herosalman1
