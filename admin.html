@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live TV Admin Dashboard ⚡</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background: #0f1319; 
+            background-image: radial-gradient(circle at top right, #1a1a2e, #0f1319);
+            color: #c9d1d9; font-family: 'Poppins', sans-serif; 
+            display: flex; flex-direction: column; min-height: 100vh; justify-content: center; align-items: center; padding: 20px;
+        }
+        .admin-box { 
+            background: #161b22; padding: 35px 25px; border-radius: 16px; width: 100%; max-width: 550px; 
+            border: 1px solid #ff003c; text-align: center; box-shadow: 0 15px 35px rgba(255, 0, 60, 0.15); position: relative; overflow: hidden;
+        }
+        h2, h3 { color: #fff; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+        h2 i, h3 i { color: #ff003c; margin-right: 8px; }
+        .subtitle { color: #8b949e; font-size: 13px; font-weight: 500; margin-bottom: 20px; font-family: 'Inter', sans-serif; }
+        .input-pro, select.input-pro { 
+            width: 100%; padding: 14px 18px; margin-bottom: 15px; background: #010409; color: #fff; 
+            border: 1px solid #30363d; border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        select.input-pro {
+            appearance: none; background-image: url("data:image/svg+xml;utf8,<svg fill='%238b949e' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat; background-position: right 15px center; padding-right: 45px; cursor: pointer;
+            max-height: 250px;
+        }
+        .input-pro:focus { border-color: #ff003c; box-shadow: 0 0 12px rgba(255, 0, 60, 0.2); outline: none; }
+        select.input-pro option { background: #161b22; color: #fff; padding: 10px; }
+
+        .cat-group { display: flex; gap: 10px; margin-bottom: 15px; align-items: center; width: 100%; }
+        .cat-group select.input-pro, .cat-group input.input-pro { margin-bottom: 0; flex: 1; }
+        .add-cat-btn { 
+            padding: 0 18px; height: 48px; background: #21262d; color: #fff; border: 1px solid #30363d; 
+            border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; justify-content: center;
+        }
+        .add-cat-btn:hover { background: #30363d; border-color: #ff003c; color: #ff003c; }
+        .btn-pro { 
+            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; margin-bottom: 15px;
+            border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 15px; transition: all 0.3s ease; text-transform: uppercase; font-family: 'Poppins', sans-serif;
+        }
+        .btn-green { background: #00ea77; color: #000; box-shadow: 0 4px 15px rgba(0, 234, 119, 0.2); }
+        .btn-green:hover { background: #00ff88; transform: translateY(-2px); }
+        .btn-yellow { background: #d29922; color: #fff; box-shadow: 0 4px 15px rgba(210, 153, 34, 0.2); }
+        .btn-yellow:hover { background: #e3b341; transform: translateY(-2px); }
+        .btn-blue { background: #ff003c; color: #fff; box-shadow: 0 4px 15px rgba(255, 0, 60, 0.2); margin-bottom: 0;}
+        .btn-blue:hover { background: #ff1a4d; transform: translateY(-2px); }
+        .btn-logout { background: #da3633; color: #fff; margin-top: 10px; padding: 10px; font-size: 13px; }
+        .btn-logout:hover { background: #f85149; }
+        
+        .category-folder { 
+            margin-bottom: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden; border: 1px solid #30363d; 
+            transition: 0.2s;
+        }
+        .category-folder.dragging { opacity: 0.4; border: 1px dashed #00ea77; }
+        .category-folder.drag-over { border-top: 3px solid #ff003c; }
+
+        .category-header { 
+            padding: 14px 18px; background: rgba(0,0,0,0.3); color: #fff; font-weight: 600; font-size: 14px;
+            display: flex; justify-content: space-between; align-items: center; user-select: none; 
+        }
+        .cat-actions { display: flex; align-items: center; gap: 6px; }
+        .cat-actions button { 
+            background: rgba(255,255,255,0.08); border: 1px solid #30363d; color: #c9d1d9; cursor: pointer; 
+            font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: 0.2s; display: flex; align-items: center; gap: 5px;
+        }
+        .cat-actions button:hover { background: #d29922; color: #fff; border-color: #d29922; }
+        .cat-actions button.del-folder:hover { background: #da3633; border-color: #da3633; }
+        .cat-actions button.shift-type:hover { background: #00ea77; color: #000; border-color: #00ea77; }
+
+        .cat-count { font-size: 12px; background: rgba(0, 234, 119, 0.15); padding: 3px 10px; border-radius: 20px; color: #00ea77; margin-left: 10px; font-weight: 600;}
+        .category-content { display: none; padding: 12px; background: rgba(0,0,0,0.15); }
+        .category-content.open { display: block; }
+        
+        .list-item { 
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 12px 14px; 
+            background: #0d1117; border-radius: 8px; border: 1px solid #21262d; text-align: left; cursor: grab; transition: 0.2s ease;
+        }
+        .list-item:active { cursor: grabbing; }
+        .list-item.dragging { opacity: 0.4; background: #21262d; border: 1px dashed #00ea77; }
+        .list-item.drag-over { border-top: 3px solid #ff003c; transform: scale(1.02); }
+        .drag-icon { margin-right: 12px; color: #8b949e; font-size: 15px; cursor: grab; }
+
+        .action-btns { display: flex; align-items: center; gap: 6px; }
+        .action-btns button { 
+            padding: 6px 12px; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; 
+            font-weight: 600; font-size: 12px; color: #fff; display: flex; align-items: center; gap: 5px; transition: 0.2s;
+        }
+        .btn-edit { background: #9e6a03; border-color: #b87c04; }
+        .btn-edit:hover { background: #d29922; }
+        .btn-shift { background: #1f6feb; border-color: #388bfd; }
+        .btn-shift:hover { background: #388bfd; }
+        .btn-delete { background: #da3633; border-color: #f85149; }
+        
+        .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+        .modal-content { background: #161b22; padding: 25px; border-radius: 16px; border: 1px solid #ff003c; width: 90%; max-width: 750px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 12px; margin-bottom: 15px; }
+        .close-btn { color: #da3633; font-size: 24px; font-weight: bold; cursor: pointer; background: none; border: none; }
+        #projectList { overflow-y: auto; padding-right: 5px; flex-grow: 1; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+        
+        .type-switch-container {
+            display: flex; background: #010409; border: 1px solid #30363d; border-radius: 10px; overflow: hidden; margin-bottom: 15px; width: 100%;
+        }
+        .type-switch-btn {
+            flex: 1; padding: 12px; background: transparent; color: #8b949e; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px; transition: 0.3s;
+        }
+        .type-switch-btn.active { background: rgba(255, 0, 60, 0.15); color: #ff003c; }
+
+        .admin-tabs { display: flex; width: 100%; border-bottom: 1px solid #30363d; margin-bottom: 15px; }
+        .admin-tab { flex: 1; padding: 12px 0; font-size: 13px; font-weight: 600; color: #8b949e; background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; text-transform: uppercase;}
+        .admin-tab.active { color: #fff; border-bottom: 2px solid #00ea77; background: rgba(0, 234, 119, 0.1); }
+        .admin-tab i { margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-box" id="loginSection">
+        <h2><i class="fa-solid fa-shield-halved"></i> Live TV Admin</h2>
+        <p class="subtitle">Secure Control Room for Herosalman1</p>
+        <button class="btn-pro btn-green" style="margin-top: 15px;" onclick="loadData()">
+            <i class="fa-solid fa-right-to-bracket"></i> ENTER ADMIN PANEL
+        </button>
+    </div>
+
+    <div class="admin-box" id="editorSection" style="display:none; padding-top: 25px;">
+        <h3 id="formTitle"><i class="fa-solid fa-plus-circle"></i> Add New Channel</h3>
+        <p class="subtitle" style="margin-bottom: 15px;">Add, edit or drag-drop reorder folders & channels.</p>
+        
+        <div class="type-switch-container">
+            <button class="type-switch-btn active" id="btnLiveTV" onclick="setStreamType('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
+            <button class="type-switch-btn" id="btnOfflineStream" onclick="setStreamType('offline')"><i class="fa-solid fa-film"></i> OFFLINE STREAM</button>
+        </div>
+
+        <input type="text" id="pName" class="input-pro" placeholder="Channel Name (e.g. Aaj Tak HD)" onblur="formatYearInName(this)">
+        <input type="url" id="pLink" class="input-pro" placeholder="Stream URL (.m3u8 link)">
+        
+        <div class="cat-group">
+            <select id="pCat" class="input-pro" onchange="handleCategoryChange()" size="1"></select>
+            <input type="text" id="newCategoryInput" class="input-pro" placeholder="Custom category..." style="display: none;">
+            <button class="add-cat-btn" id="catToggleBtn" onclick="toggleCatInput()">+ NEW</button>
+        </div>
+        
+        <button id="actionBtn" class="btn-pro btn-green" onclick="processChannel()">
+            <i class="fa-solid fa-plus"></i> ADD TO LIST
+        </button>
+        
+        <hr style="border: none; border-top: 1px solid #30363d; margin: 20px 0;">
+
+        <button class="btn-pro btn-yellow" onclick="openModal()">
+            <i class="fa-solid fa-folder-tree"></i> VIEW FOLDERS & CHANNELS
+        </button>
+        
+        <button class="btn-pro btn-blue" onclick="saveToGitHub()">
+            <i class="fa-solid fa-cloud-arrow-up"></i> UPLOAD TO GITHUB
+        </button>
+
+        <button class="btn-pro btn-logout" onclick="logoutAdmin()">
+            <i class="fa-solid fa-right-from-bracket"></i> LOGOUT
+        </button>
+    </div>
+
+    <!-- MAIN CHANNELS LIST MODAL -->
+    <div id="listModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-bottom: 0; padding-bottom: 10px; border-bottom: none;">
+                <h3><i class="fa-solid fa-folder-open"></i> ADVANCED REORDER LIST</h3>
+                <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="admin-tab active" id="modalTabLive" onclick="switchModalView('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
+                <button class="admin-tab" id="modalTabOffline" onclick="switchModalView('offline')"><i class="fa-solid fa-film"></i> OFFLINE STREAM</button>
+            </div>
+            <p class="subtitle" style="text-align: left; margin-top:-5px; font-size:12px;">💡 Folders/Channels ko yahan drag karke upar-neeche karein. Delete karne par 'UPLOAD TO GITHUB' dabana na bhoolein.</p>
+            
+            <div id="projectList"></div>
+        </div>
+    </div>
+
+    <!-- DUPLICATE ERROR MODAL -->
+    <div id="duplicateModal" class="modal" style="z-index: 1000;">
+        <div class="modal-content" style="max-width: 400px; text-align: center; border-color: #da3633;">
+            <div style="color: #da3633; font-size: 50px; margin-bottom: 15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 style="color: #da3633; margin-bottom: 10px;">DUPLICATE URL ERROR!</h3>
+            <p style="color: #c9d1d9; font-size: 14px; margin-bottom: 15px;">This URL already exists in your list. Cannot save duplicates.</p>
+            <div style="background: #0d1117; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 20px; border: 1px solid #30363d;">
+                <p style="margin-bottom: 5px;"><strong>Name:</strong> <span id="dupName" style="color: #00ea77; font-weight: 600;"></span></p>
+                <p><strong>Folder:</strong> <span id="dupFolder" style="color: #d29922; font-weight: 600;"></span></p>
+            </div>
+            <button class="btn-pro btn-blue" onclick="closeDuplicatePopup()">OK, GOT IT</button>
+        </div>
+    </div>
+
+    <!-- SHIFT TYPE MODAL -->
+    <div id="shiftTypeModal" class="modal" style="z-index: 1000;">
+        <div class="modal-content" style="max-width: 400px; text-align: center; border-color: #00ea77;">
+            <h3 style="color: #00ea77; margin-bottom: 10px;"><i class="fa-solid fa-exchange-alt"></i> SHIFT FOLDER</h3>
+            <p style="color: #c9d1d9; font-size: 14px; margin-bottom: 15px;">Kahan shift karna chahte hain folder <br><strong style="color:#fff; font-size:16px;">"<span id="shiftCatName"></span>"</strong> ko?</p>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 15px; width: 100%;">
+                <button class="btn-pro btn-blue" style="margin-bottom:0; flex:1; font-size:13px;" onclick="applyShiftType('live')">
+                    <i class="fa-solid fa-tv"></i> LIVE TV
+                </button>
+                <button class="btn-pro btn-green" style="margin-bottom:0; flex:1; font-size:13px;" onclick="applyShiftType('offline')">
+                    <i class="fa-solid fa-film"></i> OFFLINE
+                </button>
+            </div>
+            
+            <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; padding:10px; margin-bottom:0;" onclick="closeShiftModal()">CANCEL</button>
+        </div>
+    </div>
+
+    <!-- ⚡ MOVE SINGLE CHANNEL MODAL -->
+    <div id="channelMoveModal" class="modal" style="z-index: 1000;">
+        <div class="modal-content" style="max-width: 400px; text-align: center; border-color: #388bfd;">
+            <h3 style="color: #388bfd; margin-bottom: 10px;"><i class="fa-solid fa-truck-fast"></i> MOVE CHANNEL</h3>
+            <p style="color: #c9d1d9; font-size: 13px; margin-bottom: 15px;">Kahan move karna hai: <br><strong style="color:#fff; font-size:15px;" id="moveChannelName"></strong></p>
+            
+            <div style="text-align: left; margin-bottom: 15px;">
+                <label style="color: #8b949e; font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block;">SELECT TYPE:</label>
+                <select id="moveTypeSelect" class="input-pro" onchange="updateMoveFolders()" style="margin-bottom: 12px; padding: 10px; font-size: 13px;">
+                    <option value="live">LIVE TV</option>
+                    <option value="offline">OFFLINE STREAM</option>
+                </select>
+
+                <label style="color: #8b949e; font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block;">SELECT FOLDER:</label>
+                <select id="moveFolderSelect" class="input-pro" style="margin-bottom: 0; padding: 10px; font-size: 13px;"></select>
+            </div>
+            
+            <div style="display: flex; gap: 10px; width: 100%;">
+                <button class="btn-pro" style="background:#1f6feb; color:#fff; margin-bottom:0; flex:1; font-size:13px;" onclick="confirmChannelMove()"><i class="fa-solid fa-check"></i> MOVE</button>
+                <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; margin-bottom:0; flex:1; font-size:13px;" onclick="closeChannelMoveModal()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TOKEN_PART_1 = "ghp_4c1hOQ3TUwZodG7zlVi"; 
+        const TOKEN_PART_2 = "LqqEJ86fNlc453Mwx"; 
+        const GIT_TOKEN = TOKEN_PART_1 + TOKEN_PART_2; 
+        
+        const myRepo = "Herosalman1/LIVE-TV-SHOW"; 
+        const fileName = "tools.json"; 
+        
+        let channelsArray = [];
+        let fileSha = "";
+        let editIndex = null; 
+        let isCustomCat = false;
+        let openFolders = new Set();
+        let currentStreamType = "live"; 
+        let currentModalView = "live"; 
+        let currentShiftCat = ""; 
+        
+        const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
+        let savedCategories = [...defaultCategories];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if(localStorage.getItem('tv_admin_logged_in') === 'true') {
+                loadData(true);
+            }
+        });
+
+        // ⚡ AUTO-FORMAT YEAR LOGIC
+        function formatYearInName(el) {
+            el.value = el.value.replace(/\s?(\d{4})$/, ' ($1)');
+        }
+
+        // ⚡ CHANNEL MOVE LOGIC
+        let movingChannelIndex = -1;
+        function openChannelMoveModal(idx) {
+            movingChannelIndex = idx;
+            const ch = channelsArray[idx];
+            document.getElementById('moveChannelName').innerText = ch.name;
+            document.getElementById('moveTypeSelect').value = ch.streamType || 'live';
+            updateMoveFolders();
+            document.getElementById('moveFolderSelect').value = ch.category || "UNCATEGORIZED";
+            document.getElementById('channelMoveModal').style.display = 'flex';
+        }
+        function closeChannelMoveModal() {
+            document.getElementById('channelMoveModal').style.display = 'none';
+        }
+        function updateMoveFolders() {
+            const selType = document.getElementById('moveTypeSelect').value;
+            const selFolder = document.getElementById('moveFolderSelect');
+            selFolder.innerHTML = '';
+            
+            const typeCats = [];
+            channelsArray.forEach(ch => {
+                const t = ch.streamType || 'live';
+                const c = ch.category || "UNCATEGORIZED";
+                if(t === selType && !typeCats.includes(c)) typeCats.push(c);
+            });
+            if (selType === 'live') {
+                defaultCategories.forEach(c => {
+                    if(!typeCats.includes(c)) typeCats.push(c);
+                });
+            }
+            
+            typeCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c; opt.innerText = c;
+                selFolder.appendChild(opt);
+            });
+        }
+        function confirmChannelMove() {
+            if(movingChannelIndex === -1) return;
+            const newType = document.getElementById('moveTypeSelect').value;
+            const newFolder = document.getElementById('moveFolderSelect').value;
+            
+            channelsArray[movingChannelIndex].streamType = newType;
+            channelsArray[movingChannelIndex].category = newFolder;
+            
+            closeChannelMoveModal();
+            renderList();
+            renderCategoryDropdown();
+        }
+
+        function setStreamType(type) {
+            currentStreamType = type;
+            if (type === 'live') {
+                document.getElementById('btnLiveTV').classList.add('active');
+                document.getElementById('btnOfflineStream').classList.remove('active');
+            } else {
+                document.getElementById('btnLiveTV').classList.remove('active');
+                document.getElementById('btnOfflineStream').classList.add('active');
+            }
+            renderCategoryDropdown();
+        }
+
+        function switchModalView(type) {
+            currentModalView = type;
+            document.getElementById('modalTabLive').className = type === 'live' ? 'admin-tab active' : 'admin-tab';
+            document.getElementById('modalTabOffline').className = type === 'offline' ? 'admin-tab active' : 'admin-tab';
+            renderList();
+        }
+
+        async function loadData(isAuto = false) {
+            const loginBtn = document.querySelector('#loginSection .btn-green');
+            if(!isAuto) loginBtn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> LOADING CHANNELS...";
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
+                    headers: { 'Authorization': `token ${GIT_TOKEN}` }
+                });
+                if(!response.ok) throw new Error("Key galat hai!");
+                const data = await response.json();
+                fileSha = data.sha;
+                channelsArray = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+                
+                let loadedCats = [];
+                channelsArray.forEach(ch => {
+                    const cat = ch.category || "UNCATEGORIZED";
+                    if(!loadedCats.includes(cat)) loadedCats.push(cat);
+                    if(!ch.streamType) ch.streamType = "live";
+                });
+                
+                defaultCategories.forEach(cat => {
+                    if(!loadedCats.includes(cat)) loadedCats.push(cat);
+                });
+                savedCategories = loadedCats;
+
+                renderCategoryDropdown();
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('editorSection').style.display = 'block';
+                localStorage.setItem('tv_admin_logged_in', 'true');
+            } catch (error) {
+                if(!isAuto) {
+                    loginBtn.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> ERROR! CHECK TOKEN";
+                    loginBtn.style.background = "#da3633";
+                    setTimeout(() => {
+                        loginBtn.innerHTML = "<i class='fa-solid fa-right-to-bracket'></i> ENTER ADMIN PANEL";
+                        loginBtn.style.background = "";
+                    }, 3000);
+                }
+                localStorage.removeItem('tv_admin_logged_in');
+            }
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem('tv_admin_logged_in');
+            document.getElementById('editorSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+            document.querySelector('#loginSection .btn-green').innerHTML = "<i class='fa-solid fa-right-to-bracket'></i> ENTER ADMIN PANEL";
+        }
+
+        function renderCategoryDropdown(selectCat = null) {
+            const selectEl = document.getElementById('pCat');
+            selectEl.innerHTML = '<option value="" disabled selected>SELECT OPTION</option>';
+            
+            const activeTypeCategories = [];
+            channelsArray.forEach(ch => {
+                const type = ch.streamType || 'live';
+                const cat = ch.category || "UNCATEGORIZED";
+                if (type === currentStreamType && !activeTypeCategories.includes(cat)) {
+                    activeTypeCategories.push(cat);
+                }
+            });
+
+            if (currentStreamType === 'live') {
+                defaultCategories.forEach(cat => {
+                    if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
+                });
+            }
+
+            activeTypeCategories.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat; opt.innerText = cat;
+                selectEl.appendChild(opt);
+            });
+            
+            if (selectCat && activeTypeCategories.includes(selectCat)) {
+                selectEl.value = selectCat;
+            }
+            // Agar selectCat nahi hai, toh wo by default 'SELECT OPTION' par hi rahega.
+            
+            if (editIndex === null && !isCustomCat) {
+                handleCategoryChange(); 
+            }
+        }
+
+        function handleCategoryChange() {
+            if (editIndex !== null || isCustomCat) return; 
+            
+            const cat = document.getElementById('pCat').value;
+            if (!cat) return; // Agar SELECT OPTION pe hai toh kuch mat karo
+            
+            const nameInput = document.getElementById('pName');
+            
+            let maxNum = 0;
+            let basePrefix = "";
+            let foundNumbered = false;
+
+            const chansInCat = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat && (ch.streamType || 'live') === currentStreamType);
+            
+            chansInCat.forEach(ch => {
+                // Match patterns like "Name 5", "Name: 5", "Name : 5"
+                const match = (ch.name || "").match(/^(.*?)(\d+)$/);
+                if (match) {
+                    const prefix = match[1]; 
+                    const num = parseInt(match[2], 10);
+                    if (num > maxNum) {
+                        maxNum = num;
+                        basePrefix = prefix;
+                        foundNumbered = true;
+                    }
+                }
+            });
+
+            // Agar folder ke andar already episodes (1, 2, 3...) pade hain, tabhi auto-fill karo.
+            // Warna input box ko touch mat karo (taki user ka type kiya hua title gayab na ho).
+            if (foundNumbered) {
+                nameInput.value = basePrefix + (maxNum + 1);
+            }
+        }
+
+        function toggleCatInput() {
+            isCustomCat = !isCustomCat;
+            const selectEl = document.getElementById('pCat');
+            const inputEl = document.getElementById('newCategoryInput');
+            const btnEl = document.getElementById('catToggleBtn');
+
+            if (isCustomCat) {
+                selectEl.style.display = 'none'; inputEl.style.display = 'block'; inputEl.focus(); btnEl.innerText = '✖ CANCEL';
+            } else {
+                selectEl.style.display = 'block'; inputEl.style.display = 'none'; inputEl.value = ''; btnEl.innerText = '+ NEW';
+                handleCategoryChange(); 
+            }
+        }
+
+        function openShiftModal(catName) {
+            currentShiftCat = catName;
+            document.getElementById('shiftCatName').innerText = catName;
+            document.getElementById('shiftTypeModal').style.display = 'flex';
+        }
+
+        function closeShiftModal() {
+            document.getElementById('shiftTypeModal').style.display = 'none';
+        }
+
+        function applyShiftType(newType) {
+            channelsArray.forEach(ch => {
+                if ((ch.category || "UNCATEGORIZED") === currentShiftCat) {
+                    ch.streamType = newType;
+                }
+            });
+            closeShiftModal();
+            renderList();
+            renderCategoryDropdown();
+        }
+
+        function renderList() {
+            const list = document.getElementById('projectList');
+            list.innerHTML = "";
+            if (channelsArray.length === 0) {
+                list.innerHTML = '<div style="text-align:center; color:#8b949e; padding:20px;">No channels found.</div>';
+                return;
+            }
+
+            const viewChannels = channelsArray.map((ch, idx) => ({...ch, originalIndex: idx})).filter(c => (c.streamType || 'live') === currentModalView);
+            
+            const viewCategories = [];
+            
+            savedCategories.forEach(cat => {
+                const hasChannelsInView = viewChannels.some(ch => (ch.category || "UNCATEGORIZED") === cat);
+                if (hasChannelsInView && !viewCategories.includes(cat)) {
+                    viewCategories.push(cat);
+                }
+            });
+
+            viewChannels.forEach(ch => {
+                const cat = ch.category || "UNCATEGORIZED";
+                if (!viewCategories.includes(cat)) viewCategories.push(cat);
+            });
+
+            if (viewCategories.length === 0) {
+                list.innerHTML = `<div style="text-align:center; color:#8b949e; padding:20px;">No folders found in ${currentModalView.toUpperCase()}.</div>`;
+                return;
+            }
+
+            viewCategories.forEach((cat) => {
+                const safeCatName = cat.replace(/'/g, "\\'");
+                let channelsInCat = viewChannels.filter(c => (c.category || "UNCATEGORIZED") === cat);
+                channelsInCat.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { numeric: true, sensitivity: 'base' }));
+
+                const catId = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + currentModalView;
+                const isOpen = openFolders.has(catId);
+
+                const folderDiv = document.createElement('div');
+                folderDiv.className = 'category-folder';
+                folderDiv.setAttribute('draggable', 'true');
+                folderDiv.setAttribute('data-cat-name', cat);
+                
+                folderDiv.innerHTML = `
+                    <div class="category-header">
+                        <span onclick="toggleFolder('${catId}')" style="flex:1; display:flex; align-items:center; cursor:pointer;">
+                            <i class="fa-solid ${isOpen ? 'fa-folder-open' : 'fa-folder'}" style="margin-right:10px; color:#00ea77; font-size: 16px;"></i> ${cat} <span class="cat-count">${channelsInCat.length}</span>
+                        </span>
+                        <div class="cat-actions">
+                            <button class="shift-type" onclick="openShiftModal('${safeCatName}')" title="Shift Live/Offline"><i class="fa-solid fa-exchange-alt"></i> Set Type</button>
+                            <button onclick="renameCategory('${safeCatName}')" title="Rename Folder"><i class="fa-solid fa-pen"></i> Rename</button>
+                            <button class="del-folder" onclick="deleteCategory('${safeCatName}')" title="Delete Folder"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            <span style="color: #8b949e; font-size:14px; cursor:grab; margin-left: 8px;" title="Drag folder"><i class="fa-solid fa-grip-vertical"></i></span>
+                        </div>
+                    </div>
+                    <div class="category-content ${isOpen ? 'open' : ''}" id="folder-${catId}"></div>
+                `;
+                list.appendChild(folderDiv);
+
+                const contentEl = folderDiv.querySelector('.category-content');
+                channelsInCat.forEach(ch => {
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.setAttribute('draggable', 'true');
+                    item.setAttribute('data-index', ch.originalIndex);
+                    
+                    let iconHTML = ch.streamType === 'offline' ? '<i class="fa-solid fa-film" style="color: #00ea77; margin-right: 5px;" title="Offline"></i>' : '<i class="fa-solid fa-tv" style="color: #ff003c; margin-right: 5px;" title="Live TV"></i>';
+
+                    item.innerHTML = `
+                        <div style="display: flex; align-items: center; flex: 1; overflow: hidden; padding-right: 10px;">
+                            <span class="drag-icon"><i class="fa-solid fa-grip-vertical"></i></span>
+                            <span style="font-size: 14px; font-weight: 500; color: #fff;">${iconHTML} ${ch.name}</span>
+                        </div>
+                        <div class="action-btns" style="flex-shrink: 0;">
+                            <button class="btn-shift" onclick="openChannelMoveModal(${ch.originalIndex})" title="Move to another folder"><i class="fa-solid fa-truck-fast"></i> Move</button>
+                            <button class="btn-edit" onclick="editChannel(${ch.originalIndex})"><i class="fa-solid fa-pen"></i> Edit</button>
+                            <button class="btn-delete" onclick="deleteChannel(${ch.originalIndex})"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                        </div>
+                    `;
+                    contentEl.appendChild(item);
+                });
+            });
+            addDragAndDropListeners();
+        }
+
+        function renameCategory(oldName) {
+            const newName = prompt(`Folder "${oldName}" ka naya naam daalein:`, oldName);
+            if(!newName || newName.trim() === "") return;
+            const formattedName = newName.trim().toUpperCase();
+
+            channelsArray.forEach(ch => {
+                if((ch.category || "UNCATEGORIZED") === oldName) {
+                    ch.category = formattedName;
+                }
+            });
+
+            const catIndex = savedCategories.indexOf(oldName);
+            if (catIndex !== -1) {
+                savedCategories[catIndex] = formattedName;
+            } else if (!savedCategories.includes(formattedName)) {
+                savedCategories.push(formattedName);
+            }
+            savedCategories = [...new Set(savedCategories)];
+
+            renderCategoryDropdown();
+            renderList();
+        }
+
+        function deleteCategory(catName) {
+            if(!confirm(`Pakka folder "${catName}" delete karna hai? Iske channels 'UNCATEGORIZED' folder mein move ho jayenge.`)) return;
+
+            channelsArray.forEach(ch => {
+                if((ch.category || "UNCATEGORIZED") === catName) {
+                    ch.category = "UNCATEGORIZED";
+                }
+            });
+
+            savedCategories = savedCategories.filter(c => c !== catName);
+            renderCategoryDropdown();
+            renderList();
+        }
+
+        function addDragAndDropListeners() {
+            let draggedType = null;
+            let dragSourceData = null;
+
+            const folders = document.querySelectorAll('.category-folder');
+            folders.forEach(folder => {
+                folder.addEventListener('dragstart', function(e) {
+                    if(e.target.classList.contains('list-item') || e.target.closest('.list-item')) return;
+                    draggedType = 'folder';
+                    dragSourceData = this.getAttribute('data-cat-name');
+                    this.classList.add('dragging');
+                    e.stopPropagation();
+                });
+                folder.addEventListener('dragover', function(e) { e.preventDefault(); });
+                folder.addEventListener('dragenter', function(e) { e.preventDefault(); if(draggedType === 'folder') this.classList.add('drag-over'); });
+                folder.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+                folder.addEventListener('drop', function(e) {
+                    e.stopPropagation();
+                    this.classList.remove('drag-over');
+                    if(draggedType === 'folder') {
+                        const targetCatName = this.getAttribute('data-cat-name');
+                        reorderCategories(dragSourceData, targetCatName);
+                    }
+                });
+                folder.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+            });
+
+            const draggables = document.querySelectorAll('.list-item');
+            draggables.forEach(draggable => {
+                draggable.addEventListener('dragstart', function(e) {
+                    draggedType = 'channel';
+                    dragSourceData = +this.getAttribute('data-index');
+                    this.classList.add('dragging');
+                    e.stopPropagation();
+                });
+                draggable.addEventListener('dragover', function(e) { e.preventDefault(); });
+                draggable.addEventListener('dragenter', function(e) { e.preventDefault(); if(draggedType === 'channel') this.classList.add('drag-over'); });
+                draggable.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+                draggable.addEventListener('drop', function(e) {
+                    e.stopPropagation();
+                    this.classList.remove('drag-over');
+                    if(draggedType === 'channel') {
+                        const targetIndex = +this.getAttribute('data-index');
+                        swapChannels(dragSourceData, targetIndex);
+                    }
+                });
+                draggable.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+            });
+        }
+
+        function reorderCategories(fromCatName, toCatName) {
+            if (fromCatName === toCatName) return;
+            
+            channelsArray.forEach(ch => {
+                const cat = ch.category || "UNCATEGORIZED";
+                if (!savedCategories.includes(cat)) savedCategories.push(cat);
+            });
+
+            const fromIdx = savedCategories.indexOf(fromCatName);
+            const toIdx = savedCategories.indexOf(toCatName);
+
+            if (fromIdx !== -1 && toIdx !== -1) {
+                const movedCat = savedCategories.splice(fromIdx, 1)[0];
+                savedCategories.splice(toIdx, 0, movedCat);
+                
+                let newChannelsArray = [];
+                savedCategories.forEach(cat => {
+                    const chans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat);
+                    newChannelsArray = newChannelsArray.concat(chans);
+                });
+                channelsArray = newChannelsArray;
+                renderList();
+            }
+        }
+
+        function swapChannels(fromIndex, toIndex) {
+            const itemToMove = channelsArray.splice(fromIndex, 1)[0];
+            itemToMove.category = channelsArray[toIndex].category || "UNCATEGORIZED";
+            channelsArray.splice(toIndex, 0, itemToMove);
+            renderList();
+        }
+
+        function toggleFolder(catId) {
+            const content = document.getElementById('folder-' + catId);
+            if (content.classList.contains('open')) {
+                content.classList.remove('open'); openFolders.delete(catId);
+            } else {
+                content.classList.add('open'); openFolders.add(catId);
+            }
+        }
+
+        function showDuplicatePopup(name, folder) {
+            document.getElementById('dupName').innerText = name;
+            document.getElementById('dupFolder').innerText = folder;
+            document.getElementById('duplicateModal').style.display = 'flex';
+        }
+
+        function closeDuplicatePopup() {
+            document.getElementById('duplicateModal').style.display = 'none';
+        }
+
+        function processChannel() {
+            let name = document.getElementById('pName').value.trim();
+            name = name.replace(/\s?(\d{4})$/, ' ($1)'); // Auto-format year before saving
+            const link = document.getElementById('pLink').value.trim();
+            let category = "UNCATEGORIZED";
+            const actionBtn = document.getElementById('actionBtn');
+
+            const showError = (msg) => {
+                const oldHtml = actionBtn.innerHTML;
+                actionBtn.innerHTML = `<i class='fa-solid fa-triangle-exclamation'></i> ${msg}`;
+                actionBtn.style.backgroundColor = "#da3633";
+                actionBtn.style.color = "#fff";
+                setTimeout(() => {
+                    actionBtn.innerHTML = oldHtml;
+                    actionBtn.style.backgroundColor = "";
+                    actionBtn.style.color = "";
+                }, 2000);
+            };
+
+            if (isCustomCat) {
+                const customCat = document.getElementById('newCategoryInput').value.trim().toUpperCase();
+                if (!customCat) {
+                    showError("ENTER CATEGORY NAME!");
+                    return;
+                }
+                category = customCat;
+                if (!savedCategories.includes(category)) { 
+                    savedCategories.push(category); 
+                }
+                toggleCatInput();
+            } else {
+                category = document.getElementById('pCat').value;
+                if (!category) {
+                    showError("SELECT OPTION FIRST!");
+                    return;
+                }
+            }
+            
+            if(!name || !link) {
+                showError("FILL BOTH FIELDS!");
+                return;
+            }
+
+            const existingChannel = channelsArray.find((ch, idx) => ch.url === link && idx !== editIndex);
+            
+            if (existingChannel) {
+                showDuplicatePopup(existingChannel.name, existingChannel.category || "UNCATEGORIZED");
+                return; 
+            }
+
+            if(editIndex === null) {
+                channelsArray.push({name, url: link, category, streamType: currentStreamType});
+            } else {
+                channelsArray[editIndex] = {name, url: link, category, streamType: currentStreamType};
+                editIndex = null;
+                document.getElementById('formTitle').innerHTML = "<i class='fa-solid fa-plus-circle'></i> Add New Channel";
+                document.getElementById('actionBtn').innerHTML = "<i class='fa-solid fa-plus'></i> ADD TO LIST";
+                document.getElementById('actionBtn').className = "btn-pro btn-green";
+            }
+
+            // ⚡ Clear both Title and Link after adding to list
+            document.getElementById('pName').value = "";
+            document.getElementById('pLink').value = "";
+            renderCategoryDropdown(category);
+
+            actionBtn.innerHTML = "<i class='fa-solid fa-circle-check'></i> ADD DONE ✅";
+            actionBtn.style.backgroundColor = "#00ea77";
+            actionBtn.style.color = "#000";
+
+            setTimeout(() => {
+                actionBtn.innerHTML = "<i class='fa-solid fa-plus'></i> ADD TO LIST";
+                actionBtn.style.backgroundColor = "";
+                actionBtn.style.color = "";
+                actionBtn.className = "btn-pro btn-green";
+            }, 2500);
+        }
+
+        function editChannel(index) {
+            editIndex = index;
+            document.getElementById('pName').value = channelsArray[index].name || "";
+            document.getElementById('pLink').value = channelsArray[index].url || "";
+            setStreamType(channelsArray[index].streamType || 'live');
+            renderCategoryDropdown(channelsArray[index].category || "UNCATEGORIZED");
+            
+            document.getElementById('formTitle').innerHTML = "<i class='fa-solid fa-pen-to-square'></i> Edit Channel";
+            document.getElementById('actionBtn').innerHTML = "<i class='fa-solid fa-check-double'></i> UPDATE CHANNEL";
+            document.getElementById('actionBtn').className = "btn-pro btn-yellow";
+            closeModal();
+        }
+
+        function deleteChannel(index) {
+            if(confirm("Pakka is channel ko delete karna hai?")) {
+                channelsArray.splice(index, 1);
+                renderList();
+            }
+        }
+
+        async function saveToGitHub() {
+            let groupedChannels = [];
+            savedCategories.forEach(cat => {
+                let chans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat);
+                chans.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { numeric: true, sensitivity: 'base' }));
+                groupedChannels = groupedChannels.concat(chans);
+            });
+            
+            let uncategorizedChannels = channelsArray.filter(ch => !savedCategories.includes(ch.category || "UNCATEGORIZED"));
+            uncategorizedChannels.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { numeric: true, sensitivity: 'base' }));
+            channelsArray = groupedChannels.concat(uncategorizedChannels);
+
+            const updatedJson = JSON.stringify(channelsArray, null, 2);
+            const encodedContent = btoa(unescape(encodeURIComponent(updatedJson)));
+            const uploadBtn = document.querySelector('.btn-blue');
+            
+            uploadBtn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> SAVING...";
+            uploadBtn.style.background = "#d29922";
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${GIT_TOKEN}` },
+                    body: JSON.stringify({ message: "Updated via Admin Panel (Auto-Grouped & Number Sorted)", content: encodedContent, sha: fileSha })
+                });
+
+                if(response.ok) {
+                    const data = await response.json();
+                    fileSha = data.content.sha;
+                    uploadBtn.innerHTML = "<i class='fa-solid fa-circle-check'></i> UPLOAD DONE ✅";
+                    uploadBtn.style.background = "#00ea77"; uploadBtn.style.color = "#000";
+                    
+                    // ⚡ Clear Title (and Link) after successful upload
+                    document.getElementById('pName').value = "";
+                    document.getElementById('pLink').value = "";
+                    
+                    setTimeout(() => {
+                        uploadBtn.innerHTML = "<i class='fa-solid fa-cloud-arrow-up'></i> UPLOAD TO GITHUB";
+                        uploadBtn.style.background = "#ff003c"; uploadBtn.style.color = "#fff";
+                    }, 3000);
+                } else throw new Error("Save error");
+            } catch (error) {
+                uploadBtn.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> FAILED ❌";
+                uploadBtn.style.background = "#da3633";
+                setTimeout(() => {
+                    uploadBtn.innerHTML = "<i class='fa-solid fa-cloud-arrow-up'></i> UPLOAD TO GITHUB";
+                    uploadBtn.style.background = "#ff003c";
+                }, 3000);
+            }
+        }
+
+        function openModal() { document.getElementById('listModal').style.display = 'flex'; renderList(); }
+        function closeModal() { document.getElementById('listModal').style.display = 'none'; }
+    </script>
+</body>
+</html>
