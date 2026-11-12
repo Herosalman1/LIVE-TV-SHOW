@@ -1,5 +1,209 @@
 [
   {
+    "name": "& TV HD",
+    "url": "https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Colors Rishtey",
+    "url": "https://manatv.akamaized.net/090823/smil:ristheyamerica.smil/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Colors Tv : 1",
+    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorsme.smil/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Colors Tv : 2",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ColorsAPAC.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Dangal 2",
+    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Dangal TV",
+    "url": "https://live-dangal.akamaized.net/liveabr/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Shemaroo Josh",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Shemaroo TV",
+    "url": "https://mumt06.tangotv.in/qYyB8fXVSHEMAROOTV/index.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Sony KAL Hindi",
+    "url": "https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "SONY SAB",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/sub_hd_abr/index.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Star Bharat",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavBharat.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Star Plus",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/starplusuk_2500/chunks.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "Zee Dil Se HD",
+    "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c6-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd56e3630f5e762e9acd7aca9059fb8bcb6f68d173701f4b18e7a291ff193dd615415aada7f9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c026e62c33ae4cde858d3fa6ba489e2bc615ececb4a31edd7349dd/33/1920x1080_6280560/index.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "ZEE TV HD",
+    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fcorsproxy.io%2F%3Furl%3Dhttp%3A%2F%2F41.205.93.154%2FZEE-TV%2Findex.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "ZEE TV HD+",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_2500/chunks.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "ZEE TV SD",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_800/chunks.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "ZEE TV SD+",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01u%2F70290462.m3u8",
+    "category": "SERIAL EPISODE",
+    "streamType": "live"
+  },
+  {
+    "name": "CARTOON NETWORK",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=238128018",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Cartoon Network (India)",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/index.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "CN HD+",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/tracks-v1a1/mono.ts.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "CN SD",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=235323657",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "DISCOVERY KIDS",
+    "url": "https://drk6xq0vhn.gpcdn.net/live/discovery_kids_abr/index.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Disney International HD",
+    "url": "http://103.151.60.162:2122/play/a018/55736882.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "EPIC KIDS",
+    "url": "https://cc-t8lqe1o99pszu.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-t8lqe1o99pszu/playlist.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Green Gold TV",
+    "url": "https://cc-szrmqvu8zkg16.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-szrmqvu8zkg16/bdb2e832-cd4c-45ef-85a6-6e7cec156b82/0.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Green Gold TV India Live",
+    "url": "https://vglivessai.akamaized.net/eu/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/db6cd71dbdd677ba80bb6a52c942a936/2.m3u8?ads.network_name=yupptv",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "HUNGAMA TV",
+    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "KIDDO",
+    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Mr Bean Live Action",
+    "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "NICK JR INDIA",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "POGO TV HINDI",
+    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "SONY YAY KIDS",
+    "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "The Jungle Book",
+    "url": "https://cc-4bhi5osabejc9.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/625822b8-c12f-46b0-80f1-f9b77885f89b/0.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "WOW KIDZ",
+    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
     "name": "1ST India News",
     "url": "https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8",
     "category": "NEWS",
@@ -468,108 +672,6 @@
     "streamType": "live"
   },
   {
-    "name": "CARTOON NETWORK",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=238128018",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Cartoon Network (India)",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/index.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "CN HD+",
-    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/tracks-v1a1/mono.ts.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "CN SD",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/cn_sd_abr/live/cn_sd/chunks.m3u8?nimblesessionid=235323657",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "DISCOVERY KIDS",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/discovery_kids_abr/index.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Disney International HD",
-    "url": "http://103.151.60.162:2122/play/a018/55736882.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "EPIC KIDS",
-    "url": "https://cc-t8lqe1o99pszu.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-t8lqe1o99pszu/playlist.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Green Gold TV",
-    "url": "https://cc-szrmqvu8zkg16.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-szrmqvu8zkg16/bdb2e832-cd4c-45ef-85a6-6e7cec156b82/0.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Green Gold TV India Live",
-    "url": "https://vglivessai.akamaized.net/eu/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/db6cd71dbdd677ba80bb6a52c942a936/2.m3u8?ads.network_name=yupptv",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "HUNGAMA TV",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "KIDDO",
-    "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Mr Bean Live Action",
-    "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "NICK JR INDIA",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "POGO TV HINDI",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "SONY YAY KIDS",
-    "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "The Jungle Book",
-    "url": "https://cc-4bhi5osabejc9.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/625822b8-c12f-46b0-80f1-f9b77885f89b/0.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "WOW KIDZ",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
     "name": "7S MUSIC",
     "url": "https://cdn.pishow.tv/ott/live/1257/master.m3u8",
     "category": "MUSIC",
@@ -828,108 +930,6 @@
     "streamType": "live"
   },
   {
-    "name": "& TV HD",
-    "url": "https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Colors Rishtey",
-    "url": "https://manatv.akamaized.net/090823/smil:ristheyamerica.smil/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Colors Tv : 1",
-    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorsme.smil/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Colors Tv : 2",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ColorsAPAC.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Dangal 2",
-    "url": "https://live-dangal2.akamaized.net/liveabr/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Dangal TV",
-    "url": "https://live-dangal.akamaized.net/liveabr/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Shemaroo Josh",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Shemaroo TV",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVSHEMAROOTV/index.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Sony KAL Hindi",
-    "url": "https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "SONY SAB",
-    "url": "https://drk6xq0vhn.gpcdn.net/live/sub_hd_abr/index.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Star Bharat",
-    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavBharat.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Star Plus",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/starplusuk_2500/chunks.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "Zee Dil Se HD",
-    "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg00862-amg00862c6-amgplt0173/cb7d3e1a7b7b6f8a9a9e3d6cd1f242a9d1536083553add3166a25ec67dc81d5381eaf296e71eba615ebd52a33e40340d0136d41cc07c11dfb923f6056b3b5464e4fca27ad9871202a2bf56742cb7710e19f80a0cc0541362d5ec2d0d8716bc6d4a46bb5e200564cdf522d5122fb99c1ad72672debdaa346a2605468f2e05a7ff03f6e0e05847c66cbfb10248854c14b1d30090cb19b887ca589853f322a60b9c97f295d30e82989171bd56e3630f5e762e9acd7aca9059fb8bcb6f68d173701f4b18e7a291ff193dd615415aada7f9950f907b585608fb021e9542fd668a34836ad866cd836f93dd705bdf2343c0e5486826da85eaeaa9775bb9176634fc5d8f1dcdd66db2d67b40da021818da91ea078dc25abdb92f8eb57d1c0267f02f86b0bd99e6bc814bd3708497b4d00a4b40670b15951d8cae2d8a799328f38e2428521b10f6da4d92d2901e11725f8a8569d11130b0cfc4d68c597599365b12c348ed7629208c386577e06dde9f3f67866f4aa63d2ff45530cf13a9ea62a5e98bab567b86dfc143ed66a0e05985b851ff2d195d05fca3790d0b1c3380a0367f4513a972edddceee601a40bda7bf99ee67785669590276c4888e5d928dd2260e19c7475409591914840bc566d914336e0bcd19d6ec4434b20f2f29e9b02c1f3d4893dbba9588c6c026e62c33ae4cde858d3fa6ba489e2bc615ececb4a31edd7349dd/33/1920x1080_6280560/index.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "ZEE TV HD",
-    "url": "https://webiptvplayer.com/proxy.php?url=https%3A%2F%2Fcorsproxy.io%2F%3Furl%3Dhttp%3A%2F%2F41.205.93.154%2FZEE-TV%2Findex.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "ZEE TV HD+",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_2500/chunks.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "ZEE TV SD",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/260723/zeetvapachd_800/chunks.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
-    "name": "ZEE TV SD+",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01u%2F70290462.m3u8",
-    "category": "SERIAL EPISODE",
-    "streamType": "live"
-  },
-  {
     "name": "Alpha (2026)",
     "url": "https://s2.streamflixserver.site/movies/2026/Alpha2026.mkv",
     "category": "NEW MOVIE 2026",
@@ -938,12 +938,6 @@
   {
     "name": "Awarapan 2 (2026)",
     "url": "https://s1.streamflixserver.site/movies/2026/Awarapan2.mkv",
-    "category": "NEW MOVIE 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Bhooth Bangla (2026)",
-    "url": "https://cdn30092.salov447hev.com/stream2/i-cdn-0/d4ab9d7379dba15e87a87dc8527215e2/MJTMsp1RshGTygnMNRUR2N2MSlnWXZEdMNDZzQWe5MDZzMmdZJTO1R2RWVHZDljekhkSsl1VwYnWtx2cihVT21keFNzTUpEaa1mSppFRJNTWUVUMPRkWt10RFlXTUJ1aZpmTq9ERZdXW6NWP:1794162594:122.162.151.34:fe14d988f72906be8742f3a1d8b6bb2e4224acad626c2226d29fe84af66ec64a:=0EVJlHTqVkMNlGN45EVFVXT6FVP/720/index.m3u8",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -1304,18 +1298,6 @@
   {
     "name": "Bodyguard (2011)",
     "url": "https://ia800106.us.archive.org/19/items/bodyguard-1080p-2011/Bodyguard%201080p%202011.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Brahmastra 1 (2022)",
-    "url": "https://ia600802.us.archive.org/8/items/brah-mastra-part-one-shiva-4k-2022/BrahMastra%20Part%20One%20Shiva%204k%202022.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Brahmāstra Part One: Shiva (2022)",
-    "url": "https://archive.org/download/brahmastra-part-one-shiva-2022/Brahm%C4%81stra%20Part%20One%20-%20Shiva%20%282022%29.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2112,6 +2094,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Brahmāstra Part One: Shiva (2022)",
+    "url": "https://archive.org/download/brahmastra-part-one-shiva-2022/Brahm%C4%81stra%20Part%20One%20-%20Shiva%20%282022%29.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
     "name": "Chamatkar (1992)",
     "url": "https://ia903104.us.archive.org/25/items/chamatkar-1992-dv-drip-x-264-aac-3-wanxsz/Chamatkar%201992%20DvDrip%20X264%20AAC%203%20Wanxsz.mp4",
     "category": "90'S MOVIE'S BELLOW 2000",
@@ -2652,6 +2640,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Bhooth Bangla (2026)",
+    "url": "https://ia801601.us.archive.org/14/items/bhooth-bangla-2026-1080p-av-1-nf.-web-dl-e-ac-3-hindi-5.1-ch-192-kbps-en-coded-by-tatai/Bhooth%20Bangla%20%282026%29%201080p%20AV1%20NF.WEB-DL%20%5BE-AC-3%20Hindi%205.1%20Ch%20~%20192%20Kbps%5D%20EnCoded%20By%20Tatai.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "Bhoothnath 1 (2008)",
     "url": "https://dn721603.ca.archive.org/0/items/bhoothnath.-2008.-hindi.-720p.-brrip.x-264/Bhoothnath.2008.Hindi.720p.BRRip.x264.mp4",
     "category": "HORROR MOVIE'S",
@@ -2660,6 +2654,12 @@
   {
     "name": "Bhootnath Returns 2 (2014)",
     "url": "https://dn721802.ca.archive.org/0/items/bhootnath-returns-hindi-children-movie/Bhootnath%20Returns%20Hindi%20Children%20Movie.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Brahmastra 1 (2022)",
+    "url": "https://ia600802.us.archive.org/8/items/brah-mastra-part-one-shiva-4k-2022/BrahMastra%20Part%20One%20Shiva%204k%202022.mp4?cnt=0",
     "category": "HORROR MOVIE'S",
     "streamType": "offline"
   },
