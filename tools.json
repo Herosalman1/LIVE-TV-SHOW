@@ -931,7 +931,7 @@
   },
   {
     "name": "Alpha (2026)",
-    "url": "https://s2.streamflixserver.site/movies/2026/Alpha2026.mkv",
+    "url": "https://ia903203.us.archive.org/8/items/alpha-hindi-2k/Alpha%20%28%20Hindi%202k%20%29.ia.mp4",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -980,6 +980,12 @@
   {
     "name": "Drishyam: The Conclusion (2026)",
     "url": "https://s3.streamflixserver.site/movies/2026/DrishyamTheConclusion.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Hai Jawani Toh Ishq Hona Hai (2026)",
+    "url": "https://ia601907.us.archive.org/17/items/hai-jawani-toh-ishq-hona-hai-2026-hindi-hd-zee-5-480p-1vegamovies.tw/Hai%20Jawani%20Toh%20Ishq%20Hona%20Hai%20%282026%29%20Hindi%20HD%20Zee5%20480p-1vegamovies.tw.mp4",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -1142,6 +1148,12 @@
   {
     "name": "3 Idiots (2009)",
     "url": "https://dn600304.us.archive.org/0/items/3-idiots-hindi-educational-movie/3%20Idiots.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "12th Fail (2023)",
+    "url": "https://ia800509.us.archive.org/3/items/12th-fail-hindi-2k/12th%20Fail%20%28%20Hindi%202K%20%29.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -1344,6 +1356,18 @@
     "streamType": "offline"
   },
   {
+    "name": "Dhadak 1 (2018)",
+    "url": "https://ia600609.us.archive.org/22/items/dhadak.-2018/Dhadak.%282018%29.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Dhadak 2 (2025)",
+    "url": "https://ia800407.us.archive.org/2/items/dhadak.-2.-2025/Dhadak.2.%282025%29.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Dhamaal (2007)",
     "url": "https://ia800703.us.archive.org/10/items/dhamaal-1080p-2007/Dhamaal%201080p%202007.ia.mp4?cnt=0",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -1466,6 +1490,12 @@
   {
     "name": "Heropanti 2 (2022)",
     "url": "https://ia600807.us.archive.org/21/items/heropanti-1080p-2014/Heropanti%202%201080p%202022.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Himmatwala (2013)",
+    "url": "https://ia600103.us.archive.org/24/items/himmatwala-1080p-2013/Himmatwala%201080p%202013.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -1596,6 +1626,18 @@
     "streamType": "offline"
   },
   {
+    "name": "Kesari 1 (2019)",
+    "url": "https://ia800809.us.archive.org/21/items/kesari.-2019_202512/Kesari.%282019%29.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kesari 2 (2025)",
+    "url": "https://ia800106.us.archive.org/30/items/kesari.-chapter.-2.-2025/Kesari.Chapter.2.%282025%29.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Khiladi 786 (2012)",
     "url": "https://ia601008.us.archive.org/1/items/khiladi-786-1080p-2012/Khiladi%20786%201080p%202012.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -1668,14 +1710,26 @@
     "streamType": "offline"
   },
   {
+    "name": "LEO (2023)",
+    "url": "https://ia600602.us.archive.org/19/items/leo-2023-south-hindi-dubbed-un-cut-hd-1080p/Leo-%282023%29-South-Hindi-Dubbed-UnCut-HD-1080p.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Lucky Baskhar (2024)",
-    "url": "https://s3.streamflixserver.site/movies/2024/LuckyBaskhar.mkv",
+    "url": "https://ia800400.us.archive.org/25/items/lucky-baskhar-2024-hindi-hd-1080p/Lucky-Baskhar-%282024%29-Hindi-HD-1080p.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
   {
     "name": "Main Hi Raja Main Hi Mantri (2017)",
     "url": "https://ia903103.us.archive.org/15/items/main-hi-raja-main-hi-mantri/Main%20Hi%20Raja%20Main%20Hi%20Mantri.mp4?cnt=0",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Main Tera Hero (2014)",
+    "url": "https://ia600100.us.archive.org/14/items/main-tera-hero-2014-esubs-1/Main%20Tera%20Hero%20%282014%29%20ESubs%20%281%29.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -1892,6 +1946,12 @@
   {
     "name": "Sanam Teri Kasam (2016)",
     "url": "https://ia600905.us.archive.org/21/items/sanam-teri-kasam-4k-2016/Sanam%20Teri%20Kasam%204k%202016.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Sarkar (2018)",
+    "url": "https://ia600500.us.archive.org/28/items/sarkar-hindi-2k/Sarkar%20%28%20Hindi%202k%20%29.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2826,6 +2886,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Haatim Tai (1990)",
+    "url": "https://ia801506.us.archive.org/29/items/haatim-tai-1990-hindi.-dv-d.-rip.-xvi-d.-ac-3.-esubs.-phantom.-by.juleyano/Haatim%20Tai%20%281990%29%20Hindi.DvD.Rip.XviD.AC3.ESubs.%5BPhantom%5D.BY.juleyano.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Jumanji: The Next Level (2019)",
     "url": "https://proxy.vidbolt.xyz/m/gnVUXm6NbFcjoqULCIxGV9azFTiSVTPMiLlU0Dy-Cl2EJzZLUXJf3Ru8gC4UF1ld13iou9Kjcj0Gl8nu4dtFVdrXagidzVF-u-pye20edxqYWiCw_alnh9uJA2gjUXkwMhLpKlkmZbizEG_M9agZ5uEn8cXXkZd89KypQY1KI7gp10tUNIijv2VMKvnIpIjikwqy87k-o5HKNCeVD-2YSkLwm2QgtNoje7EEc8GNJPmcJmxHQkOwXgbEgbDjoU5Nulta5LTFX4L3sz00Z-Yp4WBRAtZdCN6wn2A96-ekKQ9oj2tZYZPMWX5OI0YsAtQz3AEw2Z80VhOJuzY4Z1zfIzzH8LJTYfLzTpCE6zoF5XG1RbC2wWetuwVovw4T09DKx8BOaM-EdA?f=.m3u8",
     "category": "ADVENTURE MOVIES",
@@ -3110,6 +3176,12 @@
   {
     "name": "DOREAMON EPISODE : 44",
     "url": "https://archive.org/download/doraemon-nobita-and-the-steel-troops-1986/Doraemon%20Nobita%20and%20the%20Steel%20Troops1986.mp4",
+    "category": "DOREAMON HD+ EPISODE",
+    "streamType": "offline"
+  },
+  {
+    "name": "DOREAMON EPISODE : 45",
+    "url": "https://ia800705.us.archive.org/15/items/devil_202610/DEVIL.mp4",
     "category": "DOREAMON HD+ EPISODE",
     "streamType": "offline"
   },
