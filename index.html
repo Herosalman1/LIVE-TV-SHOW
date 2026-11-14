@@ -83,13 +83,13 @@
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* ⚡ TIMER AND ERROR (CENTERED) */
+        /* ⚡ VIP TIMER & ERROR UI */
         .stream-timer {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(229, 9, 20, 0.9); color: #fff; text-align: center;
-            padding: 10px 24px; border-radius: 8px; font-weight: 700; font-size: 16px; 
-            z-index: 50; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.6); 
-            letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Inter', sans-serif;
+            background: transparent; color: #ffffff; text-align: center;
+            font-weight: 300; font-size: 20px; z-index: 50; display: none; 
+            letter-spacing: 4px; font-family: 'Poppins', sans-serif; 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.9); text-transform: uppercase;
         }
         .error-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -198,7 +198,7 @@
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
 
-                <div class="stream-timer" id="popTimer">TIMER : 20 SEC</div>
+                <div class="stream-timer" id="popTimer"></div>
                 <div class="error-overlay" id="popError">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <span>STREAM ERROR 404 ...</span>
@@ -276,20 +276,20 @@
         let overlayTimer; 
         let currentView = 'live'; 
 
-        // ⚡ TIMER AND ERROR LOGIC
+        // ⚡ VIP TIMER AND ERROR LOGIC
         function startPTimer() {
             clearInterval(pTime);
             if(popError) popError.style.display = 'none';
             let tl = 20;
             if(popTimer) {
-                popTimer.innerText = 'TIMER : ' + tl + ' SEC';
+                popTimer.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="margin-right:12px; opacity:0.8;"></i> TIMER : ' + tl + ' SEC';
                 popTimer.style.display = 'block';
             }
             
             pTime = setInterval(() => {
                 tl--;
                 if(tl > 0) {
-                    if(popTimer) popTimer.innerText = 'TIMER : ' + tl + ' SEC';
+                    if(popTimer) popTimer.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="margin-right:12px; opacity:0.8;"></i> TIMER : ' + tl + ' SEC';
                 } else {
                     clearInterval(pTime);
                     if(popTimer) popTimer.style.display = 'none';
@@ -413,7 +413,6 @@
             overlayTime.innerText = "0:00 / 0:00";
             hideOverlay(); 
 
-            // ⚡ TELEGRAM REDIRECT
             if (url.includes('t.me/') || url.includes('telegram.dog/')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-paper-plane" style="color: #0088cc; margin-right: 8px;"></i> Opening Telegram: <span style="margin-left: 8px;">${name}</span>`;
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
@@ -429,7 +428,6 @@
                 return;
             }
 
-            // ⚡ WORKER.DEV POPUP
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77; margin-right: 8px;"></i> Redirecting: <span style="margin-left: 8px;">${name}</span>`;
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
@@ -454,7 +452,7 @@
                             <title>${name} - Live Stream</title>
                             <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
                             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
                             <style>
                                 html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; }
@@ -463,7 +461,8 @@
                                 video { width: 100%; height: 100%; object-fit: fill; outline: none; background: #000; pointer-events: none; }
                                 video::-webkit-media-controls { display: none !important; }
                                 
-                                .stream-timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(229, 9, 20, 0.9); color: #fff; text-align: center; padding: 10px 24px; border-radius: 8px; font-weight: 700; font-size: 16px; z-index: 50; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.6); letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Inter', sans-serif; }
+                                /* VIP POPUP TIMER */
+                                .stream-timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent; color: #ffffff; text-align: center; font-weight: 300; font-size: 20px; z-index: 50; display: none; letter-spacing: 4px; font-family: 'Poppins', sans-serif; text-shadow: 0 4px 15px rgba(0,0,0,0.9); }
                                 .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; text-align: center; padding: 20px;}
                                 .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
 
@@ -486,7 +485,7 @@
                         <body>
                             <div class="video-container" id="videoContainer">
                                 <video id="video" autoplay playsinline></video>
-                                <div class="stream-timer" id="popTimer">TIMER : 20 SEC</div>
+                                <div class="stream-timer" id="popTimer"></div>
                                 <div class="error-overlay" id="popError">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     <span>STREAM ERROR 404 ...</span>
@@ -532,13 +531,13 @@
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
-                                        popTimer.innerText = 'TIMER : ' + tl + ' SEC';
+                                        popTimer.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="margin-right:12px; opacity:0.8;"></i> TIMER : ' + tl + ' SEC';
                                         popTimer.style.display = 'block';
                                     }
                                     pTime = setInterval(() => {
                                         tl--;
                                         if(tl > 0) { 
-                                            if(popTimer) popTimer.innerText = 'TIMER : ' + tl + ' SEC'; 
+                                            if(popTimer) popTimer.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="margin-right:12px; opacity:0.8;"></i> TIMER : ' + tl + ' SEC'; 
                                         } else { 
                                             clearInterval(pTime); 
                                             if(popTimer) popTimer.style.display = 'none'; 
