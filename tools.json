@@ -108,24 +108,6 @@
     "streamType": "live"
   },
   {
-    "name": "Green Gold TV",
-    "url": "https://cc-szrmqvu8zkg16.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-szrmqvu8zkg16/bdb2e832-cd4c-45ef-85a6-6e7cec156b82/0.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Green Gold TV India Live",
-    "url": "https://vglivessai.akamaized.net/eu/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/db6cd71dbdd677ba80bb6a52c942a936/2.m3u8?ads.network_name=yupptv",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "HUNGAMA TV",
-    "url": "https://televizya.app/p?u=http%3A%2F%2F103.185.24.134%3A3001%2FHUNGAMA%2Findex.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
     "name": "KIDDO",
     "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/5bcf9d24-04f2-401d-a93f-7af54f29461a/31237327-8f7f-4803-82be-9fde44d7c661/0.m3u8",
     "category": "KIDS CARTOON",
@@ -138,26 +120,8 @@
     "streamType": "live"
   },
   {
-    "name": "NICK JR INDIA",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa00s%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "POGO TV HINDI",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa01e%2Findex.m3u8%3Fhls",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
     "name": "SONY YAY KIDS",
     "url": "https://sliv.tgaadi.workers.dev/sonyyaysd.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "The Jungle Book",
-    "url": "https://cc-4bhi5osabejc9.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/625822b8-c12f-46b0-80f1-f9b77885f89b/0.m3u8",
     "category": "KIDS CARTOON",
     "streamType": "live"
   },
