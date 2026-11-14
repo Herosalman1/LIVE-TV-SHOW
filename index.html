@@ -90,7 +90,7 @@
             font-weight: 500; font-size: 14px; z-index: 50; display: none; 
             letter-spacing: 2px; font-family: 'Poppins', sans-serif; 
             text-shadow: 0 4px 15px rgba(0,0,0,0.9); 
-            white-space: nowrap; /* ⚡ PREVENTS LINE BREAK ON MOBILE */
+            white-space: nowrap; 
         }
         .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;}
         .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
@@ -257,12 +257,6 @@
         let fastForwardTimer = null;
         let currentTl = 20;
         let isFastForwarding = false;
-        
-        let hlsInstance = null;
-        let savedChannels = [];
-        let currentPlayingIndex = -1;
-        let overlayTimer; 
-        let currentView = 'live'; 
 
         // ⚡ VIP FAST-FORWARD TIMER LOGIC
         function startPTimer() {
@@ -297,13 +291,12 @@
             nowPlayingText.innerHTML = '<span style="color:#ff4d4f;"><i class="fa-solid fa-triangle-exclamation"></i> STREAM ERROR 404 ...</span>';
         }
 
-        function startVideoWithFastForward() {
+        function fastForwardTimerToZero() {
             if (isFastForwarding) return;
             isFastForwarding = true;
             clearInterval(pTime);
             
             if (currentTl > 0) {
-                // Fast forward down to 0
                 fastForwardTimer = setInterval(() => {
                     currentTl--;
                     if(currentTl > 0) {
@@ -311,23 +304,18 @@
                     } else {
                         clearInterval(fastForwardTimer);
                         if(popTimer) popTimer.style.display = 'none';
-                        // Wait slightly then play video (so timer hides BEFORE play)
-                        setTimeout(() => {
-                            video.play().catch(e => { triggerError(); });
-                        }, 100); 
                     }
-                }, 25); // Super fast 25ms per second drop
+                }, 15); // Ekdum fast 15ms mein hide
             } else {
                 if(popTimer) popTimer.style.display = 'none';
-                video.play().catch(e => { triggerError(); });
             }
         }
 
         video.addEventListener('playing', () => { 
-            clearInterval(pTime); 
-            clearInterval(fastForwardTimer);
-            if(popTimer) popTimer.style.display = 'none'; 
+            // Jab video actually play hona shuru ho, tab timer ko fast forward karke hide kar do
+            fastForwardTimerToZero();
         });
+        
         video.addEventListener('error', () => { triggerError(); });
 
         fetch('tools.json')
@@ -358,6 +346,7 @@
         function renderChannels() {
             channelListEl.innerHTML = '';
             const categories = [];
+            
             const viewChannels = savedChannels.filter(ch => (ch.streamType || 'live') === currentView);
 
             viewChannels.forEach(ch => {
@@ -469,7 +458,7 @@
                             <title>${name} - Live Stream</title>
                             <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
                             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@500&display=swap" rel="stylesheet">
                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
                             <style>
                                 html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; }
@@ -497,7 +486,6 @@
                                 .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
                                 .time-text { color: #fff; font-size: 15px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
                                 .vol-btn { background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 5px;}
-                                @media (min-width: 900px) { .stream-timer { font-size: 18px; letter-spacing: 3px; } }
                             </style>
                         </head>
                         <body>
@@ -579,7 +567,7 @@
                                     nowPlayingText.innerHTML = '<span style="color:#ff4d4f;"><i class="fa-solid fa-triangle-exclamation"></i> STREAM ERROR 404 ...</span>';
                                 }
 
-                                function startVideoWithFastForward() {
+                                function fastForwardTimerToZero() {
                                     if (isFastForwarding) return;
                                     isFastForwarding = true;
                                     clearInterval(pTime);
@@ -592,24 +580,19 @@
                                             } else {
                                                 clearInterval(fastForwardTimer);
                                                 if(popTimer) popTimer.style.display = 'none';
-                                                setTimeout(() => {
-                                                    video.play().catch(e => { triggerError(); });
-                                                }, 100); 
                                             }
-                                        }, 25); 
+                                        }, 15); 
                                     } else {
                                         if(popTimer) popTimer.style.display = 'none';
-                                        video.play().catch(e => { triggerError(); });
                                     }
                                 }
 
                                 startPTimer();
 
                                 video.addEventListener('playing', () => { 
-                                    clearInterval(pTime); 
-                                    clearInterval(fastForwardTimer);
-                                    if(popTimer) popTimer.style.display = 'none'; 
+                                    fastForwardTimerToZero();
                                 });
+                                
                                 video.addEventListener('error', () => { triggerError(); });
 
                                 let overlayTimer;
@@ -619,7 +602,7 @@
 
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
-                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { startVideoWithFastForward(); }); 
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
                                     hls.on(Hls.Events.ERROR, function(e, data) {
                                         if(data.fatal) {
                                             switch(data.type) {
@@ -630,10 +613,9 @@
                                         }
                                     });
                                 } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { startVideoWithFastForward(); }, {once: true}); 
+                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
                                 } else {
-                                    video.src = videoSrc; video.load();
-                                    startVideoWithFastForward();
+                                    video.src = videoSrc; video.play().catch(e=>triggerError());
                                 }
 
                                 function formatTime(sec) {
@@ -809,13 +791,13 @@
             startPTimer();
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url; video.load(); startVideoWithFastForward();
+                video.src = url; video.load(); video.play().catch(e=>console.log(e));
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { startVideoWithFastForward(); });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e=>console.log(e)); });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
@@ -835,10 +817,10 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => { startVideoWithFastForward(); }, {once: true});
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e=>console.log(e)); });
             } else {
                 video.src = url; video.load();
-                startVideoWithFastForward();
+                video.play().catch(e => { triggerError(); });
             }
         }
 
