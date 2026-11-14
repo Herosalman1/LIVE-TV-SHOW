@@ -6,7 +6,7 @@
     <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         :root {
@@ -33,7 +33,9 @@
             backdrop-filter: blur(20px);
             padding: 15px 25px; 
             border-bottom: 1px solid var(--border-color); 
-            display: flex; justify-content: space-between; align-items: center; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
             position: sticky; top: 0; z-index: 100;
         }
         .header-brand { display: flex; align-items: center; font-size: 18px; font-weight: 700; color: #fff; }
@@ -71,7 +73,8 @@
         .video-container { 
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
-            position: relative; touch-action: none;
+            position: relative; 
+            touch-action: none;
         }
 
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
@@ -83,29 +86,34 @@
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* ⚡ VIP POPUP TIMER */
-        .stream-timer { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            background: transparent; color: #ffffff; text-align: center; 
-            font-weight: 500; font-size: 14px; z-index: 50; display: none; 
-            letter-spacing: 2px; font-family: 'Poppins', sans-serif; 
-            text-shadow: 0 4px 15px rgba(0,0,0,0.9); 
-            white-space: nowrap; 
-        }
-        .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;}
-        .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
-
         .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
-        .custom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 20; }
+
+        .custom-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex; flex-direction: column; justify-content: space-between;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+            z-index: 20;
+        }
         .custom-overlay.show { opacity: 1; pointer-events: none; }
-        .overlay-center { display: flex; justify-content: center; align-items: center; gap: 40px; flex: 1; pointer-events: none; }
-        .overlay-btn { background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8)); pointer-events: auto; }
+        
+        .overlay-center {
+            display: flex; justify-content: center; align-items: center; gap: 40px; flex: 1; pointer-events: none;
+        }
+        .overlay-btn {
+            background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8));
+            pointer-events: auto; 
+        }
         .overlay-btn:active { transform: scale(0.9); color: var(--accent-red); }
         .play-pause-btn { font-size: 45px; }
+        
         .overlay-bottom { padding: 15px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); pointer-events: auto; width: 100%; box-sizing: border-box; }
         .progress-container { width: 100%; display: flex; align-items: center; margin-bottom: 8px; }
         .seek-bar { -webkit-appearance: none; width: 100%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 5px; outline: none; cursor: pointer; }
         .seek-bar::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #fff; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+        
         .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .time-text { color: #fff; font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
         .vol-btn { background: transparent; border: none; color: #fff; font-size: 16px; cursor: pointer; padding: 5px;}
@@ -159,7 +167,6 @@
             .play-pause-btn { font-size: 60px; }
             .time-text { font-size: 14px; }
             .vol-btn { font-size: 20px; }
-            .stream-timer { font-size: 18px; letter-spacing: 3px; }
         }
     </style>
 </head>
@@ -224,6 +231,7 @@
                 <button class="sidebar-tab active" id="tabLive" onclick="switchView('live')"><i class="fa-solid fa-tv"></i> Live TV</button>
                 <button class="sidebar-tab" id="tabOffline" onclick="switchView('offline')"><i class="fa-solid fa-film"></i> Offline Stream</button>
             </div>
+            
             <div class="channel-list-container" id="channelList">
                 <div style="text-align:center; color:var(--text-muted); padding:30px; font-size: 13px;">
                     <i class="fa-solid fa-spinner fa-spin" style="font-size: 20px; margin-bottom: 8px; display: block; color: var(--accent-red);"></i> Loading Channels...
@@ -234,7 +242,7 @@
     </div>
 
     <script>
-        const video = document.getElementById('tvPlayer'); 
+        const video = document.getElementById('tvPlayer');
         const videoContainer = document.getElementById('videoContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
@@ -248,8 +256,6 @@
         const overlaySeekBar = document.getElementById('overlaySeekBar');
         const overlayTime = document.getElementById('overlayTime');
         const overlayMuteBtn = document.getElementById('overlayMuteBtn');
-        const fullScreenBtn = document.getElementById('fullScreenBtn');
-        const overlayBottom = document.getElementById('overlayBottom');
         
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
@@ -257,6 +263,12 @@
         let fastForwardTimer = null;
         let currentTl = 20;
         let isFastForwarding = false;
+        
+        let hlsInstance = null;
+        let savedChannels = [];
+        let currentPlayingIndex = -1;
+        let overlayTimer; 
+        let currentView = 'live'; 
 
         // ⚡ VIP FAST-FORWARD TIMER LOGIC
         function startPTimer() {
@@ -296,6 +308,7 @@
             isFastForwarding = true;
             clearInterval(pTime);
             
+            // ⚡ Video background mein chalegi aur hum timer ko ekdum speed mein (30ms per number) hide karenge
             if (currentTl > 0) {
                 fastForwardTimer = setInterval(() => {
                     currentTl--;
@@ -305,14 +318,15 @@
                         clearInterval(fastForwardTimer);
                         if(popTimer) popTimer.style.display = 'none';
                     }
-                }, 15); // Ekdum fast 15ms mein hide
+                }, 30); 
             } else {
                 if(popTimer) popTimer.style.display = 'none';
             }
         }
 
         video.addEventListener('playing', () => { 
-            // Jab video actually play hona shuru ho, tab timer ko fast forward karke hide kar do
+            // Jaise hi original video actually chalna shuru karegi screen par (buffering ke baad)
+            // Ussi ekdum precise millisecond par timer speed se ghoom kar hide hoga!
             fastForwardTimerToZero();
         });
         
@@ -410,11 +424,6 @@
         }
 
         function playStream(url, name) {
-            clearInterval(pTime);
-            clearInterval(fastForwardTimer);
-            if(popTimer) popTimer.style.display = 'none';
-            if(popError) popError.style.display = 'none';
-
             overlaySeekBar.value = 0;
             overlayTime.innerText = "0:00 / 0:00";
             hideOverlay(); 
@@ -458,7 +467,7 @@
                             <title>${name} - Live Stream</title>
                             <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
                             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@500&display=swap" rel="stylesheet">
+                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
                             <style>
                                 html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; }
@@ -581,13 +590,11 @@
                                                 clearInterval(fastForwardTimer);
                                                 if(popTimer) popTimer.style.display = 'none';
                                             }
-                                        }, 15); 
+                                        }, 30); 
                                     } else {
                                         if(popTimer) popTimer.style.display = 'none';
                                     }
                                 }
-
-                                startPTimer();
 
                                 video.addEventListener('playing', () => { 
                                     fastForwardTimerToZero();
@@ -692,7 +699,9 @@
                                 }
                                 fullScreenBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleFullScreen(); });
 
-                                function lockLandscape() { if (screen.orientation && screen.orientation.lock) { screen.orientation.lock('landscape').catch(e=>console.log(e)); } }
+                                function lockLandscape() { if (screen.orientation && screen.orientation.lock) { screen.orientation.lock('landscape').catch(function(error) {
+                                    console.log('Orientation lock failed:', error);
+                                }); } }
                                 function unlockOrientation() { if (screen.orientation && screen.orientation.unlock) { screen.orientation.unlock(); } }
 
                                 document.addEventListener('keydown', function(event) {
@@ -791,13 +800,13 @@
             startPTimer();
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url; video.load(); video.play().catch(e=>console.log(e));
+                video.src = url; video.load(); video.play().catch(e => console.log("Auto-play blocked"));
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e=>console.log(e)); });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log("Auto-play blocked")); });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
@@ -817,7 +826,7 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => { video.play().catch(e=>console.log(e)); });
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
             } else {
                 video.src = url; video.load();
                 video.play().catch(e => { triggerError(); });
