@@ -6,7 +6,7 @@
     <meta name="referrer" content="no-referrer">
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         :root {
@@ -33,9 +33,7 @@
             backdrop-filter: blur(20px);
             padding: 15px 25px; 
             border-bottom: 1px solid var(--border-color); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+            display: flex; justify-content: space-between; align-items: center; 
             position: sticky; top: 0; z-index: 100;
         }
         .header-brand { display: flex; align-items: center; font-size: 18px; font-weight: 700; color: #fff; }
@@ -73,8 +71,7 @@
         .video-container { 
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
-            position: relative; 
-            touch-action: none;
+            position: relative; touch-action: none;
         }
 
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
@@ -85,6 +82,24 @@
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; pointer-events: none; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
+
+        /* ⚡ NEW UI: TIMER AND ERROR SCREEN */
+        .stream-timer {
+            position: absolute; top: 15px; left: 15px;
+            background: rgba(229, 9, 20, 0.9); color: #fff;
+            padding: 6px 14px; border-radius: 6px;
+            font-weight: 700; font-size: 14px; z-index: 50; display: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.2); font-family: 'Inter', sans-serif;
+        }
+        .error-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; color: #ff4d4f; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;
+        }
+        .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
 
         .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
 
@@ -97,15 +112,8 @@
         }
         .custom-overlay.show { opacity: 1; pointer-events: none; }
         
-        .overlay-center {
-            display: flex; justify-content: center; align-items: center; gap: 40px; flex: 1; pointer-events: none;
-        }
-        .overlay-btn {
-            background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8));
-            pointer-events: auto; 
-        }
+        .overlay-center { display: flex; justify-content: center; align-items: center; gap: 40px; flex: 1; pointer-events: none; }
+        .overlay-btn { background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8)); pointer-events: auto; }
         .overlay-btn:active { transform: scale(0.9); color: var(--accent-red); }
         .play-pause-btn { font-size: 45px; }
         
@@ -191,6 +199,13 @@
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
 
+                <!-- ⚡ NEW ELEMENTS: TIMER & ERROR SCREEN -->
+                <div class="stream-timer" id="streamTimer">TIMER : 20 SEC</div>
+                <div class="error-overlay" id="errorOverlay">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>STREAM ERROR 404 ...</span>
+                </div>
+
                 <div class="touch-catcher" id="touchCatcher"></div>
 
                 <div class="custom-overlay" id="customOverlay">
@@ -256,11 +271,54 @@
         const overlayTime = document.getElementById('overlayTime');
         const overlayMuteBtn = document.getElementById('overlayMuteBtn');
         
+        // ⚡ TIMER AND ERROR VARS
+        const streamTimer = document.getElementById('streamTimer');
+        const errorOverlay = document.getElementById('errorOverlay');
+        let countdownInt = null;
+        let timerStarted = false;
+
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let overlayTimer; 
         let currentView = 'live'; 
+
+        // ⚡ TIMER & ERROR FUNCTIONS
+        function startTimer() {
+            clearInterval(countdownInt);
+            let timeleft = 20;
+            streamTimer.innerText = 'TIMER : ' + timeleft + ' SEC';
+            streamTimer.style.display = 'block';
+            
+            countdownInt = setInterval(() => {
+                timeleft--;
+                if(timeleft > 0) {
+                    streamTimer.innerText = 'TIMER : ' + timeleft + ' SEC';
+                } else {
+                    clearInterval(countdownInt);
+                    streamTimer.style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        function triggerError() {
+            clearInterval(countdownInt);
+            streamTimer.style.display = 'none';
+            errorOverlay.style.display = 'flex';
+            nowPlayingText.innerHTML = '<span style="color:#ff4d4f;"><i class="fa-solid fa-triangle-exclamation"></i> STREAM ERROR 404 ...</span>';
+        }
+
+        video.addEventListener('playing', () => {
+            if(!timerStarted) {
+                startTimer();
+                timerStarted = true;
+            }
+        });
+
+        video.addEventListener('error', () => {
+            triggerError();
+        });
+
 
         fetch('tools.json')
             .then(res => res.json())
@@ -354,10 +412,16 @@
         }
 
         function playStream(url, name) {
+            timerStarted = false;
+            clearInterval(countdownInt);
+            streamTimer.style.display = 'none';
+            errorOverlay.style.display = 'none';
+
             overlaySeekBar.value = 0;
             overlayTime.innerText = "0:00 / 0:00";
             hideOverlay(); 
 
+            // ⚡ TELEGRAM REDIRECT
             if (url.includes('t.me/') || url.includes('telegram.dog/')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-paper-plane" style="color: #0088cc; margin-right: 8px;"></i> Opening Telegram: <span style="margin-left: 8px;">${name}</span>`;
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
@@ -373,6 +437,7 @@
                 return;
             }
 
+            // ⚡ WORKER.DEV POPUP
             if (url.includes('workers.dev')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: #00ea77; margin-right: 8px;"></i> Redirecting: <span style="margin-left: 8px;">${name}</span>`;
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
@@ -397,7 +462,7 @@
                             <title>${name} - Live Stream</title>
                             <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
                             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@500&display=swap" rel="stylesheet">
+                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@500&display=swap" rel="stylesheet">
                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
                             <style>
                                 html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; }
@@ -406,21 +471,22 @@
                                 video { width: 100%; height: 100%; object-fit: fill; outline: none; background: #000; pointer-events: none; }
                                 video::-webkit-media-controls { display: none !important; }
                                 
+                                /* POPUP TIMER AND ERROR */
+                                .stream-timer { position: absolute; top: 15px; left: 15px; background: rgba(229, 9, 20, 0.9); color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 14px; z-index: 50; display: none; box-shadow: 0 4px 10px rgba(0,0,0,0.5); letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Inter', sans-serif; }
+                                .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; text-align: center; padding: 20px;}
+                                .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
+
                                 .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
-                                
                                 .custom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 20; }
                                 .custom-overlay.show { opacity: 1; pointer-events: none; }
-                                
                                 .overlay-center { display: flex; justify-content: center; align-items: center; flex: 1; pointer-events: none; }
                                 .overlay-btn { background: transparent; border: none; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8)); pointer-events: auto; }
                                 .overlay-btn:active { transform: scale(0.9); color: #e50914; }
                                 .play-pause-btn { font-size: 60px; }
-                                
                                 .overlay-bottom { padding: 25px 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); pointer-events: auto; width: 100%; box-sizing: border-box; }
                                 .progress-container { width: 100%; display: flex; align-items: center; margin-bottom: 12px; }
                                 .seek-bar { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.3); border-radius: 5px; outline: none; cursor: pointer; }
                                 .seek-bar::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
-                                
                                 .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
                                 .time-text { color: #fff; font-size: 15px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
                                 .vol-btn { background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 5px;}
@@ -429,6 +495,11 @@
                         <body>
                             <div class="video-container" id="videoContainer">
                                 <video id="video" autoplay playsinline></video>
+                                <div class="stream-timer" id="popTimer">TIMER : 20 SEC</div>
+                                <div class="error-overlay" id="popError">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <span>STREAM ERROR 404 ...</span>
+                                </div>
                                 <div class="touch-catcher" id="touchCatcher"></div>
                                 <div class="custom-overlay" id="customOverlay">
                                     <div style="flex:0.2;"></div>
@@ -461,6 +532,27 @@
                                 const fullScreenBtn = document.getElementById('fullScreenBtn');
                                 const overlayBottom = document.getElementById('overlayBottom');
                                 
+                                const popTimer = document.getElementById('popTimer');
+                                const popError = document.getElementById('popError');
+                                let pTime = null;
+                                let pStarted = false;
+
+                                function startPTimer() {
+                                    clearInterval(pTime);
+                                    let tl = 20;
+                                    popTimer.innerText = 'TIMER : ' + tl + ' SEC';
+                                    popTimer.style.display = 'block';
+                                    pTime = setInterval(() => {
+                                        tl--;
+                                        if(tl > 0) { popTimer.innerText = 'TIMER : ' + tl + ' SEC'; } 
+                                        else { clearInterval(pTime); popTimer.style.display = 'none'; }
+                                    }, 1000);
+                                }
+                                function popErr() { clearInterval(pTime); popTimer.style.display = 'none'; popError.style.display = 'flex'; }
+
+                                video.addEventListener('playing', () => { if(!pStarted) { startPTimer(); pStarted = true; } });
+                                video.addEventListener('error', () => { popErr(); });
+
                                 let overlayTimer;
                                 let lastClickTime = 0;
                                 let seekInterval = null;
@@ -469,10 +561,19 @@
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
                                     hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                                    hls.on(Hls.Events.ERROR, function(e, data) {
+                                        if(data.fatal) {
+                                            switch(data.type) {
+                                                case Hls.ErrorTypes.NETWORK_ERROR: hls.destroy(); popErr(); break;
+                                                case Hls.ErrorTypes.MEDIA_ERROR: hls.recoverMediaError(); break;
+                                                default: hls.destroy(); popErr(); break;
+                                            }
+                                        }
+                                    });
                                 } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
                                     video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
                                 } else {
-                                    video.src = videoSrc; video.play().catch(e=>console.log(e));
+                                    video.src = videoSrc; video.play().catch(e=>popErr());
                                 }
 
                                 function formatTime(sec) {
@@ -655,9 +756,17 @@
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR: hlsInstance.startLoad(); break;
-                            case Hls.ErrorTypes.MEDIA_ERROR: hlsInstance.recoverMediaError(); break;
-                            default: hlsInstance.destroy(); break;
+                            case Hls.ErrorTypes.NETWORK_ERROR: 
+                                hlsInstance.destroy(); 
+                                triggerError();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR: 
+                                hlsInstance.recoverMediaError(); 
+                                break;
+                            default: 
+                                hlsInstance.destroy(); 
+                                triggerError();
+                                break;
                         }
                     }
                 });
@@ -666,7 +775,7 @@
                 video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
             } else {
                 video.src = url; video.load();
-                video.play().catch(e => { nowPlayingText.innerHTML = `<span style="color:#ff4d4f;">Error: Format not supported on this browser.</span>`; });
+                video.play().catch(e => { triggerError(); });
             }
         }
 
