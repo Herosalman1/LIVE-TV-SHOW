@@ -120,6 +120,18 @@
     "streamType": "live"
   },
   {
+    "name": "GREEN TV HD",
+    "url": "https://cc-szrmqvu8zkg16.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-szrmqvu8zkg16/99b12603-0471-43e9-aa5b-af4283f90df3/3.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "Hooray Kids",
+    "url": "https://d3go3d9yw1x2sb.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-obhh0sw25szth/bd59dd17-d76c-44ef-a108-6ac471b4da71/2.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
     "name": "Hooray Rhymes Live",
     "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/ec031d1f-2217-4dd0-9c8a-ca8f00a8c31f/5df682c187ca89cb00de4b287b8d1e68/2.m3u8?ads.network_name=yupptv",
     "category": "KIDS CARTOON",
@@ -128,6 +140,12 @@
   {
     "name": "Mr Bean Live Action",
     "url": "https://amg00627-amg00627c40-rakuten-uk-5725.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg00627-banijayfast-mrbeanpopupcc-rakutenuk/cb7c3e1a7b7b6f8a9a9e3d6cd1f243a8d1043381543add316da85e927cc0155a87bef0c9e44be73b7ed262812b53310d0c78ce07de6c19a08724fc0e733f070afe88b37bc7991919d581512c2eb86a5657fa1705a165137edcde1f0aae34a1365040bf473d0072c59621c90b2ed99056d2247c9bda88326222434fec051fbafd0bbcfee45f5bd872a1af1c58f67e13b6c01bd6d11fbc9ed75d8e36d221ee159890ee8bcd109c868377af02e6675d5a707cd48320c19a10e78b9c38749e2971135354e7a192a94f6cd4454509a0cde1d50a978511a45fe34919f965b14180398b19c563c5c07dd0663f42203b5d85d752605dc0afc0d8b95d37ccfb6db769211228b98fdee9f5e46ff8110b72fcdcd81d858c3e99ba2884a068279fa1fb58b692a88ae3bc8c05c96b9a87bcaf344c4a6c1311c67396da3c8b678d23e8f91a2f0a191fed820390cf997f20724383b75bd63812ad94ded08840689c205371c054f477492cc03d6779a50afc993763c066298d2732f65d7ad117aef67cbbf795b54608b4d8c650f620bae65d9ca554e948385e4de2a77e1115022d9ebe14785a13f44cead7c5f6644951bc85aad0f413695777472843e18bca79989ccf3a1210d5214f4d7d13059917d96fcb7a27252ace1b93e149438c082522f1b47d3a7e6985c3a58e97dca810e49fb21f729f995dc1f49dbcfe27a32448597f3e4656e193/41/1280x720_3329040/index.m3u8",
+    "category": "KIDS CARTOON",
+    "streamType": "live"
+  },
+  {
+    "name": "PowerKids TV",
+    "url": "https://d1s1t403pzp2rz.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-caowluvnwycy4/bfe0d58e-1978-4017-9be0-20a0aa84fcdd/2.m3u8",
     "category": "KIDS CARTOON",
     "streamType": "live"
   },
