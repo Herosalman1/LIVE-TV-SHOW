@@ -798,12 +798,6 @@
     "streamType": "live"
   },
   {
-    "name": "Cricket Gold",
-    "url": "https://epg.provider.plex.tv/library/parts/698f7631338300003d436270-65e0c8c6d899afe817b9d224/variant.m3u8?x-plex-token=e5EqzivsgbAdxsZvQZCy&x-plex-advertising-identifier=&x-plex-client-identifier=74126c0d-6fa6-44aa-b165-a3b179802b43&x-plex-playback-id=p_f83ed07f-dd94-461c-abe5-6e3f2d19cb98&x-plex-playback-session-id=&x-plex-session-id=&x-plex-device=Windows&x-plex-device-name=Plex+Mediaverse&x-plex-advertising-donottrack=0&x-plex-drm=&x-plex-model=&x-plex-platform=Edge&x-plex-platform-version=155.0.0.0&x-plex-product=Plex+Mediaverse&x-plex-device-screen-resolution=&x-plex-device-vendor=&x-plex-version=&x-plex-provider-streaming-start=1793647923&auto=0&utm_campaign=Watch+Free+Movies+Online+with+Plex&utm_internal=marketing-site%7CWatch+Free+Movies+Online+with+Plex&utm_medium=marketing-site&utm_source=Plex&url=f9d3421ca728cf98c013494eb5057bea-444a56aff5bda16af077620cca98337cfd5cdafce399d5e32a7faff0954e318642ecb31d2646f1ada16f5a968c3fcfa0487440a708bf4f9eba70f23827193410e53ee74666778b0664a8610a7a44c7d27a8d75fcd50d1e7ba2d4613bc7cdafa9188890e46c263a68380cf0b6863a4b4e2ccbc54d61bd10c6ac5ba62a8488fc3fe6dfab918264b2ee08d32ac64782b0b082fcbaece340436fda07014ddf5daf02",
-    "category": "SPORTS",
-    "streamType": "live"
-  },
-  {
     "name": "DD Sports",
     "url": "https://mumbai-edge.smartplaytv.in/DDSports/tracks-v1a1/mono.m3u8",
     "category": "SPORTS",
@@ -872,18 +866,6 @@
   {
     "name": "Sony Sports Ten 5 HD",
     "url": "https://sliv.tgaadi.workers.dev/sonysixhd.m3u8",
-    "category": "SPORTS",
-    "streamType": "live"
-  },
-  {
-    "name": "Sports Live",
-    "url": "https://cc-cuqwjso962c54.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-cuqwjso962c54/5a317140-e29e-47f6-be83-4deb6024c8f1/1.m3u8",
-    "category": "SPORTS",
-    "streamType": "live"
-  },
-  {
-    "name": "Star Sports Select 1",
-    "url": "https://webiptvplayer.com/proxy.php?url=http%3A%2F%2F103.151.60.162%3A2122%2Fplay%2Fa026%2Findex.m3u8%3Fhls",
     "category": "SPORTS",
     "streamType": "live"
   },
