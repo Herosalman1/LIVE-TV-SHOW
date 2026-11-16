@@ -1122,7 +1122,7 @@
     "streamType": "offline"
   },
   {
-    "name": "Aashiq Banaya Aapne 544p (2005)",
+    "name": "Aashiq Banaya Aapne (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/Aashiq%20Banaya%20Aapne%20544p%202005.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
@@ -1226,6 +1226,12 @@
   {
     "name": "Bajrangi Bhaijaan (2015)",
     "url": "https://ia601905.us.archive.org/4/items/bajrangi-bhaijaan-1080p-2015/Bajrangi%20Bhaijaan%201080p%202015.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Bang Bang! (2024)",
+    "url": "https://s3.streamflixserver.site/movies/2014/BangBang.mkv",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -1664,6 +1670,12 @@
   {
     "name": "Lucky Baskhar (2024)",
     "url": "https://ia800400.us.archive.org/25/items/lucky-baskhar-2024-hindi-hd-1080p/Lucky-Baskhar-%282024%29-Hindi-HD-1080p.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Maharaj (2024)",
+    "url": "https://s3.streamflixserver.site/movies/2024/maharaj.mkv",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2876,42 +2888,84 @@
   {
     "name": "Aladdin (2019)",
     "url": "https://ia801907.us.archive.org/8/items/aladdin.-2019.1080p.-blu-ray.-hindi.-english.-dd.-2.0.x-264.-esubs.mkv/Aladdin.2019.1080p.BluRay.Hindi.English.DD.2.0.x264.ESubs.mkv.mp4",
-    "category": "ADVENTURE MOVIES",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
     "name": "Beauty and the Beast (2017)",
     "url": "https://s1.streamflixserver.site/movies/2017/beutyndthbest.mkv",
-    "category": "ADVENTURE MOVIES",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
     "name": "Cinderella (2015)",
     "url": "https://s1.streamflixserver.site/movies/2015/cindrella.mkv",
-    "category": "ADVENTURE MOVIES",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
-    "name": "Haatim Tai (1990)",
-    "url": "https://ia801506.us.archive.org/29/items/haatim-tai-1990-hindi.-dv-d.-rip.-xvi-d.-ac-3.-esubs.-phantom.-by.juleyano/Haatim%20Tai%20%281990%29%20Hindi.DvD.Rip.XviD.AC3.ESubs.%5BPhantom%5D.BY.juleyano.mp4",
-    "category": "ADVENTURE MOVIES",
+    "name": "Fast & Furious Presents: Hobbs & Shaw (2019)",
+    "url": "https://s3.streamflixserver.site/movies/2019/hobsandshaw2019.mkv",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
     "name": "Jumanji: The Next Level (2019)",
     "url": "https://proxy.vidbolt.xyz/m/gnVUXm6NbFcjoqULCIxGV9azFTiSVTPMiLlU0Dy-Cl2EJzZLUXJf3Ru8gC4UF1ld13iou9Kjcj0Gl8nu4dtFVdrXagidzVF-u-pye20edxqYWiCw_alnh9uJA2gjUXkwMhLpKlkmZbizEG_M9agZ5uEn8cXXkZd89KypQY1KI7gp10tUNIijv2VMKvnIpIjikwqy87k-o5HKNCeVD-2YSkLwm2QgtNoje7EEc8GNJPmcJmxHQkOwXgbEgbDjoU5Nulta5LTFX4L3sz00Z-Yp4WBRAtZdCN6wn2A96-ekKQ9oj2tZYZPMWX5OI0YsAtQz3AEw2Z80VhOJuzY4Z1zfIzzH8LJTYfLzTpCE6zoF5XG1RbC2wWetuwVovw4T09DKx8BOaM-EdA?f=.m3u8",
-    "category": "ADVENTURE MOVIES",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
     "name": "Maleficent 1 (2014)",
     "url": "https://archive.org/serve/maleficent-2014-hindi-dubbed-full-movie-blu-ray/Maleficent_2014_Hindi_Dubbed_Full_Movie_BluRay.ia.mp4",
-    "category": "ADVENTURE MOVIES",
+    "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
     "name": "Maleficent 2 (2019)",
     "url": "https://archive.org/serve/maleficent.-mistress.-of.-evil.-2019.1080p.-blu-ray.-hin.-eng.-2.0.-esubs.x-264/Maleficent.Mistress.Of.Evil.2019.1080p.BluRay.HIN.ENG.2.0.ESubs.x264.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Rampage (2018)",
+    "url": "https://s1.streamflixserver.site/movies/2018/rmpge.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Red Notice (2021)",
+    "url": "https://s2.streamflixserver.site/movies/2021/rdnotce.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled Sing-Along (2010)",
+    "url": "ok",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Lion King (1994)",
+    "url": "https://s3.streamflixserver.site/movies/1994/lionking.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Scorpion King (2002)",
+    "url": "https://s1.streamflixserver.site/movies/2002/scorpianking.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Titanic (1997)",
+    "url": "https://ia903201.us.archive.org/25/items/titanic-1997-dual-audio-hindi-english-1080p-blu-ray-3.1-gb-esub-boll-yflix_202610/Titanic%20%281997%29%20Dual%20Audio%20%7BHindi-English%7D%201080p%20BluRay%203.1GB%20ESub%20%5BBollYFlix%5D.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Haatim Tai (1990)",
+    "url": "https://ia801506.us.archive.org/29/items/haatim-tai-1990-hindi.-dv-d.-rip.-xvi-d.-ac-3.-esubs.-phantom.-by.juleyano/Haatim%20Tai%20%281990%29%20Hindi.DvD.Rip.XviD.AC3.ESubs.%5BPhantom%5D.BY.juleyano.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
@@ -2922,26 +2976,8 @@
     "streamType": "offline"
   },
   {
-    "name": "Rampage (2018)",
-    "url": "https://s1.streamflixserver.site/movies/2018/rmpge.mkv",
-    "category": "ADVENTURE MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled Sing-Along (2010)",
-    "url": "ok",
-    "category": "ADVENTURE MOVIES",
-    "streamType": "offline"
-  },
-  {
     "name": "the monkey king 2 (2016)",
     "url": "https://ia801906.us.archive.org/17/items/Xotey756_1764055713/Xotey756_1764055713.ia.mp4",
-    "category": "ADVENTURE MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Titanic (1997)",
-    "url": "https://ia903201.us.archive.org/25/items/titanic-1997-dual-audio-hindi-english-1080p-blu-ray-3.1-gb-esub-boll-yflix_202610/Titanic%20%281997%29%20Dual%20Audio%20%7BHindi-English%7D%201080p%20BluRay%203.1GB%20ESub%20%5BBollYFlix%5D.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
