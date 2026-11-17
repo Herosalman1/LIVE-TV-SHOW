@@ -291,7 +291,6 @@
             clearInterval(pTime);
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'flex';
-            // ⚡ NOTE: nowPlayingText ko touch nahi kiya gaya hai, ab ye upar channel name hi rakhega aur error center mein aayega.
         }
 
         video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; });
@@ -459,6 +458,7 @@
                                 .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
                                 .time-text { color: #fff; font-size: 15px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
                                 .vol-btn { background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 5px;}
+                                @media (min-width: 900px) { .stream-timer { font-size: 18px; letter-spacing: 3px; } }
                             </style>
                         </head>
                         <body>
@@ -501,6 +501,36 @@
                                 const fullScreenBtn = document.getElementById('fullScreenBtn');
                                 const overlayBottom = document.getElementById('overlayBottom');
                                 
+                                const popTimer = document.getElementById('popTimer');
+                                const popError = document.getElementById('popError');
+                                let pTime = null;
+
+                                function startPTimer() {
+                                    clearInterval(pTime);
+                                    if(popError) popError.style.display = 'none';
+                                    let tl = 20;
+                                    if(popTimer) {
+                                        popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
+                                        popTimer.style.display = 'block';
+                                    }
+                                    pTime = setInterval(() => {
+                                        tl--;
+                                        if(tl > 0) { 
+                                            if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
+                                        } else { 
+                                            clearInterval(pTime); 
+                                            if(popTimer) popTimer.style.display = 'none'; 
+                                            popErr(); 
+                                        }
+                                    }, 1000);
+                                }
+                                function popErr() { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
+
+                                startPTimer();
+
+                                video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; });
+                                video.addEventListener('error', () => { popErr(); });
+
                                 let overlayTimer;
                                 let lastClickTime = 0;
                                 let seekInterval = null;
@@ -509,10 +539,19 @@
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
                                     hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                                    hls.on(Hls.Events.ERROR, function(e, data) {
+                                        if(data.fatal) {
+                                            switch(data.type) {
+                                                case Hls.ErrorTypes.NETWORK_ERROR: hls.destroy(); popErr(); break;
+                                                case Hls.ErrorTypes.MEDIA_ERROR: hls.recoverMediaError(); break;
+                                                default: hls.destroy(); popErr(); break;
+                                            }
+                                        }
+                                    });
                                 } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
                                     video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
                                 } else {
-                                    video.src = videoSrc; video.play().catch(e=>console.log(e));
+                                    video.src = videoSrc; video.play().catch(e=>popErr());
                                 }
 
                                 function formatTime(sec) {
@@ -882,8 +921,31 @@
             if (screen.orientation && screen.orientation.unlock) { screen.orientation.unlock(); }
         }
 
-        document.addEventListener('fullscreenchange', function() { if (!document.fullscreenElement) unlockOrientation(); });
-        document.addEventListener('webkitfullscreenchange', function() { if (!document.webkitFullscreenElement) unlockOrientation(); });
+        // ⚡ TV FULLSCREEN EXIT FIX: Reset intervals and restore focus to dashboard
+        function handleFullScreenChange() {
+            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (!isFullScreen) {
+                unlockOrientation();
+                if (seekInterval) { clearInterval(seekInterval); seekInterval = null; }
+                holdMultiplier = 0;
+                hideOverlay();
+                if (document.activeElement && videoContainer.contains(document.activeElement)) {
+                    document.activeElement.blur();
+                }
+                const activeItem = document.querySelector('.channel-item.active');
+                if (activeItem) {
+                    activeItem.setAttribute('tabindex', '0');
+                    activeItem.focus();
+                } else if (channelListEl) {
+                    channelListEl.setAttribute('tabindex', '0');
+                    channelListEl.focus();
+                }
+            }
+        }
+
+        document.addEventListener('fullscreenchange', handleFullScreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullScreenChange);
+        document.addEventListener('msfullscreenchange', handleFullScreenChange);
         
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
@@ -907,9 +969,15 @@
         let seekInterval = null;
         let holdMultiplier = 0;
 
+        function checkIsActuallyFullScreen() {
+            const fsEl = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (!fsEl) return false;
+            const rect = videoContainer.getBoundingClientRect();
+            return rect.width >= window.innerWidth - 5 && rect.height >= window.innerHeight - 5;
+        }
+
         document.addEventListener('keydown', function(event) {
-            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            if (isFullScreen) {
+            if (checkIsActuallyFullScreen()) {
                 if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
                     event.preventDefault(); 
                 }
@@ -950,6 +1018,12 @@
                     safeSeek(10 * direction); 
                     
                     seekInterval = setInterval(() => { 
+                        if (!checkIsActuallyFullScreen()) {
+                            clearInterval(seekInterval);
+                            seekInterval = null;
+                            holdMultiplier = 0;
+                            return;
+                        }
                         holdMultiplier++;
                         let skipAmount = 10;
                         
@@ -959,23 +1033,32 @@
                         safeSeek(skipAmount * direction); 
                     }, 150);
                 }
+            } else {
+                if (seekInterval) {
+                    clearInterval(seekInterval);
+                    seekInterval = null;
+                    holdMultiplier = 0;
+                }
             }
         });
 
         document.addEventListener('keyup', function(event) {
-            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            if (isFullScreen) {
-                if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-                    if (seekInterval) { clearInterval(seekInterval); seekInterval = null; }
-                    holdMultiplier = 0;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                if (seekInterval) { clearInterval(seekInterval); seekInterval = null; }
+                holdMultiplier = 0;
+                if (checkIsActuallyFullScreen()) {
                     event.preventDefault();
                 }
             }
         });
 
+        window.addEventListener('blur', function() {
+            if (seekInterval) { clearInterval(seekInterval); seekInterval = null; }
+            holdMultiplier = 0;
+        });
+
         document.addEventListener('wheel', function(event) {
-            const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            if (isFullScreen || videoContainer.contains(event.target)) {
+            if (checkIsActuallyFullScreen() || videoContainer.contains(event.target)) {
                 event.preventDefault(); 
                 let currentVolume = video.volume;
                 if (event.deltaY < 0) { currentVolume = Math.min(1, currentVolume + 0.05); } 
