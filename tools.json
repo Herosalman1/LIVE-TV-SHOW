@@ -1026,6 +1026,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Tum Mere Ho (2026)",
+    "url": "https://ia600401.us.archive.org/11/items/sijjhub-media-1806232-1794549953/Tum_Mere_Ho_2026_480p_1806232.mp4",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "COMEDY TADKA",
     "url": "https://streams2.sofast.tv/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/0abe00bb-b6f3-4dcd-bdf6-12e74e08216c/a25a3d56-468f-4c36-a53a-3dc70688e297/1.m3u8",
     "category": "COMEDY",
@@ -2936,6 +2942,12 @@
   {
     "name": "Red Notice (2021)",
     "url": "https://s2.streamflixserver.site/movies/2021/rdnotce.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2010)",
+    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
