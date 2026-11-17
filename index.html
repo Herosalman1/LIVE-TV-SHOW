@@ -260,15 +260,17 @@
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
         let pTime = null;
+        let isStreamAlive = false;
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let overlayTimer; 
         let currentView = 'live'; 
 
-        // ⚡ TIMER AND ERROR LOGIC (ORIGINAL UNTOUCHED TIMER)
+        // ⚡ SMART TIMER & AUTO STREAM DETECTION
         function startPTimer() {
             clearInterval(pTime);
+            isStreamAlive = false;
             if(popError) popError.style.display = 'none';
             let tl = 20;
             if(popTimer) {
@@ -282,18 +284,32 @@
                 } else { 
                     clearInterval(pTime); 
                     if(popTimer) popTimer.style.display = 'none'; 
-                    triggerError(); 
+                    // Agar stream ka data mil chuka hai (working URL hai, bas slow load ho raha hai) toh error mat dikhao
+                    if (!isStreamAlive) {
+                        triggerError(); 
+                    }
                 }
             }, 1000);
         }
 
         function triggerError() {
             clearInterval(pTime);
+            isStreamAlive = false;
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'flex';
         }
 
-        video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; });
+        // Stream data milte hi URL ko working mark karein
+        video.addEventListener('loadeddata', () => { isStreamAlive = true; });
+        video.addEventListener('canplay', () => { isStreamAlive = true; });
+
+        // Video play hote hi timer aur error dono turant hide karein
+        video.addEventListener('playing', () => { 
+            isStreamAlive = true;
+            clearInterval(pTime); 
+            if(popTimer) popTimer.style.display = 'none'; 
+            if(popError) popError.style.display = 'none';
+        });
         video.addEventListener('error', () => { triggerError(); });
 
         fetch('tools.json')
@@ -504,9 +520,11 @@
                                 const popTimer = document.getElementById('popTimer');
                                 const popError = document.getElementById('popError');
                                 let pTime = null;
+                                let isStreamAlive = false;
 
                                 function startPTimer() {
                                     clearInterval(pTime);
+                                    isStreamAlive = false;
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
@@ -520,15 +538,17 @@
                                         } else { 
                                             clearInterval(pTime); 
                                             if(popTimer) popTimer.style.display = 'none'; 
-                                            popErr(); 
+                                            if(!isStreamAlive) popErr(); 
                                         }
                                     }, 1000);
                                 }
-                                function popErr() { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
+                                function popErr() { clearInterval(pTime); isStreamAlive = false; if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
 
                                 startPTimer();
 
-                                video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; });
+                                video.addEventListener('loadeddata', () => { isStreamAlive = true; });
+                                video.addEventListener('canplay', () => { isStreamAlive = true; });
+                                video.addEventListener('playing', () => { isStreamAlive = true; clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
                                 video.addEventListener('error', () => { popErr(); });
 
                                 let overlayTimer;
@@ -538,7 +558,8 @@
 
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
-                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { isStreamAlive = true; video.play().catch(e=>console.log(e)); }); 
+                                    hls.on(Hls.Events.FRAG_LOADED, function() { isStreamAlive = true; });
                                     hls.on(Hls.Events.ERROR, function(e, data) {
                                         if(data.fatal) {
                                             switch(data.type) {
@@ -549,7 +570,7 @@
                                         }
                                     });
                                 } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
+                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { isStreamAlive = true; video.play().catch(e=>console.log(e)); }); 
                                 } else {
                                     video.src = videoSrc; video.play().catch(e=>popErr());
                                 }
@@ -733,7 +754,13 @@
                 hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log("Auto-play blocked")); });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { 
+                    isStreamAlive = true; 
+                    video.play().catch(e => console.log("Auto-play blocked")); 
+                });
+                hlsInstance.on(Hls.Events.FRAG_LOADED, () => { 
+                    isStreamAlive = true; 
+                });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
@@ -753,7 +780,10 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
+                video.addEventListener('loadedmetadata', () => { 
+                    isStreamAlive = true; 
+                    video.play().catch(e => console.log("Auto-play blocked")); 
+                });
             } else {
                 video.src = url; video.load();
                 video.play().catch(e => { triggerError(); });
