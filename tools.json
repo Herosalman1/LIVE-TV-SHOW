@@ -2934,6 +2934,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Prince of Persia: The Sands of Time (2010)",
+    "url": "https://media.ultrashow.club/movies/5552d9f5d9e3/master.m3u8?e=1794922483&st=qZqlYCnQ0x8Hn0YYy2Bplg",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Rampage (2018)",
     "url": "https://s1.streamflixserver.site/movies/2018/rmpge.mkv",
     "category": "HOLLYWOOD MOVIES",
@@ -2948,6 +2954,12 @@
   {
     "name": "Tangled (2010)",
     "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled Before Ever After (2017)",
+    "url": "https://archive.org/download/tangled-before-ever-after/Tangled_Before_Ever_After_2017_Hindi_Dubbed_Full_Movie_BluRay.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
