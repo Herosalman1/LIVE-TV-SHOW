@@ -83,7 +83,7 @@
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
 
-        /* ⚡ VIP POPUP TIMER & ERROR CENTERED */
+        /* ⚡ VIP POPUP TIMER, PLEASE WAIT & ERROR CENTERED */
         .stream-timer { 
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
             background: transparent; color: #ffffff; text-align: center; 
@@ -260,17 +260,17 @@
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
         let pTime = null;
-        let isStreamAlive = false;
+        let waitTimeout = null;
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let overlayTimer; 
         let currentView = 'live'; 
 
-        // ⚡ SMART TIMER & AUTO STREAM DETECTION
+        // ⚡ 2-STAGE TIMER: 20 SEC COUNTDOWN -> 20 SEC "⏱ Please Wait .." -> STREAM ERROR 404
         function startPTimer() {
             clearInterval(pTime);
-            isStreamAlive = false;
+            clearTimeout(waitTimeout);
             if(popError) popError.style.display = 'none';
             let tl = 20;
             if(popTimer) {
@@ -283,30 +283,28 @@
                     if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
                 } else { 
                     clearInterval(pTime); 
-                    if(popTimer) popTimer.style.display = 'none'; 
-                    // Agar stream ka data mil chuka hai (working URL hai, bas slow load ho raha hai) toh error mat dikhao
-                    if (!isStreamAlive) {
-                        triggerError(); 
+                    if(popTimer) {
+                        popTimer.innerHTML = '⏱ Please Wait ..';
+                        popTimer.style.display = 'block';
                     }
+                    waitTimeout = setTimeout(() => {
+                        if(popTimer) popTimer.style.display = 'none';
+                        triggerError();
+                    }, 20000);
                 }
             }, 1000);
         }
 
         function triggerError() {
             clearInterval(pTime);
-            isStreamAlive = false;
+            clearTimeout(waitTimeout);
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'flex';
         }
 
-        // Stream data milte hi URL ko working mark karein
-        video.addEventListener('loadeddata', () => { isStreamAlive = true; });
-        video.addEventListener('canplay', () => { isStreamAlive = true; });
-
-        // Video play hote hi timer aur error dono turant hide karein
         video.addEventListener('playing', () => { 
-            isStreamAlive = true;
             clearInterval(pTime); 
+            clearTimeout(waitTimeout);
             if(popTimer) popTimer.style.display = 'none'; 
             if(popError) popError.style.display = 'none';
         });
@@ -403,6 +401,11 @@
         }
 
         function playStream(url, name) {
+            clearInterval(pTime);
+            clearTimeout(waitTimeout);
+            if(popTimer) popTimer.style.display = 'none';
+            if(popError) popError.style.display = 'none';
+
             overlaySeekBar.value = 0;
             overlayTime.innerText = "0:00 / 0:00";
             hideOverlay(); 
@@ -455,7 +458,7 @@
                                 video { width: 100%; height: 100%; object-fit: fill; outline: none; background: #000; pointer-events: none; }
                                 video::-webkit-media-controls { display: none !important; }
                                 
-                                /* VIP POPUP TIMER */
+                                /* VIP POPUP TIMER & PLEASE WAIT */
                                 .stream-timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent; color: #ffffff; text-align: center; font-weight: 500; font-size: 14px; z-index: 50; display: none; letter-spacing: 2px; font-family: 'Poppins', sans-serif; text-shadow: 0 4px 15px rgba(0,0,0,0.9); white-space: nowrap;}
                                 .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;}
                                 .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
@@ -520,11 +523,11 @@
                                 const popTimer = document.getElementById('popTimer');
                                 const popError = document.getElementById('popError');
                                 let pTime = null;
-                                let isStreamAlive = false;
+                                let waitTimeout = null;
 
                                 function startPTimer() {
                                     clearInterval(pTime);
-                                    isStreamAlive = false;
+                                    clearTimeout(waitTimeout);
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
@@ -537,18 +540,22 @@
                                             if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
                                         } else { 
                                             clearInterval(pTime); 
-                                            if(popTimer) popTimer.style.display = 'none'; 
-                                            if(!isStreamAlive) popErr(); 
+                                            if(popTimer) {
+                                                popTimer.innerHTML = '⏱ Please Wait ..';
+                                                popTimer.style.display = 'block';
+                                            }
+                                            waitTimeout = setTimeout(() => {
+                                                if(popTimer) popTimer.style.display = 'none';
+                                                popErr();
+                                            }, 20000);
                                         }
                                     }, 1000);
                                 }
-                                function popErr() { clearInterval(pTime); isStreamAlive = false; if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
+                                function popErr() { clearInterval(pTime); clearTimeout(waitTimeout); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
 
                                 startPTimer();
 
-                                video.addEventListener('loadeddata', () => { isStreamAlive = true; });
-                                video.addEventListener('canplay', () => { isStreamAlive = true; });
-                                video.addEventListener('playing', () => { isStreamAlive = true; clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
+                                video.addEventListener('playing', () => { clearInterval(pTime); clearTimeout(waitTimeout); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
                                 video.addEventListener('error', () => { popErr(); });
 
                                 let overlayTimer;
@@ -558,8 +565,7 @@
 
                                 if (window.Hls && Hls.isSupported()) { 
                                     var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
-                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { isStreamAlive = true; video.play().catch(e=>console.log(e)); }); 
-                                    hls.on(Hls.Events.FRAG_LOADED, function() { isStreamAlive = true; });
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
                                     hls.on(Hls.Events.ERROR, function(e, data) {
                                         if(data.fatal) {
                                             switch(data.type) {
@@ -570,7 +576,7 @@
                                         }
                                     });
                                 } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { isStreamAlive = true; video.play().catch(e=>console.log(e)); }); 
+                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
                                 } else {
                                     video.src = videoSrc; video.play().catch(e=>popErr());
                                 }
@@ -754,13 +760,7 @@
                 hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { 
-                    isStreamAlive = true; 
-                    video.play().catch(e => console.log("Auto-play blocked")); 
-                });
-                hlsInstance.on(Hls.Events.FRAG_LOADED, () => { 
-                    isStreamAlive = true; 
-                });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log("Auto-play blocked")); });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         switch (data.type) {
@@ -780,10 +780,7 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => { 
-                    isStreamAlive = true; 
-                    video.play().catch(e => console.log("Auto-play blocked")); 
-                });
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
             } else {
                 video.src = url; video.load();
                 video.play().catch(e => { triggerError(); });
