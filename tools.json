@@ -1428,6 +1428,18 @@
     "streamType": "offline"
   },
   {
+    "name": "Gadar 2 (2023)",
+    "url": "https://s3.streamflixserver.site/movies/2023/gadar2.mkv",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Gadar: Ek Prem Katha (2001)",
+    "url": "https://s1.streamflixserver.site/movies/2001/gadar.mkv",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Garam Masala (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/Garam%20Masala%201080p%202005.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -1724,6 +1736,12 @@
   {
     "name": "Lucky Baskhar (2024)",
     "url": "https://ia800400.us.archive.org/25/items/lucky-baskhar-2024-hindi-hd-1080p/Lucky-Baskhar-%282024%29-Hindi-HD-1080p.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "M.S. Dhoni: The Untold Story (2016)",
+    "url": "https://s2.streamflixserver.site/movies/2016/msdhoni.mkv",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2220,6 +2238,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Betaab (1983)",
+    "url": "https://archive.org/download/betaab-720p-1983/Betaab%20720p%201983.ia.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
     "name": "Bichhoo (2000)",
     "url": "https://dn720305.ca.archive.org/0/items/bichhoo-2000-web-rip-1080p-z-flix-co/01%20-%20Bollywood%20-%202000%2FBichhoo%202000%20WebRip%201080p_zFlix%20CO.mp4",
     "category": "90'S MOVIE'S BELLOW 2000",
@@ -2322,6 +2346,18 @@
     "streamType": "offline"
   },
   {
+    "name": "Ghatak (1996)",
+    "url": "https://archive.org/serve/ghatak-1996-dv-drip-x-264-aac-3-wanxsz/Ghatak%201996%20DvDrip%20X264%20AAC%203%20Wanxsz.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
+    "name": "Ghayal (1990)",
+    "url": "https://archive.org/serve/ghayal-1990-dv-drip-x-264-ac-3-5.1...-hon-3y/Ghayal%201990%20DvDRip%20x264%20AC3%205.1...Hon3y.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
     "name": "Gopi Kishan (1994)",
     "url": "https://ia600703.us.archive.org/8/items/gopi-kishan-1994-4-k-full-hindi-movie-hd-1080-p/Gopi%20Kishan%20%281994%29%204K%20FULL%20Hindi%20Movie%20HD%201080P.mp4",
     "category": "90'S MOVIE'S BELLOW 2000",
@@ -2378,6 +2414,12 @@
   {
     "name": "Hum Aapke Hain Koun (1994)",
     "url": "https://ia800601.us.archive.org/16/items/hum-aapke-hain-koun-1080p-1994/Hum%20Aapke%20Hain%20Koun%201080p%201994.ia.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
+    "name": "Imtihaan (1994)",
+    "url": "https://archive.org/serve/imtihaan-1080p-1994/Imtihaan%201080p%201994-1080p.mp4",
     "category": "90'S MOVIE'S BELLOW 2000",
     "streamType": "offline"
   },
@@ -2688,8 +2730,20 @@
     "streamType": "offline"
   },
   {
+    "name": "Tridev (1989)",
+    "url": "https://archive.org/serve/tridev-1080-1989/Tridev%201080%201989.ia.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
     "name": "Veerta (1993)",
     "url": "https://ia801600.us.archive.org/8/items/veerta-1080p-1993/Veerta%201080p%201993.ia.mp4",
+    "category": "90'S MOVIE'S BELLOW 2000",
+    "streamType": "offline"
+  },
+  {
+    "name": "Vishwatma (1992)",
+    "url": "https://archive.org/serve/vishwatma-1080p-1992/Vishwatma%201080p%201992.ia.mp4",
     "category": "90'S MOVIE'S BELLOW 2000",
     "streamType": "offline"
   },
@@ -3116,6 +3170,12 @@
   {
     "name": "The Mummy (1999)",
     "url": "https://ia600406.us.archive.org/30/items/the-mummy-1999-720p-2026/The.Mummy.1999.720p.BluRay.English.Hindi.DD.5.1.x264.ESubs.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Mummy (2017)",
+    "url": "https://archive.org/serve/the-mummy-2017-HD/The%20Mummy%202017.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
