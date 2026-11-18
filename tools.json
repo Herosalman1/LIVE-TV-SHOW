@@ -2958,6 +2958,42 @@
     "streamType": "offline"
   },
   {
+    "name": "Frozen I (2013)",
+    "url": "https://s1.streamflixserver.site/movies/2013/frozen.mkv",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Frozen II (2019)",
+    "url": "https://s2.streamflixserver.site/movies/2019/frzn2.mkv",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2010)",
+    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2012) Ever After",
+    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2017) Before Ever After",
+    "url": "https://archive.org/serve/tangled-before-ever-after_202611/Tangled_%20Before%20Ever%20After.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Lion King (1994)",
+    "url": "https://s3.streamflixserver.site/movies/1994/lionking.mkv",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Haatim Tai (1990)",
     "url": "https://ia801506.us.archive.org/29/items/haatim-tai-1990-hindi.-dv-d.-rip.-xvi-d.-ac-3.-esubs.-phantom.-by.juleyano/Haatim%20Tai%20%281990%29%20Hindi.DvD.Rip.XviD.AC3.ESubs.%5BPhantom%5D.BY.juleyano.mp4",
     "category": "ADVENTURE MOVIES",
@@ -2973,6 +3009,24 @@
     "name": "the monkey king 2 (2016)",
     "url": "https://ia801906.us.archive.org/17/items/Xotey756_1764055713/Xotey756_1764055713.ia.mp4",
     "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "1. At World's End",
+    "url": "https://s2.streamflixserver.site/movies/2007/piratesofcarebian.mkv",
+    "category": "PIRATES OF THE CARIBBEAN",
+    "streamType": "offline"
+  },
+  {
+    "name": "2. Dead Man's Chest",
+    "url": "https://s2.streamflixserver.site/movies/2006/piratesofcarebian_.mkv",
+    "category": "PIRATES OF THE CARIBBEAN",
+    "streamType": "offline"
+  },
+  {
+    "name": "3. Dead Men Tell No Tales",
+    "url": "https://s2.streamflixserver.site/movies/2017/pirtsofcrabean.mkv",
+    "category": "PIRATES OF THE CARIBBEAN",
     "streamType": "offline"
   },
   {
@@ -5739,60 +5793,6 @@
     "name": "Little Krishna 3 (2009)",
     "url": "https://archive.org/serve/toonworld-4all-little-krishna-movie-3-the-wondrous-feats-2009-1080p-hevc-10bit-a/%5BToonworld4all%5D%20Little%20Krishna%20Movie%203%20The%20Wondrous%20Feats%20%282009%29%201080p%20HEVC%2010bit%20AMZN%20WEB-DL%20DD%2B2.0%20ESub.mp4",
     "category": "THE DARLING OF VRINDAVAN",
-    "streamType": "offline"
-  },
-  {
-    "name": "Frozen I (2013)",
-    "url": "https://s1.streamflixserver.site/movies/2013/frozen.mkv",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Frozen II (2019)",
-    "url": "https://s2.streamflixserver.site/movies/2019/frzn2.mkv",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled (2010)",
-    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled (2012) Ever After",
-    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled (2017) Before Ever After",
-    "url": "https://archive.org/download/tangled-before-ever-after/Tangled_Before_Ever_After_2017_Hindi_Dubbed_Full_Movie_BluRay.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "The Lion King (1994)",
-    "url": "https://s3.streamflixserver.site/movies/1994/lionking.mkv",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "1. At World's End",
-    "url": "https://s2.streamflixserver.site/movies/2007/piratesofcarebian.mkv",
-    "category": "PIRATES OF THE CARIBBEAN",
-    "streamType": "offline"
-  },
-  {
-    "name": "2. Dead Man's Chest",
-    "url": "https://s2.streamflixserver.site/movies/2006/piratesofcarebian_.mkv",
-    "category": "PIRATES OF THE CARIBBEAN",
-    "streamType": "offline"
-  },
-  {
-    "name": "3. Dead Men Tell No Tales",
-    "url": "https://s2.streamflixserver.site/movies/2017/pirtsofcrabean.mkv",
-    "category": "PIRATES OF THE CARIBBEAN",
     "streamType": "offline"
   }
 ]
