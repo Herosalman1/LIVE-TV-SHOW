@@ -2946,30 +2946,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Tangled (2010)",
-    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled (2012) Ever After",
-    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Tangled (2017) Before Ever After",
-    "url": "https://archive.org/download/tangled-before-ever-after/Tangled_Before_Ever_After_2017_Hindi_Dubbed_Full_Movie_BluRay.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "The Lion King (1994)",
-    "url": "https://s3.streamflixserver.site/movies/1994/lionking.mkv",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
     "name": "The Scorpion King (2002)",
     "url": "https://s1.streamflixserver.site/movies/2002/scorpianking.mkv",
     "category": "HOLLYWOOD MOVIES",
@@ -5774,6 +5750,30 @@
   {
     "name": "Frozen II (2019)",
     "url": "https://s2.streamflixserver.site/movies/2019/frzn2.mkv",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2010)",
+    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2012) Ever After",
+    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tangled (2017) Before Ever After",
+    "url": "https://archive.org/download/tangled-before-ever-after/Tangled_Before_Ever_After_2017_Hindi_Dubbed_Full_Movie_BluRay.mp4",
+    "category": "DISNEY CARTOON MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Lion King (1994)",
+    "url": "https://s3.streamflixserver.site/movies/1994/lionking.mkv",
     "category": "DISNEY CARTOON MOVIES",
     "streamType": "offline"
   },
