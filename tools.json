@@ -1380,8 +1380,20 @@
     "streamType": "offline"
   },
   {
+    "name": "Don 1 (2006)",
+    "url": "https://archive.org/download/don-2006-dv-drip-x-264-aac-3-wanxsz/Don%202006%20DvDrip%20X%20264%20AAC%203%20Wanxsz.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "DON 2 (2011)",
     "url": "https://ia800109.us.archive.org/5/items/don-2-1080p-2011/Don%202%201080p%202011.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Don 2 (2011)",
+    "url": "https://s1.streamflixserver.site/movies/2011/don2.mkv",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2060,6 +2072,12 @@
   {
     "name": "Table No. 21 (2013)",
     "url": "https://ia803104.us.archive.org/2/items/table-no.-21-1080p-2013/Table%20No.%2021%201080p%202013.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Tere Ishk Mein (2025)",
+    "url": "https://s2.streamflixserver.site/movies/2025/tereishqmai.mkv",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -3182,6 +3200,12 @@
   {
     "name": "The Mummy Returns (2001)",
     "url": "https://archive.org/serve/the-mummy-returns-2001-2026/The%20Mummy%20Return%202001.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Mummy_ Tomb of the Dragon Emperor (2008)",
+    "url": "https://archive.org/serve/the-mummy-tomb-of-the-dragon-emperor-2008-HD/The%20Mummy_%20Tomb%20of%20the%20Dragon%20Emperor%202008.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
