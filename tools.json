@@ -1164,6 +1164,12 @@
     "streamType": "offline"
   },
   {
+    "name": "418 (2026)",
+    "url": "https://archive.org/serve/418-2026-hd-0123412/418%20%282026%29.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Aap Mujhe Achche Lagne Lage (2002)",
     "url": "https://ia903203.us.archive.org/2/items/aap-mujhe-achche-lagne-lage-1080p-2002/Aap%20Mujhe%20Achche%20Lagne%20Lage%201080p%202002-1080p.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -1784,6 +1790,12 @@
   {
     "name": "Kurbaan (2009)",
     "url": "https://archive.org/serve/kurbaan-1080p-2009/Kurbaan%201080p%202009.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "KYAA KOOL HAIN HUM 1 (2005)",
+    "url": "https://ia801903.us.archive.org/32/items/kyaa-kool-hain-hum-2005-dvd-9-v.-one-entertainment-ntsc_202608/Kyaa%20Kool%20Hain%20Hum%20%282005%29%201080p%2010bit%20AMZN%20WEBRip%20x265%20HEVC%20Hindi%20DDP%202.0%20ESub%20OlaM.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -3264,14 +3276,44 @@
     "streamType": "offline"
   },
   {
+    "name": "Journey To The West (2013)",
+    "url": "https://archive.org/serve/journey-to-the-west-2013-hd-012347/Journey%20to%20the%20West%202013.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Naksha (2006)",
     "url": "https://ia800405.us.archive.org/10/items/naksha-2006-dv-drip-x-264-aac-3-wanxsz/Naksha%202006%20DvDrip%20X264%20AAC%203%20Wanxsz.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
   {
-    "name": "the monkey king 2 (2016)",
-    "url": "https://ia801906.us.archive.org/17/items/Xotey756_1764055713/Xotey756_1764055713.ia.mp4",
+    "name": "T-M Tomb of the Dragon Emperor (2008)",
+    "url": "https://archive.org/serve/the-mummy-tomb-of-the-dragon-emperor-2008-HD/The%20Mummy_%20Tomb%20of%20the%20Dragon%20Emperor%202008.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Monkey King (2023)",
+    "url": "https://archive.org/serve/the.-monkey.-king.-2023.480p.-nf.-web-dl.-dual.x-264-vegamovies.to/The.Monkey.King.2023.480p.NF.WEB-DL.DUAL.x264-Vegamovies.to.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Monkey King 1 (2014)",
+    "url": "https://archive.org/serve/the-monkey-king-2014-hd-012349/The%20Monkey%20King%202014.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Monkey King 2 (2016)",
+    "url": "https://archive.org/serve/the-monkey-king-2-2016-hd-0123411/The%20Monkey%20King%202%202016.mp4",
+    "category": "ADVENTURE MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Monkey King 3 (2018)",
+    "url": "https://dn710201.ca.archive.org/0/items/the.-monkey.-king.-3.2018.1080p.-webrip.x-264-yts.-am/The.Monkey.King.3.2018.1080p.WEBRip.x264-%5BYTS.AM%5D.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
@@ -3290,12 +3332,6 @@
   {
     "name": "The Mummy Returns (2001)",
     "url": "https://archive.org/serve/the-mummy-returns-2001-2026/The%20Mummy%20Return%202001.mp4",
-    "category": "ADVENTURE MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "The Mummy_ Tomb of the Dragon Emperor (2008)",
-    "url": "https://archive.org/serve/the-mummy-tomb-of-the-dragon-emperor-2008-HD/The%20Mummy_%20Tomb%20of%20the%20Dragon%20Emperor%202008.mp4",
     "category": "ADVENTURE MOVIES",
     "streamType": "offline"
   },
