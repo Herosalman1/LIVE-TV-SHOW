@@ -888,6 +888,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Blast (2026)",
+    "url": "https://s3.streamflixserver.site/movies/2026/Blast.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Border 2 (2026)",
     "url": "https://ia800807.us.archive.org/6/items/border-2-4k-2026/Border%202%204k%202026.mp4",
     "category": "NEW MOVIE 2026",
@@ -896,6 +902,12 @@
   {
     "name": "Cocktail 2 (2026)",
     "url": "https://s1.streamflixserver.site/movies/2026/Cocktail2.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "DC (2026)",
+    "url": "https://s2.streamflixserver.site/movies/2026/DCTheBloodyValentine.mkv",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -918,8 +930,20 @@
     "streamType": "offline"
   },
   {
+    "name": "Do Deewane Seher Mein (2026)",
+    "url": "https://s1.streamflixserver.site/movies/2026/DoDeewaneSeherMein.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Drishyam: The Conclusion (2026)",
     "url": "https://s3.streamflixserver.site/movies/2026/DrishyamTheConclusion.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Gandhari (2026)",
+    "url": "https://s2.streamflixserver.site/movies/2026/Gandhari.mkv",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -950,6 +974,12 @@
   {
     "name": "Immortal (2026)",
     "url": "https://s2.streamflixserver.site/movies/2026/Immortal2026.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Irumudi (2026)",
+    "url": "https://s1.streamflixserver.site/movies/2026/Irumudi.mkv",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -1002,6 +1032,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Satluj (2026)",
+    "url": "https://archive.org/download/satluj-2026-hindi-1080p-webrp-x-265-ddp-5.1-esub_202607/Satluj%20%282026%29%20Hindi%201080p%20WEBRp%20x265%20DDP%205.1%20ESub.mp4",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Spider Man Brand New Day (2026)",
     "url": "https://ia601904.us.archive.org/0/items/spider-man-brand-new-day-hindi-1080-p/Spider-Man_Brand_New_Day%5BHindi%5D_1080P.ia.mp4",
     "category": "NEW MOVIE 2026",
@@ -1020,6 +1056,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Toaster",
+    "url": "https://s3.streamflixserver.site/movies/2026/toaster.mkv",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Toxic (2026)",
     "url": "https://ia800708.us.archive.org/6/items/toxic-v-2-2026-south-hindi-dubbed-movie-hqcam-1080p/Toxic%20V2%20%282026%29%20South%20Hindi%20Dubbed%20Movie%20HQCam%201080p.mp4",
     "category": "NEW MOVIE 2026",
@@ -1028,6 +1070,12 @@
   {
     "name": "Tum Mere Ho (2026)",
     "url": "https://ia600401.us.archive.org/11/items/sijjhub-media-1806232-1794549953/Tum_Mere_Ho_2026_480p_1806232.mp4",
+    "category": "NEW MOVIE 2026",
+    "streamType": "offline"
+  },
+  {
+    "name": "Vishwanath & Sons (2026)",
+    "url": "https://s2.streamflixserver.site/movies/2026/VishwanathandSons.mkv",
     "category": "NEW MOVIE 2026",
     "streamType": "offline"
   },
@@ -3080,6 +3128,36 @@
   {
     "name": "Fast & Furious Presents: Hobbs & Shaw (2019)",
     "url": "https://s3.streamflixserver.site/movies/2019/hobsandshaw2019.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 1 (2000)",
+    "url": "https://archive.org/serve/final-destination-2000.720p.-repack.-blu-ray.-hindi.-5.1/Final%20Destination%20-%202000.720p.REPACK.BluRay.Hindi.5.1.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 2 (2003)",
+    "url": "https://archive.org/serve/final-destination-2-2003.720p.-blu-ray.-hindi.-5.1/Final%20Destination%202%20-%202003.720p.BluRay.Hindi.5.1.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 3 (2006)",
+    "url": "https://archive.org/serve/final-destination-3-2006.720p.-blu-ray.-hindi.-5.1/Final%20Destination%203%20-%202006.720p.BluRay.Hindi.5.1.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 4 (2009)",
+    "url": "https://s3.streamflixserver.site/movies/2009/finaldestionatio2009.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 5 (2011)",
+    "url": "https://s3.streamflixserver.site/movies/2011/finaldestination5.mkv",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
