@@ -1740,48 +1740,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Kanchana 1 (2011)",
-    "url": "https://archive.org/serve/raghava-lawrence-horror-hindi-dubbed-movie-kanchana-r.-sarathkumar-480-p/Raghava%20Lawrence%20Horror%20Hindi%20Dubbed%20Movie%20_%20Kanchana%20%28%E0%A4%95%E0%A4%82%E0%A4%9A%E0%A4%A8%E0%A4%BE%29%20_%20R.%20Sarathkumar%28480P%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Kanchana 2 (2015)",
-    "url": "https://archive.org/serve/online-kanchana-2-2015-watch/Online%20Kanchana%202%20%282015%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Kanchana 3 (2018)",
-    "url": "https://archive.org/serve/online-kanchana-3-anando-brahma-2018-watch/Online%20Kanchana%203%20%28Anando%20Brahma%202018%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana 3 (2019)",
-    "url": "https://archive.org/serve/online-kaali-ka-karishma-kanchana-3-2019-watch/Online%20Kaali%20Ka%20Karishma%20%28Kanchana%203%202019%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana 4 (2020)",
-    "url": "https://archive.org/serve/online-kanchana-4-raju-gari-gadhi-3-2020-watch/Online%20Kanchana%204%20%28Raju%20Gari%20Gadhi%203%202020%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana-Returns- (2017)",
-    "url": "https://archive.org/serve/online-kanchana-returns-2017-2015-watch/Online%20Kanchana%20Returns%20%282017%29%20%20%282015%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana-the-wonder-car- (2017)",
-    "url": "https://archive.org/serve/online-kanchana-the-wonder-car-2017-watch/Online%20Kanchana%20The%20Wonder%20Car%20%282017%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
     "name": "Kesari 1 (2019)",
     "url": "https://ia800809.us.archive.org/21/items/kesari.-2019_202512/Kesari.%282019%29.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -2222,12 +2180,6 @@
   {
     "name": "Son of Sardaar 2 (2025)",
     "url": "https://s2.streamflixserver.site/movies/2025/SonofSardaar2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline"
-  },
-  {
-    "name": "Stree (2018)",
-    "url": "https://archive.org/download/stree.-2018.1080p/Stree.2018.1080p.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline"
   },
@@ -2994,6 +2946,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Aanando Brahma 3 (2018)",
+    "url": "https://archive.org/serve/online-kanchana-3-anando-brahma-2018-watch/Online%20Kanchana%203%20%28Anando%20Brahma%202018%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "Aatma (2006)",
     "url": "https://ia800506.us.archive.org/13/items/aatma-1080p-2006/Aatma%201080p%202006.ia.mp4",
     "category": "HORROR MOVIE'S",
@@ -3120,6 +3078,42 @@
     "streamType": "offline"
   },
   {
+    "name": "Kanchana 1 (2011)",
+    "url": "https://archive.org/serve/raghava-lawrence-horror-hindi-dubbed-movie-kanchana-r.-sarathkumar-480-p/Raghava%20Lawrence%20Horror%20Hindi%20Dubbed%20Movie%20_%20Kanchana%20%28%E0%A4%95%E0%A4%82%E0%A4%9A%E0%A4%A8%E0%A4%BE%29%20_%20R.%20Sarathkumar%28480P%29.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kanchana 2 (2015)",
+    "url": "https://archive.org/serve/online-kanchana-2-2015-watch/Online%20Kanchana%202%20%282015%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana 3 (2019)",
+    "url": "https://archive.org/serve/online-kaali-ka-karishma-kanchana-3-2019-watch/Online%20Kaali%20Ka%20Karishma%20%28Kanchana%203%202019%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana 4 (2020)",
+    "url": "https://archive.org/serve/online-kanchana-4-raju-gari-gadhi-3-2020-watch/Online%20Kanchana%204%20%28Raju%20Gari%20Gadhi%203%202020%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana Returns (2017)",
+    "url": "https://archive.org/serve/online-kanchana-returns-2017-2015-watch/Online%20Kanchana%20Returns%20%282017%29%20%20%282015%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kanchana The Wonder Car (2017)",
+    "url": "https://archive.org/serve/online-kanchana-the-wonder-car-2017-watch/Online%20Kanchana%20The%20Wonder%20Car%20%282017%29%20Watch.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "MahaKaal (1993)",
     "url": "https://dn711408.ca.archive.org/0/items/thakshak-1999-hindi.-dv-drip.-720p.-x-264.-aac.-5.1.-hon-3y.-e.-sub.-by.juleyano/MahaKaal%20%281993%29%20Hindi.NTSC.DvDRip.480p.%20x264.AC3.Arabic.ESubs.Hon3y.Chapters.BY.juleyano.mp4",
     "category": "HORROR MOVIE'S",
@@ -3188,6 +3182,12 @@
   {
     "name": "SSSSHHH (2003)",
     "url": "https://ia601607.us.archive.org/21/items/sssshhh-1080p-2003-1080p/SSSSHHH%201080p%202003-1080p.mp4?cnt=0",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Stree (2018)",
+    "url": "https://archive.org/download/stree.-2018.1080p/Stree.2018.1080p.ia.mp4",
     "category": "HORROR MOVIE'S",
     "streamType": "offline"
   },
