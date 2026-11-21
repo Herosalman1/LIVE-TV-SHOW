@@ -864,12 +864,6 @@
     "streamType": "live"
   },
   {
-    "name": "418 (2026)",
-    "url": "https://archive.org/serve/418-2026-hd-0123412/418%20%282026%29.mp4",
-    "category": "NEW MOVIE 2026",
-    "streamType": "offline"
-  },
-  {
     "name": "Alpha (2026)",
     "url": "https://ia903203.us.archive.org/8/items/alpha-hindi-2k/Alpha%20%28%20Hindi%202k%20%29.ia.mp4",
     "category": "NEW MOVIE 2026",
@@ -2910,6 +2904,12 @@
     "streamType": "offline"
   },
   {
+    "name": "418 (2026)",
+    "url": "https://archive.org/serve/418-2026-hd-0123412/418%20%282026%29.mp4",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "1920 (2008)",
     "url": "https://ia903108.us.archive.org/24/items/1920-2008/1920%202008.ia.mp4",
     "category": "HORROR MOVIE'S",
@@ -3128,6 +3128,12 @@
   {
     "name": "Muni Kanchana 1 (2007)",
     "url": "add link",
+    "category": "HORROR MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Muni Kanchana 1 (2007)",
+    "url": "https://archive.org/serve/muni-kanchana-1-2026-south-indian-full-horror-movie-in-hindi-me-raghava-lawrence/Muni_%20Kanchana-1-2026%20South%20Indian%20full%20Horror%20Movie%20In%20Hindi%20Me%20_%20Raghava%20Lawrence_%20Vedhika_%20Rajkiran%28480P%29.mp4",
     "category": "HORROR MOVIE'S",
     "streamType": "offline"
   },
