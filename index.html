@@ -621,6 +621,13 @@
                                     else { video.pause(); showOverlay(); } 
                                 }
 
+                                if ('mediaSession' in navigator) {
+                                    try {
+                                        navigator.mediaSession.setActionHandler('play', () => { video.play(); });
+                                        navigator.mediaSession.setActionHandler('pause', () => { video.pause(); showOverlay(); });
+                                    } catch (e) {}
+                                }
+
                                 overlayPlayBtn.addEventListener('click', function(e) { e.stopPropagation(); togglePausePlay(); });
                                 video.addEventListener('play', () => { overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; });
                                 video.addEventListener('pause', () => { overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; });
@@ -665,14 +672,18 @@
                                             event.preventDefault();
                                         }
                                         
-                                        // ⚡ SPACE BAR: Play/Pause (Prevent page scroll)
-                                        if (event.code === 'Space') {
+                                        // ⚡ TV REMOTE & KEYBOARD PLAY/PAUSE (Space, MediaPlayPause, Enter, Select)
+                                        const k = event.key || '';
+                                        const c = event.code || '';
+                                        const kc = event.keyCode || 0;
+                                        if (c === 'Space' || k === ' ' || k === 'MediaPlayPause' || k === 'MediaPlay' || k === 'MediaPause' || k === 'Pause' || k === 'Enter' || k === 'Select' || kc === 179 || kc === 19 || kc === 13 || kc === 32) {
                                             event.preventDefault();
+                                            event.stopPropagation();
                                             togglePausePlay();
                                             return;
                                         }
                                         
-                                        // ⚡ VOLUME CONTROL: + / - / F2 / F3 / F4
+                                        // ⚡ VOLUME CONTROL: + / - / F2 / F3
                                         if (event.key === '+' || event.key === '=' || event.key === 'F3') {
                                             event.preventDefault();
                                             video.volume = Math.min(1, video.volume + 0.05);
@@ -687,7 +698,7 @@
                                             showOverlay();
                                             return;
                                         }
-                                        if (event.key === 'F4') {
+                                        if (k === 'AudioVolumeMute' || k === 'VolumeMute' || kc === 173) {
                                             event.preventDefault();
                                             video.muted = !video.muted;
                                             if(video.muted) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
@@ -886,6 +897,20 @@
             }
         }
 
+        if ('mediaSession' in navigator) {
+            try {
+                navigator.mediaSession.setActionHandler('play', () => {
+                    if (savedChannels.length > 0 && currentPlayingIndex !== -1) video.play();
+                });
+                navigator.mediaSession.setActionHandler('pause', () => {
+                    if (savedChannels.length > 0 && currentPlayingIndex !== -1) {
+                        video.pause();
+                        showOverlay();
+                    }
+                });
+            } catch (e) {}
+        }
+
         video.addEventListener('play', () => {
             playPauseIcon.className = "fa-solid fa-pause";
             playPauseText.innerText = "Pause";
@@ -1009,14 +1034,18 @@
                     event.preventDefault(); 
                 }
                 
-                // ⚡ SPACE BAR: Play/Pause (Prevent page scroll)
-                if (event.code === 'Space') {
+                // ⚡ TV REMOTE & KEYBOARD PLAY/PAUSE (Space, MediaPlayPause, Enter, Select)
+                const k = event.key || '';
+                const c = event.code || '';
+                const kc = event.keyCode || 0;
+                if (c === 'Space' || k === ' ' || k === 'MediaPlayPause' || k === 'MediaPlay' || k === 'MediaPause' || k === 'Pause' || k === 'Enter' || k === 'Select' || kc === 179 || kc === 19 || kc === 13 || kc === 32) {
                     event.preventDefault();
+                    event.stopPropagation();
                     togglePausePlay();
                     return;
                 }
                 
-                // ⚡ VOLUME CONTROL: + / - / F2 / F3 / F4
+                // ⚡ VOLUME CONTROL: + / - / F2 / F3
                 if (event.key === '+' || event.key === '=' || event.key === 'F3') {
                     event.preventDefault();
                     video.volume = Math.min(1, video.volume + 0.05);
@@ -1031,7 +1060,7 @@
                     showOverlay();
                     return;
                 }
-                if (event.key === 'F4') {
+                if (k === 'AudioVolumeMute' || k === 'VolumeMute' || kc === 173) {
                     event.preventDefault();
                     toggleMute();
                     return;
