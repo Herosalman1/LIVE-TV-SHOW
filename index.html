@@ -260,24 +260,47 @@
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
         let pTime = null;
-        let waitTimeout = null;
+        let urlProbeController = null;
+        let currentStreamToken = 0;
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
         let overlayTimer; 
         let currentView = 'live'; 
 
-        // ⚡ 2-STAGE TIMER: 20 SEC COUNTDOWN -> 20 SEC "⏱ Please Wait .." -> STREAM ERROR 404
-        function startPTimer() {
+        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (INSTANT 404 IF URL DEAD)
+        function startPTimer(streamUrl) {
             clearInterval(pTime);
-            clearTimeout(waitTimeout);
+            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
+            currentStreamToken++;
+            const token = currentStreamToken;
+
             if(popError) popError.style.display = 'none';
             let tl = 20;
             if(popTimer) {
                 popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                 popTimer.style.display = 'block';
             }
+
+            if (streamUrl && streamUrl.startsWith('http')) {
+                urlProbeController = new AbortController();
+                fetch(streamUrl, {
+                    method: 'HEAD',
+                    signal: urlProbeController.signal,
+                    referrerPolicy: 'no-referrer'
+                }).then(res => {
+                    if (token !== currentStreamToken) return;
+                    if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
+                        triggerError();
+                    }
+                }).catch(err => {
+                    if (token !== currentStreamToken || err.name === 'AbortError') return;
+                    // CORS-blocked live URLs throw TypeError; actual dead URLs are caught by video/HLS error events
+                });
+            }
+
             pTime = setInterval(() => {
+                if (token !== currentStreamToken) { clearInterval(pTime); return; }
                 tl--;
                 if(tl > 0) { 
                     if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
@@ -287,24 +310,20 @@
                         popTimer.innerHTML = '⏱ Please Wait ..';
                         popTimer.style.display = 'block';
                     }
-                    waitTimeout = setTimeout(() => {
-                        if(popTimer) popTimer.style.display = 'none';
-                        triggerError();
-                    }, 20000);
                 }
             }, 1000);
         }
 
         function triggerError() {
             clearInterval(pTime);
-            clearTimeout(waitTimeout);
+            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'flex';
         }
 
         video.addEventListener('playing', () => { 
             clearInterval(pTime); 
-            clearTimeout(waitTimeout);
+            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none'; 
             if(popError) popError.style.display = 'none';
         });
@@ -402,7 +421,7 @@
 
         function playStream(url, name) {
             clearInterval(pTime);
-            clearTimeout(waitTimeout);
+            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'none';
 
@@ -523,16 +542,28 @@
                                 const popTimer = document.getElementById('popTimer');
                                 const popError = document.getElementById('popError');
                                 let pTime = null;
-                                let waitTimeout = null;
+                                let urlProbeController = null;
 
                                 function startPTimer() {
                                     clearInterval(pTime);
-                                    clearTimeout(waitTimeout);
+                                    if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
                                         popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                                         popTimer.style.display = 'block';
+                                    }
+                                    if (videoSrc && videoSrc.startsWith('http')) {
+                                        urlProbeController = new AbortController();
+                                        fetch(videoSrc, {
+                                            method: 'HEAD',
+                                            signal: urlProbeController.signal,
+                                            referrerPolicy: 'no-referrer'
+                                        }).then(res => {
+                                            if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
+                                                popErr();
+                                            }
+                                        }).catch(() => {});
                                     }
                                     pTime = setInterval(() => {
                                         tl--;
@@ -544,18 +575,14 @@
                                                 popTimer.innerHTML = '⏱ Please Wait ..';
                                                 popTimer.style.display = 'block';
                                             }
-                                            waitTimeout = setTimeout(() => {
-                                                if(popTimer) popTimer.style.display = 'none';
-                                                popErr();
-                                            }, 20000);
                                         }
                                     }, 1000);
                                 }
-                                function popErr() { clearInterval(pTime); clearTimeout(waitTimeout); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
+                                function popErr() { clearInterval(pTime); if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; } if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
 
                                 startPTimer();
 
-                                video.addEventListener('playing', () => { clearInterval(pTime); clearTimeout(waitTimeout); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
+                                video.addEventListener('playing', () => { clearInterval(pTime); if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; } if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
                                 video.addEventListener('error', () => { popErr(); });
 
                                 let overlayTimer;
@@ -761,11 +788,13 @@
             
             if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
             
-            // ⚡ START TIMER ON LOAD
-            startPTimer();
+            // ⚡ START TIMER & URL PROBE ON LOAD
+            startPTimer(url);
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url; video.load(); video.play().catch(e => console.log("Auto-play blocked"));
+                video.src = url; video.load(); video.play().catch(e => {
+                    if (e.name !== 'NotAllowedError' && e.name !== 'AbortError') triggerError();
+                });
             } 
             else if (Hls.isSupported()) {
                 hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
