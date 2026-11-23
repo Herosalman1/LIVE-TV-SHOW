@@ -120,34 +120,47 @@
             line-height: 1;
             padding: 3px 6px;
             border-radius: 4px;
-            margin-left: 8px;
+            margin-left: 0;
+            margin-right: 3px;
             text-transform: uppercase;
             white-space: nowrap;
             flex-shrink: 0;
         }
 
-        .action-btns { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+        .action-btns { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; justify-content: flex-end; flex-shrink: 0; }
         .action-btns button { 
-            padding: 6px 10px; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; 
-            font-weight: 600; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 4px; transition: 0.2s;
+            height: 28px; width: max-content; flex: 0 0 auto; padding: 0 10px; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; 
+            font-weight: 600; font-size: 11px; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 5px; transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; white-space: nowrap;
         }
         .btn-pin { background: #21262d; border-color: #30363d; color: #c9d1d9; }
         .btn-pin:hover { border-color: #facc15; color: #facc15; }
         .btn-pin.active { background: #facc15; border-color: #facc15; color: #000; }
 
-        .inline-badge-select {
-            background: #161b22;
-            border: 1px solid #30363d;
-            color: #00ea77;
+        .list-badge-select {
+            height: 28px;
+            flex: 0 0 auto;
             border-radius: 6px;
-            padding: 5px 8px;
-            font-size: 11px;
-            font-weight: 600;
+            border: 1px solid #30363d;
+            padding: 0 22px 0 9px;
             font-family: 'Inter', sans-serif;
+            font-size: 10.5px;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
             cursor: pointer;
             outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 6px center;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
-        .inline-badge-select:focus { border-color: #00ea77; }
+        .list-badge-select option {
+            background: #161b22;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 8px 10px;
+        }
 
         .btn-edit { background: #9e6a03; border-color: #b87c04; }
         .btn-edit:hover { background: #d29922; }
@@ -271,46 +284,101 @@
         .admin-tab.active { color: #fff; border-bottom: 2px solid #00ea77; background: rgba(0, 234, 119, 0.1); }
         .admin-tab i { margin-right: 8px; }
 
-        /* ⚡ BULK FOLDER BADGE GRID */
+        /* ⚡ BULK FOLDER BADGE GRID (CLEAN POLISHED UI) */
+        .bulk-modal-box {
+            max-width: 440px !important;
+            max-height: 90vh !important;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 26px 24px 22px !important;
+            text-align: center;
+            border: 1.5px solid #00d4ff !important;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 212, 255, 0.18) !important;
+        }
+        .bulk-modal-box::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        .bulk-modal-title {
+            color: #00d4ff;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+        .bulk-modal-title i {
+            color: #ff003c;
+            font-size: 18px;
+        }
+        .bulk-modal-sub {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+        .bulk-modal-sub strong {
+            color: #ffffff;
+            font-weight: 700;
+            display: inline-block;
+        }
         .bulk-badge-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin-bottom: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
             width: 100%;
-            max-height: 280px;
-            overflow-y: auto;
+            padding: 2px;
         }
         .bulk-badge-choice {
-            padding: 11px 10px;
-            border-radius: 8px;
-            border: 1px solid #30363d;
-            background: #0d1117;
+            height: 44px;
+            padding: 0 12px;
+            border-radius: 10px;
+            border: 1px solid #2b323b;
+            background: #0b0f15;
             color: #fff;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
         }
         .bulk-badge-choice:hover {
-            transform: translateY(-1px);
             border-color: #00d4ff;
             background: rgba(0, 212, 255, 0.12);
         }
-        .bulk-badge-clear {
-            grid-column: span 2;
-            background: rgba(218, 54, 51, 0.15);
-            border-color: rgba(218, 54, 51, 0.45);
-            color: #ff6b6b;
+        .bulk-badge-choice .ott-badge {
+            font-size: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0;
         }
-        .bulk-badge-clear:hover {
-            background: #da3633;
-            color: #fff;
-            border-color: #da3633;
+        .bulk-badge-clear {
+            height: 44px;
+        }
+        .bulk-cancel-btn {
+            width: 100%;
+            height: 44px;
+            padding: 0 16px;
+            margin-bottom: 0 !important;
+            background: #21262d;
+            color: #e2e8f0;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+        .bulk-cancel-btn:hover {
+            background: #30363d;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -350,7 +418,7 @@
                 <i class="fa-solid fa-circle-dot"></i> AUTO LIVE BADGE
             </div>
             <div class="badge-control-wrap" id="offlineBadgeControlWrap" style="display:none;">
-                <select id="pBadge" class="input-pro badge-select-box"></select>
+                <select id="pBadge" class="input-pro badge-select-box" onchange="styleTopBadgeSelect()"></select>
                 <input type="text" id="customBadgeNameInput" class="input-pro badge-inline-input" placeholder="TYPE BADGE..." style="display:none;" onkeydown="if(event.key==='Enter'){event.preventDefault();handleBadgeActionBtn();}">
                 <button type="button" class="new-badge-add-btn" id="toggleCustomBadgeBtn" onclick="handleBadgeActionBtn()">+ BADGE</button>
             </div>
@@ -394,14 +462,14 @@
     </div>
 
     <!-- ⚡ BULK FOLDER BADGE MODAL -->
-    <div id="folderBadgeModal" class="modal" style="z-index: 1000;">
-        <div class="modal-content" style="max-width: 440px; text-align: center; border-color: #00d4ff;">
-            <h3 style="color: #00d4ff; margin-bottom: 8px;"><i class="fa-solid fa-tags"></i> FOLDER BULK BADGE</h3>
-            <p style="color: #c9d1d9; font-size: 13px; margin-bottom: 16px;">Folder <strong style="color:#fff; font-size:15px;">"<span id="bulkBadgeCatName"></span>"</strong> ke sabhi items par kaunsa badge lagana hai?</p>
+    <div id="folderBadgeModal" class="modal" style="z-index: 1000;" onclick="if(event.target===this) closeFolderBadgeModal()">
+        <div class="modal-content bulk-modal-box">
+            <div class="bulk-modal-title"><i class="fa-solid fa-tags"></i> FOLDER BULK BADGE</div>
+            <p class="bulk-modal-sub">Folder <strong>"<span id="bulkBadgeCatName"></span>"</strong> ke sabhi items par kaunsa badge lagana hai?</p>
             
             <div class="bulk-badge-grid" id="bulkBadgeGrid"></div>
             
-            <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; padding:10px; margin-bottom:0;" onclick="closeFolderBadgeModal()">CANCEL</button>
+            <button type="button" class="btn-pro bulk-cancel-btn" onclick="closeFolderBadgeModal()">CANCEL</button>
         </div>
     </div>
 
@@ -552,6 +620,22 @@
             return `<span class="ott-badge" style="background:${bg}; color:${fg}; border:1px solid rgba(255,255,255,0.25); box-shadow:0 2px 8px ${bg}66; ${extraStyle}">${badgeName}</span>`;
         }
 
+        function styleTopBadgeSelect() {
+            const sel = document.getElementById('pBadge');
+            if (!sel) return;
+            const val = sel.value;
+            if (!val) {
+                sel.style.backgroundColor = '#010409';
+                sel.style.color = '#ffffff';
+                sel.style.borderColor = '#30363d';
+                return;
+            }
+            const meta = findBadgeMeta(val);
+            sel.style.backgroundColor = meta.bg;
+            sel.style.color = meta.color;
+            sel.style.borderColor = meta.bg;
+        }
+
         function renderBadgeDropdown(selectVal = "") {
             const sel = document.getElementById('pBadge');
             if (!sel) return;
@@ -563,6 +647,7 @@
                 sel.appendChild(opt);
             });
             sel.value = selectVal || "";
+            styleTopBadgeSelect();
         }
 
         function resetInlineBadgeMode(selectVal = "") {
@@ -648,7 +733,7 @@
             const clearBtn = document.createElement('button');
             clearBtn.type = 'button';
             clearBtn.className = 'bulk-badge-choice bulk-badge-clear';
-            clearBtn.innerHTML = `<i class="fa-solid fa-ban"></i> REMOVE ALL BADGES FROM FOLDER`;
+            clearBtn.innerHTML = `<span class="ott-badge" style="background:#da3633; color:#ffffff; border:1px solid rgba(255,255,255,0.25); box-shadow:0 2px 8px rgba(218,54,51,0.55); margin:0;"><i class="fa-solid fa-ban" style="margin-right:4px;"></i> REMOVE</span>`;
             clearBtn.onclick = () => applyFolderBadge(null);
             grid.appendChild(clearBtn);
 
@@ -759,7 +844,38 @@
             renderList();
         }
 
-        function setChannelBadge(idx, newBadge) {
+
+
+        const _badgeWidthCache = {};
+        function calcExactBadgeSelectWidth(text) {
+            const label = (text || 'NO BADGE').toUpperCase();
+            if (_badgeWidthCache[label]) return _badgeWidthCache[label];
+            const probe = document.createElement('span');
+            probe.style.cssText = 'position:fixed;left:-9999px;top:-9999px;visibility:hidden;white-space:nowrap;font-family:Inter,Poppins,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:0.4px;text-transform:uppercase;padding:0 24px 0 10px;border:1px solid transparent;box-sizing:border-box;';
+            probe.textContent = label;
+            document.body.appendChild(probe);
+            const w = Math.ceil(probe.getBoundingClientRect().width) + 4;
+            document.body.removeChild(probe);
+            _badgeWidthCache[label] = w;
+            return w;
+        }
+
+        function applyBadgeStyleToSelect(selEl, badgeName, ch = null) {
+            const meta = badgeName ? findBadgeMeta(badgeName) : null;
+            const selBg = meta ? ((ch && ch.badgeBg) ? ch.badgeBg : meta.bg) : '#010409';
+            const selFg = meta ? ((ch && ch.badgeColor) ? ch.badgeColor : meta.color) : '#ffffff';
+            const selBorder = meta ? selBg : '#30363d';
+            const arrowHex = selFg === '#ffffff' ? '%23ffffff' : '%23060911';
+            const exactW = calcExactBadgeSelectWidth(badgeName || 'NO BADGE');
+
+            selEl.style.width = exactW + 'px';
+            selEl.style.backgroundColor = selBg;
+            selEl.style.color = selFg;
+            selEl.style.borderColor = selBorder;
+            selEl.style.backgroundImage = `url("data:image/svg+xml;utf8,<svg fill='${arrowHex}' height='14' viewBox='0 0 24 24' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`;
+        }
+
+        function setChannelBadge(idx, newBadge, selEl = null) {
             const ch = channelsArray[idx];
             if (!ch) return;
             delete ch.isNew;
@@ -773,7 +889,11 @@
                 delete ch.badgeBg;
                 delete ch.badgeColor;
             }
-            renderList();
+            if (selEl) {
+                applyBadgeStyleToSelect(selEl, newBadge, ch);
+            } else {
+                renderList();
+            }
         }
 
         function sortFolderChannels(list) {
@@ -1073,6 +1193,7 @@
 
         function renderList() {
             const list = document.getElementById('projectList');
+            const prevScrollTop = list ? list.scrollTop : 0;
             list.innerHTML = "";
             if (channelsArray.length === 0) {
                 list.innerHTML = '<div style="text-align:center; color:#8b949e; padding:20px;">No channels found.</div>';
@@ -1193,35 +1314,58 @@
                     let pinRankHTML = isPinned ? `<span class="pin-rank-tag"><i class="fa-solid fa-thumbtack"></i> #${ch.pinOrder}</span>` : '';
                     let badgeHTML = renderBadgeHTML(effBadge, ch);
 
-                    let badgeControlHTML = '';
-                    if ((ch.streamType || 'live') === 'offline') {
-                        const opts = [''].concat(allBadges.map(b => b.name)).map(b => {
-                            const label = b === '' ? 'NO BADGE' : b;
-                            const sel = (effBadge === b) ? 'selected' : '';
-                            return `<option value="${b.replace(/"/g, '&quot;')}" ${sel}>${label}</option>`;
-                        }).join('');
-                        badgeControlHTML = `<select class="inline-badge-select" onchange="setChannelBadge(${ch.originalIndex}, this.value)" title="Select Offline Badge">${opts}</select>`;
-                    }
+                    let badgeSlotHTML = '<span class="badge-slot-mount"></span>';
 
                     item.innerHTML = `
-                        <div style="display: flex; align-items: center; flex: 1; overflow: hidden; padding-right: 10px;">
+                        <div style="display: flex; align-items: center; flex: 1; min-width: 0; overflow: hidden; padding-right: 12px;">
                             <span class="drag-icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             ${pinRankHTML}
-                            <span style="font-size: 14px; font-weight: 500; color: #fff; display:flex; align-items:center; flex-wrap:wrap;">${iconHTML} <span class="ch-name-text"></span> ${badgeHTML}</span>
+                            <span style="font-size: 14px; font-weight: 500; color: #fff; display:flex; align-items:center; min-width: 0;"><span style="flex-shrink:0;">${iconHTML}</span> <span class="ch-name-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></span></span>
                         </div>
                         <div class="action-btns" style="flex-shrink: 0;">
                             <button class="btn-pin ${isPinned ? 'active' : ''}" onclick="toggleChannelPin(${ch.originalIndex})" title="${isPinned ? 'Unpin' : 'Pin to Top'}"><i class="fa-solid fa-thumbtack"></i> ${isPinned ? 'Pinned' : 'Pin'}</button>
-                            ${badgeControlHTML}
+                            ${badgeSlotHTML}
                             <button class="btn-shift" onclick="openChannelMoveModal(${ch.originalIndex})" title="Move to another folder"><i class="fa-solid fa-truck-fast"></i> Move</button>
                             <button class="btn-edit" onclick="editChannel(${ch.originalIndex})"><i class="fa-solid fa-pen"></i> Edit</button>
                             <button class="btn-delete" onclick="deleteChannel(${ch.originalIndex})"><i class="fa-solid fa-trash-can"></i> Delete</button>
                         </div>
                     `;
                     item.querySelector('.ch-name-text').textContent = ch.name;
+                    const badgeMount = item.querySelector('.badge-slot-mount');
+                    if ((ch.streamType || 'live') === 'offline') {
+                        const selEl = document.createElement('select');
+                        selEl.className = 'list-badge-select';
+                        selEl.title = 'Select Badge';
+
+                        const noneOpt = document.createElement('option');
+                        noneOpt.value = '';
+                        noneOpt.textContent = 'NO BADGE';
+                        if (!effBadge) noneOpt.selected = true;
+                        selEl.appendChild(noneOpt);
+
+                        allBadges.forEach(b => {
+                            const opt = document.createElement('option');
+                            opt.value = b.name;
+                            opt.textContent = b.name;
+                            if (effBadge === b.name) opt.selected = true;
+                            selEl.appendChild(opt);
+                        });
+
+                        applyBadgeStyleToSelect(selEl, effBadge, ch);
+
+                        const targetIdx = ch.originalIndex;
+                        selEl.addEventListener('change', function() {
+                            setChannelBadge(targetIdx, this.value, this);
+                        });
+                        badgeMount.replaceWith(selEl);
+                    } else {
+                        badgeMount.outerHTML = renderBadgeHTML('LIVE', null, 'height:28px; padding:0 10px; margin-right:0;');
+                    }
                     contentEl.appendChild(item);
                 });
             });
             addDragAndDropListeners();
+            if (list) list.scrollTop = prevScrollTop;
         }
 
         function renameCategory(oldName) {
