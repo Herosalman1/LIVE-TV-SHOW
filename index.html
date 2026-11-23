@@ -348,8 +348,7 @@
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
         let pTime = null;
-        let urlProbeController = null;
-        let currentStreamToken = 0;
+        let activeStreamUrl = '';
         let hlsInstance = null;
         let savedChannels = [];
         let currentPlayingIndex = -1;
@@ -378,38 +377,16 @@
             return "";
         }
 
-        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (INSTANT 404 IF URL DEAD)
-        function startPTimer(streamUrl) {
+        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (NO FALSE HEAD 404)
+        function startPTimer() {
             clearInterval(pTime);
-            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
-            currentStreamToken++;
-            const token = currentStreamToken;
-
             if(popError) popError.style.display = 'none';
             let tl = 20;
             if(popTimer) {
                 popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                 popTimer.style.display = 'block';
             }
-
-            if (streamUrl && streamUrl.startsWith('http')) {
-                urlProbeController = new AbortController();
-                fetch(streamUrl, {
-                    method: 'HEAD',
-                    signal: urlProbeController.signal,
-                    referrerPolicy: 'no-referrer'
-                }).then(res => {
-                    if (token !== currentStreamToken) return;
-                    if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
-                        triggerError();
-                    }
-                }).catch(err => {
-                    if (token !== currentStreamToken || err.name === 'AbortError') return;
-                });
-            }
-
             pTime = setInterval(() => {
-                if (token !== currentStreamToken) { clearInterval(pTime); return; }
                 tl--;
                 if(tl > 0) { 
                     if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
@@ -424,19 +401,21 @@
         }
 
         function triggerError() {
+            if (!activeStreamUrl) return;
             clearInterval(pTime);
-            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'flex';
         }
 
         video.addEventListener('playing', () => { 
             clearInterval(pTime); 
-            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none'; 
             if(popError) popError.style.display = 'none';
         });
-        video.addEventListener('error', () => { triggerError(); });
+        video.addEventListener('error', () => {
+            if (!activeStreamUrl || !video.getAttribute('src')) return;
+            triggerError();
+        });
 
         fetch('tools.json')
             .then(res => res.json())
@@ -541,7 +520,7 @@
 
         function playStream(url, name) {
             clearInterval(pTime);
-            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
+            activeStreamUrl = '';
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'none';
 
@@ -662,28 +641,14 @@
                                 const popTimer = document.getElementById('popTimer');
                                 const popError = document.getElementById('popError');
                                 let pTime = null;
-                                let urlProbeController = null;
 
                                 function startPTimer() {
                                     clearInterval(pTime);
-                                    if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
                                         popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                                         popTimer.style.display = 'block';
-                                    }
-                                    if (videoSrc && videoSrc.startsWith('http')) {
-                                        urlProbeController = new AbortController();
-                                        fetch(videoSrc, {
-                                            method: 'HEAD',
-                                            signal: urlProbeController.signal,
-                                            referrerPolicy: 'no-referrer'
-                                        }).then(res => {
-                                            if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
-                                                popErr();
-                                            }
-                                        }).catch(() => {});
                                     }
                                     pTime = setInterval(() => {
                                         tl--;
@@ -698,11 +663,11 @@
                                         }
                                     }, 1000);
                                 }
-                                function popErr() { clearInterval(pTime); if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; } if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
+                                function popErr() { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'flex'; }
 
                                 startPTimer();
 
-                                video.addEventListener('playing', () => { clearInterval(pTime); if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; } if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
+                                video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
                                 video.addEventListener('error', () => { popErr(); });
 
                                 let overlayTimer;
@@ -907,9 +872,12 @@
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
             if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
             
-            // ⚡ START TIMER & URL PROBE ON LOAD
-            startPTimer(url);
+            activeStreamUrl = url;
+            startPTimer();
 
             if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
                 video.src = url; video.load(); video.play().catch(e => {
@@ -926,6 +894,7 @@
                         switch (data.type) {
                             case Hls.ErrorTypes.NETWORK_ERROR: 
                                 hlsInstance.destroy(); 
+                                hlsInstance = null;
                                 triggerError();
                                 break;
                             case Hls.ErrorTypes.MEDIA_ERROR: 
@@ -933,6 +902,7 @@
                                 break;
                             default: 
                                 hlsInstance.destroy(); 
+                                hlsInstance = null;
                                 triggerError();
                                 break;
                         }
@@ -940,7 +910,7 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = url;
-                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
+                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); }, { once: true });
             } else {
                 video.src = url; video.load();
                 video.play().catch(e => { triggerError(); });
