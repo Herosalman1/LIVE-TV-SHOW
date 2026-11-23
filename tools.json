@@ -1230,7 +1230,7 @@
     "streamType": "offline"
   },
   {
-    "name": "Toaster",
+    "name": "Toaster (2026)",
     "url": "https://s3.streamflixserver.site/movies/2026/toaster.mkv",
     "category": "NEW MOVIE'S 2026",
     "streamType": "offline"
@@ -3480,14 +3480,44 @@
     "streamType": "offline"
   },
   {
+    "name": "Aquaman (2018)",
+    "url": "https://archive.org/download/aquaman-2018-hindi-english-dual-audio-hollywood-movie-imax-blu-ray-hd-720p-esub/Aquaman%20%282018%29%20%28Hindi%20%2B%20English%29%20Dual%20Audio%20Hollywood%20Movie%20IMAX%20BluRay%20HD%20720p%20ESub.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Beauty and the Beast (2017)",
     "url": "https://s1.streamflixserver.site/movies/2017/beutyndthbest.mkv",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
+    "name": "Black Adam (2022)",
+    "url": "https://archive.org/download/black-adam-hollywood-hindi-movie-720p/Black_Adam___Hollywood_Hindi_Movie__%28720p%29.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Cinderella (2015)",
     "url": "https://s1.streamflixserver.site/movies/2015/cindrella.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "DEAD WORLD (2024)",
+    "url": "https://archive.org/serve/dead-world-hollywood-movie-hindi-dubbed-luke-mc-kenzie-zombie-movie-horror-action-movie-1080p/DEAD_WORLD_-_Hollywood_Movie_Hindi_Dubbed___Luke_McKenzie___Zombie_Movie___Horror_Action_Movie%281080p%29.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Dead Zone (2022)",
+    "url": "https://archive.org/serve/dead-zone-2022-hindi-dubbed-full-movie-480p-blu-ray/Dead_Zone_2022_Hindi_Dubbed_Full_Movie_480p_BluRay.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "DRAGON KING (2020)",
+    "url": "https://dn710704.ca.archive.org/0/items/dragonking2020newreleasedfullhindidubbedmoviehollywoodmoviesinhindidubbed2020720p/DRAGON_KING__2020__New_Released_Full_Hindi_Dubbed_Movie___Hollywood_Movies_In_Hindi_Dubbed_2020%28720p%29.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -3534,6 +3564,18 @@
     "streamType": "offline"
   },
   {
+    "name": "Godzilla vs Mechagodzilla 2 (1993)",
+    "url": "https://dn720705.ca.archive.org/0/items/jurassic-city-godzilla-vs-mechagodzilla-hindi-dubbed-movie-hollywood-mov-hd/Jurassic%20City%20%20_%20Godzilla%20vs%20Mechagodzilla%20hindi%20dubbed%20movie%20_Hollywood%20Mov_HD.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Hulk (2003)",
+    "url": "https://ia803107.us.archive.org/29/items/hulk-2003-hindi-english-dual-audio-mcu-hollywood-movie-blu-ray-hd-720p-esub/Hulk%20%282003%29%20%28Hindi%20%2B%20English%29%20Dual%20Audio%20MCU%20Hollywood%20Movie%20BluRay%20HD%20720p%20ESub.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Jumanji: The Next Level (2019)",
     "url": "https://proxy.vidbolt.xyz/m/gnVUXm6NbFcjoqULCIxGV9azFTiSVTPMiLlU0Dy-Cl2EJzZLUXJf3Ru8gC4UF1ld13iou9Kjcj0Gl8nu4dtFVdrXagidzVF-u-pye20edxqYWiCw_alnh9uJA2gjUXkwMhLpKlkmZbizEG_M9agZ5uEn8cXXkZd89KypQY1KI7gp10tUNIijv2VMKvnIpIjikwqy87k-o5HKNCeVD-2YSkLwm2QgtNoje7EEc8GNJPmcJmxHQkOwXgbEgbDjoU5Nulta5LTFX4L3sz00Z-Yp4WBRAtZdCN6wn2A96-ekKQ9oj2tZYZPMWX5OI0YsAtQz3AEw2Z80VhOJuzY4Z1zfIzzH8LJTYfLzTpCE6zoF5XG1RbC2wWetuwVovw4T09DKx8BOaM-EdA?f=.m3u8",
     "category": "HOLLYWOOD MOVIES",
@@ -3548,6 +3590,18 @@
   {
     "name": "Maleficent 2 (2019)",
     "url": "https://archive.org/serve/maleficent.-mistress.-of.-evil.-2019.1080p.-blu-ray.-hin.-eng.-2.0.-esubs.x-264/Maleficent.Mistress.Of.Evil.2019.1080p.BluRay.HIN.ENG.2.0.ESubs.x264.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Michael ( 2026)",
+    "url": "https://ia803105.us.archive.org/35/items/michael-2026-hindi-english-dual-audio-hollywood-movie-hevc-720p-esub/Michael%20%282026%29%20%28Hindi%20%2B%20English%29%20Dual%20Audio%20Hollywood%20Movie%20HEVC%20720p%20ESub.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Oppenheimer (2026)",
+    "url": "https://archive.org/download/oppenheimer-2023-imax-1080p-10bit-av-1-org-amzn-hindi-he-aac-5.1-ch-128-kbps-en-coded-by-tatai/Oppenheimer%20%282023%29%20IMAX%201080p%2010bit%20AV1%20%5BOrg%20AMZN%20Hindi%20HE-AAC%205.1%20Ch%20~%20128%20Kbps%5D%20EnCoded%20By%20Tatai.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -3570,14 +3624,44 @@
     "streamType": "offline"
   },
   {
+    "name": "Striking Rescue ( 2024)",
+    "url": "https://archive.org/download/striking-rescue-2024-hindi-dubbed-movie-480p-web-dl/Striking_Rescue_%282024%29_Hindi_Dubbed_Movie_480p_Web-DL.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Bluff (2026)",
+    "url": "https://archive.org/download/the-bluff-hindi-480-p/The_Bluff_%5BHindi%5D_480P.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Impossible (2012)",
+    "url": "https://archive.org/download/the-impossible-hollywood-hindi-dubbed-movie-2012-480-x-362_202609/The%20Impossible%20Hollywood%20%20Hindi%20Dubbed%20Movie%202012%20%28%20480%20X%20362%20%29.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "The Scorpion King (2002)",
     "url": "https://s1.streamflixserver.site/movies/2002/scorpianking.mkv",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
   {
+    "name": "The Tomorrow War (2021)",
+    "url": "https://ia801907.us.archive.org/27/items/prmovies-the-tomorrow-war-hindi-dubbed/Prmovies-The_Tomorrow_War_Hindi_Dubbed.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Titanic (1997)",
     "url": "https://ia903201.us.archive.org/25/items/titanic-1997-dual-audio-hindi-english-1080p-blu-ray-3.1-gb-esub-boll-yflix_202610/Titanic%20%281997%29%20Dual%20Audio%20%7BHindi-English%7D%201080p%20BluRay%203.1GB%20ESub%20%5BBollYFlix%5D.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Uncharted (2022)",
+    "url": "https://archive.org/download/filmy-4wap.xyz-uncharted-2022-hollywood-hindi-dubbed-full-movie-hevc-480p/Filmy4wap.xyz%20Uncharted%20%282022%29%20Hollywood%20Hindi%20Dubbed%20Full%20Movie%20HEVC%20480p.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
