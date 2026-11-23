@@ -35,13 +35,14 @@
         .input-pro:focus { border-color: #ff003c; box-shadow: 0 0 12px rgba(255, 0, 60, 0.2); outline: none; }
         select.input-pro option { background: #161b22; color: #fff; padding: 10px; }
 
-        .cat-group { display: flex; gap: 10px; margin-bottom: 15px; align-items: center; width: 100%; }
-        .cat-group select.input-pro, .cat-group input.input-pro { margin-bottom: 0; flex: 1; }
+        .cat-group { display: flex; gap: 10px; margin-bottom: 15px; align-items: center; width: 100%; min-width: 0; }
+        .cat-group select.input-pro, .cat-group input.input-pro { margin-bottom: 0; flex: 1; min-width: 0; height: 48px; }
+        .cat-group input.input-pro { text-transform: uppercase; border-color: #00ea77; }
         .add-cat-btn { 
-            padding: 0 18px; height: 48px; background: #21262d; color: #fff; border: 1px solid #30363d; 
-            border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; justify-content: center;
+            width: 84px; min-width: 84px; max-width: 84px; padding: 0; height: 48px; background: #21262d; color: #00ea77; border: 1px solid #30363d; 
+            border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 12.5px; transition: all 0.2s; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
-        .add-cat-btn:hover { background: #30363d; border-color: #ff003c; color: #ff003c; }
+        .add-cat-btn:hover, .add-cat-btn.add-mode { background: #00ea77; border-color: #00ea77; color: #000; }
         .btn-pro { 
             display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; margin-bottom: 15px;
             border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 15px; transition: all 0.3s ease; text-transform: uppercase; font-family: 'Poppins', sans-serif;
@@ -325,7 +326,7 @@
 
     <div class="admin-box" id="editorSection" style="display:none; padding-top: 25px;">
         <h3 id="formTitle"><i class="fa-solid fa-plus-circle"></i> Add New Channel</h3>
-        <p class="subtitle" style="margin-bottom: 15px;">Inline badge creator, bulk folder badges & 20-Pin system.</p>
+        <p class="subtitle" style="margin-bottom: 15px;">Inline category & badge creator, bulk folder badges & 20-Pin system.</p>
         
         <div class="type-switch-container">
             <button class="type-switch-btn active" id="btnLiveTV" onclick="setStreamType('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
@@ -337,8 +338,8 @@
         
         <div class="cat-group">
             <select id="pCat" class="input-pro" onchange="handleCategoryChange()" size="1"></select>
-            <input type="text" id="newCategoryInput" class="input-pro" placeholder="Custom category..." style="display: none;">
-            <button class="add-cat-btn" id="catToggleBtn" onclick="toggleCatInput()">+ NEW</button>
+            <input type="text" id="newCategoryInput" class="input-pro" placeholder="TYPE FOLDER NAME..." style="display: none;" onkeydown="if(event.key==='Enter'){event.preventDefault();toggleCatInput();}">
+            <button type="button" class="add-cat-btn" id="catToggleBtn" onclick="toggleCatInput()">+ NEW</button>
         </div>
 
         <div class="form-flags-row">
@@ -511,6 +512,7 @@
         
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
         let savedCategories = [...defaultCategories];
+        let customTypeCategories = { live: [], offline: [] };
 
         function pickRandomBadgeColor() {
             const usedBgs = customBadges.map(b => b.bg);
@@ -627,7 +629,7 @@
             return "";
         }
 
-        // ⚡ BULK FOLDER BADGE MODAL LOGIC
+        // ⚡ BULK FOLDER BADGE MODAL LOGIC (WORKS WITHOUT INLINE QUOTE BREAKAGE)
         function openFolderBadgeModal(catName) {
             currentBulkBadgeCat = catName;
             document.getElementById('bulkBadgeCatName').innerText = catName;
@@ -813,6 +815,9 @@
                 const c = ch.category || "UNCATEGORIZED";
                 if(t === selType && !typeCats.includes(c)) typeCats.push(c);
             });
+            (customTypeCategories[selType] || []).forEach(c => {
+                if(!typeCats.includes(c)) typeCats.push(c);
+            });
             if (selType === 'live') {
                 defaultCategories.forEach(c => {
                     if(!typeCats.includes(c)) typeCats.push(c);
@@ -953,6 +958,10 @@
                 }
             });
 
+            (customTypeCategories[currentStreamType] || []).forEach(cat => {
+                if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
+            });
+
             if (currentStreamType === 'live') {
                 defaultCategories.forEach(cat => {
                     if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
@@ -1006,17 +1015,38 @@
             }
         }
 
+        // ⚡ SAME AS "+ BADGE" -> "+ NEW" OPENS INLINE INPUT & BUTTON BECOMES "ADD" (FIXED WIDTH)
         function toggleCatInput() {
-            isCustomCat = !isCustomCat;
             const selectEl = document.getElementById('pCat');
             const inputEl = document.getElementById('newCategoryInput');
             const btnEl = document.getElementById('catToggleBtn');
 
-            if (isCustomCat) {
-                selectEl.style.display = 'none'; inputEl.style.display = 'block'; inputEl.focus(); btnEl.innerText = '✖ CANCEL';
+            if (!isCustomCat) {
+                isCustomCat = true;
+                selectEl.style.display = 'none';
+                inputEl.style.display = 'block';
+                inputEl.value = '';
+                btnEl.innerText = 'ADD';
+                btnEl.classList.add('add-mode');
+                inputEl.focus();
             } else {
-                selectEl.style.display = 'block'; inputEl.style.display = 'none'; inputEl.value = ''; btnEl.innerText = '+ NEW';
-                handleCategoryChange(); 
+                const rawCat = (inputEl.value || '').trim().toUpperCase();
+                isCustomCat = false;
+                inputEl.style.display = 'none';
+                inputEl.value = '';
+                selectEl.style.display = 'block';
+                btnEl.innerText = '+ NEW';
+                btnEl.classList.remove('add-mode');
+
+                if (rawCat) {
+                    if (!savedCategories.includes(rawCat)) savedCategories.push(rawCat);
+                    if (!customTypeCategories[currentStreamType].includes(rawCat)) {
+                        customTypeCategories[currentStreamType].push(rawCat);
+                    }
+                    renderCategoryDropdown(rawCat);
+                } else {
+                    handleCategoryChange();
+                }
             }
         }
 
@@ -1073,7 +1103,6 @@
             const allBadges = getAllBadges();
 
             viewCategories.forEach((cat) => {
-                const safeCatName = cat.replace(/'/g, "'");
                 let channelsInCat = viewChannels.filter(c => (c.category || "UNCATEGORIZED") === cat);
                 sortFolderChannels(channelsInCat);
 
@@ -1081,35 +1110,77 @@
                 const catId = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + currentModalView;
                 const isOpen = openFolders.has(catId);
 
-                const bulkBadgeBtnHTML = currentModalView === 'offline'
-                    ? `<button class="bulk-badge-btn" onclick="openFolderBadgeModal('${safeCatName}')" title="Set Badge for Entire Folder"><i class="fa-solid fa-tags"></i> Set Badge</button>`
-                    : '';
-
                 const folderDiv = document.createElement('div');
                 folderDiv.className = 'category-folder';
                 folderDiv.setAttribute('draggable', 'true');
                 folderDiv.setAttribute('data-cat-name', cat);
-                
-                folderDiv.innerHTML = `
-                    <div class="category-header">
-                        <span onclick="toggleFolder('${catId}')" style="flex:1; display:flex; align-items:center; cursor:pointer; flex-wrap:wrap;">
-                            <i class="fa-solid ${isOpen ? 'fa-folder-open' : 'fa-folder'}" style="margin-right:10px; color:#00ea77; font-size: 16px;"></i> ${cat} 
-                            <span class="cat-count">${channelsInCat.length}</span>
-                            ${pinnedCount > 0 ? `<span class="pin-count-pill"><i class="fa-solid fa-thumbtack"></i> ${pinnedCount}/20</span>` : ''}
-                        </span>
-                        <div class="cat-actions">
-                            ${bulkBadgeBtnHTML}
-                            <button class="shift-type" onclick="openShiftModal('${safeCatName}')" title="Shift Live/Offline"><i class="fa-solid fa-exchange-alt"></i> Set Type</button>
-                            <button onclick="renameCategory('${safeCatName}')" title="Rename Folder"><i class="fa-solid fa-pen"></i> Rename</button>
-                            <button class="del-folder" onclick="deleteCategory('${safeCatName}')" title="Delete Folder"><i class="fa-solid fa-trash-can"></i> Delete</button>
-                            <span style="color: #8b949e; font-size:14px; cursor:grab; margin-left: 8px;" title="Drag folder"><i class="fa-solid fa-grip-vertical"></i></span>
-                        </div>
-                    </div>
-                    <div class="category-content ${isOpen ? 'open' : ''}" id="folder-${catId}"></div>
+
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'category-header';
+
+                const titleSpan = document.createElement('span');
+                titleSpan.style.cssText = 'flex:1; display:flex; align-items:center; cursor:pointer; flex-wrap:wrap;';
+                titleSpan.innerHTML = `
+                    <i class="fa-solid ${isOpen ? 'fa-folder-open' : 'fa-folder'}" style="margin-right:10px; color:#00ea77; font-size: 16px;"></i>
+                    <span class="cat-title-text"></span>
+                    <span class="cat-count">${channelsInCat.length}</span>
+                    ${pinnedCount > 0 ? `<span class="pin-count-pill"><i class="fa-solid fa-thumbtack"></i> ${pinnedCount}/20</span>` : ''}
                 `;
+                titleSpan.querySelector('.cat-title-text').textContent = cat;
+                titleSpan.onclick = () => toggleFolder(catId);
+
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'cat-actions';
+
+                if (currentModalView === 'offline') {
+                    const badgeBtn = document.createElement('button');
+                    badgeBtn.type = 'button';
+                    badgeBtn.className = 'bulk-badge-btn';
+                    badgeBtn.title = 'Set Badge for Entire Folder';
+                    badgeBtn.innerHTML = '<i class="fa-solid fa-tags"></i> Set Badge';
+                    badgeBtn.onclick = (e) => { e.stopPropagation(); openFolderBadgeModal(cat); };
+                    actionsDiv.appendChild(badgeBtn);
+                }
+
+                const shiftBtn = document.createElement('button');
+                shiftBtn.type = 'button';
+                shiftBtn.className = 'shift-type';
+                shiftBtn.title = 'Shift Live/Offline';
+                shiftBtn.innerHTML = '<i class="fa-solid fa-exchange-alt"></i> Set Type';
+                shiftBtn.onclick = (e) => { e.stopPropagation(); openShiftModal(cat); };
+                actionsDiv.appendChild(shiftBtn);
+
+                const renameBtn = document.createElement('button');
+                renameBtn.type = 'button';
+                renameBtn.title = 'Rename Folder';
+                renameBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Rename';
+                renameBtn.onclick = (e) => { e.stopPropagation(); renameCategory(cat); };
+                actionsDiv.appendChild(renameBtn);
+
+                const delBtn = document.createElement('button');
+                delBtn.type = 'button';
+                delBtn.className = 'del-folder';
+                delBtn.title = 'Delete Folder';
+                delBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i> Delete';
+                delBtn.onclick = (e) => { e.stopPropagation(); deleteCategory(cat); };
+                actionsDiv.appendChild(delBtn);
+
+                const gripSpan = document.createElement('span');
+                gripSpan.style.cssText = 'color: #8b949e; font-size:14px; cursor:grab; margin-left: 8px;';
+                gripSpan.title = 'Drag folder';
+                gripSpan.innerHTML = '<i class="fa-solid fa-grip-vertical"></i>';
+                actionsDiv.appendChild(gripSpan);
+
+                headerDiv.appendChild(titleSpan);
+                headerDiv.appendChild(actionsDiv);
+                folderDiv.appendChild(headerDiv);
+
+                const contentEl = document.createElement('div');
+                contentEl.className = `category-content ${isOpen ? 'open' : ''}`;
+                contentEl.id = `folder-${catId}`;
+                folderDiv.appendChild(contentEl);
                 list.appendChild(folderDiv);
 
-                const contentEl = folderDiv.querySelector('.category-content');
                 channelsInCat.forEach(ch => {
                     const isPinned = typeof ch.pinOrder === 'number' && ch.pinOrder > 0;
                     const effBadge = getEffectiveBadge(ch);
@@ -1136,7 +1207,7 @@
                         <div style="display: flex; align-items: center; flex: 1; overflow: hidden; padding-right: 10px;">
                             <span class="drag-icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             ${pinRankHTML}
-                            <span style="font-size: 14px; font-weight: 500; color: #fff; display:flex; align-items:center; flex-wrap:wrap;">${iconHTML} ${ch.name} ${badgeHTML}</span>
+                            <span style="font-size: 14px; font-weight: 500; color: #fff; display:flex; align-items:center; flex-wrap:wrap;">${iconHTML} <span class="ch-name-text"></span> ${badgeHTML}</span>
                         </div>
                         <div class="action-btns" style="flex-shrink: 0;">
                             <button class="btn-pin ${isPinned ? 'active' : ''}" onclick="toggleChannelPin(${ch.originalIndex})" title="${isPinned ? 'Unpin' : 'Pin to Top'}"><i class="fa-solid fa-thumbtack"></i> ${isPinned ? 'Pinned' : 'Pin'}</button>
@@ -1146,6 +1217,7 @@
                             <button class="btn-delete" onclick="deleteChannel(${ch.originalIndex})"><i class="fa-solid fa-trash-can"></i> Delete</button>
                         </div>
                     `;
+                    item.querySelector('.ch-name-text').textContent = ch.name;
                     contentEl.appendChild(item);
                 });
             });
@@ -1324,11 +1396,8 @@
                     showError("ENTER CATEGORY NAME!");
                     return;
                 }
-                category = customCat;
-                if (!savedCategories.includes(category)) { 
-                    savedCategories.push(category); 
-                }
                 toggleCatInput();
+                category = customCat;
             } else {
                 category = document.getElementById('pCat').value;
                 if (!category) {
@@ -1468,7 +1537,7 @@
                 const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${GIT_TOKEN}` },
-                    body: JSON.stringify({ message: "Updated via Admin Panel (Inline Badge Creator & 20-Pin System)", content: encodedContent, sha: fileSha })
+                    body: JSON.stringify({ message: "Updated via Admin Panel (Fixed Set Badge & Inline Controls)", content: encodedContent, sha: fileSha })
                 });
 
                 if(response.ok) {
