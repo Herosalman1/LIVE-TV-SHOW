@@ -3516,8 +3516,20 @@
     "streamType": "offline"
   },
   {
+    "name": "Demolition (2016)",
+    "url": "https://s1.streamflixserver.site/movies/2015/demolton.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "DRAGON KING (2020)",
     "url": "https://dn710704.ca.archive.org/0/items/dragonking2020newreleasedfullhindidubbedmoviehollywoodmoviesinhindidubbed2020720p/DRAGON_KING__2020__New_Released_Full_Hindi_Dubbed_Movie___Hollywood_Movies_In_Hindi_Dubbed_2020%28720p%29.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Everest (2015)",
+    "url": "https://s3.streamflixserver.site/movies/2015/evrst.mkv",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -3577,7 +3589,13 @@
   },
   {
     "name": "Jumanji: The Next Level (2019)",
-    "url": "https://proxy.vidbolt.xyz/m/gnVUXm6NbFcjoqULCIxGV9azFTiSVTPMiLlU0Dy-Cl2EJzZLUXJf3Ru8gC4UF1ld13iou9Kjcj0Gl8nu4dtFVdrXagidzVF-u-pye20edxqYWiCw_alnh9uJA2gjUXkwMhLpKlkmZbizEG_M9agZ5uEn8cXXkZd89KypQY1KI7gp10tUNIijv2VMKvnIpIjikwqy87k-o5HKNCeVD-2YSkLwm2QgtNoje7EEc8GNJPmcJmxHQkOwXgbEgbDjoU5Nulta5LTFX4L3sz00Z-Yp4WBRAtZdCN6wn2A96-ekKQ9oj2tZYZPMWX5OI0YsAtQz3AEw2Z80VhOJuzY4Z1zfIzzH8LJTYfLzTpCE6zoF5XG1RbC2wWetuwVovw4T09DKx8BOaM-EdA?f=.m3u8",
+    "url": "https://archive.org/serve/sijjhub-media-8310290292-1794717586/Jumanji_The_Next_Level_2019_480p_8310290292.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Jumanji: Welcome to the Jungle (2017)",
+    "url": "https://archive.org/serve/online-jumanji-welcome-to-the-jungle-2017-watch/Online%20Jumanji%20Welcome%20to%20the%20Jungle%20%282017%29%20Watch.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
