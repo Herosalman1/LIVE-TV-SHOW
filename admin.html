@@ -418,7 +418,7 @@
                 <i class="fa-solid fa-circle-dot"></i> AUTO LIVE BADGE
             </div>
             <div class="badge-control-wrap" id="offlineBadgeControlWrap" style="display:none;">
-                <select id="pBadge" class="input-pro badge-select-box" onchange="styleTopBadgeSelect()"></select>
+                <select id="pBadge" class="input-pro badge-select-box" onchange="styleTopBadgeSelect()" ondblclick="if(this.value) renameBadgeGlobal(this.value)" title="Double click to rename selected badge"></select>
                 <input type="text" id="customBadgeNameInput" class="input-pro badge-inline-input" placeholder="TYPE BADGE..." style="display:none;" onkeydown="if(event.key==='Enter'){event.preventDefault();handleBadgeActionBtn();}">
                 <button type="button" class="new-badge-add-btn" id="toggleCustomBadgeBtn" onclick="handleBadgeActionBtn()">+ BADGE</button>
             </div>
@@ -541,30 +541,29 @@
         const fileName = "tools.json"; 
         const MAX_PINS_PER_FOLDER = 20;
 
-        const DEFAULT_BADGES = [
-            { name: "NEW", bg: "#00ea77", color: "#03140a" },
-            { name: "OLD", bg: "#64748b", color: "#ffffff" },
-            { name: "90'S MOVIE'S", bg: "#facc15", color: "#1a1000" },
-            { name: "HINDI DUB", bg: "#fb923c", color: "#ffffff" },
-            { name: "TRENDING", bg: "#ff0055", color: "#ffffff" },
-            { name: "4K / HD", bg: "#00d4ff", color: "#02121c" },
-            { name: "FULL SERIES", bg: "#a855f7", color: "#ffffff" },
-            { name: "FULL MOVIE", bg: "#2dd4bf", color: "#021715" }
-        ];
+        const UNIFORM_OFFLINE_BG = "#5b687c";
+        const UNIFORM_OFFLINE_FG = "#ffffff";
 
-        // ⚡ AUTO RANDOM PALETTE (Yellow, Blue, Green, Pink, Purple, Orange, Sky Blue, Rose Red)
-        const RANDOM_BADGE_COLORS = [
-            { bg: "#facc15", color: "#1a1000" },
-            { bg: "#00d4ff", color: "#02121c" },
-            { bg: "#00ea77", color: "#03140a" },
-            { bg: "#ff007f", color: "#ffffff" },
-            { bg: "#a855f7", color: "#ffffff" },
-            { bg: "#fb923c", color: "#ffffff" },
-            { bg: "#38bdf8", color: "#04101a" },
-            { bg: "#f43f5e", color: "#ffffff" }
+        const BASE_DEFAULT_BADGES = [
+            { name: "NEW", bg: "#5b687c", color: "#ffffff" },
+            { name: "OLD", bg: "#5b687c", color: "#ffffff" },
+            { name: "90'S MOVIE'S", bg: "#5b687c", color: "#ffffff" },
+            { name: "HINDI DUB", bg: "#5b687c", color: "#ffffff" },
+            { name: "TRENDING", bg: "#5b687c", color: "#ffffff" },
+            { name: "4K / HD", bg: "#5b687c", color: "#ffffff" },
+            { name: "FULL SERIES", bg: "#5b687c", color: "#ffffff" },
+            { name: "FULL MOVIE", bg: "#5b687c", color: "#ffffff" }
         ];
+        let DEFAULT_BADGES = JSON.parse(localStorage.getItem('tv_default_badges') || 'null') || BASE_DEFAULT_BADGES.map(b => ({...b, bg: UNIFORM_OFFLINE_BG, color: UNIFORM_OFFLINE_FG}));
+        DEFAULT_BADGES = DEFAULT_BADGES.map(b => ({...b, bg: UNIFORM_OFFLINE_BG, color: UNIFORM_OFFLINE_FG}));
 
-        let customBadges = JSON.parse(localStorage.getItem('tv_custom_badges') || '[]');
+        // ⚡ SINGLE CLEAN BADGE COLOR FROM SCREENSHOT FOR ALL OFFLINE BADGES
+
+        let customBadges = JSON.parse(localStorage.getItem('tv_custom_badges') || '[]').map(b => ({
+            ...b,
+            bg: UNIFORM_OFFLINE_BG,
+            color: UNIFORM_OFFLINE_FG
+        }));
         let isAddingNewBadge = false;
         
         let channelsArray = [];
@@ -582,11 +581,8 @@
         let savedCategories = [...defaultCategories];
         let customTypeCategories = { live: [], offline: [] };
 
-        function pickRandomBadgeColor() {
-            const usedBgs = customBadges.map(b => b.bg);
-            const unused = RANDOM_BADGE_COLORS.filter(c => !usedBgs.includes(c.bg));
-            const pool = unused.length > 0 ? unused : RANDOM_BADGE_COLORS;
-            return pool[Math.floor(Math.random() * pool.length)];
+        function getUniformBadgeColor() {
+            return { bg: UNIFORM_OFFLINE_BG, color: UNIFORM_OFFLINE_FG };
         }
 
         function getAllBadges() {
@@ -595,7 +591,7 @@
             customBadges.forEach(b => map.set(b.name, b));
             channelsArray.forEach(ch => {
                 if (ch.badge && !map.has(ch.badge)) {
-                    const rand = pickRandomBadgeColor();
+                    const rand = getUniformBadgeColor();
                     map.set(ch.badge, {
                         name: ch.badge,
                         bg: ch.badgeBg || rand.bg,
@@ -614,10 +610,11 @@
 
         function renderBadgeHTML(badgeName, ch = null, extraStyle = "") {
             if (!badgeName) return "";
-            const meta = findBadgeMeta(badgeName);
-            const bg = (ch && ch.badgeBg) ? ch.badgeBg : meta.bg;
-            const fg = (ch && ch.badgeColor) ? ch.badgeColor : meta.color;
-            return `<span class="ott-badge" style="background:${bg}; color:${fg}; border:1px solid rgba(255,255,255,0.25); box-shadow:0 2px 8px ${bg}66; ${extraStyle}">${badgeName}</span>`;
+            const isLive = badgeName === "LIVE";
+            const bg = isLive ? "#e50914" : UNIFORM_OFFLINE_BG;
+            const fg = isLive ? "#ffffff" : UNIFORM_OFFLINE_FG;
+            const shadow = isLive ? "0 2px 8px rgba(229,9,20,0.45)" : "0 2px 6px rgba(0,0,0,0.35)";
+            return `<span class="ott-badge" style="background:${bg}; color:${fg}; border:1px solid rgba(255,255,255,0.18); box-shadow:${shadow}; ${extraStyle}">${badgeName}</span>`;
         }
 
         function styleTopBadgeSelect() {
@@ -665,6 +662,81 @@
         }
 
         // ⚡ INLINE "+ BADGE" -> INPUT IN PLACE OF DROPDOWN & BUTTON BECOMES "ADD" (FIXED WIDTH)
+
+        let renamingBadgeOldName = null;
+        let renamingListSelectEl = null;
+        let renamingListIdx = null;
+
+        function commitBadgeRename(oldName, rawNewName) {
+            if (!oldName || oldName === 'LIVE') return null;
+            const newName = (rawNewName || '').trim().toUpperCase();
+            if (!newName || newName === oldName) return oldName;
+
+            DEFAULT_BADGES.forEach(b => {
+                if (b.name === oldName) {
+                    b.name = newName;
+                    b.bg = UNIFORM_OFFLINE_BG;
+                    b.color = UNIFORM_OFFLINE_FG;
+                }
+            });
+            localStorage.setItem('tv_default_badges', JSON.stringify(DEFAULT_BADGES));
+
+            customBadges.forEach(b => {
+                if (b.name === oldName) {
+                    b.name = newName;
+                    b.bg = UNIFORM_OFFLINE_BG;
+                    b.color = UNIFORM_OFFLINE_FG;
+                }
+            });
+            const seenCustom = new Set();
+            customBadges = customBadges.filter(b => {
+                if (seenCustom.has(b.name)) return false;
+                seenCustom.add(b.name);
+                return true;
+            });
+            localStorage.setItem('tv_custom_badges', JSON.stringify(customBadges));
+
+            channelsArray.forEach(ch => {
+                if (ch.badge === oldName) {
+                    ch.badge = newName;
+                    ch.badgeBg = UNIFORM_OFFLINE_BG;
+                    ch.badgeColor = UNIFORM_OFFLINE_FG;
+                }
+            });
+
+            return newName;
+        }
+
+        function renameBadgeGlobal(oldName, listSelEl = null, listChannelIdx = null) {
+            if (!oldName || oldName === 'LIVE') return;
+            const wrap = document.getElementById('offlineBadgeControlWrap');
+            const sel = document.getElementById('pBadge');
+            const inp = document.getElementById('customBadgeNameInput');
+            const btn = document.getElementById('toggleCustomBadgeBtn');
+
+            // Ensure top form badge control is visible when editing inline
+            if (wrap && wrap.style.display === 'none') {
+                setStreamType('offline');
+            }
+
+            isAddingNewBadge = true;
+            renamingBadgeOldName = oldName;
+            renamingListSelectEl = listSelEl;
+            renamingListIdx = listChannelIdx;
+
+            if (sel) sel.style.display = 'none';
+            if (inp) {
+                inp.style.display = 'block';
+                inp.value = oldName;
+                inp.focus();
+                inp.select();
+            }
+            if (btn) {
+                btn.innerText = 'OK';
+                btn.classList.add('add-mode');
+            }
+        }
+
         function handleBadgeActionBtn() {
             const sel = document.getElementById('pBadge');
             const inp = document.getElementById('customBadgeNameInput');
@@ -672,12 +744,56 @@
 
             if (!isAddingNewBadge) {
                 isAddingNewBadge = true;
+                renamingBadgeOldName = null;
+                renamingListSelectEl = null;
+                renamingListIdx = null;
                 sel.style.display = 'none';
                 inp.style.display = 'block';
                 inp.value = '';
                 btn.innerText = 'ADD';
                 btn.classList.add('add-mode');
                 inp.focus();
+            } else if (renamingBadgeOldName) {
+                const oldName = renamingBadgeOldName;
+                const targetListSel = renamingListSelectEl;
+                const targetListIdx = renamingListIdx;
+                const finalName = commitBadgeRename(oldName, inp.value) || oldName;
+
+                renamingBadgeOldName = null;
+                renamingListSelectEl = null;
+                renamingListIdx = null;
+
+                const currentTop = (sel && sel.value === oldName) ? finalName : (sel ? sel.value : '');
+                resetInlineBadgeMode(currentTop);
+
+                if (targetListSel) {
+                    const allBadges = getAllBadges();
+                    targetListSel.innerHTML = '';
+                    const noneOpt = document.createElement('option');
+                    noneOpt.value = '';
+                    noneOpt.textContent = 'NO BADGE';
+                    targetListSel.appendChild(noneOpt);
+                    allBadges.forEach(b => {
+                        const opt = document.createElement('option');
+                        opt.value = b.name;
+                        opt.textContent = b.name;
+                        targetListSel.appendChild(opt);
+                    });
+                    const chObj = (typeof targetListIdx === 'number' && channelsArray[targetListIdx]) ? channelsArray[targetListIdx] : null;
+                    const nextVal = (chObj && chObj.badge) ? chObj.badge : finalName;
+                    targetListSel.value = nextVal;
+                    applyBadgeStyleToSelect(targetListSel, nextVal, chObj);
+                }
+
+                const bulkModal = document.getElementById('folderBadgeModal');
+                if (bulkModal && bulkModal.style.display === 'flex' && currentBulkBadgeCat) {
+                    openFolderBadgeModal(currentBulkBadgeCat);
+                }
+
+                const listModal = document.getElementById('listModal');
+                if (listModal && listModal.style.display === 'flex' && !targetListSel) {
+                    renderList();
+                }
             } else {
                 const raw = (inp.value || '').trim().toUpperCase();
                 if (!raw) {
@@ -687,7 +803,7 @@
                 const existingIdx = customBadges.findIndex(b => b.name === raw);
                 const randColor = existingIdx !== -1
                     ? { bg: customBadges[existingIdx].bg, color: customBadges[existingIdx].color }
-                    : pickRandomBadgeColor();
+                    : getUniformBadgeColor();
 
                 const badgeObj = { name: raw, bg: randColor.bg, color: randColor.color };
                 if (existingIdx !== -1) {
@@ -726,7 +842,9 @@
                 btn.type = 'button';
                 btn.className = 'bulk-badge-choice';
                 btn.innerHTML = renderBadgeHTML(b.name, null, 'margin-left:0;');
+                btn.title = 'Click to apply | Double click to rename badge';
                 btn.onclick = () => applyFolderBadge(b);
+                btn.ondblclick = (e) => { e.stopPropagation(); renameBadgeGlobal(b.name); };
                 grid.appendChild(btn);
             });
 
@@ -861,10 +979,10 @@
         }
 
         function applyBadgeStyleToSelect(selEl, badgeName, ch = null) {
-            const meta = badgeName ? findBadgeMeta(badgeName) : null;
-            const selBg = meta ? ((ch && ch.badgeBg) ? ch.badgeBg : meta.bg) : '#010409';
-            const selFg = meta ? ((ch && ch.badgeColor) ? ch.badgeColor : meta.color) : '#ffffff';
-            const selBorder = meta ? selBg : '#30363d';
+            const hasBadge = Boolean(badgeName);
+            const selBg = hasBadge ? UNIFORM_OFFLINE_BG : '#010409';
+            const selFg = hasBadge ? UNIFORM_OFFLINE_FG : '#ffffff';
+            const selBorder = hasBadge ? 'rgba(255, 255, 255, 0.18)' : '#30363d';
             const arrowHex = selFg === '#ffffff' ? '%23ffffff' : '%23060911';
             const exactW = calcExactBadgeSelectWidth(badgeName || 'NO BADGE');
 
@@ -1024,7 +1142,7 @@
                         delete ch.isNew;
                     }
                     if (ch.badge && !DEFAULT_BADGES.some(d => d.name === ch.badge) && !customBadges.some(c => c.name === ch.badge)) {
-                        const rand = pickRandomBadgeColor();
+                        const rand = getUniformBadgeColor();
                         customBadges.push({
                             name: ch.badge,
                             bg: ch.badgeBg || rand.bg,
@@ -1335,7 +1453,12 @@
                     if ((ch.streamType || 'live') === 'offline') {
                         const selEl = document.createElement('select');
                         selEl.className = 'list-badge-select';
-                        selEl.title = 'Select Badge';
+                        selEl.title = 'Select Badge (Double click to rename)';
+                        const dblIdx = ch.originalIndex;
+                        selEl.addEventListener('dblclick', function(e) {
+                            e.stopPropagation();
+                            if (this.value) renameBadgeGlobal(this.value, this, dblIdx);
+                        });
 
                         const noneOpt = document.createElement('option');
                         noneOpt.value = '';
