@@ -137,8 +137,30 @@
         .channel-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 10px; margin-bottom: 4px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; gap: 10px; }
         .channel-item.active { background: rgba(229, 9, 20, 0.12); border-left: 3px solid var(--accent-red); border-color: rgba(229, 9, 20, 0.3); }
         .channel-item.active .channel-name { color: #fff; font-weight: 600; }
-        .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; line-height: 1.4; word-break: break-word; }
+        .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; flex-wrap: wrap; line-height: 1.4; word-break: break-word; }
         .channel-name i { color: var(--accent-red); margin-right: 8px; flex-shrink: 0; }
+
+        /* ⚡ OFFICIAL STREAMING STYLE NEW BADGE */
+        .official-new-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e50914 0%, #ff3b30 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5px;
+            font-weight: 800;
+            letter-spacing: 0.9px;
+            line-height: 1;
+            padding: 3px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 2px 8px rgba(229, 9, 20, 0.55);
+            flex-shrink: 0;
+        }
+
         .play-btn { margin-left: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
 
         @media (min-width: 900px) {
@@ -154,6 +176,7 @@
             .category-header { padding: 14px 18px; font-size: 15px; }
             .channel-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; }
             .channel-name { font-size: 14px; }
+            .official-new-badge { font-size: 9px; padding: 3px 7px; }
             .play-btn { padding: 6px 14px; border-radius: 6px; font-size: 11px; }
             .player-section { flex: 1; height: 100%; justify-content: center; order: 2; margin-bottom: 0; }
             .video-container { max-width: 900px; max-height: 65vh; border-radius: 12px; }
@@ -295,7 +318,6 @@
                     }
                 }).catch(err => {
                     if (token !== currentStreamToken || err.name === 'AbortError') return;
-                    // CORS-blocked live URLs throw TypeError; actual dead URLs are caught by video/HLS error events
                 });
             }
 
@@ -373,7 +395,12 @@
                 const channelsInCat = viewChannels
                     .map((ch) => ({...ch, originalIndex: savedChannels.indexOf(ch)}))
                     .filter(c => (c.category || "OTHER") === cat)
-                    .sort((a, b) => a.name.localeCompare(b.name, 'en', { numeric: true, sensitivity: 'base' }));
+                    .sort((a, b) => {
+                        const aPin = (typeof a.pinOrder === 'number' && a.pinOrder > 0) ? a.pinOrder : Infinity;
+                        const bPin = (typeof b.pinOrder === 'number' && b.pinOrder > 0) ? b.pinOrder : Infinity;
+                        if (aPin !== bPin) return aPin - bPin;
+                        return a.name.localeCompare(b.name, 'en', { numeric: true, sensitivity: 'base' });
+                    });
 
                 if(channelsInCat.length === 0) return;
 
@@ -398,8 +425,10 @@
                     item.setAttribute('data-index', ch.originalIndex);
                     item.onclick = () => playChannelByIndex(ch.originalIndex);
 
+                    const newBadgeHTML = ch.isNew ? `<span class="official-new-badge">NEW</span>` : '';
+
                     item.innerHTML = `
-                        <div class="channel-name" title="${ch.name}"><i class="fa-solid fa-tv"></i> ${ch.name}</div>
+                        <div class="channel-name" title="${ch.name}"><i class="fa-solid fa-tv"></i> ${ch.name}${newBadgeHTML}</div>
                         <button class="play-btn">PLAY</button>
                     `;
                     contentEl.appendChild(item);
@@ -860,7 +889,6 @@
             
             let newTime = video.currentTime + seconds;
             
-            // Allow seeking past buffer. Just don't seek past total duration if it's known.
             if (!isNaN(video.duration) && video.duration !== Infinity && video.duration > 0) {
                 newTime = Math.min(newTime, video.duration);
             }
