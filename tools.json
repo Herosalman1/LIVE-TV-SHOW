@@ -115,13 +115,7 @@
   },
   {
     "name": "Green Gold TV India Live",
-    "url": "https://vglivessai.akamaized.net/eu/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/b63f245b-075f-459e-8027-8f1e56d0f1bc/0.m3u8",
-    "category": "KIDS CARTOON",
-    "streamType": "live"
-  },
-  {
-    "name": "Hooray Kids",
-    "url": "https://d3go3d9yw1x2sb.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-obhh0sw25szth/bd59dd17-d76c-44ef-a108-6ac471b4da71/2.m3u8",
+    "url": "https://vglivessai.akamaized.net/eu/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/playlist.m3u8?hdnts=st=1795456139~exp=1795477739~acl=!*/eu/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/675a37e5-f517-434e-adae-d25ae1706340/*!/payload/yupptvott_5_14159267_893e8635-f94c-44b3-bf75-4ec8fbd24107_IN_2409:40d2:12b0:ca81:e19b:7fe0:56cb:71e8_yupptv_1_channel_7120_-1/*~data=yupptvott_5_14159267_893e8635-f94c-44b3-bf75-4ec8fbd24107_IN_2409:40d2:12b0:ca81:e19b:7fe0:56cb:71e8_yupptv_1_channel_7120_-1~hmac=bb1abf9e0fc5c5a50779a5f3d97147c550f0138baf1093949f8bddca5462f515&ads.content_custom_3_param=yuppfastindia&ads.ip=2409:40d2:12b0:ca81:e19b:7fe0:56cb:71e8&did=893e8635-f94c-44b3-bf75-4ec8fbd24107&ads.app_store_url=&ads.network_name=yupptv&ads.app_bundle=&ads.content_livestream=1&ads.content_genre=KIDS&ads.content_custom_1_param=&ads.channel=7120&ads.channel_name=GreenGoldTVIndia&ads.language=HIN&content_custom_2_param=fusion-web&ads.user=0&ads.ua=Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/158.0.0.0Safari/537.36Edg/158.0.0.0",
     "category": "KIDS CARTOON",
     "streamType": "live"
   },
