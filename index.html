@@ -137,10 +137,17 @@
         .channel-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 10px; margin-bottom: 4px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; gap: 10px; }
         .channel-item.active { background: rgba(229, 9, 20, 0.12); border-left: 3px solid var(--accent-red); border-color: rgba(229, 9, 20, 0.3); }
         .channel-item.active .channel-name { color: #fff; font-weight: 600; }
-        .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; flex-wrap: wrap; line-height: 1.4; word-break: break-word; }
+        .channel-name { font-weight: 500; font-size: 12px; color: var(--text-muted); flex: 1; display: flex; align-items: center; line-height: 1.4; word-break: break-word; min-width: 0; }
         .channel-name i { color: var(--accent-red); margin-right: 8px; flex-shrink: 0; }
 
-        /* ⚡ OFFICIAL OTT STREAMING BADGES */
+        /* ⚡ ALIGNED RIGHT-SIDE BADGE + PLAY BUTTON */
+        .item-right-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
         .ott-badge {
             display: inline-flex;
             align-items: center;
@@ -150,9 +157,8 @@
             font-weight: 800;
             letter-spacing: 0.8px;
             line-height: 1;
-            padding: 3px 6px;
+            padding: 4px 7px;
             border-radius: 4px;
-            margin-left: 8px;
             text-transform: uppercase;
             white-space: nowrap;
             flex-shrink: 0;
@@ -220,7 +226,7 @@
             box-shadow: 0 2px 8px rgba(45, 212, 191, 0.45);
         }
 
-        .play-btn { margin-left: 10px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+        .play-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
 
         @media (min-width: 900px) {
             .header { padding: 15px 35px; }
@@ -235,7 +241,7 @@
             .category-header { padding: 14px 18px; font-size: 15px; }
             .channel-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; }
             .channel-name { font-size: 14px; }
-            .ott-badge { font-size: 9px; padding: 3px 7px; }
+            .ott-badge { font-size: 9.5px; padding: 5px 8px; }
             .play-btn { padding: 6px 14px; border-radius: 6px; font-size: 11px; }
             .player-section { flex: 1; height: 100%; justify-content: center; order: 2; margin-bottom: 0; }
             .video-container { max-width: 900px; max-height: 65vh; border-radius: 12px; }
@@ -510,8 +516,11 @@
                     const badgeHTML = effBadge ? `<span class="ott-badge ${getBadgeClass(effBadge)}">${effBadge}</span>` : '';
 
                     item.innerHTML = `
-                        <div class="channel-name" title="${ch.name}"><i class="fa-solid fa-tv"></i> ${ch.name}${badgeHTML}</div>
-                        <button class="play-btn">PLAY</button>
+                        <div class="channel-name" title="${ch.name}"><i class="fa-solid fa-tv"></i> ${ch.name}</div>
+                        <div class="item-right-actions">
+                            ${badgeHTML}
+                            <button class="play-btn">PLAY</button>
+                        </div>
                     `;
                     contentEl.appendChild(item);
                 });
