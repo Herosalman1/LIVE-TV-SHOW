@@ -64,16 +64,18 @@
 
         .category-header { 
             padding: 14px 18px; background: rgba(0,0,0,0.3); color: #fff; font-weight: 600; font-size: 14px;
-            display: flex; justify-content: space-between; align-items: center; user-select: none; 
+            display: flex; justify-content: space-between; align-items: center; user-select: none; flex-wrap: wrap; gap: 8px;
         }
-        .cat-actions { display: flex; align-items: center; gap: 6px; }
+        .cat-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
         .cat-actions button { 
             background: rgba(255,255,255,0.08); border: 1px solid #30363d; color: #c9d1d9; cursor: pointer; 
-            font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: 0.2s; display: flex; align-items: center; gap: 5px;
+            font-size: 11.5px; font-weight: 600; padding: 6px 10px; border-radius: 6px; transition: 0.2s; display: flex; align-items: center; gap: 5px; white-space: nowrap;
         }
         .cat-actions button:hover { background: #d29922; color: #fff; border-color: #d29922; }
         .cat-actions button.del-folder:hover { background: #da3633; border-color: #da3633; }
         .cat-actions button.shift-type:hover { background: #00ea77; color: #000; border-color: #00ea77; }
+        .cat-actions button.bulk-badge-btn { border-color: rgba(0, 212, 255, 0.4); color: #38bdf8; }
+        .cat-actions button.bulk-badge-btn:hover { background: #00d4ff; color: #000; border-color: #00d4ff; }
 
         .cat-count { font-size: 12px; background: rgba(0, 234, 119, 0.15); padding: 3px 10px; border-radius: 20px; color: #00ea77; margin-left: 10px; font-weight: 600;}
         .pin-count-pill { font-size: 11px; background: rgba(250, 204, 21, 0.15); padding: 2px 8px; border-radius: 12px; color: #facc15; margin-left: 6px; font-weight: 600; border: 1px solid rgba(250, 204, 21, 0.35); }
@@ -216,7 +218,7 @@
         }
         
         .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
-        .modal-content { background: #161b22; padding: 25px; border-radius: 16px; border: 1px solid #ff003c; width: 92%; max-width: 860px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+        .modal-content { background: #161b22; padding: 25px; border-radius: 16px; border: 1px solid #ff003c; width: 92%; max-width: 880px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 12px; margin-bottom: 15px; }
         .close-btn { color: #da3633; font-size: 24px; font-weight: bold; cursor: pointer; background: none; border: none; }
         #projectList { overflow-y: auto; padding-right: 5px; flex-grow: 1; }
@@ -235,6 +237,46 @@
         .admin-tab { flex: 1; padding: 12px 0; font-size: 13px; font-weight: 600; color: #8b949e; background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; text-transform: uppercase;}
         .admin-tab.active { color: #fff; border-bottom: 2px solid #00ea77; background: rgba(0, 234, 119, 0.1); }
         .admin-tab i { margin-right: 8px; }
+
+        /* ⚡ BULK FOLDER BADGE GRID */
+        .bulk-badge-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 14px;
+            width: 100%;
+        }
+        .bulk-badge-choice {
+            padding: 11px 10px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .bulk-badge-choice:hover {
+            transform: translateY(-1px);
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.12);
+        }
+        .bulk-badge-clear {
+            grid-column: span 2;
+            background: rgba(218, 54, 51, 0.15);
+            border-color: rgba(218, 54, 51, 0.45);
+            color: #ff6b6b;
+        }
+        .bulk-badge-clear:hover {
+            background: #da3633;
+            color: #fff;
+            border-color: #da3633;
+        }
     </style>
 </head>
 <body>
@@ -249,7 +291,7 @@
 
     <div class="admin-box" id="editorSection" style="display:none; padding-top: 25px;">
         <h3 id="formTitle"><i class="fa-solid fa-plus-circle"></i> Add New Channel</h3>
-        <p class="subtitle" style="margin-bottom: 15px;">Live TV par auto LIVE badge, Offline par manual badge & 20-Pin system.</p>
+        <p class="subtitle" style="margin-bottom: 15px;">Live TV par auto LIVE badge, Offline par manual/folder badge & 20-Pin system.</p>
         
         <div class="type-switch-container">
             <button class="type-switch-btn active" id="btnLiveTV" onclick="setStreamType('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
@@ -316,9 +358,21 @@
                 <button class="admin-tab active" id="modalTabLive" onclick="switchModalView('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
                 <button class="admin-tab" id="modalTabOffline" onclick="switchModalView('offline')"><i class="fa-solid fa-film"></i> OFFLINE STREAM</button>
             </div>
-            <p class="subtitle" style="text-align: left; margin-top:-5px; font-size:12px;">💡 Har folder mein max 20 Pin honge. Live TV par sab par LIVE badge automatic hai, aur Offline Stream par dropdown se badge select karein. 'UPLOAD TO GITHUB' dabana na bhoolein.</p>
+            <p class="subtitle" style="text-align: left; margin-top:-5px; font-size:12px;">💡 Pure folder par ek saath badge lagane ke liye folder ke 'Set Badge' button ko dabayein. 'UPLOAD TO GITHUB' dabana na bhoolein.</p>
             
             <div id="projectList"></div>
+        </div>
+    </div>
+
+    <!-- ⚡ BULK FOLDER BADGE MODAL -->
+    <div id="folderBadgeModal" class="modal" style="z-index: 1000;">
+        <div class="modal-content" style="max-width: 430px; text-align: center; border-color: #00d4ff;">
+            <h3 style="color: #00d4ff; margin-bottom: 8px;"><i class="fa-solid fa-tags"></i> FOLDER BULK BADGE</h3>
+            <p style="color: #c9d1d9; font-size: 13px; margin-bottom: 16px;">Folder <strong style="color:#fff; font-size:15px;">"<span id="bulkBadgeCatName"></span>"</strong> ke sabhi items par kaunsa badge lagana hai?</p>
+            
+            <div class="bulk-badge-grid" id="bulkBadgeGrid"></div>
+            
+            <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; padding:10px; margin-bottom:0;" onclick="closeFolderBadgeModal()">CANCEL</button>
         </div>
     </div>
 
@@ -399,6 +453,7 @@
         let currentStreamType = "live"; 
         let currentModalView = "live"; 
         let currentShiftCat = ""; 
+        let currentBulkBadgeCat = "";
         let formPinState = false;
         
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
@@ -430,6 +485,52 @@
             if (ch.badge) return ch.badge;
             if (ch.isNew) return "NEW";
             return "";
+        }
+
+        // ⚡ BULK FOLDER BADGE MODAL LOGIC
+        function openFolderBadgeModal(catName) {
+            currentBulkBadgeCat = catName;
+            document.getElementById('bulkBadgeCatName').innerText = catName;
+            const grid = document.getElementById('bulkBadgeGrid');
+            grid.innerHTML = '';
+
+            BADGE_OPTIONS.forEach(badge => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'bulk-badge-choice';
+                btn.innerHTML = `<span class="ott-badge ${getBadgeClass(badge)}" style="margin-left:0;">${badge}</span>`;
+                btn.onclick = () => applyFolderBadge(badge);
+                grid.appendChild(btn);
+            });
+
+            const clearBtn = document.createElement('button');
+            clearBtn.type = 'button';
+            clearBtn.className = 'bulk-badge-choice bulk-badge-clear';
+            clearBtn.innerHTML = `<i class="fa-solid fa-ban"></i> REMOVE ALL BADGES FROM FOLDER`;
+            clearBtn.onclick = () => applyFolderBadge('');
+            grid.appendChild(clearBtn);
+
+            document.getElementById('folderBadgeModal').style.display = 'flex';
+        }
+
+        function closeFolderBadgeModal() {
+            document.getElementById('folderBadgeModal').style.display = 'none';
+        }
+
+        function applyFolderBadge(badgeValue) {
+            if (!currentBulkBadgeCat) return;
+            channelsArray.forEach(ch => {
+                if ((ch.category || "UNCATEGORIZED") === currentBulkBadgeCat && (ch.streamType || 'live') === currentModalView) {
+                    delete ch.isNew;
+                    if (badgeValue) {
+                        ch.badge = badgeValue;
+                    } else {
+                        delete ch.badge;
+                    }
+                }
+            });
+            closeFolderBadgeModal();
+            renderList();
         }
 
         function updateFormFlagButtons() {
@@ -815,6 +916,10 @@
                 const catId = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + currentModalView;
                 const isOpen = openFolders.has(catId);
 
+                const bulkBadgeBtnHTML = currentModalView === 'offline'
+                    ? `<button class="bulk-badge-btn" onclick="openFolderBadgeModal('${safeCatName}')" title="Set Badge for Entire Folder"><i class="fa-solid fa-tags"></i> Set Badge</button>`
+                    : '';
+
                 const folderDiv = document.createElement('div');
                 folderDiv.className = 'category-folder';
                 folderDiv.setAttribute('draggable', 'true');
@@ -828,6 +933,7 @@
                             ${pinnedCount > 0 ? `<span class="pin-count-pill"><i class="fa-solid fa-thumbtack"></i> ${pinnedCount}/20</span>` : ''}
                         </span>
                         <div class="cat-actions">
+                            ${bulkBadgeBtnHTML}
                             <button class="shift-type" onclick="openShiftModal('${safeCatName}')" title="Shift Live/Offline"><i class="fa-solid fa-exchange-alt"></i> Set Type</button>
                             <button onclick="renameCategory('${safeCatName}')" title="Rename Folder"><i class="fa-solid fa-pen"></i> Rename</button>
                             <button class="del-folder" onclick="deleteCategory('${safeCatName}')" title="Delete Folder"><i class="fa-solid fa-trash-can"></i> Delete</button>
@@ -1177,7 +1283,7 @@
                 const response = await fetch(`https://api.github.com/repos/${myRepo}/contents/${fileName}`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${GIT_TOKEN}` },
-                    body: JSON.stringify({ message: "Updated via Admin Panel (20-Pin System & OTT Badges)", content: encodedContent, sha: fileSha })
+                    body: JSON.stringify({ message: "Updated via Admin Panel (Bulk Folder Badges & 20-Pin System)", content: encodedContent, sha: fileSha })
                 });
 
                 if(response.ok) {
