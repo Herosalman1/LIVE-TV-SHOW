@@ -3138,6 +3138,12 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Spirited Away (2001)",
+    "url": "https://ia601606.us.archive.org/13/items/spirited-away-2001-dual-audio-hindi-japanese-1080-p-hevc/Spirited%20Away%202001%20Dual%20Audio%20Hindi%20Japanese%201080P%20Hevc.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Taarzan: The Wonder Car (2004)",
     "url": "https://ia801607.us.archive.org/31/items/taarzan-the-wonder-car-1080p-2004/Taarzan%20The%20Wonder%20Car%201080p%202004.ia.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -4413,6 +4419,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Johnny English Strikes Again (2018)",
+    "url": "https://s1.streamflixserver.site/movies/2018/JohnnyEnglishStrikesAgain.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Jumanji: The Next Level (2019)",
     "url": "https://archive.org/serve/sijjhub-media-8310290292-1794717586/Jumanji_The_Next_Level_2019_480p_8310290292.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -4439,6 +4451,12 @@
   {
     "name": "Michael ( 2026)",
     "url": "https://ia803105.us.archive.org/35/items/michael-2026-hindi-english-dual-audio-hollywood-movie-hevc-720p-esub/Michael%20%282026%29%20%28Hindi%20%2B%20English%29%20Dual%20Audio%20Hollywood%20Movie%20HEVC%20720p%20ESub.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Obsession (2025)",
+    "url": "https://ia600901.us.archive.org/28/items/obsession.-2025.1080-p.-dual-hindi-english.-eac-3.-webrip.-h-264.-esub/Movielinkbd.Com%20-%20Obsession.2025.1080P.Dual%5BHindi-English%5D.Eac3.Webrip.H264.Esub.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -4473,6 +4491,12 @@
     "streamType": "offline"
   },
   {
+    "name": "TED (2012)",
+    "url": "https://s3.streamflixserver.site/movies/2012/ted.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "The Bluff (2026)",
     "url": "https://archive.org/download/the-bluff-hindi-480-p/The_Bluff_%5BHindi%5D_480P.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -4485,8 +4509,26 @@
     "streamType": "offline"
   },
   {
+    "name": "The Machinist (2004)",
+    "url": "https://archive.org/serve/the-machinist-2004_202611/The%20Machinist%202004.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Prestige (2006)",
+    "url": "https://archive.org/serve/sijjhub-media-9494362540-1794730720/The_Prestige_2006_480p_9494362540.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "The Scorpion King (2002)",
     "url": "https://s1.streamflixserver.site/movies/2002/scorpianking.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Sixth Sense (1999)",
+    "url": "https://ia800504.us.archive.org/9/items/the-sixth-sense-1999-bluray-remastered-720-p-hindi-2.0-english-5.1-aac-x-264-esu/The%20Sixth%20Sense%201999%20Bluray%20Remastered%20720P%20%5BHindi%202.0%20%2B%20English%205.1%5D%20Aac%20X264%20Esub%20-%20Movielinkbd.Com.%281%29.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -4499,6 +4541,12 @@
   {
     "name": "Titanic (1997)",
     "url": "https://ia903201.us.archive.org/25/items/titanic-1997-dual-audio-hindi-english-1080p-blu-ray-3.1-gb-esub-boll-yflix_202610/Titanic%20%281997%29%20Dual%20Audio%20%7BHindi-English%7D%201080p%20BluRay%203.1GB%20ESub%20%5BBollYFlix%5D.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Triangle (2009)",
+    "url": "https://dn710602.ca.archive.org/0/items/Triangle.2009.720p.BluRay.x264.YIFY/Triangle.2009.720p.BluRay.x264.YIFY.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
