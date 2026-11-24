@@ -3489,6 +3489,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Ghost in the Cell (2026)",
+    "url": "https://archive.org/serve/sijjhub-media-9468523629-1794592089/Ghost_in_the_Cell_2026_480p_9468523629.ia.mp4",
+    "category": "HORROR : भूत प्रेत वाली फिल्में",
+    "streamType": "offline"
+  },
+  {
     "name": "HACKED (2020)",
     "url": "https://archive.org/serve/sijjhub-media-3054503864-1794891911-try1/Hacked_Bollywood_Hindi_Movie_2020_480p_3054503864.ia.mp4",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
@@ -8400,6 +8406,12 @@
     "name": "S1-E-8",
     "url": "https://ia801807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E08.HEVC.mp4",
     "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "ALL EPISODE SERIEIS <--",
+    "url": "https://archive.org/serve/off-campus-all-season-1/Off%20Campus%20all%20Season-1.mp4",
+    "category": "OFF CAMPUS SEASON 1",
     "streamType": "offline"
   }
 ]
