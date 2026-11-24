@@ -1045,22 +1045,23 @@
             document.getElementById('globalSearchModal').classList.remove('open');
         }
 
-        function playFromGlobalSearch(index) {
-            if (index < 0 || index >= savedChannels.length) return;
-            const ch = savedChannels[index];
-            const targetType = ch.streamType || 'live';
+        function openFolderFromGlobalSearch(catName, targetType) {
+            const folderType = targetType || 'live';
             closeGlobalSearch();
-            if (currentView !== targetType) {
-                switchView(targetType);
+            if (currentView !== folderType) {
+                switchView(folderType);
             }
-            const catId = (ch.category || "OTHER").replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + targetType;
+            const catId = (catName || "OTHER").replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + folderType;
             const folderContent = document.getElementById('folder-' + catId);
             const folderIcon = document.getElementById('icon-' + catId);
-            if (folderContent && !folderContent.classList.contains('open')) {
+            if (folderContent) {
                 folderContent.classList.add('open');
                 if (folderIcon) folderIcon.className = "fa-solid fa-folder-open";
+                const parentFolder = folderContent.closest('.category-folder');
+                if (parentFolder) {
+                    parentFolder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             }
-            playChannelByIndex(index);
         }
 
         function renderGlobalSearchResults() {
@@ -1071,7 +1072,7 @@
             resultsEl.innerHTML = '';
             if (!rawQuery) {
                 countEl.textContent = '';
-                    return;
+                return;
             }
 
             function extractYearFromName(nameStr) {
@@ -1079,42 +1080,55 @@
                 return m ? parseInt(m[1], 10) : null;
             }
 
-            const indexed = savedChannels.map((ch, idx) => ({ ch, idx }));
-            const matches = indexed
-                .filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery))
+            const folderMap = new Map();
+            savedChannels.forEach(ch => {
+                const catName = (ch.category || "OTHER").trim();
+                const streamType = ch.streamType || 'live';
+                const key = `${streamType}::${catName.toLowerCase()}`;
+                if (!folderMap.has(key)) {
+                    folderMap.set(key, {
+                        catName,
+                        streamType,
+                        count: 0
+                    });
+                }
+                folderMap.get(key).count += 1;
+            });
+
+            const matches = Array.from(folderMap.values())
+                .filter(f => f.catName.toLowerCase().includes(rawQuery))
                 .sort((a, b) => {
-                    const yA = extractYearFromName(a.ch.name);
-                    const yB = extractYearFromName(b.ch.name);
+                    const yA = extractYearFromName(a.catName);
+                    const yB = extractYearFromName(b.catName);
                     if (yA !== null && yB !== null && yA !== yB) {
                         return yA - yB;
                     }
                     if (yA !== null && yB === null) return -1;
                     if (yA === null && yB !== null) return 1;
-                    return (a.ch.name || '').localeCompare(b.ch.name || '', 'en', { numeric: true, sensitivity: 'base' });
+                    return a.catName.localeCompare(b.catName, 'en', { numeric: true, sensitivity: 'base' });
                 });
 
-            countEl.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'} found`;
+            countEl.textContent = `${matches.length} folder${matches.length === 1 ? '' : 's'} found`;
 
             if (matches.length === 0) {
-                resultsEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:40px 15px; font-size:13px;">No match found for "${document.getElementById('globalSearchInput').value}"</div>`;
+                resultsEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:40px 15px; font-size:13px;">No folder found for "${document.getElementById('globalSearchInput').value}"</div>`;
                 return;
             }
 
-            matches.forEach(({ ch, idx }) => {
-                const isOffline = (ch.streamType || 'live') === 'offline';
-                const effBadge = getEffectiveBadge(ch);
-                const badgeHTML = effBadge ? `<span class="ott-badge ${getBadgeClass(effBadge)}">${effBadge}</span>` : '';
-                const iconClass = isOffline ? 'fa-film' : 'fa-tv';
+            matches.forEach(f => {
+                const isOffline = f.streamType === 'offline';
+                const badgeLabel = isOffline ? 'OFFLINE' : 'LIVE';
+                const badgeClass = isOffline ? 'badge-offline' : 'badge-live';
 
                 const row = document.createElement('div');
                 row.className = 'search-result-item';
-                row.onclick = () => playFromGlobalSearch(idx);
+                row.onclick = () => openFolderFromGlobalSearch(f.catName, f.streamType);
                 row.innerHTML = `
-                    <div class="search-result-title" title="${ch.name}"><i class="fa-solid ${iconClass}"></i>${ch.name}</div>
+                    <div class="search-result-title" title="${f.catName}"><i class="fa-solid fa-folder" style="color:#e50914;"></i>${f.catName}</div>
                     <span class="stylish-arrow search-row-arrow"><span class="arrow-track"></span></span>
                     <div class="item-right-actions">
-                        ${badgeHTML}
-                        <button type="button" class="play-btn">PLAY</button>
+                        <span class="ott-badge ${badgeClass}">${badgeLabel}</span>
+                        <button type="button" class="play-btn">OPEN</button>
                     </div>
                 `;
                 resultsEl.appendChild(row);
