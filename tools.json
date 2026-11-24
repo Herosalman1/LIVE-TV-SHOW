@@ -8410,8 +8410,14 @@
   },
   {
     "name": "ALL EPISODE SERIEIS <--",
-    "url": "https://archive.org/serve/off-campus-all-season-1/Off%20Campus%20all%20Season-1.mp4",
-    "category": "OFF CAMPUS SEASON 1",
+    "url": "https://archive.org/serve/off-campus-season-1_202611/Off%20Campus%20Season-1.mp4",
+    "category": "OFF CAMPUS SEASON : 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "ALL EPISODE SERIES <--",
+    "url": "https://archive.org/serve/sijjhub-media-9920764843-1794585699/Campus_Drivers_S01_Hindi_Completed_Web_Series_HEVC_2026_480p_9920764843.ia.mp4",
+    "category": "CAMPUS DRIVERS SEASON : 1",
     "streamType": "offline"
   }
 ]
