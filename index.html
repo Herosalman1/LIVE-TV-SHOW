@@ -1064,6 +1064,24 @@
             }
         }
 
+        function playItemFromGlobalSearch(index) {
+            if (index < 0 || index >= savedChannels.length) return;
+            const ch = savedChannels[index];
+            const targetType = ch.streamType || 'live';
+            closeGlobalSearch();
+            if (currentView !== targetType) {
+                switchView(targetType);
+            }
+            const catId = (ch.category || "OTHER").replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + targetType;
+            const folderContent = document.getElementById('folder-' + catId);
+            const folderIcon = document.getElementById('icon-' + catId);
+            if (folderContent && !folderContent.classList.contains('open')) {
+                folderContent.classList.add('open');
+                if (folderIcon) folderIcon.className = "fa-solid fa-folder-open";
+            }
+            playChannelByIndex(index);
+        }
+
         function renderGlobalSearchResults() {
             const resultsEl = document.getElementById('globalSearchResults');
             const countEl = document.getElementById('globalSearchCount');
@@ -1080,6 +1098,17 @@
                 return m ? parseInt(m[1], 10) : null;
             }
 
+            function compareByYearThenName(nameA, nameB) {
+                const yA = extractYearFromName(nameA);
+                const yB = extractYearFromName(nameB);
+                if (yA !== null && yB !== null && yA !== yB) {
+                    return yA - yB;
+                }
+                if (yA !== null && yB === null) return -1;
+                if (yA === null && yB !== null) return 1;
+                return (nameA || '').localeCompare(nameB || '', 'en', { numeric: true, sensitivity: 'base' });
+            }
+
             const folderMap = new Map();
             savedChannels.forEach(ch => {
                 const catName = (ch.category || "OTHER").trim();
@@ -1088,34 +1117,29 @@
                 if (!folderMap.has(key)) {
                     folderMap.set(key, {
                         catName,
-                        streamType,
-                        count: 0
+                        streamType
                     });
                 }
-                folderMap.get(key).count += 1;
             });
 
-            const matches = Array.from(folderMap.values())
+            const folderMatches = Array.from(folderMap.values())
                 .filter(f => f.catName.toLowerCase().includes(rawQuery))
-                .sort((a, b) => {
-                    const yA = extractYearFromName(a.catName);
-                    const yB = extractYearFromName(b.catName);
-                    if (yA !== null && yB !== null && yA !== yB) {
-                        return yA - yB;
-                    }
-                    if (yA !== null && yB === null) return -1;
-                    if (yA === null && yB !== null) return 1;
-                    return a.catName.localeCompare(b.catName, 'en', { numeric: true, sensitivity: 'base' });
-                });
+                .sort((a, b) => compareByYearThenName(a.catName, b.catName));
 
-            countEl.textContent = `${matches.length} folder${matches.length === 1 ? '' : 's'} found`;
+            const itemMatches = savedChannels
+                .map((ch, idx) => ({ ch, idx }))
+                .filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery))
+                .sort((a, b) => compareByYearThenName(a.ch.name, b.ch.name));
 
-            if (matches.length === 0) {
-                resultsEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:40px 15px; font-size:13px;">No folder found for "${document.getElementById('globalSearchInput').value}"</div>`;
+            const totalMatches = folderMatches.length + itemMatches.length;
+            countEl.textContent = `${totalMatches} result${totalMatches === 1 ? '' : 's'} found`;
+
+            if (totalMatches === 0) {
+                resultsEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:40px 15px; font-size:13px;">No match found for "${document.getElementById('globalSearchInput').value}"</div>`;
                 return;
             }
 
-            matches.forEach(f => {
+            folderMatches.forEach(f => {
                 const isOffline = f.streamType === 'offline';
                 const badgeLabel = isOffline ? 'OFFLINE' : 'LIVE';
                 const badgeClass = isOffline ? 'badge-offline' : 'badge-live';
@@ -1129,6 +1153,26 @@
                     <div class="item-right-actions">
                         <span class="ott-badge ${badgeClass}">${badgeLabel}</span>
                         <button type="button" class="play-btn">OPEN</button>
+                    </div>
+                `;
+                resultsEl.appendChild(row);
+            });
+
+            itemMatches.forEach(({ ch, idx }) => {
+                const isOffline = (ch.streamType || 'live') === 'offline';
+                const effBadge = getEffectiveBadge(ch);
+                const badgeHTML = effBadge ? `<span class="ott-badge ${getBadgeClass(effBadge)}">${effBadge}</span>` : '';
+                const iconClass = isOffline ? 'fa-film' : 'fa-tv';
+
+                const row = document.createElement('div');
+                row.className = 'search-result-item';
+                row.onclick = () => playItemFromGlobalSearch(idx);
+                row.innerHTML = `
+                    <div class="search-result-title" title="${ch.name}"><i class="fa-solid ${iconClass}"></i>${ch.name}</div>
+                    <span class="stylish-arrow search-row-arrow"><span class="arrow-track"></span></span>
+                    <div class="item-right-actions">
+                        ${badgeHTML}
+                        <button type="button" class="play-btn">PLAY</button>
                     </div>
                 `;
                 resultsEl.appendChild(row);
