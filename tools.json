@@ -4311,6 +4311,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Alice in Wonderland (2010)",
+    "url": "https://ia801600.us.archive.org/16/items/sijjhub-media-308263517-1794901919-try1/Alice_in_Wonderland_2010_480p_308263517.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Aquaman (2018)",
     "url": "https://archive.org/download/aquaman-2018-hindi-english-dual-audio-hollywood-movie-imax-blu-ray-hd-720p-esub/Aquaman%20%282018%29%20%28Hindi%20%2B%20English%29%20Dual%20Audio%20Hollywood%20Movie%20IMAX%20BluRay%20HD%20720p%20ESub.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -4455,6 +4461,12 @@
     "streamType": "offline"
   },
   {
+    "name": "My Fault 1 (2023)",
+    "url": "https://archive.org/serve/sijjhub-media-706109847-1794899442-try1/My_Fault_2023_480p_706109847.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Obsession (2025)",
     "url": "https://ia600901.us.archive.org/28/items/obsession.-2025.1080-p.-dual-hindi-english.-eac-3.-webrip.-h-264.-esub/Movielinkbd.Com%20-%20Obsession.2025.1080P.Dual%5BHindi-English%5D.Eac3.Webrip.H264.Esub.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -4503,8 +4515,26 @@
     "streamType": "offline"
   },
   {
+    "name": "The Dark Knight (2008)",
+    "url": "https://archive.org/serve/sijjhub-media-9027627040-1794670685/The_Dark_Knight_2008_480p_9027627040.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Dictator (2012)",
+    "url": "https://archive.org/serve/sijjhub-media-9581150617-1794681769/The_Dictator_2012_480p_9581150617.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "The Impossible (2012)",
     "url": "https://archive.org/download/the-impossible-hollywood-hindi-dubbed-movie-2012-480-x-362_202609/The%20Impossible%20Hollywood%20%20Hindi%20Dubbed%20Movie%202012%20%28%20480%20X%20362%20%29.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The Lion King (1994)",
+    "url": "https://archive.org/serve/sijjhub-media-149431516-1794900434-try1/The_Lion_King_1994_480p_149431516.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -4517,6 +4547,12 @@
   {
     "name": "The Prestige (2006)",
     "url": "https://archive.org/serve/sijjhub-media-9494362540-1794730720/The_Prestige_2006_480p_9494362540.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "The School for Good and Evil (2022)",
+    "url": "https://ia600604.us.archive.org/12/items/sijjhub-media-5745308302-1794898225-try1/The_School_for_Good_and_Evil_2022_480p_5745308302.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -4553,6 +4589,18 @@
   {
     "name": "Uncharted (2022)",
     "url": "https://archive.org/download/filmy-4wap.xyz-uncharted-2022-hollywood-hindi-dubbed-full-movie-hevc-480p/Filmy4wap.xyz%20Uncharted%20%282022%29%20Hollywood%20Hindi%20Dubbed%20Full%20Movie%20HEVC%20480p.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "X-Men (1992)",
+    "url": "https://archive.org/serve/sijjhub-media-6315900237-1794889222-try1/X-Men_1992_480p_6315900237.ia.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Your Fault 2 (2024)",
+    "url": "https://archive.org/serve/sijjhub-media-3635636066-1794899319-try1/Your_Fault_2024_480p_3635636066.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -8305,5 +8353,53 @@
     "badge": "BHAKTI",
     "badgeBg": "#fb923c",
     "badgeColor": "#ffffff"
+  },
+  {
+    "name": "S1-E-1",
+    "url": "https://archive.org/services/img/dkb-sonny-boy-s-01-e-01-1080p-hevc-265-10bit-multi-subs.mkv",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-2",
+    "url": "https://ia801807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E02.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-3",
+    "url": "https://ia601807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E03.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-4",
+    "url": "https://ia601807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E04.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-5",
+    "url": "https://ia801807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E05.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-6",
+    "url": "https://ia801807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E06.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-7",
+    "url": "https://ia601807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E07.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "S1-E-8",
+    "url": "https://ia801807.us.archive.org/19/items/world-4ufree.cloud-alce-bodrlnd.-s-01.-e-08.-hevc/World4ufree.cloud_AlceBodrlnd.S01.E08.HEVC.mp4",
+    "category": "ALICE IN BORDERLAND SEASON 1",
+    "streamType": "offline"
   }
 ]
