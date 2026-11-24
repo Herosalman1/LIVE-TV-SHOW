@@ -464,6 +464,51 @@
             }
         }
 
+
+        .search-input-box-shell {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            min-width: 0;
+        }
+        .search-input-box-shell .global-search-input {
+            padding-right: 42px;
+        }
+        .voice-search-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            height: auto;
+            padding: 4px 6px;
+            border-radius: 0;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 15px;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+        .voice-search-btn:hover {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            transform: translateY(-50%);
+        }
+        .voice-search-btn.listening {
+            background: transparent;
+            border: none;
+            color: #ff4d4f;
+            transform: translateY(-50%);
+            animation: none;
+        }
+
         @media (min-width: 900px) {
             .header { padding: 15px 35px; }
             .header-brand { font-size: 20px; }
@@ -577,7 +622,12 @@
                 </button>
             </div>
             <div class="global-search-input-wrap">
-                <input type="text" id="globalSearchInput" class="global-search-input" placeholder="जो आपको देखना है वो यहा इस Box में लिखे धन्यवाद !!" oninput="renderGlobalSearchResults()" autocomplete="off">
+                <div class="search-input-box-shell">
+                    <input type="text" id="globalSearchInput" class="global-search-input" placeholder="जो आपको देखना है वो यहा इस Box में लिखे धन्यवाद !!" oninput="renderGlobalSearchResults()" autocomplete="off">
+                    <button type="button" id="voiceSearchBtn" class="voice-search-btn" title="Bolkar Search Karein" aria-label="Voice Search" onclick="toggleVoiceSearch()">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                </div>
             </div>
             <div class="global-search-meta" id="globalSearchMetaBar">
                 <span id="globalSearchCount"></span>
@@ -846,7 +896,124 @@
             setTimeout(() => input.focus(), 50);
         }
 
+
+        // ⚡ VOICE SEARCH (BOLKAR SEARCH KAREIN) INSIDE SEARCH BOX
+        let speechRecognizer = null;
+        let isVoiceListening = false;
+
+        async function refreshMicPermissionState() {
+            try {
+                if (navigator.permissions && navigator.permissions.query) {
+                    const status = await navigator.permissions.query({ name: 'microphone' });
+                    if (status.state === 'granted') {
+                        localStorage.setItem('tv_mic_perm', 'granted');
+                    } else if (status.state === 'denied') {
+                        localStorage.setItem('tv_mic_perm', 'denied');
+                    }
+                    return status.state;
+                }
+            } catch (e) {}
+            return localStorage.getItem('tv_mic_perm') || 'prompt';
+        }
+
+        function ensureSpeechRecognizer() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) return null;
+            if (speechRecognizer) return speechRecognizer;
+
+            const rec = new SpeechRecognition();
+            rec.lang = 'hi-IN';
+            rec.interimResults = true;
+            rec.maxAlternatives = 1;
+
+            rec.onstart = function() {
+                isVoiceListening = true;
+                localStorage.setItem('tv_mic_perm', 'granted');
+                const btn = document.getElementById('voiceSearchBtn');
+                const countEl = document.getElementById('globalSearchCount');
+                if (btn) btn.classList.add('listening');
+                if (countEl) countEl.textContent = '🎤 Bolkar search karein...';
+            };
+
+            rec.onresult = function(event) {
+                const input = document.getElementById('globalSearchInput');
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                const cleanText = transcript.trim();
+                if (input) {
+                    input.value = cleanText;
+                    renderGlobalSearchResults();
+                }
+            };
+
+            rec.onerror = function(event) {
+                const countEl = document.getElementById('globalSearchCount');
+                isVoiceListening = false;
+                const btn = document.getElementById('voiceSearchBtn');
+                if (btn) btn.classList.remove('listening');
+                if (countEl && event.error !== 'aborted') {
+                    if (event.error === 'not-allowed') {
+                        localStorage.setItem('tv_mic_perm', 'denied');
+                        countEl.textContent = 'Mic permission Allow karein (ya browser site settings mein Allow set karein)';
+                    } else {
+                        countEl.textContent = 'Aawaz samajh nahi aayi, dobara bolein';
+                    }
+                }
+            };
+
+            rec.onend = function() {
+                isVoiceListening = false;
+                const btn = document.getElementById('voiceSearchBtn');
+                if (btn) btn.classList.remove('listening');
+            };
+
+            speechRecognizer = rec;
+            return speechRecognizer;
+        }
+
+        function stopVoiceSearch() {
+            isVoiceListening = false;
+            const btn = document.getElementById('voiceSearchBtn');
+            if (btn) btn.classList.remove('listening');
+            if (speechRecognizer) {
+                try { speechRecognizer.abort(); } catch (e) {}
+            }
+        }
+
+        async function toggleVoiceSearch() {
+            const countEl = document.getElementById('globalSearchCount');
+            const rec = ensureSpeechRecognizer();
+
+            if (!rec) {
+                if (countEl) countEl.textContent = 'Voice search not supported on this browser';
+                return;
+            }
+
+            if (isVoiceListening) {
+                stopVoiceSearch();
+                return;
+            }
+
+            await refreshMicPermissionState();
+
+            try {
+                rec.start();
+            } catch (e) {
+                try {
+                    rec.stop();
+                    setTimeout(() => {
+                        try { rec.start(); } catch (err) { stopVoiceSearch(); }
+                    }, 80);
+                } catch (err2) {
+                    stopVoiceSearch();
+                }
+            }
+        }
+
         function closeGlobalSearch() {
+            stopVoiceSearch();
             document.getElementById('globalSearchModal').classList.remove('open');
         }
 
@@ -879,8 +1046,24 @@
                     return;
             }
 
+            function extractYearFromName(nameStr) {
+                const m = (nameStr || '').match(/\b(19\d{2}|20\d{2})\b/);
+                return m ? parseInt(m[1], 10) : null;
+            }
+
             const indexed = savedChannels.map((ch, idx) => ({ ch, idx }));
-            const matches = indexed.filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery));
+            const matches = indexed
+                .filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery))
+                .sort((a, b) => {
+                    const yA = extractYearFromName(a.ch.name);
+                    const yB = extractYearFromName(b.ch.name);
+                    if (yA !== null && yB !== null && yA !== yB) {
+                        return yA - yB;
+                    }
+                    if (yA !== null && yB === null) return -1;
+                    if (yA === null && yB !== null) return 1;
+                    return (a.ch.name || '').localeCompare(b.ch.name || '', 'en', { numeric: true, sensitivity: 'base' });
+                });
 
             countEl.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'} found`;
 
