@@ -327,10 +327,9 @@
             return "";
         }
 
-        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (INSTANT 404 IF URL DEAD)
-        function startPTimer(streamUrl) {
+        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (NO FALSE HEAD 404)
+        function startPTimer() {
             clearInterval(pTime);
-            if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             currentStreamToken++;
             const token = currentStreamToken;
 
@@ -339,23 +338,6 @@
             if(popTimer) {
                 popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                 popTimer.style.display = 'block';
-            }
-
-            if (streamUrl && streamUrl.startsWith('http')) {
-                urlProbeController = new AbortController();
-                fetch(streamUrl, {
-                    method: 'HEAD',
-                    signal: urlProbeController.signal,
-                    referrerPolicy: 'no-referrer'
-                }).then(res => {
-                    if (token !== currentStreamToken) return;
-                    if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
-                        triggerError();
-                    }
-                }).catch(err => {
-                    if (token !== currentStreamToken || err.name === 'AbortError') return;
-                    // CORS-blocked live URLs throw TypeError; actual dead URLs are caught by video/HLS error events
-                });
             }
 
             pTime = setInterval(() => {
@@ -373,20 +355,35 @@
             }, 1000);
         }
 
-        function triggerError() {
+        let activePlayUrl = '';
+        let hlsRetryCount = 0;
+
+        function clearAllPopups() {
             clearInterval(pTime);
             if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
-            if(popTimer) popTimer.style.display = 'none';
-            if(popError) popError.style.display = 'flex';
+            if (popTimer) popTimer.style.display = 'none';
+            if (popError) popError.style.display = 'none';
         }
 
-        video.addEventListener('playing', () => { 
-            clearInterval(pTime); 
+        function triggerError() {
+            if (!activePlayUrl) return;
+            clearInterval(pTime);
             if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
-            if(popTimer) popTimer.style.display = 'none'; 
-            if(popError) popError.style.display = 'none';
+            if (popTimer) popTimer.style.display = 'none';
+            if (popError) popError.style.display = 'flex';
+        }
+
+        video.addEventListener('playing', clearAllPopups);
+        video.addEventListener('timeupdate', () => {
+            if (activePlayUrl && video.currentTime > 0 && !video.paused) {
+                clearAllPopups();
+            }
         });
-        video.addEventListener('error', () => { triggerError(); });
+        video.addEventListener('error', () => {
+            if (!activePlayUrl || hlsInstance) return;
+            if (!video.getAttribute('src')) return;
+            triggerError();
+        });
 
         fetch('tools.json')
             .then(res => res.json())
@@ -490,6 +487,7 @@
         }
 
         function playStream(url, name) {
+            activePlayUrl = '';
             clearInterval(pTime);
             if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
             if(popTimer) popTimer.style.display = 'none';
@@ -623,18 +621,7 @@
                                         popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                                         popTimer.style.display = 'block';
                                     }
-                                    if (videoSrc && videoSrc.startsWith('http')) {
-                                        urlProbeController = new AbortController();
-                                        fetch(videoSrc, {
-                                            method: 'HEAD',
-                                            signal: urlProbeController.signal,
-                                            referrerPolicy: 'no-referrer'
-                                        }).then(res => {
-                                            if (res.status === 404 || res.status === 403 || res.status === 410 || res.status >= 500) {
-                                                popErr();
-                                            }
-                                        }).catch(() => {});
-                                    }
+
                                     pTime = setInterval(() => {
                                         tl--;
                                         if(tl > 0) { 
@@ -856,44 +843,87 @@
 
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
             
+            activePlayUrl = '';
+            hlsRetryCount = 0;
             if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
             
-            // ⚡ START TIMER & URL PROBE ON LOAD (EXACT ORIGINAL SETTING)
-            startPTimer(url);
+            activePlayUrl = url;
+            startPTimer();
 
-            if (url.includes('.mp4') || url.endsWith('.mp4') || (!url.includes('.m3u8') && url.startsWith('http'))) {
-                video.src = url; video.load(); video.play().catch(e => {
-                    if (e.name !== 'NotAllowedError' && e.name !== 'AbortError') triggerError();
+            const lowerUrl = url.toLowerCase();
+            const isDirectFile = /\.(mp4|mkv|webm|mov|avi|mp3|aac|ogg)(\?|#|$)/i.test(lowerUrl);
+
+            function startNativePlayback(fallbackToHls) {
+                if (activePlayUrl !== url) return;
+                const onNativeErr = () => {
+                    video.removeEventListener('error', onNativeErr);
+                    if (activePlayUrl !== url) return;
+                    if (fallbackToHls && Hls.isSupported()) {
+                        startHlsPlayback(false);
+                    } else {
+                        triggerError();
+                    }
+                };
+                video.addEventListener('error', onNativeErr, { once: true });
+                video.src = url;
+                video.load();
+                video.play().catch(e => {
+                    if (e && (e.name === 'NotAllowedError' || e.name === 'AbortError')) return;
                 });
-            } 
-            else if (Hls.isSupported()) {
-                hlsInstance = new Hls({ xhrSetup: function (xhr, url) { xhr.withCredentials = false; } });
+            }
+
+            function startHlsPlayback(fallbackToNative) {
+                if (activePlayUrl !== url) return;
+                if (!Hls.isSupported()) {
+                    startNativePlayback(false);
+                    return;
+                }
+                hlsInstance = new Hls({
+                    xhrSetup: function (xhr) { xhr.withCredentials = false; },
+                    manifestLoadingMaxRetry: 3,
+                    levelLoadingMaxRetry: 3,
+                    fragLoadingMaxRetry: 3
+                });
                 hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
-                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => { video.play().catch(e => console.log("Auto-play blocked")); });
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().catch(() => {});
+                });
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+                    if (activePlayUrl !== url) return;
                     if (data.fatal) {
-                        switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR: 
-                                hlsInstance.destroy(); 
-                                triggerError();
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR: 
-                                hlsInstance.recoverMediaError(); 
-                                break;
-                            default: 
-                                hlsInstance.destroy(); 
-                                triggerError();
-                                break;
+                        if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                            hlsInstance.recoverMediaError();
+                            return;
+                        }
+                        if (data.type === Hls.ErrorTypes.NETWORK_ERROR && hlsRetryCount < 2) {
+                            hlsRetryCount++;
+                            hlsInstance.startLoad();
+                            return;
+                        }
+                        hlsInstance.destroy();
+                        hlsInstance = null;
+                        if (fallbackToNative) {
+                            startNativePlayback(false);
+                        } else {
+                            triggerError();
                         }
                     }
                 });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = url;
-                video.addEventListener('loadedmetadata', () => { video.play().catch(e => console.log("Auto-play blocked")); });
+            }
+
+            if (isDirectFile) {
+                startNativePlayback(false);
+            } else if (lowerUrl.includes('.m3u8')) {
+                startHlsPlayback(true);
+            } else if (Hls.isSupported()) {
+                // Extensionless IPTV / Live stream URLs: try HLS first, auto-fallback to direct video if needed
+                startHlsPlayback(true);
             } else {
-                video.src = url; video.load();
-                video.play().catch(e => { triggerError(); });
+                startNativePlayback(false);
             }
         }
 
