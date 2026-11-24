@@ -191,38 +191,32 @@
 
         /* ⚡ SEARCH ALL TYPE'S CHANNEL FOLDER & FULLSCREEN MODAL */
         .search-folder-trigger {
-            margin-top: 8px;
+            margin-top: 6px;
             margin-bottom: 4px;
-            background: linear-gradient(135deg, rgba(229, 9, 20, 0.16) 0%, rgba(21, 27, 43, 0.95) 100%);
-            border: 1px solid rgba(229, 9, 20, 0.45);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 11px 12px;
+            padding: 9px 10px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             cursor: pointer;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.4px;
+            color: #8c939d;
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: 0.3px;
             transition: 0.2s ease;
         }
         .search-folder-trigger:hover, .search-folder-trigger:focus {
-            border-color: #e50914;
-            background: rgba(229, 9, 20, 0.26);
+            border-color: rgba(140, 147, 157, 0.28);
+            color: #a3aab4;
+            background: rgba(21, 27, 43, 0.85);
             outline: none;
         }
         .search-folder-trigger i {
-            color: #ff4d4f;
-            margin-right: 8px;
-        }
-        .search-total-pill {
+            color: #7c8490;
             font-size: 10px;
-            background: #e50914;
-            color: #ffffff;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 700;
+            margin-right: 7px;
         }
 
         .global-search-modal {
@@ -262,13 +256,13 @@
             gap: 10px;
         }
         .global-search-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            color: #9aa2ae;
             display: flex;
             align-items: center;
-            gap: 8px;
-            letter-spacing: 0.5px;
+            gap: 7px;
+            letter-spacing: 0.4px;
         }
         .global-search-title i {
             color: #e50914;
@@ -303,11 +297,11 @@
         .global-search-input {
             width: 100%;
             background: #151b2b;
-            border: 1px solid rgba(229, 9, 20, 0.45);
-            border-radius: 9px;
-            padding: 12px 15px;
-            color: #ffffff;
-            font-size: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 10px 14px;
+            color: #b0b7c3;
+            font-size: 12px;
             font-weight: 500;
             outline: none;
         }
@@ -365,7 +359,7 @@
             margin-right: 7px;
         }
         @media (min-width: 900px) {
-            .search-folder-trigger { padding: 14px 18px; font-size: 14px; border-radius: 10px; }
+            .search-folder-trigger { padding: 12px 16px; font-size: 11px; border-radius: 10px; }
             .global-search-title { font-size: 16px; }
             .global-search-input { font-size: 15px; padding: 14px 18px; }
             .search-result-title { font-size: 14px; }
@@ -484,10 +478,10 @@
                 </button>
             </div>
             <div class="global-search-input-wrap">
-                <input type="text" id="globalSearchInput" class="global-search-input" placeholder="Search any channel, movie, episode (e.g. Chhota Bheem)..." oninput="renderGlobalSearchResults()" autocomplete="off">
+                <input type="text" id="globalSearchInput" class="global-search-input" placeholder="Search any channel, movie, episode ( Example : Jailer 2 )" oninput="renderGlobalSearchResults()" autocomplete="off">
             </div>
             <div class="global-search-meta">
-                <span id="globalSearchCount">Showing all channels</span>
+                <span id="globalSearchCount"></span>
                 <span>Live TV + Offline Stream</span>
             </div>
             <div class="global-search-results" id="globalSearchResults"></div>
@@ -667,7 +661,7 @@
                 searchTrigger.className = 'search-folder-trigger';
                 searchTrigger.onclick = () => openGlobalSearch();
                 searchTrigger.innerHTML = `
-                    <span><i class="fa-solid fa-magnifying-glass"></i> SEARCH ALL TYPE'S CHANNEL !!</span>
+                    <span><i class="fa-solid fa-magnifying-glass"></i> जो आपको देखना है वो यहा इस Box में लिखे धन्यवाद !!</span>
                     <span class="search-total-pill">${savedChannels.length}</span>
                 `;
                 channelListEl.appendChild(searchTrigger);
@@ -734,20 +728,22 @@
                 }
             };
             searchTrigger.innerHTML = `
-                <span><i class="fa-solid fa-magnifying-glass"></i> SEARCH ALL TYPE'S CHANNEL !!</span>
-                <span class="search-total-pill">${savedChannels.length}</span>
+                <span><i class="fa-solid fa-magnifying-glass"></i> जो आपको देखना है वो यहा इस Box में लिखे धन्यवाद !!</span>
             `;
             channelListEl.appendChild(searchTrigger);
         }
 
 
-        // ⚡ GLOBAL FULLSCREEN SEARCH SYSTEM (SINGLE-CHARACTER INSTANT MATCH ACROSS ALL TYPES)
+        // ⚡ GLOBAL FULLSCREEN SEARCH SYSTEM (EMPTY ON OPEN, INSTANT SINGLE-CHAR MATCH ON TYPE)
         function openGlobalSearch() {
             const modal = document.getElementById('globalSearchModal');
             const input = document.getElementById('globalSearchInput');
+            const resultsEl = document.getElementById('globalSearchResults');
+            const countEl = document.getElementById('globalSearchCount');
             modal.classList.add('open');
             input.value = '';
-            renderGlobalSearchResults();
+            if (resultsEl) resultsEl.innerHTML = '';
+            if (countEl) countEl.textContent = '';
             setTimeout(() => input.focus(), 50);
         }
 
@@ -778,16 +774,17 @@
             const countEl = document.getElementById('globalSearchCount');
             const rawQuery = (document.getElementById('globalSearchInput').value || '').trim().toLowerCase();
 
-            const indexed = savedChannels.map((ch, idx) => ({ ch, idx }));
-            const matches = rawQuery
-                ? indexed.filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery))
-                : indexed;
-
-            countEl.textContent = rawQuery
-                ? `${matches.length} result${matches.length === 1 ? '' : 's'} found`
-                : `Total ${matches.length} channels & videos`;
-
             resultsEl.innerHTML = '';
+            if (!rawQuery) {
+                countEl.textContent = '';
+                return;
+            }
+
+            const indexed = savedChannels.map((ch, idx) => ({ ch, idx }));
+            const matches = indexed.filter(({ ch }) => (ch.name || '').toLowerCase().includes(rawQuery));
+
+            countEl.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'} found`;
+
             if (matches.length === 0) {
                 resultsEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:40px 15px; font-size:13px;">No match found for "${document.getElementById('globalSearchInput').value}"</div>`;
                 return;
