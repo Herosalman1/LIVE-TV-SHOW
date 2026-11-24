@@ -1244,6 +1244,15 @@
     "badgeColor": "#03140a"
   },
   {
+    "name": "Jailer 1 (2023)",
+    "url": "https://archive.org/serve/jailer-2023_202611/Jailer%202023.mp4",
+    "category": "NEW MOVIE'S 2026",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
     "name": "Jailer 2 (2026)",
     "url": "https://archive.org/serve/sijjhub-media-337401-1794332087/Jailer_2_-_Rave_2026_480p_337401.mp4",
     "category": "NEW MOVIE'S 2026",
@@ -2293,15 +2302,6 @@
   {
     "name": "Jai Ho (2014)",
     "url": "https://ia600700.us.archive.org/11/items/jai-ho-1080p-2014/Jai%20Ho%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Jailer 1 (2023)",
-    "url": "https://1hyahuwewhyvwmq.acek-cdn.com/hls2/01/08670/bxirjfpvkkc6_,l,n,h,.urlset/master.m3u8?t=23d5GI-Mhyy2Y53XmCuVoDSJXl2PeD323RgA2036Jnw&s=1794137543&e=129600&f=43354332&srv=FSaCEkUMsJgageo&i=0.4&sp=500&p1=FSaCEkUMsJgageo&p2=FSaCEkUMsJgageo&asn=55836",
     "category": "NEW MOVIE'S BELLOW 2026",
     "streamType": "offline",
     "badge": "OLD",
