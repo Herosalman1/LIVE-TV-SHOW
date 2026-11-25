@@ -1328,6 +1328,12 @@
     "badgeColor": "#03140a"
   },
   {
+    "name": "Krishnavataram Part 1: The Heart (Hridayam)",
+    "url": "https://s1.streamflixserver.site/movies/2026/KrishnavataramPart1TheHeart.mkv",
+    "category": "2026 NEW MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "Kudiyan Shehar Diyan (2026)",
     "url": "https://archive.org/serve/sijjhub-media-7904530003-1794573107/Kudiyan_Shehar_Diyan_Panjabi_Movie_2026_480p_7904530003.ia.mp4",
     "category": "2026 NEW MOVIE'S",
@@ -1503,6 +1509,12 @@
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
+  },
+  {
+    "name": "Vibe (2026)",
+    "url": "https://s2.streamflixserver.site/movies/2026/Vibe-2026.mkv",
+    "category": "2026 NEW MOVIE'S",
+    "streamType": "offline"
   },
   {
     "name": "Vishwanath & Sons (2026)",
@@ -2466,6 +2478,12 @@
     "badge": "OLD",
     "badgeBg": "#64748b",
     "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Junglee (2019)",
+    "url": "https://archive.org/serve/moana-2_202610/MOANA%202.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
   },
   {
     "name": "Kaal (2005)",
@@ -4468,6 +4486,12 @@
   {
     "name": "Demolition (2016)",
     "url": "https://s1.streamflixserver.site/movies/2015/demolton.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "DOA Dead Or Alive (2006)",
+    "url": "https://archive.org/serve/doa-dead-or-alive-2006/DOA%20Dead%20or%20Alive%202006.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
