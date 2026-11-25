@@ -1616,6 +1616,24 @@
     "pinOrder": 3
   },
   {
+    "name": "Dada - The Sourav Ganguly Story (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "2027 UPCOMING MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "GABRU (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "2027 UPCOMING MOVIE'S",
+    "streamType": "offline"
+  },
+  {
+    "name": "Shakti Shalini (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "2027 UPCOMING MOVIE'S",
+    "streamType": "offline"
+  },
+  {
     "name": "3 Idiots (2009)",
     "url": "https://dn600304.us.archive.org/0/items/3-idiots-hindi-educational-movie/3%20Idiots.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -2138,6 +2156,12 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Ek Deewane Ki Deewaniyat",
+    "url": "https://s3.streamflixserver.site/movies/2025/ekdeewanekideewaniyat.mkv",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "EK THE TIGER (2012)",
     "url": "https://ia601903.us.archive.org/30/items/ek-tha-tiger-2012-hindi-720p-hevc-blu-ray-esub/Ek%20Tha%20Tiger%20%282012%29%20Hindi%20720p%20HEVC%20BluRay%20ESub%20%5BBollyFlix%5D.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -2615,6 +2639,12 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Kurup (2021)",
+    "url": "https://archive.org/serve/sijjhub-media-9594170226-1794707734/Kurup_2021_480p_9594170226.ia.mp4",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
+  },
+  {
     "name": "Kya Kool Hain Hum 3 (2016)",
     "url": "https://archive.org/serve/kya-kool-hain-hum-3-full-movie-comedy-bollywood-movie-hd-tusshar-kapoor-aftab-shivdasani-480-p/Kya%20Kool%20Hain%20Hum%203%20Full%20Movie%20_%20Comedy%20Bollywood%20Movie%20HD%20_%20Tusshar%20Kapoor%20_%20Aftab%20Shivdasani%28480P%29.mp4",
     "category": "NEW MOVIE'S BELLOW 2026",
@@ -2658,6 +2688,12 @@
     "badge": "OLD",
     "badgeBg": "#64748b",
     "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Lokah Chapter 1: Chandra (2025)",
+    "url": "https://s3.streamflixserver.site/movies/2025/LokahChapter1Chandra.mkv",
+    "category": "NEW MOVIE'S BELLOW 2026",
+    "streamType": "offline"
   },
   {
     "name": "Lucky Baskhar (2024)",
@@ -4486,6 +4522,18 @@
   {
     "name": "Final Destination 6 (2025)",
     "url": "https://archive.org/serve/final-destination-6-HD/Final%20Destination%206.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Ghost Rider 1 (2007)",
+    "url": "https://archive.org/download/dsm-ghost-rider-2007-multi-auds-tel-tam-hin-eng-blu-ray-extended-1080-p-hevc-ac-/%5BDSM%5D%20-%20Ghost%20Rider%20%282007%29%20-%20English%20-%20BluRay%20-%20Extended%20-%20720P%20-%20HEVC%20-%20AAC%282.0%29%20-%2064Kbps%20-%20ESubs%20-%20500MB%20-%20%5BDSM%5D.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Ghost Rider 2 (2011)",
+    "url": "https://archive.org/download/dsm-ghost-rider-2-sprit-of-vengeance-2011-multi-auds-tel-tam-hin-eng-blu-ray-108/%5BDSM%5D%20-%20Ghost%20Rider%202%20Sprit%20of%20Vengeance%20%282011%29%20-%20Hindi%20-%20BluRay%20-%20720P%20-%20HEVC%20-%20AAC%282.0%29%20-%2064Kbps%20-%20ESubs%20-%20500MB%20-%20%5BDSM%5D.mp4",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -8495,6 +8543,12 @@
     "name": "FULL COMPLETED SERIES <--",
     "url": "https://archive.org/serve/all-of-us-are-dead-completed-series-hd-0123455/All%20of%20Us%20Are%20Dead%20Completed%20Series.mp4",
     "category": "ALL OF US ARE DEAD SEASON : 1",
+    "streamType": "offline"
+  },
+  {
+    "name": "FULL EPISODE SERIES <--",
+    "url": "https://archive.org/serve/the-bads-of-bollywood-full-series/The%20Bads%20of%20Bollywood%20Full%20Series.mp4",
+    "category": "THE BADS OF BOLLYWOOD SEASON : 1",
     "streamType": "offline"
   }
 ]
