@@ -1678,7 +1678,15 @@
                 return;
             }
 
-            const existingChannel = channelsArray.find((ch, idx) => ch.url === link && idx !== editIndex);
+            const COMING_SOON_URLS = [
+                "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+                "https://archive.org/serve/coming-soon-hd-0123454/Coming Soon....webm"
+            ];
+            const isComingSoonUrl = COMING_SOON_URLS.some(u => u.toLowerCase() === link.toLowerCase());
+
+            const existingChannel = isComingSoonUrl
+                ? null
+                : channelsArray.find((ch, idx) => ch.url === link && idx !== editIndex);
             
             if (existingChannel) {
                 showDuplicatePopup(existingChannel.name, existingChannel.category || "UNCATEGORIZED");
