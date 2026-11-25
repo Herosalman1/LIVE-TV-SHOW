@@ -102,6 +102,75 @@
         .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
 
         .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
+
+        /* ⚡ END OF VIDEO CENTER ACTION OVERLAY (⏮ ↺ ⏭ - CLEAN TRANSPARENT PNG-STYLE ICONS) */
+        .end-screen-overlay {
+            position: absolute;
+            inset: 0;
+            background: #000000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 44px;
+            z-index: 35;
+            pointer-events: auto;
+        }
+        .end-screen-overlay.show {
+            display: flex;
+            animation: fadeInEndOverlay 0.2s ease;
+        }
+        @keyframes fadeInEndOverlay {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .end-action-btn {
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+            transition: transform 0.18s ease, filter 0.18s ease, color 0.18s ease;
+        }
+        .end-action-btn:hover,
+        .end-action-btn:focus-visible {
+            transform: scale(1.16);
+            color: #ff2a3c;
+            filter: drop-shadow(0 0 16px rgba(229, 9, 20, 0.85)) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+        .end-action-btn:active {
+            transform: scale(0.94);
+        }
+        .end-action-btn svg {
+            width: 44px;
+            height: 44px;
+            display: block;
+            fill: currentColor;
+        }
+        .end-action-btn.replay-btn svg {
+            width: 54px;
+            height: 54px;
+        }
+        @media (min-width: 900px) {
+            .end-screen-overlay {
+                gap: 64px;
+            }
+            .end-action-btn svg {
+                width: 56px;
+                height: 56px;
+            }
+            .end-action-btn.replay-btn svg {
+                width: 68px;
+                height: 68px;
+            }
+        }
+
         .custom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 20; }
         .custom-overlay.show { opacity: 1; pointer-events: none; }
         .overlay-center { display: flex; justify-content: center; align-items: center; flex: 1; pointer-events: none; }
@@ -590,6 +659,18 @@
                     <span>STREAM ERROR 404 ...</span>
                 </div>
                 <div class="touch-catcher" id="touchCatcher"></div>
+                <div class="end-screen-overlay" id="endScreenOverlay" onclick="event.stopPropagation();">
+                    <button type="button" class="end-action-btn" id="endPrevBtn" title="Previous Video" aria-label="Previous Video" onclick="handleEndPrev(event)">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2.5v12H6V6zm4.5 6 8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button type="button" class="end-action-btn replay-btn" id="endReplayBtn" title="Replay Video" aria-label="Replay Video" onclick="handleEndReplay(event)">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    </button>
+                    <button type="button" class="end-action-btn" id="endNextBtn" title="Next Video" aria-label="Next Video" onclick="handleEndNext(event)">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18l8.5-6L5 6v12zm10.5-12v12H18V6h-2.5z"/></svg>
+                    </button>
+                </div>
+
                 <div class="custom-overlay" id="customOverlay">
                     <div style="flex:0.2;"></div>
                     <div class="overlay-center">
@@ -681,6 +762,72 @@
         
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
+        const endScreenOverlay = document.getElementById('endScreenOverlay');
+
+        function showEndScreenOverlay() {
+            hideOverlay();
+            if (endScreenOverlay) endScreenOverlay.classList.add('show');
+        }
+
+        function hideEndScreenOverlay() {
+            if (endScreenOverlay) endScreenOverlay.classList.remove('show');
+        }
+
+        function getCategoryNeighbors() {
+            if (savedChannels.length === 0 || currentPlayingIndex === -1) {
+                return { prevIndex: -1, nextIndex: -1 };
+            }
+            const currentCh = savedChannels[currentPlayingIndex];
+            const currentType = currentCh.streamType || 'live';
+            const currentCategory = currentCh.category || "OTHER";
+
+            const sameCatIndices = [];
+            savedChannels.forEach((ch, idx) => {
+                if ((ch.streamType || 'live') === currentType && (ch.category || "OTHER") === currentCategory) {
+                    sameCatIndices.push(idx);
+                }
+            });
+
+            if (sameCatIndices.length <= 1) {
+                const prevAll = currentPlayingIndex - 1 < 0 ? savedChannels.length - 1 : currentPlayingIndex - 1;
+                const nextAll = currentPlayingIndex + 1 >= savedChannels.length ? 0 : currentPlayingIndex + 1;
+                return { prevIndex: prevAll, nextIndex: nextAll };
+            }
+
+            const pos = sameCatIndices.indexOf(currentPlayingIndex);
+            const prevIndex = sameCatIndices[(pos - 1 + sameCatIndices.length) % sameCatIndices.length];
+            const nextIndex = sameCatIndices[(pos + 1) % sameCatIndices.length];
+            return { prevIndex, nextIndex };
+        }
+
+        function handleEndPrev(event) {
+            if (event) event.stopPropagation();
+            hideEndScreenOverlay();
+            const { prevIndex } = getCategoryNeighbors();
+            if (prevIndex !== -1) playChannelByIndex(prevIndex);
+            else playPrevChannel();
+        }
+
+        function handleEndReplay(event) {
+            if (event) event.stopPropagation();
+            hideEndScreenOverlay();
+            if (currentPlayingIndex !== -1 && savedChannels[currentPlayingIndex]) {
+                video.currentTime = 0;
+                updateProgressUI();
+                video.play().catch(() => {
+                    playChannelByIndex(currentPlayingIndex);
+                });
+            }
+        }
+
+        function handleEndNext(event) {
+            if (event) event.stopPropagation();
+            hideEndScreenOverlay();
+            const { nextIndex } = getCategoryNeighbors();
+            if (nextIndex !== -1) playChannelByIndex(nextIndex);
+            else playNextChannel();
+        }
+
         let pTime = null;
         let urlProbeController = null;
         let currentStreamToken = 0;
@@ -1209,7 +1356,8 @@
 
             overlaySeekBar.value = 0;
             overlayTime.innerText = "0:00 / 0:00";
-            hideOverlay(); 
+            hideOverlay();
+            hideEndScreenOverlay();
 
             if (url.includes('t.me/') || url.includes('telegram.dog/')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-paper-plane" style="color: #0088cc; margin-right: 8px;"></i> Opening Telegram: <span style="margin-left: 8px;">${name}</span>`;
@@ -1427,7 +1575,8 @@
                                 }
 
                                 overlayPlayBtn.addEventListener('click', function(e) { e.stopPropagation(); togglePausePlay(); });
-                                video.addEventListener('play', () => { overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; });
+                                video.addEventListener('play', () => {
+            hideEndScreenOverlay(); overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; });
                                 video.addEventListener('pause', () => { overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; });
 
                                 touchCatcher.addEventListener('click', function(e) {
@@ -1670,7 +1819,8 @@
         video.addEventListener('seeking', updateProgressUI);
 
         function safeSeek(seconds, event) {
-            if(event) event.stopPropagation(); 
+            if(event) event.stopPropagation();
+            hideEndScreenOverlay();
             
             let newTime = video.currentTime + seconds;
             
@@ -1843,18 +1993,7 @@
         
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
-            const currentCategory = savedChannels[currentPlayingIndex].category || "OTHER";
-            let nextIndex = -1;
-            
-            for (let i = currentPlayingIndex + 1; i < savedChannels.length; i++) {
-                if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
-            }
-            if (nextIndex === -1) {
-                for (let i = 0; i < currentPlayingIndex; i++) {
-                    if ((savedChannels[i].category || "OTHER") === currentCategory) { nextIndex = i; break; }
-                }
-            }
-            if (nextIndex !== -1) { playChannelByIndex(nextIndex); }
+            showEndScreenOverlay();
         });
 
         // ==========================================
