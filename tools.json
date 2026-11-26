@@ -2632,7 +2632,10 @@
     "name": "Lokah Chapter 1: Chandra (2025)",
     "url": "https://s3.streamflixserver.site/movies/2025/LokahChapter1Chandra.mkv",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Lucky Baskhar (2024)",
@@ -3379,7 +3382,7 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Gunmaaster G9 (2026)",
+    "name": "Eetha (2026)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
@@ -3389,7 +3392,7 @@
     "pinOrder": 1
   },
   {
-    "name": "KING (2026)",
+    "name": "Gunmaaster G9 (2026)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
@@ -3399,7 +3402,7 @@
     "pinOrder": 2
   },
   {
-    "name": "Maatrubhumi (2026)",
+    "name": "KING (2026)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
@@ -3409,7 +3412,7 @@
     "pinOrder": 3
   },
   {
-    "name": "Eetha (2026)",
+    "name": "Maatrubhumi (2026)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
@@ -3423,21 +3426,30 @@
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
-    "pinOrder": 5
+    "pinOrder": 5,
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Golmaal 5 (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
-    "pinOrder": 6
+    "pinOrder": 6,
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Hero Ki Horrorine (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
-    "pinOrder": 7
+    "pinOrder": 7,
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Cosmic Samson (2026)",
@@ -3452,19 +3464,28 @@
     "name": "Dada - The Sourav Ganguly Story (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "GABRU (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Shakti Shalini (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "13 B Fear Has A New Address (2009)",
