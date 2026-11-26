@@ -4580,42 +4580,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Final Destination 1 (2000)",
-    "url": "https://archive.org/serve/final-destination-2000.720p.-repack.-blu-ray.-hindi.-5.1/Final%20Destination%20-%202000.720p.REPACK.BluRay.Hindi.5.1.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Final Destination 2 (2003)",
-    "url": "https://archive.org/serve/final-destination-2-2003.720p.-blu-ray.-hindi.-5.1/Final%20Destination%202%20-%202003.720p.BluRay.Hindi.5.1.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Final Destination 3 (2006)",
-    "url": "https://archive.org/serve/final-destination-3-2006.720p.-blu-ray.-hindi.-5.1/Final%20Destination%203%20-%202006.720p.BluRay.Hindi.5.1.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Final Destination 4 (2009)",
-    "url": "https://s3.streamflixserver.site/movies/2009/finaldestionatio2009.mkv",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Final Destination 5 (2011)",
-    "url": "https://s3.streamflixserver.site/movies/2011/finaldestination5.mkv",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Final Destination 6 (2025)",
-    "url": "https://archive.org/serve/final-destination-6-HD/Final%20Destination%206.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
     "name": "Ghost Rider 1 (2007)",
     "url": "https://archive.org/download/dsm-ghost-rider-2007-multi-auds-tel-tam-hin-eng-blu-ray-extended-1080-p-hevc-ac-/%5BDSM%5D%20-%20Ghost%20Rider%20%282007%29%20-%20English%20-%20BluRay%20-%20Extended%20-%20720P%20-%20HEVC%20-%20AAC%282.0%29%20-%2064Kbps%20-%20ESubs%20-%20500MB%20-%20%5BDSM%5D.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -8801,6 +8765,42 @@
     "name": "SEASON : 5 : EPISODE : 8",
     "url": "https://archive.org/serve/the-boys-episode-8-hindi/The%20Boys%20Episode%208%20%5BHindi%5D.mp4",
     "category": "THE BOYS SEASON : 5",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 1 (2000)",
+    "url": "https://archive.org/serve/final-destination-2000.720p.-repack.-blu-ray.-hindi.-5.1/Final%20Destination%20-%202000.720p.REPACK.BluRay.Hindi.5.1.mp4",
+    "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 2 (2003)",
+    "url": "https://archive.org/serve/final-destination-2-2003.720p.-blu-ray.-hindi.-5.1/Final%20Destination%202%20-%202003.720p.BluRay.Hindi.5.1.mp4",
+    "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 3 (2006)",
+    "url": "https://archive.org/serve/final-destination-3-2006.720p.-blu-ray.-hindi.-5.1/Final%20Destination%203%20-%202006.720p.BluRay.Hindi.5.1.mp4",
+    "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 4 (2009)",
+    "url": "https://s3.streamflixserver.site/movies/2009/finaldestionatio2009.mkv",
+    "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 5 (2011)",
+    "url": "https://s3.streamflixserver.site/movies/2011/finaldestination5.mkv",
+    "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Final Destination 6 (2025)",
+    "url": "https://archive.org/serve/f-d-6/F-D-6.mp4",
+    "category": "FINAL DESTINATION ALL CHAPTER",
     "streamType": "offline"
   }
 ]
