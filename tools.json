@@ -858,46 +858,6 @@
     "streamType": "live"
   },
   {
-    "name": "Eetha (2026)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 1
-  },
-  {
-    "name": "Maatrubhumi (2026)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 2
-  },
-  {
-    "name": "KING (2026)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 3
-  },
-  {
-    "name": "Gunmaaster G9 (2026)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 4
-  },
-  {
     "name": "Awarapan 1 (2007)",
     "url": "https://s3.streamflixserver.site/movies/2007/Awarapan.mkv",
     "category": "2026 NEW MOVIE'S",
@@ -905,7 +865,7 @@
     "badge": "OLD",
     "badgeBg": "#64748b",
     "badgeColor": "#ffffff",
-    "pinOrder": 5
+    "pinOrder": 1
   },
   {
     "name": "Awarapan 2 (2026)",
@@ -915,14 +875,14 @@
     "badge": "NEW",
     "badgeBg": "#5b687c",
     "badgeColor": "#ffffff",
-    "pinOrder": 6
+    "pinOrder": 2
   },
   {
     "name": "Alpha (2026)",
     "url": "https://ia903203.us.archive.org/8/items/alpha-hindi-2k/Alpha%20%28%20Hindi%202k%20%29.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 7,
+    "pinOrder": 3,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -932,7 +892,7 @@
     "url": "https://ia800505.us.archive.org/27/items/bhooth-bangla-hindi-1080-p/Bhooth%20Bangla%20%5BHindi%5D-1080P.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 8,
+    "pinOrder": 4,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -942,7 +902,7 @@
     "url": "https://s1.streamflixserver.site/movies/2026/Cocktail2.mkv",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 9,
+    "pinOrder": 5,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -952,7 +912,7 @@
     "url": "https://archive.org/download/the-vvaan-force-of-the-forrest-2026-hindi/The%20Vvaan%20Force%20of%20the%20Forrest%202026%20Hindi.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 10,
+    "pinOrder": 6,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -962,7 +922,7 @@
     "url": "https://s3.streamflixserver.site/movies/2026/Mirzapur-The%20Movie.mkv",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 11,
+    "pinOrder": 7,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -972,7 +932,7 @@
     "url": "https://archive.org/serve/sijjhub-media-1019404531-1794655098/Ramayana_Rise_of_a_Legend_V2_Bollywood_Hindi_Movie_HQCam_FilmyFly_2026_Bollywood_South_Hindi_Movies_And_2026_480p_1019404531.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 12,
+    "pinOrder": 8,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -982,7 +942,7 @@
     "url": "https://ia800807.us.archive.org/6/items/border-2-4k-2026/Border%202%204k%202026.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 13,
+    "pinOrder": 9,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -992,7 +952,7 @@
     "url": "https://archive.org/serve/sijjhub-media-2942041982-1794654945/Blind_Game_Bollywood_Hindi_Movie_2026_480p_2942041982.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 14,
+    "pinOrder": 10,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1002,7 +962,7 @@
     "url": "https://lizer123.site/getm3u8/G2EFVC3J?ext=.m3u8",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 15,
+    "pinOrder": 11,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1012,7 +972,7 @@
     "url": "https://lizer123.site/getm3u8/TENZDP7R?ext=.m3u8",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 16,
+    "pinOrder": 12,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1022,7 +982,7 @@
     "url": "https://ia601907.us.archive.org/17/items/hai-jawani-toh-ishq-hona-hai-2026-hindi-hd-zee-5-480p-1vegamovies.tw/Hai%20Jawani%20Toh%20Ishq%20Hona%20Hai%20%282026%29%20Hindi%20HD%20Zee5%20480p-1vegamovies.tw.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 17,
+    "pinOrder": 13,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1032,7 +992,7 @@
     "url": "https://archive.org/serve/sijjhub-media-3798836861-1794622488/Ikka_Bollywood_Hindi_Movie_2026_480p_3798836861.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 18,
+    "pinOrder": 14,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1042,7 +1002,7 @@
     "url": "https://s2.streamflixserver.site/movies/2026/Immortal2026.mkv",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 19,
+    "pinOrder": 15,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1052,7 +1012,7 @@
     "url": "https://archive.org/serve/sijjhub-media-2989394487-1794610183/Hanuman_Ansh_Bollywood_Hindi_Movie_HQCam_FilmyFly_2026_Bollywood_South_Hindi_Movies_And_2026_720p_2989394487.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 20,
+    "pinOrder": 16,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -1607,48 +1567,9 @@
     "streamType": "live"
   },
   {
-    "name": "Hero Ki Horrorine (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline",
-    "pinOrder": 1
-  },
-  {
-    "name": "Golmaal 5 (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline",
-    "pinOrder": 2
-  },
-  {
-    "name": "Love & War (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline",
-    "pinOrder": 3
-  },
-  {
-    "name": "Dada - The Sourav Ganguly Story (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline"
-  },
-  {
-    "name": "GABRU (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline"
-  },
-  {
-    "name": "Shakti Shalini (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "2027 UPCOMING MOVIE'S",
-    "streamType": "offline"
-  },
-  {
     "name": "3 Idiots (2009)",
     "url": "https://dn600304.us.archive.org/0/items/3-idiots-hindi-educational-movie/3%20Idiots.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1657,7 +1578,7 @@
   {
     "name": "12th Fail (2023)",
     "url": "https://ia800509.us.archive.org/3/items/12th-fail-hindi-2k/12th%20Fail%20%28%20Hindi%202K%20%29.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1666,7 +1587,7 @@
   {
     "name": "36 China Town (2006)",
     "url": "https://ia600506.us.archive.org/13/items/aatma-1080p-2006/36%20China%20Town%201080p%202006.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1675,7 +1596,7 @@
   {
     "name": "Aap Mujhe Achche Lagne Lage (2002)",
     "url": "https://ia903203.us.archive.org/2/items/aap-mujhe-achche-lagne-lage-1080p-2002/Aap%20Mujhe%20Achche%20Lagne%20Lage%201080p%202002-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1684,7 +1605,7 @@
   {
     "name": "Aashiq (2001)",
     "url": "https://ia801502.us.archive.org/22/items/aashiq-2001-1080p-hybrid-jc-web-dl-h-264-dd-5.1-enigma/Aashiq%20%282001%29%201080p%20Hybrid%20JC%20WEB-DL%20H264%20DD5.1%20-ENIGMA.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1693,7 +1614,7 @@
   {
     "name": "Aashiq Banaya Aapne (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/Aashiq%20Banaya%20Aapne%20544p%202005.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1702,7 +1623,7 @@
   {
     "name": "Aashiqui 2 (2013)",
     "url": "https://ia601007.us.archive.org/25/items/aashiqui.-2.2013.-hindi.-1080p.-blu-ray.x-264.-dts-hdma.-5.1.-.-hon-3y-hd/Aashiqui.2.2013.Hindi.1080p.BluRay.x264.DTS-HDMA.5.1.-.Hon3yHD.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1711,7 +1632,7 @@
   {
     "name": "Ab Tumhare Hawale Watan Sathiyo (2004)",
     "url": "https://ia600600.us.archive.org/35/items/ab-tumhare-hawale-watan-sathiyo-2004-zee-5-webhd-1080-p/Ab%20Tumhare%20Hawale%20Watan%20Sathiyo%20%282004%29%20ZEE5%20WEBHD%201080P.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1720,7 +1641,7 @@
   {
     "name": "Adipurush (2023)",
     "url": "https://ia902802.us.archive.org/34/items/adipurush-1080p-2023/Adipurush%201080p%202023.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1729,7 +1650,7 @@
   {
     "name": "Ae Dil Hai Mushkil (2016)",
     "url": "https://ia601504.us.archive.org/24/items/ae-dil-hai-mushkil-1080p-2016/Ae%20Dil%20Hai%20Mushkil%201080p%202016.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1738,7 +1659,7 @@
   {
     "name": "Ajnabee (2001)",
     "url": "https://ia800101.us.archive.org/27/items/ajnabee-1080p-2001/Ajnabee%201080p%202001.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1747,7 +1668,7 @@
   {
     "name": "Aladin (2009)",
     "url": "https://archive.org/serve/aladin-2009_202503/Aladin%20%282009%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1756,7 +1677,7 @@
   {
     "name": "Amavas (2019)",
     "url": "https://ia800103.us.archive.org/10/items/amavas-1080p-2019/Amavas%201080p%202019.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1765,7 +1686,7 @@
   {
     "name": "Aparichit (2005)",
     "url": "https://archive.org/serve/aparichit-anniyan-vikram-sadha-vivek-prakash-raj-nassar-full-hindi-dubbed-movie-480-p/Aparichit%20%28Anniyan%29%20Vikram_%20Sadha_%20Vivek_%20Prakash%20Raj_%20Nassar%20_%20Full%20Hindi%20Dubbed%20Movie%28480P%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1774,7 +1695,7 @@
   {
     "name": "Awara Paagal Deewana (2002)",
     "url": "https://ia601006.us.archive.org/2/items/awara-paagal-deewana-1080p-2002/Awara%20Paagal%20Deewana%201080p%202002-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1783,7 +1704,7 @@
   {
     "name": "Baaghi 4 (2026)",
     "url": "https://archive.org/serve/sijjhub-media-8748707851-1794714987/Baaghi_4_Bollywood_Hindi_Movie_2025_480p_8748707851.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1792,7 +1713,7 @@
   {
     "name": "BAAGI 1 (2016)",
     "url": "https://ia800100.us.archive.org/11/items/baaghi-3-1080p-2020/Baaghi%201080p%202016.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1801,7 +1722,7 @@
   {
     "name": "BAAGI 2 (2018)",
     "url": "https://ia800100.us.archive.org/11/items/baaghi-3-1080p-2020/Baaghi%202%201080p%202018.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1810,7 +1731,7 @@
   {
     "name": "BAAGI 3 (2020)",
     "url": "https://ia600100.us.archive.org/11/items/baaghi-3-1080p-2020/Baaghi%203%201080p%202020.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1819,7 +1740,7 @@
   {
     "name": "Bad Newz (2024)",
     "url": "https://archive.org/download/bad-newz-2024-1080p-av-1-amzn-web-dl-he-aac-5.1-128-kbps-en-coded-by-tatai/Bad%20Newz%20%282024%29%201080p%20AV1%20AMZN%20WEB-DL%20%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80%20HE-AAC%205.1%20~%20128%20Kbps%20EnCoded%20By%20Tatai.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1828,7 +1749,7 @@
   {
     "name": "Bade Miyan Chote Miyan (2024)",
     "url": "https://ia601503.us.archive.org/29/items/bade-miyan-chote-miyan-1080p-2024/Bade%20Miyan%20Chote%20Miyan%201080p%202024.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1837,7 +1758,7 @@
   {
     "name": "Bahubali 1 (2015)",
     "url": "https://s3.streamflixserver.site/movies/2015/baahubali.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1846,7 +1767,7 @@
   {
     "name": "Bahubali 2 (2017)",
     "url": "https://s2.streamflixserver.site/movies/2017/baahubali2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1855,7 +1776,7 @@
   {
     "name": "Bahubali 3 (2025)",
     "url": "https://archive.org/serve/baahubali-the-epic-2025-hindi-org-1080p-web-dl/Baahubali%20The%20Epic%20%282025%29%20Hindi%20ORG%201080p%20WEB%20DL.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1864,7 +1785,7 @@
   {
     "name": "Bajrangi Bhaijaan (2015)",
     "url": "https://ia601905.us.archive.org/4/items/bajrangi-bhaijaan-1080p-2015/Bajrangi%20Bhaijaan%201080p%202015.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1873,7 +1794,7 @@
   {
     "name": "Bajrangi Bhaijaan (2015)",
     "url": "https://archive.org/serve/bajrangi-bhaijaan-2015-1080p-av-1-nf.-wel-dl-e-ac-3-ddp-5.1-192-kbps-en-coded-by-tatai/Bajrangi%20Bhaijaan%20%282015%29%201080p%20AV1%20NF.WEL-DL%20%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80%20E-AC-3%20DDP%205.1%20~%20192%20Kbps%20EnCoded%20By%20Tatai.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1882,7 +1803,7 @@
   {
     "name": "Bang Bang! (2024)",
     "url": "https://s3.streamflixserver.site/movies/2014/BangBang.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1891,7 +1812,7 @@
   {
     "name": "Batwara (1947)",
     "url": "https://archive.org/serve/sijjhub-media-9873673514-1794612158/Batwara_1947_Bollywood_Hindi_Movie_HQCam_FilmyFly_2026_Bollywood_South_Hindi_Movies_And_2026_480p_9873673514.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1900,7 +1821,7 @@
   {
     "name": "bewafaa (2005)",
     "url": "https://archive.org/download/bewafaa-2005-dv-drip-aac-5.1-x-264/Bewafaa%202005%20DvDRip%20AAC%205.1%20x264.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1909,7 +1830,7 @@
   {
     "name": "Bhool Bhulaiyaa (2007)",
     "url": "https://ia903203.us.archive.org/13/items/guru-1080p-2007/Bhool%20Bhulaiyaa%201080p%202007.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1918,7 +1839,7 @@
   {
     "name": "Bhool Bhulaiyaa (2007)",
     "url": "https://ia903207.us.archive.org/31/items/bhool-bhulaiyaa-1080p-2007/Bhool%20Bhulaiyaa%201080p%202007.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1927,7 +1848,7 @@
   {
     "name": "Bhool Bhulaiyaa 2 (2022)",
     "url": "https://ia800702.us.archive.org/19/items/bhool-bhulaiyaa-2-1080p-2022/Bhool%20Bhulaiyaa%202%201080p%202022.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1936,7 +1857,7 @@
   {
     "name": "Bigil (2019)",
     "url": "https://archive.org/serve/no-name_202611/NO%20NAME.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1945,7 +1866,7 @@
   {
     "name": "Bodyguard (2011)",
     "url": "https://ia800106.us.archive.org/19/items/bodyguard-1080p-2011/Bodyguard%201080p%202011.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1954,7 +1875,7 @@
   {
     "name": "Chennai Express (2013)",
     "url": "https://archive.org/download/chennai-express-2013-1080p-blu-ray-h.264-ac-3-hindi-5.1-448-kbps-encoded-by/Chennai%20Express%20%282013%29%201080p%20Blu-Ray%20H.264%20AC-3%20Hindi%205.1%20~%20448%20Kbps%20EnCoded%20By%20Tatai.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1963,7 +1884,7 @@
   {
     "name": "Chup Chup Ke (2006)",
     "url": "https://ia800108.us.archive.org/23/items/chup-chup-ke-2006-1080p-amzn-web-dl-ddp-5.1-h.-264/Chup%20Chup%20Ke%20%282006%29%201080p%20AMZN%20WEB-DL%20DDP5.1%20H.264.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1972,7 +1893,7 @@
   {
     "name": "Cocktail 1 (2012)",
     "url": "https://ia600401.us.archive.org/23/items/cocktail-1080p-2012/Cocktail%201080p%202012.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1981,7 +1902,7 @@
   {
     "name": "Cocktail 1 (2012)",
     "url": "https://archive.org/serve/cocktail-1080p-2012/Cocktail%201080p%202012.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1990,7 +1911,7 @@
   {
     "name": "Dabangg 1 (2010)",
     "url": "https://archive.org/serve/dabangg-1080-2010/Dabangg%201080%202010.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -1999,7 +1920,7 @@
   {
     "name": "Dabangg 2 (2012)",
     "url": "https://archive.org/serve/dabangg-2-1080p-2012/Dabangg%202%201080p%202012.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2008,7 +1929,7 @@
   {
     "name": "Dabangg 3 (2019)",
     "url": "https://archive.org/serve/dabangg-3-2019-amzn-web-rip-hindi-org-720p/Dabangg%203%20%282019%29%20AMZN%20WebRip%20Hindi%20ORG%20720p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2017,7 +1938,7 @@
   {
     "name": "Dangal 1080p (2016)",
     "url": "https://ia800403.us.archive.org/17/items/1920-london-2016_202601/Dangal%201080p%202016.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2026,7 +1947,7 @@
   {
     "name": "De Dana Dan 1080p (2009)",
     "url": "https://ia601408.us.archive.org/24/items/de-dana-dan-1080p-2009/De%20Dana%20Dan%201080p%202009.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2035,7 +1956,7 @@
   {
     "name": "Dhadak 1 (2018)",
     "url": "https://ia600609.us.archive.org/22/items/dhadak.-2018/Dhadak.%282018%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2044,7 +1965,7 @@
   {
     "name": "Dhadak 2 (2025)",
     "url": "https://ia800407.us.archive.org/2/items/dhadak.-2.-2025/Dhadak.2.%282025%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2053,7 +1974,7 @@
   {
     "name": "Dhamaal (2007)",
     "url": "https://ia800703.us.archive.org/10/items/dhamaal-1080p-2007/Dhamaal%201080p%202007.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2062,7 +1983,7 @@
   {
     "name": "Dhamarukam (2012)",
     "url": "https://media.ultrashow.club/movies/133d7f7d8936/master.m3u8?e=1794242419&st=_pQPCpIc3RvfsrjqmNboHA",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2071,7 +1992,7 @@
   {
     "name": "Dhoom 1 (2004)",
     "url": "https://ia800503.us.archive.org/5/items/dhoom-1080p-2004/Dhoom%201080p%202004.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2080,7 +2001,7 @@
   {
     "name": "Dhoom 2 (2006)",
     "url": "https://ia801505.us.archive.org/30/items/dhoom-2-1080p-2006_20260216/Dhoom%202%201080p%202006.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2089,7 +2010,7 @@
   {
     "name": "Dhoom 3 (2013)",
     "url": "https://ia803104.us.archive.org/26/items/dhoom-3-1080p-2013/Dhoom%203%201080p%202013.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2098,7 +2019,7 @@
   {
     "name": "Dil Maange More (2004)",
     "url": "https://ia803102.us.archive.org/27/items/dil-maange-more-1080p-2004/Dil%20Maange%20More%201080p%202004-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2107,7 +2028,7 @@
   {
     "name": "DON 1 (2006)",
     "url": "https://ia800109.us.archive.org/5/items/don-2-1080p-2011/Don%201080p%202006.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2116,7 +2037,7 @@
   {
     "name": "Don 1 (2006)",
     "url": "https://archive.org/download/don-2006-dv-drip-x-264-aac-3-wanxsz/Don%202006%20DvDrip%20X%20264%20AAC%203%20Wanxsz.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2125,7 +2046,7 @@
   {
     "name": "DON 2 (2011)",
     "url": "https://ia800109.us.archive.org/5/items/don-2-1080p-2011/Don%202%201080p%202011.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2134,7 +2055,7 @@
   {
     "name": "Don 2 (2011)",
     "url": "https://s1.streamflixserver.site/movies/2011/don2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2143,7 +2064,7 @@
   {
     "name": "Dream Girl (2019)",
     "url": "https://ia600101.us.archive.org/14/items/dream.-girl-2019-1080p-zee-5-web-dl-avc-ddp-5.1-esub-dus-ic-tv/Dream.Girl%20%282019%29%201080p%20ZEE5%20WEB-DL%20AVC%20DDP%205.1%20ESub-DusIcTv.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2152,7 +2073,7 @@
   {
     "name": "Dream Girl 2 (2023)",
     "url": "https://ia601003.us.archive.org/13/items/dream-girl-2-1080p-2023/Dream%20Girl%202%201080p%202023.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2161,7 +2082,7 @@
   {
     "name": "Dunki (2023)",
     "url": "https://ia903107.us.archive.org/29/items/dunki-1080p-2023/Dunki%201080p%202023.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2170,13 +2091,13 @@
   {
     "name": "Ek Deewane Ki Deewaniyat",
     "url": "https://s3.streamflixserver.site/movies/2025/ekdeewanekideewaniyat.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline"
   },
   {
     "name": "EK THE TIGER (2012)",
     "url": "https://ia601903.us.archive.org/30/items/ek-tha-tiger-2012-hindi-720p-hevc-blu-ray-esub/Ek%20Tha%20Tiger%20%282012%29%20Hindi%20720p%20HEVC%20BluRay%20ESub%20%5BBollyFlix%5D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2185,7 +2106,7 @@
   {
     "name": "Ek Villain (2014)",
     "url": "https://ia801008.us.archive.org/27/items/ek-villain-2014-erosnow-by-dusic-tv/Ek%20Villain%20%282014%29%20EROSNOW%20%5BBy-DusicTv%5D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2194,7 +2115,7 @@
   {
     "name": "Ek Villain Returns (2022)",
     "url": "https://ia801902.us.archive.org/17/items/ek-villain-returns-1080p-2022/Ek%20Villain%20Returns%201080p%202022.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2203,7 +2124,7 @@
   {
     "name": "Fighter (2024)",
     "url": "https://vercetti.org/movie/-8bXlq5fidlw63dOcl4xF8PCFt2_sniDmB7Nk3blt84.mP6ZIM5M/bigtits.m3u8",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2212,7 +2133,7 @@
   {
     "name": "Gadar 2 (2023)",
     "url": "https://s3.streamflixserver.site/movies/2023/gadar2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2221,7 +2142,7 @@
   {
     "name": "Gadar: Ek Prem Katha (2001)",
     "url": "https://s1.streamflixserver.site/movies/2001/gadar.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2230,7 +2151,7 @@
   {
     "name": "Garam Masala (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/Garam%20Masala%201080p%202005.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2239,7 +2160,7 @@
   {
     "name": "Geetha Govindam (2018)",
     "url": "https://archive.org/serve/saicord.com-geetha-govindam-2018-hindi-dubbed-480p/%5Bsaicord.com%5D_Geetha_Govindam_%282018%29_%5BHindi_Dubbed%5D_480p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2248,7 +2169,7 @@
   {
     "name": "Ghajini (2008)",
     "url": "https://dn721607.ca.archive.org/0/items/ghajini-hindi-romantic-movie/Ghajini%20Hindi%20Romantic%20Movie.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2257,7 +2178,7 @@
   {
     "name": "Golmaal Fun Unlimited (2006)",
     "url": "https://ia800506.us.archive.org/13/items/aatma-1080p-2006/Golmaal%20Fun%20Unlimited%201080p%202006.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2266,7 +2187,7 @@
   {
     "name": "Hadh Kar Di Aapne (2000)",
     "url": "https://ia802802.us.archive.org/15/items/hadh-kar-di-aapne-2000-1080p-amzn-web-dl-ddp-2.0-h-264/Hadh%20Kar%20Di%20Aapne%20%282000%29%201080p%20AMZN%20WEB-DL%20DDP%202.0%20H264.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2275,7 +2196,7 @@
   {
     "name": "Hate Story 1 (2012)",
     "url": "https://dn710009.ca.archive.org/0/items/hate-story-2012-nf-web-rip-hindi-1080p-x-264-dd-5.1-esub/Hate%20Story%202012%20NF%20WebRip%20Hindi%201080p%20x264%20DD%205.1%20ESub.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2284,7 +2205,7 @@
   {
     "name": "Hate Story 2 (2014)",
     "url": "https://ia803109.us.archive.org/15/items/hate-story-1080p-2012/Hate%20Story%202%201080p%202014.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2293,7 +2214,7 @@
   {
     "name": "Hate Story 3 (2015)",
     "url": "https://archive.org/serve/hate-story-3-1080p-2015/Hate%20Story%203%201080p%202015.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2302,7 +2223,7 @@
   {
     "name": "Hate Story 4 (2018)",
     "url": "https://archive.org/download/hate-story-4-1080p-2018/Hate%20Story%204%201080p%202018.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2311,7 +2232,7 @@
   {
     "name": "Heropanti 1 (2014)",
     "url": "https://ia800807.us.archive.org/21/items/heropanti-1080p-2014/Heropanti%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2320,7 +2241,7 @@
   {
     "name": "Heropanti 2 (2022)",
     "url": "https://ia600807.us.archive.org/21/items/heropanti-1080p-2014/Heropanti%202%201080p%202022.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2329,7 +2250,7 @@
   {
     "name": "Himmatwala (2013)",
     "url": "https://ia600103.us.archive.org/24/items/himmatwala-1080p-2013/Himmatwala%201080p%202013.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2338,7 +2259,7 @@
   {
     "name": "Housefull 1 (2010)",
     "url": "https://ia800804.us.archive.org/1/items/housefull-1080p-2010/Housefull%201080p%202010.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2347,7 +2268,7 @@
   {
     "name": "Housefull 2 (2012)",
     "url": "https://ia601008.us.archive.org/1/items/housefull-2-1080p-2012/Housefull%202%201080p%202012.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2356,7 +2277,7 @@
   {
     "name": "Housefull 3 (2016)",
     "url": "https://ia601003.us.archive.org/15/items/housefull-3-1080p-2016_202602/Housefull%203%201080p%202016.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2365,7 +2286,7 @@
   {
     "name": "Housefull 4 (2019)",
     "url": "https://ia801402.us.archive.org/30/items/housefull-4-1080p-2019_202602/Housefull%204%201080p%202019.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2374,7 +2295,7 @@
   {
     "name": "Housefull 5 (2025)",
     "url": "https://archive.org/download/sijjhub-media-4445311317-1794734469/Housefull_5_Bollywood_Hindi_Movie_2025_480p_4445311317.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2383,7 +2304,7 @@
   {
     "name": "Humko Tumse Pyaar Hai (2006)",
     "url": "https://ia800506.us.archive.org/13/items/aatma-1080p-2006/Humko%20Tumse%20Pyaar%20Hai%201080p%202006.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2392,7 +2313,7 @@
   {
     "name": "Humraaz (2002)",
     "url": "https://archive.org/serve/humraaz-2002-1080p-hybrid-amzn-web-dl-h-264-dd-5.1-enigma/Humraaz%20%282002%29%201080p%20Hybrid%20AMZN%20WEB-DL%20H264%20DD5.1-ENIGMA.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2401,7 +2322,7 @@
   {
     "name": "JAANI DUSHMAN (2002)",
     "url": "https://dn710607.ca.archive.org/0/items/jaani-dushman-ek-anokhi-kahani.-2002.-untouched-dvd-9.-ntsc.-video-sound/Jaani%20Dushman-Ek%20Anokhi%20Kahani.2002.Untouched%20DVD9.NTSC.Video%20Sound.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2410,7 +2331,7 @@
   {
     "name": "Jai Ho (2014)",
     "url": "https://ia600700.us.archive.org/11/items/jai-ho-1080p-2014/Jai%20Ho%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2419,7 +2340,7 @@
   {
     "name": "Jannat 1 (2008)",
     "url": "https://ia801008.us.archive.org/8/items/jannat-1080p-2008/Jannat%201080p%202008.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2428,7 +2349,7 @@
   {
     "name": "Jannat 2 (2012)",
     "url": "https://ia800908.us.archive.org/34/items/jannat-2-1080p-2012/Jannat%202%201080p%202012.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2437,7 +2358,7 @@
   {
     "name": "Jawan (2023)",
     "url": "https://archive.org/serve/jawan-4k-2023-2160p/Jawan%201080p%202023.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2446,7 +2367,7 @@
   {
     "name": "Jism 1 (2003)",
     "url": "https://ia800405.us.archive.org/31/items/andaaz-1080p-2003_202607/Jism%20544p%202003.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2455,7 +2376,7 @@
   {
     "name": "Jism 2 (2012)",
     "url": "https://ia601007.us.archive.org/15/items/jism-2-1080p-2012/Jism%202%201080p%202012.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2464,7 +2385,7 @@
   {
     "name": "Joru Ka Ghulam (2000)",
     "url": "https://ia801808.us.archive.org/14/items/joru-ka-ghulam-2000-webhd-1080-p-dus-ic-tv/Joru%20Ka%20Ghulam%20%282000%29%20WEBHD%201080P%20DusIcTv.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2473,7 +2394,7 @@
   {
     "name": "Judwaa 2 (2017)",
     "url": "https://ia800702.us.archive.org/34/items/judwaa-2-1080p-2017/Judwaa%202%201080p%202017.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2482,13 +2403,13 @@
   {
     "name": "Junglee (2019)",
     "url": "https://archive.org/serve/moana-2_202610/MOANA%202.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline"
   },
   {
     "name": "Kaal (2005)",
     "url": "https://ia600604.us.archive.org/13/items/kaal-1080p-2005/Kaal%201080p%202005.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2497,7 +2418,7 @@
   {
     "name": "Kabir Singh (2019)",
     "url": "https://archive.org/serve/kabir-singh-1080p-2019/Kabir%20Singh%201080p%202019.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2506,7 +2427,7 @@
   {
     "name": "KAHO NAA PYAAR HAI (2000)",
     "url": "https://ia800908.us.archive.org/8/items/kaho-naa-pyaar-hai-2000-1080p-hybrid-nf-web-dl-h-264-dd-5.1-enigma/Kaho%20Naa%20Pyaar%20Hai%20%282000%29%201080p%20Hybrid%20NF%20WEB-DL%20H264%20DD5.1-ENIGMA.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2515,7 +2436,7 @@
   {
     "name": "Kal Ho Naa Ho (2003)",
     "url": "https://ia600405.us.archive.org/31/items/andaaz-1080p-2003_202607/Kal%20Ho%20Naa%20Ho%201080p%202003.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2524,7 +2445,7 @@
   {
     "name": "kalpana 2 (2016)",
     "url": "https://archive.org/serve/online-kalpana-2-watch/Online%20Kalpana%202%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2533,7 +2454,7 @@
   {
     "name": "Kambakkht Ishq (2009)",
     "url": "https://ia801902.us.archive.org/13/items/kambakkht-ishq-1080p-2009/Kambakkht%20Ishq%201080p%202009.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2542,7 +2463,7 @@
   {
     "name": "Kesari 1 (2019)",
     "url": "https://ia800809.us.archive.org/21/items/kesari.-2019_202512/Kesari.%282019%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2551,7 +2472,7 @@
   {
     "name": "Kesari 2 (2025)",
     "url": "https://ia800106.us.archive.org/30/items/kesari.-chapter.-2.-2025/Kesari.Chapter.2.%282025%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2560,7 +2481,7 @@
   {
     "name": "Khiladi 786 (2012)",
     "url": "https://ia601008.us.archive.org/1/items/khiladi-786-1080p-2012/Khiladi%20786%201080p%202012.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2569,7 +2490,7 @@
   {
     "name": "Khuda Haafiz Chapter 1 (2020)",
     "url": "https://ia903206.us.archive.org/23/items/khuda-haafiz-1080p-2020/Khuda%20Haafiz%201080p%202020.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2578,7 +2499,7 @@
   {
     "name": "Khuda Haafiz Chapter 2 (2022)",
     "url": "https://ia801401.us.archive.org/6/items/khuda-haafiz-chapter-2-1080p-2022/Khuda%20Haafiz%20Chapter%202%201080p%202022.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2587,7 +2508,7 @@
   {
     "name": "Kick (2014)",
     "url": "https://ia600600.us.archive.org/21/items/kick-1080p-2014/Kick%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2596,7 +2517,7 @@
   {
     "name": "Kis Kisko Pyaar Karoon 1 (2015)",
     "url": "https://ia600106.us.archive.org/15/items/kis-kisko-pyaar-karoon-2015-hindi-720p-web-dl-x-264-dd-5.1-esubs-sun-george/Kis%20Kisko%20Pyaar%20Karoon%20%282015%29%20Hindi%20-%20720p%20WEB-DL%20-%20x264%20-%20DD%20%205.1%20-%20ESubs%20-Sun%20George.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2605,7 +2526,7 @@
   {
     "name": "Kis Kisko Pyaar Karoon 2 (2025)",
     "url": "https://ia800500.us.archive.org/7/items/kis-kisko-pyaar-karoon-2-1080p-2025/Kis%20Kisko%20Pyaar%20Karoon%202%204k%202025.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2614,7 +2535,7 @@
   {
     "name": "KOI MIL GAYA (2003)",
     "url": "https://dn710209.ca.archive.org/0/items/koi..-mil-gaya-2003-hybrid-web-5.1-cinema-dolby-digital-audio-enigma/Koi..%20Mil%20Gaya%20%7B2003%7D%20%7BHybrid-WEB%7D%20%7B5.1%20Cinema%20Dolby%20Digital%20Audio%7D%7BENIGMA%7D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2623,7 +2544,7 @@
   {
     "name": "Kranti (2002)",
     "url": "https://ia600603.us.archive.org/0/items/kranti-544p-2002/Kranti%20544p%202002.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2632,7 +2553,7 @@
   {
     "name": "KRRISH 1 (2006)",
     "url": "https://ia803209.us.archive.org/22/items/krrish-2006-dv-drip-xvi-d-mp-3-esubs-tmb_202507/Krrish%202006%20DvDRip%20XviD%20Mp3%20Esubs%20%5BTMB%5D.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2641,7 +2562,7 @@
   {
     "name": "KRRISH 3 (2013)",
     "url": "https://ia800102.us.archive.org/2/items/krrish.-3.2013.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Krrish.3.2013.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2650,7 +2571,7 @@
   {
     "name": "Kurbaan (2009)",
     "url": "https://archive.org/serve/kurbaan-1080p-2009/Kurbaan%201080p%202009.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2659,13 +2580,13 @@
   {
     "name": "Kurup (2021)",
     "url": "https://archive.org/serve/sijjhub-media-9594170226-1794707734/Kurup_2021_480p_9594170226.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline"
   },
   {
     "name": "Kya Kool Hain Hum 3 (2016)",
     "url": "https://archive.org/serve/kya-kool-hain-hum-3-full-movie-comedy-bollywood-movie-hd-tusshar-kapoor-aftab-shivdasani-480-p/Kya%20Kool%20Hain%20Hum%203%20Full%20Movie%20_%20Comedy%20Bollywood%20Movie%20HD%20_%20Tusshar%20Kapoor%20_%20Aftab%20Shivdasani%28480P%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2674,7 +2595,7 @@
   {
     "name": "KYAA KOOL HAIN HUM 1 (2005)",
     "url": "https://archive.org/serve/kyaa-kool-hain-hum-2005-dvd-9-v.-one-entertainment-ntsc_202608/Kyaa%20Kool%20Hain%20Hum%20%282005%29%201080p%2010bit%20AMZN%20WEBRip%20x265%20HEVC%20Hindi%20DDP%202.0%20ESub%20OlaM.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2683,7 +2604,7 @@
   {
     "name": "KYAA KOOL HAIN HUM 2 (2012)",
     "url": "https://archive.org/serve/kyaa-super-kool-hain-hum-2012-hd-0123414/Kyaa%20Super%20Kool%20Hain%20Hum%202012.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2692,7 +2613,7 @@
   {
     "name": "Kyo Kii... Main Jhuth Nahin Bolta (2001)",
     "url": "https://dn721805.ca.archive.org/0/items/kyo-kii...-main-jhuth-nahin-bolta-2001-hybrid-jio-cinema-5.1-cinema-audio-enigma/Kyo%20Kii...Main%20Jhuth%20Nahin%20Bolta%20%7B2001%7D%20%7BHybrid-JioCinema%7D%20%7B5.1%20Cinema%20Audio%7D%20%7BENIGMA%7D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2701,7 +2622,7 @@
   {
     "name": "LEO (2023)",
     "url": "https://ia600602.us.archive.org/19/items/leo-2023-south-hindi-dubbed-un-cut-hd-1080p/Leo-%282023%29-South-Hindi-Dubbed-UnCut-HD-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2710,13 +2631,13 @@
   {
     "name": "Lokah Chapter 1: Chandra (2025)",
     "url": "https://s3.streamflixserver.site/movies/2025/LokahChapter1Chandra.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline"
   },
   {
     "name": "Lucky Baskhar (2024)",
     "url": "https://ia800400.us.archive.org/25/items/lucky-baskhar-2024-hindi-hd-1080p/Lucky-Baskhar-%282024%29-Hindi-HD-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2725,7 +2646,7 @@
   {
     "name": "M.S. Dhoni: The Untold Story (2016)",
     "url": "https://s2.streamflixserver.site/movies/2016/msdhoni.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2734,7 +2655,7 @@
   {
     "name": "Maharaj (2024)",
     "url": "https://s3.streamflixserver.site/movies/2024/maharaj.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2743,7 +2664,7 @@
   {
     "name": "Main Actor Nahin Hoon (2025)",
     "url": "https://archive.org/download/sijjhub-media-3171788594-1794608076/Main_Actor_Nahin_Hoon_Bollywood_Hindi_Movie_2025_480p_3171788594.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2752,7 +2673,7 @@
   {
     "name": "Main Hi Raja Main Hi Mantri (2017)",
     "url": "https://ia903103.us.archive.org/15/items/main-hi-raja-main-hi-mantri/Main%20Hi%20Raja%20Main%20Hi%20Mantri.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2761,7 +2682,7 @@
   {
     "name": "Main Tera Hero (2014)",
     "url": "https://ia600100.us.archive.org/14/items/main-tera-hero-2014-esubs-1/Main%20Tera%20Hero%20%282014%29%20ESubs%20%281%29.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2770,7 +2691,7 @@
   {
     "name": "maine dil tujhko diya (2002)",
     "url": "https://ia800701.us.archive.org/15/items/maine-dil-tujhko-diya-2002-dv-drip-x-264-aac-3-wanxsz/Maine%20Dil%20Tujhko%20Diya%202002%20DvDrip%20X264%20AAC%203%20Wanxsz.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2779,7 +2700,7 @@
   {
     "name": "Makkhi (2012)",
     "url": "https://dn710205.ca.archive.org/0/items/makkhi-hindi-action-movie/Makkhi%20Hindi%20Action%20Movie.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2788,7 +2709,7 @@
   {
     "name": "Malang (2020)",
     "url": "https://archive.org/serve/malang-1080p-2020/Malang%201080p%202020.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2797,7 +2718,7 @@
   {
     "name": "Marco (2024)",
     "url": "https://ia601501.us.archive.org/18/items/marco-2024-hindi-org-720p-web-dl_202512/Marco%20%282024%29%20Hindi%20ORG%20720p%20WEB%20DL.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2806,7 +2727,7 @@
   {
     "name": "Master (2021)",
     "url": "https://s2.streamflixserver.site/movies/2021/Master.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2815,7 +2736,7 @@
   {
     "name": "Mere Yaar Ki Shaadi Hai (2002)",
     "url": "https://archive.org/serve/mere-yaar-ki-shaadi-hai-1080p-2002/Mere%20Yaar%20Ki%20Shaadi%20Hai%201080p%202002.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2824,7 +2745,7 @@
   {
     "name": "Meri Jung: One-Man Army (2004)",
     "url": "https://dn720407.ca.archive.org/0/items/mass-meri-jung-one-man-army-hindi-dubbed-z-flix-co/01%20-%20South%20Indian%20-%202004%2FMass%20%28Meri%20Jung%20One%20Man%20Army%29%20Hindi%20Dubbed_zFlix%20CO.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2833,7 +2754,7 @@
   {
     "name": "Mr. & Mrs. Mahi (2024)",
     "url": "https://ia800104.us.archive.org/4/items/mr.-mrs.-mahi-1080p-2024_202602/Mr.%20%26%20Mrs.%20Mahi%201080p%202024.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2842,7 +2763,7 @@
   {
     "name": "Mrs. (2023)",
     "url": "https://dn711308.ca.archive.org/0/items/mrs.-2023-hindi-bingehub.fun-1080p-web-dl/Mrs.%282023%29%20Hindi%20bingehub.fun%201080p%20WEB-DL.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2851,7 +2772,7 @@
   {
     "name": "Mujhse Shaadi Karogi (2004)",
     "url": "https://archive.org/serve/mujhse-shaadi-karogi-2004-blu-ray-720p-hindi-org_202512/Mujhse%20Shaadi%20Karogi%20%282004%29%20BluRay%20720p%20Hindi%20ORG.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2860,7 +2781,7 @@
   {
     "name": "Munna Bhai MBBS (2003)",
     "url": "https://ia600405.us.archive.org/31/items/andaaz-1080p-2003_202607/Munna%20Bhai%20MBBS%201080p%202003.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2869,7 +2790,7 @@
   {
     "name": "Murder 2 (2011)",
     "url": "https://ia600709.us.archive.org/4/items/murder-2-1080p-2011/Murder%202%201080p%202011.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2878,7 +2799,7 @@
   {
     "name": "No Entry (2005)",
     "url": "https://ia800704.us.archive.org/10/items/no-entry-2005-1080p-amzn-web-dl-ddp-2.0-h.-264/No%20Entry%20%282005%29%201080p%20AMZN%20WEB-DL%20DDP%202.0%20H.264.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2887,7 +2808,7 @@
   {
     "name": "No Entry (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/No%20Entry%20544p%202005.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2896,7 +2817,7 @@
   {
     "name": "Om Shanti Om (2007)",
     "url": "https://ia903203.us.archive.org/13/items/guru-1080p-2007/Om%20Shanti%20Om%201080p%202007.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2905,7 +2826,7 @@
   {
     "name": "Padmaavat (2018)",
     "url": "https://ia802809.us.archive.org/26/items/padmaavat-1080p-2018/Padmaavat%201080p%202018.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2914,7 +2835,7 @@
   {
     "name": "Partner (2007)",
     "url": "https://ia903203.us.archive.org/13/items/guru-1080p-2007/Partner%201080p%202007.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2923,7 +2844,7 @@
   {
     "name": "Pathaan (2023)",
     "url": "https://s1.streamflixserver.site/movies/2023/pathan.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2932,7 +2853,7 @@
   {
     "name": "Phir Hera Pheri (2006)",
     "url": "https://ia600506.us.archive.org/13/items/aatma-1080p-2006/Phir%20Hera%20Pheri%201080p%202006.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2941,7 +2862,7 @@
   {
     "name": "PK (2014)",
     "url": "https://ia803106.us.archive.org/8/items/pk-1080p-2014/PK%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2950,7 +2871,7 @@
   {
     "name": "Prem Ratan Dhan Payo (2015)",
     "url": "https://ia800100.us.archive.org/16/items/prem-ratan-dhan-payo-1080p-2015/Prem%20Ratan%20Dhan%20Payo%201080p%202015.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2959,7 +2880,7 @@
   {
     "name": "Prince (2010)",
     "url": "https://ia800701.us.archive.org/27/items/prince-1080p-2010_202601/Prince%201080p%202010.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2968,7 +2889,7 @@
   {
     "name": "Pushpa 1 The Rise (2021)",
     "url": "https://s2.streamflixserver.site/movies/2021/pushpa.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2977,7 +2898,7 @@
   {
     "name": "Pushpa 2 The Rule (2024)",
     "url": "https://s1.streamflixserver.site/movies/2025/Pushpa2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2986,7 +2907,7 @@
   {
     "name": "Pyaar Tune Kya Kiya (2001)",
     "url": "https://dn801204.us.archive.org/0/items/pyaar-tune-kya-kiya-2001-web-rip-1080p-x-264-telly/Pyaar%20Tune%20Kya%20Kiya%202001%20WebRip%201080p%20x264%20%20-%20%5BTelly%5D.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -2995,7 +2916,7 @@
   {
     "name": "Qayamat ( 2003)",
     "url": "https://ia601408.us.archive.org/26/items/qayamat-2003-1080p-hybrid-jc-web-dl-h-264-dd-5.1-enigma/Qayamat%20%282003%29%201080p%20Hybrid%20JC%20WEB-DL%20H264%20DD5.1-ENIGMA.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3004,7 +2925,7 @@
   {
     "name": "Ra-One (2011)",
     "url": "https://ia600405.us.archive.org/16/items/ra.-one-1080p-2011/Ra.One%201080p%202011.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3013,7 +2934,7 @@
   {
     "name": "Race 1 (2008)",
     "url": "https://ia800806.us.archive.org/11/items/race-1080p-2008/Race%201080p%202008.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3022,7 +2943,7 @@
   {
     "name": "Race 2 (2013)",
     "url": "https://ia600607.us.archive.org/35/items/race-2-1080p-2013/Race%202%201080p%202013.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3031,7 +2952,7 @@
   {
     "name": "Race 3 (2018)",
     "url": "https://ia803204.us.archive.org/10/items/race-3-1080p-2018_202601/Race%203%201080p%202018.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3040,7 +2961,7 @@
   {
     "name": "Radhe Your Most Wanted Bhai (2021)",
     "url": "https://ia800409.us.archive.org/3/items/radhe-your-most-wanted-bhai-4-k-2021/Radhe%20Your%20Most%20Wanted%20Bhai%204K%202021.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3049,7 +2970,7 @@
   {
     "name": "Raees (2017)",
     "url": "https://ia803206.us.archive.org/27/items/raees-1080p-2017/Raees%201080p%202017.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3058,7 +2979,7 @@
   {
     "name": "Ready (2011)",
     "url": "https://ia600709.us.archive.org/4/items/murder-2-1080p-2011/Ready%201080p%202011.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3067,7 +2988,7 @@
   {
     "name": "Resident Evil (2026)",
     "url": "https://archive.org/serve/sijjhub-media-1423191-1794432939/Resident_Evil_2026_1080p_1423191.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3076,7 +2997,7 @@
   {
     "name": "Robot 1 (2010)",
     "url": "https://ia803103.us.archive.org/18/items/robot-1080p-2010/Robot%201080p%202010.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3085,7 +3006,7 @@
   {
     "name": "Robot 2 (2018)",
     "url": "https://ia800401.us.archive.org/17/items/robot-2.0-1080p-2018/Robot%202.0%201080p%202018.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3094,7 +3015,7 @@
   {
     "name": "Rockstar (2011)",
     "url": "https://ia800709.us.archive.org/4/items/murder-2-1080p-2011/Rockstar%201080p%202011.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3103,7 +3024,7 @@
   {
     "name": "Rowdy Rathore (2012)",
     "url": "https://ia801008.us.archive.org/7/items/rowdy-rathore.-2012.-hindi.-1080p.-blu-ray.x-264.-dts-hdma.-5.1.-.-hon-3y-hd/Rowdy%20Rathore.%282012%29.Hindi.1080p.Blu-Ray.x264.DTS-HDMA.5.1.-.Hon3yHD.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3112,7 +3033,7 @@
   {
     "name": "RRR (2022)",
     "url": "https://archive.org/download/rrr-2022-nf-south-hindi-dubbed-full-movie-hevc-1080p-10bit/RRR%20%282022%29%20NF%20South%20Hindi%20Dubbed%20Full%20Movie%20HEVC%201080p%2010bit.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3121,7 +3042,7 @@
   {
     "name": "Rudraksh (2004)",
     "url": "https://ia600505.us.archive.org/34/items/rudraksh-1080p-2004/Rudraksh%201080p%202004-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3130,7 +3051,7 @@
   {
     "name": "Saheb Biwi Aur Gangster 2 (2013)",
     "url": "https://archive.org/serve/online-saheb-biwi-aur-gangster-returns-2013-watch/Online%20Saheb%20Biwi%20Aur%20Gangster%20Returns%20%282013%29%20Watch.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3139,7 +3060,7 @@
   {
     "name": "Saiyaara (2025)",
     "url": "https://hgc0uswxhnn8.acek-cdn.com/hls2/01/06314/rfdgrwgcv4bz_,l,n,.urlset/master.m3u8?t=aPQ8fdVCZYPqDy6uGy9mmerAZFjjGraGBMYE-EwkOic&s=1794072946&e=129600&f=31571420&srv=0g7xgsanrz08&i=0.4&sp=500&p1=0g7xgsanrz08&p2=0g7xgsanrz08&asn=55836",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3148,7 +3069,7 @@
   {
     "name": "Sanam Teri Kasam (2009)",
     "url": "https://ia800807.us.archive.org/17/items/sanam-teri-kasam-1080p-2009_202602/Sanam%20Teri%20Kasam%201080p%202009.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3157,7 +3078,7 @@
   {
     "name": "Sanam Teri Kasam (2016)",
     "url": "https://ia600905.us.archive.org/21/items/sanam-teri-kasam-4k-2016/Sanam%20Teri%20Kasam%204k%202016.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3166,7 +3087,7 @@
   {
     "name": "Sarkar  (2018)",
     "url": "https://s2.streamflixserver.site/movies/2018/sarkar.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3175,7 +3096,7 @@
   {
     "name": "Sarkar (2018)",
     "url": "https://ia600500.us.archive.org/28/items/sarkar-hindi-2k/Sarkar%20%28%20Hindi%202k%20%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3184,7 +3105,7 @@
   {
     "name": "Shaitaan (2024)",
     "url": "https://ia803109.us.archive.org/24/items/shaitaan-1080p-2024/Shaitaan%201080p%202024.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3193,7 +3114,7 @@
   {
     "name": "Singh is Bliing (2015)",
     "url": "https://ia803105.us.archive.org/24/items/singh-is-bliing-2015-full-movie-webhd-1080-p/Singh%20is%20Bliing%20%20%282015%29%20Full%20Movie%20Webhd%201080P.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3202,7 +3123,7 @@
   {
     "name": "Singh Is Kinng (2008)",
     "url": "https://ia801003.us.archive.org/4/items/singh-is-kinng-2008-1080p.-hybrid.-amzn.-web-dl.-h-264.-dd-5.1.-naps/Singh%20Is%20Kinng%20%282008%29%201080p.Hybrid.AMZN.WEB-DL.H264.DD5.1.Naps.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3211,7 +3132,7 @@
   {
     "name": "Singham (2011)",
     "url": "https://ia802800.us.archive.org/20/items/singham-2011-hindi-1080-p-nf-web-dl-h-264-ddp-5.1-esub/Singham%20%282011%29%20HINDI%201080P%20NF%20WEB-DL%20H264%20DDP5.1%20ESUB.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3220,7 +3141,7 @@
   {
     "name": "Singham Returns (2014)",
     "url": "https://ia801007.us.archive.org/7/items/singham-returns-1080p-2014/Singham%20Returns%201080p%202014.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3229,7 +3150,7 @@
   {
     "name": "Sitaare Zameen Par (2025)",
     "url": "https://ia800105.us.archive.org/6/items/sitaare-zameen-par-4k-2025-2160p/Sitaare%20Zameen%20Par%204k%202025-2160p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3238,7 +3159,7 @@
   {
     "name": "Sivaji: The Boss (2007)",
     "url": "https://archive.org/serve/sivaji-the-boss-2007-un-cut-hindi-blu-ray-720p/Sivaji%20The%20Boss%20%282007%29%20UnCut%20Hindi%20BluRay%20720p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3247,7 +3168,7 @@
   {
     "name": "Son of Sardaar 1 (2012)",
     "url": "https://s1.streamflixserver.site/movies/2012/SonofSardaar.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3256,7 +3177,7 @@
   {
     "name": "Son of Sardaar 2 (2025)",
     "url": "https://s2.streamflixserver.site/movies/2025/SonofSardaar2.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3265,13 +3186,13 @@
   {
     "name": "Spirited Away (2001)",
     "url": "https://ia601606.us.archive.org/13/items/spirited-away-2001-dual-audio-hindi-japanese-1080-p-hevc/Spirited%20Away%202001%20Dual%20Audio%20Hindi%20Japanese%201080P%20Hevc.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline"
   },
   {
     "name": "Taarzan: The Wonder Car (2004)",
     "url": "https://ia801607.us.archive.org/31/items/taarzan-the-wonder-car-1080p-2004/Taarzan%20The%20Wonder%20Car%201080p%202004.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3280,7 +3201,7 @@
   {
     "name": "Table No. 21 (2013)",
     "url": "https://ia803104.us.archive.org/2/items/table-no.-21-1080p-2013/Table%20No.%2021%201080p%202013.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3289,7 +3210,7 @@
   {
     "name": "Temper 2 (2019)",
     "url": "https://archive.org/serve/temper-2-kanthaswamy-2019-new-hindi-dubbed-movie-vikram-shriya-saran-ashish-vidyarthi-480-p/Temper%202%20%28Kanthaswamy%29%202019%20New%20Hindi%20Dubbed%20Movie%20_%20Vikram_%20Shriya%20Saran_%20Ashish%20Vidyarthi%28480P%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3298,7 +3219,7 @@
   {
     "name": "Tere Ishk Mein (2025)",
     "url": "https://s2.streamflixserver.site/movies/2025/tereishqmai.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3307,7 +3228,7 @@
   {
     "name": "Tere Naam (2003)",
     "url": "https://ia903206.us.archive.org/14/items/tere-naam-2003-full-webhd-1440-p-hindi-movie-4-k/Tere%20Naam%20%282003%29%20FULL%20%20WEBHD%201440P%20Hindi%20Movie%20%284K%29.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3316,7 +3237,7 @@
   {
     "name": "The Donkey King (2018)",
     "url": "https://archive.org/serve/sijjhub-media-3564840173-1794650512/The_Donkey_King_2018_480p_3564840173.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3325,7 +3246,7 @@
   {
     "name": "THE KERALA STORY (2023)",
     "url": "https://dn721605.ca.archive.org/0/items/the.-kerala.-story.-2023.1080p.-zee-5.-webdl/The.Kerala.Story.2023.1080p.Zee5.%20WEBDL.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3334,7 +3255,7 @@
   {
     "name": "Tiger 3 (2023)",
     "url": "https://archive.org/download/tiger3-c1e4825a/islenmis_Tiger3.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3343,7 +3264,7 @@
   {
     "name": "Tiger Zinda Hai (2017)",
     "url": "https://s2.streamflixserver.site/movies/2017/tigerzindahai.mkv",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3352,7 +3273,7 @@
   {
     "name": "Tubelight (2017)",
     "url": "https://ia600608.us.archive.org/11/items/tubelight-1080p-2017/Tubelight%201080p%202017.ia.mp4?cnt=0",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3361,7 +3282,7 @@
   {
     "name": "Veer Zaara (2004)",
     "url": "https://ia803206.us.archive.org/4/items/veer-zaara-1080p-2004/Veer%20Zaara%201080p%202004.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3370,7 +3291,7 @@
   {
     "name": "Vicky Vidya Ka Woh Wala Video (2024)",
     "url": "https://ia800702.us.archive.org/6/items/vicky-vidya-ka-woh-wala-video-4k-2024-2160p/Vicky%20Vidya%20Ka%20Woh%20Wala%20Video%204k%202024-2160p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3379,7 +3300,7 @@
   {
     "name": "Wanted (2009)",
     "url": "https://ia801405.us.archive.org/6/items/wanted-2009-full-movie-in-4k-salman-khan-ayesha-takia-prakash-raj-mahesh-manjrekar-720-p-hd/Wanted%202009%20Full%20Movie%20in%204k%20_%20Salman%20Khan_%20Ayesha%20Takia_%20Prakash%20Raj_%20Mahesh%20Manjrekar%20_%28720P_HD%29.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3388,7 +3309,7 @@
   {
     "name": "WAR 1 (2019)",
     "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%201080p%202019.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3397,7 +3318,7 @@
   {
     "name": "WAR 1 (2019)",
     "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%201080p%202019.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3406,7 +3327,7 @@
   {
     "name": "WAR 2 (2025)",
     "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%202%204K%202025.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3415,7 +3336,7 @@
   {
     "name": "WAR 2 (2025)",
     "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%202%204K%202025.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3424,7 +3345,7 @@
   {
     "name": "Welcome (2007)",
     "url": "https://ia802807.us.archive.org/7/items/welcome-1080p-2007/Welcome%201080p%202007-1080p.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3433,7 +3354,7 @@
   {
     "name": "Welcome 2 Karachi (2015)",
     "url": "https://ia600800.us.archive.org/11/items/welcome-2-karachi-1080p-2015/Welcome%202%20Karachi%201080p%202015.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3442,7 +3363,7 @@
   {
     "name": "Yaariyan (2014)",
     "url": "https://mapleandmoss.space/pl/H4sIAAAAAAAAAwXBy3KCMBQA0F.6PKJtZ1xUhUyhBAjJRbMDQmgh0IxDq_j1PafZg__StmCIMdD2xgTeDgD6sDOaeMS89ctApOd.1US.EAY_lz.hmOKougyBPie2WVB0NPEVOsalPiqKgi9x1o82RItbT.Osu7hSCy6qyF6apfNUpE7N.H5n1LOVLP0UHt_tebh9.gnkMt401aduXou85gRl.GQLFiXE2CKinlUuaHarxRCK0daKfoDy15Wfuzuf2a4X16Aaj39qej21T_3gwm4NOMZkzBogTnk6TcFtV.tcXhNkE1NFeTj8A6n.7MQJAQAA/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzk0Mzg5MTM4LCJuYmYiOjE3OTQzODkxMzgsImV4cCI6MTc5NDQwMzUzOCwiaXBfY2lkciI6IjI0MDk6NDBkMjo1YzpiMDMwOjovNjQifQ.UVj7779azaLoiSOqt_OM2igIcM347lSgN_UivRPYESM",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -3451,11 +3372,99 @@
   {
     "name": "Yeh Jawaani Hai Deewani (2013)",
     "url": "https://ia902806.us.archive.org/29/items/yeh-jawaani-hai-deewani-1080p-2013/Yeh%20Jawaani%20Hai%20Deewani%201080p%202013.ia.mp4",
-    "category": "NEW MOVIE'S BELLOW 2026",
+    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
     "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Gunmaaster G9 (2026)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 1
+  },
+  {
+    "name": "KING (2026)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 2
+  },
+  {
+    "name": "Maatrubhumi (2026)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 3
+  },
+  {
+    "name": "Eetha (2026)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 4
+  },
+  {
+    "name": "Love & War (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "pinOrder": 5
+  },
+  {
+    "name": "Golmaal 5 (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "pinOrder": 6
+  },
+  {
+    "name": "Hero Ki Horrorine (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "pinOrder": 7
+  },
+  {
+    "name": "Cosmic Samson (2026)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dada - The Sourav Ganguly Story (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline"
+  },
+  {
+    "name": "GABRU (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline"
+  },
+  {
+    "name": "Shakti Shalini (2027)",
+    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
+    "category": "UP COMING MOVIE'S 2026-27",
+    "streamType": "offline"
   },
   {
     "name": "13 B Fear Has A New Address (2009)",
