@@ -1735,15 +1735,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "DON 1 (2006)",
-    "url": "https://ia800109.us.archive.org/5/items/don-2-1080p-2011/Don%201080p%202006.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Dunki (2023)",
     "url": "https://ia903107.us.archive.org/29/items/dunki-1080p-2023/Dunki%201080p%202023.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -1843,15 +1834,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "JAANI DUSHMAN (2002)",
-    "url": "https://dn710607.ca.archive.org/0/items/jaani-dushman-ek-anokhi-kahani.-2002.-untouched-dvd-9.-ntsc.-video-sound/Jaani%20Dushman-Ek%20Anokhi%20Kahani.2002.Untouched%20DVD9.NTSC.Video%20Sound.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Jai Ho (2014)",
     "url": "https://ia600700.us.archive.org/11/items/jai-ho-1080p-2014/Jai%20Ho%201080p%202014.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -1872,15 +1854,6 @@
   {
     "name": "Joru Ka Ghulam (2000)",
     "url": "https://ia801808.us.archive.org/14/items/joru-ka-ghulam-2000-webhd-1080-p-dus-ic-tv/Joru%20Ka%20Ghulam%20%282000%29%20WEBHD%201080P%20DusIcTv.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Judwaa 2 (2017)",
-    "url": "https://ia800702.us.archive.org/34/items/judwaa-2-1080p-2017/Judwaa%202%201080p%202017.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2002,33 +1975,6 @@
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Kya Kool Hain Hum 3 (2016)",
-    "url": "https://archive.org/serve/kya-kool-hain-hum-3-full-movie-comedy-bollywood-movie-hd-tusshar-kapoor-aftab-shivdasani-480-p/Kya%20Kool%20Hain%20Hum%203%20Full%20Movie%20_%20Comedy%20Bollywood%20Movie%20HD%20_%20Tusshar%20Kapoor%20_%20Aftab%20Shivdasani%28480P%29.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "KYAA KOOL HAIN HUM 1 (2005)",
-    "url": "https://archive.org/serve/kyaa-kool-hain-hum-2005-dvd-9-v.-one-entertainment-ntsc_202608/Kyaa%20Kool%20Hain%20Hum%20%282005%29%201080p%2010bit%20AMZN%20WEBRip%20x265%20HEVC%20Hindi%20DDP%202.0%20ESub%20OlaM.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "KYAA KOOL HAIN HUM 2 (2012)",
-    "url": "https://archive.org/serve/kyaa-super-kool-hain-hum-2012-hd-0123414/Kyaa%20Super%20Kool%20Hain%20Hum%202012.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
     "badgeColor": "#ffffff"
   },
   {
@@ -2500,15 +2446,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Temper 2 (2019)",
-    "url": "https://archive.org/serve/temper-2-kanthaswamy-2019-new-hindi-dubbed-movie-vikram-shriya-saran-ashish-vidyarthi-480-p/Temper%202%20%28Kanthaswamy%29%202019%20New%20Hindi%20Dubbed%20Movie%20_%20Vikram_%20Shriya%20Saran_%20Ashish%20Vidyarthi%28480P%29.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Tere Ishk Mein (2025)",
     "url": "https://s2.streamflixserver.site/movies/2025/tereishqmai.mkv",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2723,30 +2660,6 @@
     "streamType": "offline"
   },
   {
-    "name": "1920 (2008)",
-    "url": "https://ia903108.us.archive.org/24/items/1920-2008/1920%202008.ia.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "1920 evil returns (2012)",
-    "url": "https://dn721608.ca.archive.org/0/items/1920-evil-returns-2012/1920%20Evil%20Returns%20%282012%29.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "1920 Horrors Of The Heart (2023)",
-    "url": "https://ia800701.us.archive.org/30/items/1920-horrors-of-the-heart-1080p-2023/1920%20Horrors%20of%20the%20Heart%201080p%202023.ia.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "1920 London (2016)",
-    "url": "https://dn710004.ca.archive.org/0/items/cc-1920-london-2016-720p-dvdrip-cinema-company/%40CC%201920%20London%202016%20720p%20DVDRip%20%40cinema_company.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
     "name": "1921 (2018)",
     "url": "https://ia802807.us.archive.org/9/items/1921-1080p-2018/1921%201080p%202018.ia.mp4?cnt=0",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
@@ -2891,33 +2804,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Housefull 3 (2016)",
-    "url": "https://ia601003.us.archive.org/15/items/housefull-3-1080p-2016_202602/Housefull%203%201080p%202016.ia.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Housefull 4 (2019)",
-    "url": "https://ia801402.us.archive.org/30/items/housefull-4-1080p-2019_202602/Housefull%204%201080p%202019.ia.mp4?cnt=0",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Housefull 5 (2025)",
-    "url": "https://archive.org/download/sijjhub-media-4445311317-1794734469/Housefull_5_Bollywood_Hindi_Movie_2025_480p_4445311317.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Jaani Dushman (1979)",
     "url": "https://dn601201.us.archive.org/0/items/jaani-dushman-1979-hindi-dv-drip.-480p.-x-264-ac-3-5.1.-arabic.-e.subs.-hon-3y.-by.juleyano/Jaani%20Dushman%201979%20Hindi%20DvDRip.480p.%20x264%20AC3%205.1.Arabic.E.subs.Hon3y.BY.juleyano.mp4?cnt=0",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
@@ -2936,42 +2822,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Kanchana 1 (2011)",
-    "url": "https://archive.org/serve/raghava-lawrence-horror-hindi-dubbed-movie-kanchana-r.-sarathkumar-480-p/Raghava%20Lawrence%20Horror%20Hindi%20Dubbed%20Movie%20_%20Kanchana%20%28%E0%A4%95%E0%A4%82%E0%A4%9A%E0%A4%A8%E0%A4%BE%29%20_%20R.%20Sarathkumar%28480P%29.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Kanchana 2 (2015)",
-    "url": "https://archive.org/serve/online-kanchana-2-2015-watch/Online%20Kanchana%202%20%282015%29%20Watch.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana 3 (2019)",
-    "url": "https://archive.org/serve/online-kaali-ka-karishma-kanchana-3-2019-watch/Online%20Kaali%20Ka%20Karishma%20%28Kanchana%203%202019%29%20Watch.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana 4 (2020)",
-    "url": "https://archive.org/serve/online-kanchana-4-raju-gari-gadhi-3-2020-watch/Online%20Kanchana%204%20%28Raju%20Gari%20Gadhi%203%202020%29%20Watch.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "kanchana Returns (2017)",
-    "url": "https://archive.org/serve/online-kanchana-returns-2017-2015-watch/Online%20Kanchana%20Returns%20%282017%29%20%20%282015%29%20Watch.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Kanchana The Wonder Car (2017)",
-    "url": "https://archive.org/serve/online-kanchana-the-wonder-car-2017-watch/Online%20Kanchana%20The%20Wonder%20Car%20%282017%29%20Watch.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
     "name": "Kishkindhapuri (2025)",
     "url": "https://s1.streamflixserver.site/movies/2025/Kishkindhapuri.mkv",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
@@ -2986,18 +2836,6 @@
   {
     "name": "Mahakaal (1994)",
     "url": "https://ia803202.us.archive.org/24/items/mahakaal.-1994_202601/Mahakaal.1994.ia.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Muni Kanchana 1 (2007)",
-    "url": "add link",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Muni Kanchana 1 (2007)",
-    "url": "https://archive.org/serve/muni-kanchana-1-2026-south-indian-full-horror-movie-in-hindi-me-raghava-lawrence/Muni_%20Kanchana-1-2026%20South%20Indian%20full%20Horror%20Movie%20In%20Hindi%20Me%20_%20Raghava%20Lawrence_%20Vedhika_%20Rajkiran%28480P%29.mp4",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
     "streamType": "offline"
   },
@@ -3266,12 +3104,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Dream Girl 1 (1977)",
-    "url": "https://ia800606.us.archive.org/35/items/dream-girl-1080p-1977/Dream%20Girl%201080p%201977.ia.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
     "name": "Dulhan Hum Le Jayenge (2000)",
     "url": "https://ia903203.us.archive.org/19/items/dulhan-hum-le-jayenge-1080p-2000/Dulhan%20Hum%20Le%20Jayenge%201080p%202000.ia.mp4?cnt=0",
     "category": "90'S पुरानी फिल्में <--",
@@ -3374,12 +3206,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Judwaa (1997)",
-    "url": "https://ia903209.us.archive.org/22/items/judwaa-1997-720p-hindi-org-web-dl/Judwaa%20%281997%29%20720p%20Hindi%20ORG%20WEB%20DL.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
     "name": "Junoon (1992)",
     "url": "https://archive.org/serve/junoon-1992-web-rip-1080p-hindi-dd-2.0-x-264/Junoon%201992%20WebRip%201080p%20Hindi%20DD%202.0%20x264.mp4",
     "category": "90'S पुरानी फिल्में <--",
@@ -3452,18 +3278,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Mard (1985)",
-    "url": "https://ia802805.us.archive.org/8/items/mard-1080p-1985/Mard%201080p%201985.ia.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
-    "name": "Mard (1998)",
-    "url": "https://ia801906.us.archive.org/18/items/mard-1080p-1998/Mard%201080p%201998.ia.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
     "name": "Mohra (1994)",
     "url": "https://ia903104.us.archive.org/1/items/mohra-1080p-1994_202602/Mohra%201080p%201994.ia.mp4",
     "category": "90'S पुरानी फिल्में <--",
@@ -3484,24 +3298,6 @@
   {
     "name": "Naaka Bandi (1990)",
     "url": "https://ia600404.us.archive.org/0/items/naaka-bandi-1080p-1990/Naaka%20Bandi%201080p%201990.ia.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
-    "name": "Nagin (1976)",
-    "url": "https://ia600102.us.archive.org/22/items/nagin-1080p-1976_202609/Nagin%201080p%201976.ia.mp4",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
-    "name": "Nagin (1976)",
-    "url": "https://ia600109.us.archive.org/9/items/nagin-1976-1080-p-amzn-web-dl-avc-ddp-2.0/Nagin%20%281976%29%201080P%20AMZN%20WEB%20DL%20AVC%20DDP%202.0.mp4?cnt=0",
-    "category": "90'S पुरानी फिल्में <--",
-    "streamType": "offline"
-  },
-  {
-    "name": "Nagina (1986)",
-    "url": "https://ia800805.us.archive.org/8/items/nagina-1986-1080-p-avc-hybrid-amzn-web-dl-dd-5.1-esub/Nagina%20%281986%29%201080P%20AVC%20Hybrid%20AMZN%20WEB-DL%20DD%205.1%20ESub.mp4",
     "category": "90'S पुरानी फिल्में <--",
     "streamType": "offline"
   },
@@ -3794,18 +3590,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Jumanji: The Next Level (2019)",
-    "url": "https://archive.org/serve/sijjhub-media-8310290292-1794717586/Jumanji_The_Next_Level_2019_480p_8310290292.ia.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
-    "name": "Jumanji: Welcome to the Jungle (2017)",
-    "url": "https://archive.org/serve/online-jumanji-welcome-to-the-jungle-2017-watch/Online%20Jumanji%20Welcome%20to%20the%20Jungle%20%282017%29%20Watch.mp4",
-    "category": "HOLLYWOOD MOVIES",
-    "streamType": "offline"
-  },
-  {
     "name": "Justice League (2017)",
     "url": "https://archive.org/serve/justice-league-2017_202611/Justice%20League%202017.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -3996,51 +3780,6 @@
     "url": "https://lizer123.site/getm3u8/9N1YR6KL",
     "category": "KOREAN MOVIES <--",
     "streamType": "offline"
-  },
-  {
-    "name": "Frozen I (2013)",
-    "url": "https://s1.streamflixserver.site/movies/2013/frozen.mkv",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline",
-    "badge": "CARTOON",
-    "badgeBg": "#facc15",
-    "badgeColor": "#1a1000"
-  },
-  {
-    "name": "Frozen II (2019)",
-    "url": "https://s2.streamflixserver.site/movies/2019/frzn2.mkv",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline",
-    "badge": "CARTOON",
-    "badgeBg": "#facc15",
-    "badgeColor": "#1a1000"
-  },
-  {
-    "name": "Tangled (2010)",
-    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline",
-    "badge": "CARTOON",
-    "badgeBg": "#facc15",
-    "badgeColor": "#1a1000"
-  },
-  {
-    "name": "Tangled (2012) Ever After",
-    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline",
-    "badge": "CARTOON",
-    "badgeBg": "#facc15",
-    "badgeColor": "#1a1000"
-  },
-  {
-    "name": "Tangled (2017) Before Ever After",
-    "url": "https://archive.org/serve/tangled-before-ever-after_202611/Tangled_%20Before%20Ever%20After.mp4",
-    "category": "DISNEY CARTOON MOVIES",
-    "streamType": "offline",
-    "badge": "CARTOON",
-    "badgeBg": "#facc15",
-    "badgeColor": "#1a1000"
   },
   {
     "name": "The Lion King (1994)",
@@ -8309,9 +8048,15 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Dream Girl 1 (1977)",
+    "url": "https://ia800606.us.archive.org/35/items/dream-girl-1080p-1977/Dream%20Girl%201080p%201977.ia.mp4",
+    "category": "DREAM GIRL 1977 TO 2023",
+    "streamType": "offline"
+  },
+  {
     "name": "Dream Girl 1 (2019)",
     "url": "https://ia600101.us.archive.org/14/items/dream.-girl-2019-1080p-zee-5-web-dl-avc-ddp-5.1-esub-dus-ic-tv/Dream.Girl%20%282019%29%201080p%20ZEE5%20WEB-DL%20AVC%20DDP%205.1%20ESub-DusIcTv.mp4",
-    "category": "DREAM GIRL 2019 TO 2023",
+    "category": "DREAM GIRL 1977 TO 2023",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#5b687c",
@@ -8320,7 +8065,7 @@
   {
     "name": "Dream Girl 2 (2023)",
     "url": "https://ia601003.us.archive.org/13/items/dream-girl-2-1080p-2023/Dream%20Girl%202%201080p%202023.ia.mp4",
-    "category": "DREAM GIRL 2019 TO 2023",
+    "category": "DREAM GIRL 1977 TO 2023",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
@@ -8383,6 +8128,33 @@
   {
     "name": "Housefull 2 (2012)",
     "url": "https://ia601008.us.archive.org/1/items/housefull-2-1080p-2012/Housefull%202%201080p%202012.ia.mp4?cnt=0",
+    "category": "HOUSEFULL 2010 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Housefull 3 (2016)",
+    "url": "https://ia601003.us.archive.org/15/items/housefull-3-1080p-2016_202602/Housefull%203%201080p%202016.ia.mp4",
+    "category": "HOUSEFULL 2010 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Housefull 4 (2019)",
+    "url": "https://ia801402.us.archive.org/30/items/housefull-4-1080p-2019_202602/Housefull%204%201080p%202019.ia.mp4?cnt=0",
+    "category": "HOUSEFULL 2010 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Housefull 5 (2025)",
+    "url": "https://archive.org/download/sijjhub-media-4445311317-1794734469/Housefull_5_Bollywood_Hindi_Movie_2025_480p_4445311317.mp4",
     "category": "HOUSEFULL 2010 TO 2025",
     "streamType": "offline",
     "badge": "OLD",
@@ -8836,5 +8608,230 @@
     "badge": "OLD",
     "badgeBg": "#5b687c",
     "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Judwaa 1 (1997)",
+    "url": "https://ia903209.us.archive.org/22/items/judwaa-1997-720p-hindi-org-web-dl/Judwaa%20%281997%29%20720p%20Hindi%20ORG%20WEB%20DL.mp4",
+    "category": "JUDWAA 1997 TO 2017",
+    "streamType": "offline"
+  },
+  {
+    "name": "Judwaa 2 (2017)",
+    "url": "https://ia800702.us.archive.org/34/items/judwaa-2-1080p-2017/Judwaa%202%201080p%202017.ia.mp4",
+    "category": "JUDWAA 1997 TO 2017",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "JAANI DUSHMAN (2002)",
+    "url": "https://dn710607.ca.archive.org/0/items/jaani-dushman-ek-anokhi-kahani.-2002.-untouched-dvd-9.-ntsc.-video-sound/Jaani%20Dushman-Ek%20Anokhi%20Kahani.2002.Untouched%20DVD9.NTSC.Video%20Sound.mp4",
+    "category": "NAGIN 1976 TO 2002",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Nagin (1976)",
+    "url": "https://ia600102.us.archive.org/22/items/nagin-1080p-1976_202609/Nagin%201080p%201976.ia.mp4",
+    "category": "NAGIN 1976 TO 2002",
+    "streamType": "offline"
+  },
+  {
+    "name": "Nagin (1976)",
+    "url": "https://ia600109.us.archive.org/9/items/nagin-1976-1080-p-amzn-web-dl-avc-ddp-2.0/Nagin%20%281976%29%201080P%20AMZN%20WEB%20DL%20AVC%20DDP%202.0.mp4?cnt=0",
+    "category": "NAGIN 1976 TO 2002",
+    "streamType": "offline"
+  },
+  {
+    "name": "Nagina (1986)",
+    "url": "https://ia800805.us.archive.org/8/items/nagina-1986-1080-p-avc-hybrid-amzn-web-dl-dd-5.1-esub/Nagina%20%281986%29%201080P%20AVC%20Hybrid%20AMZN%20WEB-DL%20DD%205.1%20ESub.mp4",
+    "category": "NAGIN 1976 TO 2002",
+    "streamType": "offline"
+  },
+  {
+    "name": "Mard 1 (1985)",
+    "url": "https://ia802805.us.archive.org/8/items/mard-1080p-1985/Mard%201080p%201985.ia.mp4",
+    "category": "MARD 1985 TO 1998",
+    "streamType": "offline"
+  },
+  {
+    "name": "Mard 2 (1998)",
+    "url": "https://ia801906.us.archive.org/18/items/mard-1080p-1998/Mard%201080p%201998.ia.mp4",
+    "category": "MARD 1985 TO 1998",
+    "streamType": "offline"
+  },
+  {
+    "name": "Frozen I (2013)",
+    "url": "https://s1.streamflixserver.site/movies/2013/frozen.mkv",
+    "category": "FROZEN 2013 TO 2019",
+    "streamType": "offline",
+    "badge": "CARTOON",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Frozen II (2019)",
+    "url": "https://s2.streamflixserver.site/movies/2019/frzn2.mkv",
+    "category": "FROZEN 2013 TO 2019",
+    "streamType": "offline",
+    "badge": "CARTOON",
+    "badgeBg": "#facc15",
+    "badgeColor": "#1a1000"
+  },
+  {
+    "name": "Tangled (2010)",
+    "url": "https://archive.org/serve/tangled-2010-hindi_202611/Tangled%202010%20Hindi.mp4",
+    "category": "TANGLED 2010 TO 2017",
+    "streamType": "offline",
+    "badge": "CARTOON",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Tangled (2012) Ever After",
+    "url": "https://archive.org/download/viva-cut-video-1794893803944-hd/VivaCut_video_1794893803944_HD.mp4",
+    "category": "TANGLED 2010 TO 2017",
+    "streamType": "offline",
+    "badge": "CARTOON",
+    "badgeBg": "#facc15",
+    "badgeColor": "#1a1000"
+  },
+  {
+    "name": "Tangled (2017) Before Ever After",
+    "url": "https://archive.org/serve/tangled-before-ever-after_202611/Tangled_%20Before%20Ever%20After.mp4",
+    "category": "TANGLED 2010 TO 2017",
+    "streamType": "offline",
+    "badge": "CARTOON",
+    "badgeBg": "#facc15",
+    "badgeColor": "#1a1000"
+  },
+  {
+    "name": "Jumanji: The Next Level (2019)",
+    "url": "https://archive.org/serve/sijjhub-media-8310290292-1794717586/Jumanji_The_Next_Level_2019_480p_8310290292.ia.mp4",
+    "category": "JUMAN-JI 2017 TO 2019",
+    "streamType": "offline"
+  },
+  {
+    "name": "Jumanji: Welcome to the Jungle (2017)",
+    "url": "https://archive.org/serve/online-jumanji-welcome-to-the-jungle-2017-watch/Online%20Jumanji%20Welcome%20to%20the%20Jungle%20%282017%29%20Watch.mp4",
+    "category": "JUMAN-JI 2017 TO 2019",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kya Kool Hain Hum 3 (2016)",
+    "url": "https://archive.org/serve/kya-kool-hain-hum-3-full-movie-comedy-bollywood-movie-hd-tusshar-kapoor-aftab-shivdasani-480-p/Kya%20Kool%20Hain%20Hum%203%20Full%20Movie%20_%20Comedy%20Bollywood%20Movie%20HD%20_%20Tusshar%20Kapoor%20_%20Aftab%20Shivdasani%28480P%29.mp4",
+    "category": "KYAA KOOL HAIN HUM 2005 TO 2016",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "KYAA KOOL HAIN HUM 1 (2005)",
+    "url": "https://archive.org/serve/kyaa-kool-hain-hum-2005-dvd-9-v.-one-entertainment-ntsc_202608/Kyaa%20Kool%20Hain%20Hum%20%282005%29%201080p%2010bit%20AMZN%20WEBRip%20x265%20HEVC%20Hindi%20DDP%202.0%20ESub%20OlaM.mp4",
+    "category": "KYAA KOOL HAIN HUM 2005 TO 2016",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "KYAA KOOL HAIN HUM 2 (2012)",
+    "url": "https://archive.org/serve/kyaa-super-kool-hain-hum-2012-hd-0123414/Kyaa%20Super%20Kool%20Hain%20Hum%202012.mp4",
+    "category": "KYAA KOOL HAIN HUM 2005 TO 2016",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Temper (2015)",
+    "url": "https://mediad.ultrashow.club/movies/a06bb4a3c837/master.m3u8?e=1795801515&st=04OZx8e2qMoz0GiHz05-aw",
+    "category": "TEMPER 2015 TO 2019",
+    "streamType": "offline"
+  },
+  {
+    "name": "Temper 2 (2019)",
+    "url": "https://archive.org/serve/temper-2-kanthaswamy-2019-new-hindi-dubbed-movie-vikram-shriya-saran-ashish-vidyarthi-480-p/Temper%202%20%28Kanthaswamy%29%202019%20New%20Hindi%20Dubbed%20Movie%20_%20Vikram_%20Shriya%20Saran_%20Ashish%20Vidyarthi%28480P%29.mp4",
+    "category": "TEMPER 2015 TO 2019",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "1920 (2008)",
+    "url": "https://ia903108.us.archive.org/24/items/1920-2008/1920%202008.ia.mp4",
+    "category": "1920 : 2008 TO 2018",
+    "streamType": "offline"
+  },
+  {
+    "name": "1920 evil returns (2012)",
+    "url": "https://dn721608.ca.archive.org/0/items/1920-evil-returns-2012/1920%20Evil%20Returns%20%282012%29.mp4",
+    "category": "1920 : 2008 TO 2018",
+    "streamType": "offline"
+  },
+  {
+    "name": "1920 Horrors Of The Heart (2023)",
+    "url": "https://ia800701.us.archive.org/30/items/1920-horrors-of-the-heart-1080p-2023/1920%20Horrors%20of%20the%20Heart%201080p%202023.ia.mp4",
+    "category": "1920 : 2008 TO 2018",
+    "streamType": "offline"
+  },
+  {
+    "name": "1920 London (2016)",
+    "url": "https://dn710004.ca.archive.org/0/items/cc-1920-london-2016-720p-dvdrip-cinema-company/%40CC%201920%20London%202016%20720p%20DVDRip%20%40cinema_company.mp4",
+    "category": "1920 : 2008 TO 2018",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kanchana 1 (2011)",
+    "url": "https://archive.org/serve/raghava-lawrence-horror-hindi-dubbed-movie-kanchana-r.-sarathkumar-480-p/Raghava%20Lawrence%20Horror%20Hindi%20Dubbed%20Movie%20_%20Kanchana%20%28%E0%A4%95%E0%A4%82%E0%A4%9A%E0%A4%A8%E0%A4%BE%29%20_%20R.%20Sarathkumar%28480P%29.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kanchana 2 (2015)",
+    "url": "https://archive.org/serve/online-kanchana-2-2015-watch/Online%20Kanchana%202%20%282015%29%20Watch.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana 3 (2019)",
+    "url": "https://archive.org/serve/online-kaali-ka-karishma-kanchana-3-2019-watch/Online%20Kaali%20Ka%20Karishma%20%28Kanchana%203%202019%29%20Watch.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana 4 (2020)",
+    "url": "https://archive.org/serve/online-kanchana-4-raju-gari-gadhi-3-2020-watch/Online%20Kanchana%204%20%28Raju%20Gari%20Gadhi%203%202020%29%20Watch.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "kanchana Returns (2017)",
+    "url": "https://archive.org/serve/online-kanchana-returns-2017-2015-watch/Online%20Kanchana%20Returns%20%282017%29%20%20%282015%29%20Watch.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "Kanchana The Wonder Car (2017)",
+    "url": "https://archive.org/serve/online-kanchana-the-wonder-car-2017-watch/Online%20Kanchana%20The%20Wonder%20Car%20%282017%29%20Watch.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "Muni Kanchana 1 (2007)",
+    "url": "add link",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
+  },
+  {
+    "name": "Muni Kanchana 1 (2007)",
+    "url": "https://archive.org/serve/muni-kanchana-1-2026-south-indian-full-horror-movie-in-hindi-me-raghava-lawrence/Muni_%20Kanchana-1-2026%20South%20Indian%20full%20Horror%20Movie%20In%20Hindi%20Me%20_%20Raghava%20Lawrence_%20Vedhika_%20Rajkiran%28480P%29.mp4",
+    "category": "KANCHANA 2011 TO 2020",
+    "streamType": "offline"
   }
 ]
