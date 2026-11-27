@@ -580,6 +580,7 @@
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
         let savedCategories = [...defaultCategories];
         let customTypeCategories = { live: [], offline: [] };
+        let latestAddedCategory = null;
 
         function getUniformBadgeColor() {
             return { bg: UNIFORM_OFFLINE_BG, color: UNIFORM_OFFLINE_FG };
@@ -1048,13 +1049,13 @@
             selFolder.innerHTML = '';
             
             const typeCats = [];
+            (customTypeCategories[selType] || []).forEach(c => {
+                if(!typeCats.includes(c)) typeCats.push(c);
+            });
             channelsArray.forEach(ch => {
                 const t = ch.streamType || 'live';
                 const c = ch.category || "UNCATEGORIZED";
                 if(t === selType && !typeCats.includes(c)) typeCats.push(c);
-            });
-            (customTypeCategories[selType] || []).forEach(c => {
-                if(!typeCats.includes(c)) typeCats.push(c);
             });
             if (selType === 'live') {
                 defaultCategories.forEach(c => {
@@ -1188,16 +1189,27 @@
             selectEl.innerHTML = '<option value="" disabled selected>SELECT OPTION</option>';
             
             const activeTypeCategories = [];
+
+            // 1. Naye banaye gaye folders sabse TOP par
+            (customTypeCategories[currentStreamType] || []).forEach(cat => {
+                if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
+            });
+
+            // 2. Saved order ke hisaab se existing folders
+            savedCategories.forEach(cat => {
+                const hasInType = channelsArray.some(ch => (ch.streamType || 'live') === currentStreamType && (ch.category || "UNCATEGORIZED") === cat);
+                if (hasInType && !activeTypeCategories.includes(cat)) {
+                    activeTypeCategories.push(cat);
+                }
+            });
+
+            // 3. Koi bacha hua folder
             channelsArray.forEach(ch => {
                 const type = ch.streamType || 'live';
                 const cat = ch.category || "UNCATEGORIZED";
                 if (type === currentStreamType && !activeTypeCategories.includes(cat)) {
                     activeTypeCategories.push(cat);
                 }
-            });
-
-            (customTypeCategories[currentStreamType] || []).forEach(cat => {
-                if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
             });
 
             if (currentStreamType === 'live') {
@@ -1208,12 +1220,30 @@
 
             activeTypeCategories.forEach(cat => {
                 const opt = document.createElement('option');
-                opt.value = cat; opt.innerText = cat;
+                opt.value = cat;
+                if (latestAddedCategory === cat) {
+                    opt.innerText = "★ " + cat + " (NEW)";
+                    opt.style.background = "#00ea77";
+                    opt.style.color = "#000000";
+                    opt.style.fontWeight = "700";
+                } else {
+                    opt.innerText = cat;
+                }
                 selectEl.appendChild(opt);
             });
             
             if (selectCat && activeTypeCategories.includes(selectCat)) {
                 selectEl.value = selectCat;
+                if (latestAddedCategory === selectCat) {
+                    selectEl.style.borderColor = "#00ea77";
+                    selectEl.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
+                } else {
+                    selectEl.style.borderColor = "";
+                    selectEl.style.boxShadow = "";
+                }
+            } else {
+                selectEl.style.borderColor = "";
+                selectEl.style.boxShadow = "";
             }
             
             if (editIndex === null && !isCustomCat) {
@@ -1222,9 +1252,17 @@
         }
 
         function handleCategoryChange() {
+            const selectEl = document.getElementById('pCat');
+            const cat = selectEl.value;
+            if (cat && latestAddedCategory === cat) {
+                selectEl.style.borderColor = "#00ea77";
+                selectEl.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
+            } else {
+                selectEl.style.borderColor = "";
+                selectEl.style.boxShadow = "";
+            }
+
             if (editIndex !== null || isCustomCat) return; 
-            
-            const cat = document.getElementById('pCat').value;
             if (!cat) return;
             
             const nameInput = document.getElementById('pName');
@@ -1277,10 +1315,14 @@
                 btnEl.classList.remove('add-mode');
 
                 if (rawCat) {
-                    if (!savedCategories.includes(rawCat)) savedCategories.push(rawCat);
-                    if (!customTypeCategories[currentStreamType].includes(rawCat)) {
-                        customTypeCategories[currentStreamType].push(rawCat);
-                    }
+                    savedCategories = savedCategories.filter(c => c !== rawCat);
+                    savedCategories.unshift(rawCat);
+
+                    customTypeCategories[currentStreamType] = (customTypeCategories[currentStreamType] || []).filter(c => c !== rawCat);
+                    customTypeCategories[currentStreamType].unshift(rawCat);
+
+                    // Sirf latest new folder hi highlight rahega, purana normal ho jayega
+                    latestAddedCategory = rawCat;
                     renderCategoryDropdown(rawCat);
                 } else {
                     handleCategoryChange();
@@ -1353,6 +1395,10 @@
                 folderDiv.className = 'category-folder';
                 folderDiv.setAttribute('draggable', 'true');
                 folderDiv.setAttribute('data-cat-name', cat);
+                if (latestAddedCategory === cat) {
+                    folderDiv.style.border = '1.5px solid #00ea77';
+                    folderDiv.style.boxShadow = '0 0 12px rgba(0, 234, 119, 0.25)';
+                }
 
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'category-header';
@@ -1509,6 +1555,9 @@
                 savedCategories.push(formattedName);
             }
             savedCategories = [...new Set(savedCategories)];
+            if (latestAddedCategory === oldName) {
+                latestAddedCategory = formattedName;
+            }
 
             renderCategoryDropdown();
             renderList();
@@ -1519,6 +1568,9 @@
 
             channelsArray = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") !== catName);
             savedCategories = savedCategories.filter(c => c !== catName);
+            if (latestAddedCategory === catName) {
+                latestAddedCategory = null;
+            }
             
             renderCategoryDropdown();
             renderList();
