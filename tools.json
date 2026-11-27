@@ -8372,16 +8372,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Awarapan 2 (2026)",
-    "url": "https://archive.org/serve/awarapan-2-hindi-1080-p_202611/Awarapan_2_%5BHindi%5D_1080P.ia.mp4",
-    "category": "AWARAPAN 2007 TO 2026",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 1
-  },
-  {
     "name": "Awarapan 1 (2007)",
     "url": "https://s3.streamflixserver.site/movies/2007/Awarapan.mkv",
     "category": "AWARAPAN 2007 TO 2026",
@@ -8389,7 +8379,16 @@
     "badge": "OLD",
     "badgeBg": "#5b687c",
     "badgeColor": "#ffffff",
-    "pinOrder": 2
+    "pinOrder": 1
+  },
+  {
+    "name": "Awarapan 2 (2026)",
+    "url": "https://s3.streamflixserver.site/movies/2026/Awarapan2.mkv",
+    "category": "AWARAPAN 2007 TO 2026",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Dhurandhar Part - 1 (2025)",
