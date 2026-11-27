@@ -4640,6 +4640,12 @@
     "streamType": "offline"
   },
   {
+    "name": "Mad Max: Fury Road (2015)",
+    "url": "https://s2.streamflixserver.site/movies/2015/madmx.mkv",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
     "name": "Maleficent 1 (2014)",
     "url": "https://archive.org/serve/maleficent-2014-hindi-dubbed-full-movie-blu-ray/Maleficent_2014_Hindi_Dubbed_Full_Movie_BluRay.ia.mp4",
     "category": "HOLLYWOOD MOVIES",
@@ -4678,6 +4684,12 @@
   {
     "name": "Oppenheimer (2026)",
     "url": "https://archive.org/download/oppenheimer-2023-imax-1080p-10bit-av-1-org-amzn-hindi-he-aac-5.1-ch-128-kbps-en-coded-by-tatai/Oppenheimer%20%282023%29%20IMAX%201080p%2010bit%20AV1%20%5BOrg%20AMZN%20Hindi%20HE-AAC%205.1%20Ch%20~%20128%20Kbps%5D%20EnCoded%20By%20Tatai.mp4",
+    "category": "HOLLYWOOD MOVIES",
+    "streamType": "offline"
+  },
+  {
+    "name": "Prey (2022)",
+    "url": "https://s3.streamflixserver.site/movies/2022/prey.mkv",
     "category": "HOLLYWOOD MOVIES",
     "streamType": "offline"
   },
@@ -8801,6 +8813,24 @@
     "name": "Final Destination 6 (2025)",
     "url": "https://archive.org/serve/f-d-6/F-D-6.mp4",
     "category": "FINAL DESTINATION ALL CHAPTER",
+    "streamType": "offline"
+  },
+  {
+    "name": "Venom (2018)",
+    "url": "https://s2.streamflixserver.site/movies/2018/venm.mkv",
+    "category": "VENOM FULL SERIES <--",
+    "streamType": "offline"
+  },
+  {
+    "name": "Venom: Let There Be Carnage (2021)",
+    "url": "https://s3.streamflixserver.site/movies/2021/venm2.mkv",
+    "category": "VENOM FULL SERIES <--",
+    "streamType": "offline"
+  },
+  {
+    "name": "Venom: The Last Dance (2024)",
+    "url": "https://s3.streamflixserver.site/movies/2024/venomthelastdance.mkv",
+    "category": "VENOM FULL SERIES <--",
     "streamType": "offline"
   }
 ]
