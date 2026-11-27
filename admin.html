@@ -105,8 +105,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: min(92vw, 540px);
-            max-height: 70vh;
+            width: min(92vw, 560px);
+            max-height: 74vh;
             overflow-y: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -115,21 +115,63 @@
             border-radius: 14px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.92), 0 0 25px rgba(56, 139, 253, 0.25);
             z-index: 1200;
-            padding: 10px;
+            padding: 16px 16px;
         }
         .custom-move-dd.open .custom-move-dd-menu {
             display: block;
         }
         .custom-move-dd-item {
-            padding: 11px 14px;
+            display: flex;
+            align-items: stretch;
+            padding: 0;
             font-size: 15.5px;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
             color: #e6edf3;
-            border-radius: 7px;
+            border-radius: 0;
+            border-left: 1px solid rgba(255, 255, 255, 0.14);
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
             cursor: pointer;
             text-align: left;
             transition: background 0.15s, color 0.15s;
+        }
+        .custom-move-dd-item:first-child {
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .custom-move-dd-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .dd-sno-cell {
+            width: 56px;
+            min-width: 56px;
+            padding: 13px 10px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
+            color: #8b949e;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .dd-name-cell {
+            flex: 1;
+            padding: 13px 18px;
+            display: flex;
+            align-items: center;
+            word-break: break-word;
+        }
+        .custom-move-dd-item.selected .dd-sno-cell,
+        .custom-move-dd-item:hover .dd-sno-cell {
+            color: #ffffff;
+        }
+        .custom-move-dd-item.new-cat-highlight .dd-sno-cell {
+            color: #000000;
+            border-right-color: rgba(0, 0, 0, 0.2);
         }
         .custom-move-dd-item:hover {
             background: rgba(56, 139, 253, 0.2);
@@ -1276,7 +1318,7 @@
                 });
             }
             
-            typeCats.forEach(c => {
+            typeCats.forEach((c, idx) => {
                 const opt = document.createElement('option');
                 opt.value = c; opt.innerText = c;
                 selFolder.appendChild(opt);
@@ -1285,7 +1327,14 @@
                     const item = document.createElement('div');
                     item.className = 'custom-move-dd-item';
                     item.dataset.val = c;
-                    item.textContent = c;
+                    const snoSpan = document.createElement('span');
+                    snoSpan.className = 'dd-sno-cell';
+                    snoSpan.textContent = `${idx + 1}.`;
+                    const nameSpan = document.createElement('span');
+                    nameSpan.className = 'dd-name-cell';
+                    nameSpan.textContent = c;
+                    item.appendChild(snoSpan);
+                    item.appendChild(nameSpan);
                     item.onclick = function(e) {
                         e.stopPropagation();
                         syncMoveFolderUI(c);
@@ -1500,7 +1549,7 @@
                 });
             }
 
-            activeTypeCategories.forEach(cat => {
+            activeTypeCategories.forEach((cat, idx) => {
                 const opt = document.createElement('option');
                 opt.value = cat;
                 opt.innerText = (latestAddedCategory === cat) ? ("★ " + cat + " (NEW)") : cat;
@@ -1510,7 +1559,15 @@
                     const item = document.createElement('div');
                     item.className = 'custom-move-dd-item' + (latestAddedCategory === cat ? ' new-cat-highlight' : '');
                     item.dataset.val = cat;
-                    item.textContent = (latestAddedCategory === cat) ? ("★ " + cat + " (NEW)") : cat;
+                    const displayLabel = (latestAddedCategory === cat) ? ("★ " + cat + " (NEW)") : cat;
+                    const snoSpan = document.createElement('span');
+                    snoSpan.className = 'dd-sno-cell';
+                    snoSpan.textContent = `${idx + 1}.`;
+                    const nameSpan = document.createElement('span');
+                    nameSpan.className = 'dd-name-cell';
+                    nameSpan.textContent = displayLabel;
+                    item.appendChild(snoSpan);
+                    item.appendChild(nameSpan);
                     item.onclick = function(e) {
                         e.stopPropagation();
                         syncMainCatUI(cat);
