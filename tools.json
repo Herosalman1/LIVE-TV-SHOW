@@ -1753,26 +1753,8 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Ek Deewane Ki Deewaniyat",
-    "url": "https://s3.streamflixserver.site/movies/2025/ekdeewanekideewaniyat.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Fighter (2024)",
     "url": "https://vercetti.org/movie/-8bXlq5fidlw63dOcl4xF8PCFt2_sniDmB7Nk3blt84.mP6ZIM5M/bigtits.m3u8",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Gadar 2 (2023)",
-    "url": "https://s3.streamflixserver.site/movies/2023/gadar2.mkv",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2428,24 +2410,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Sanam Teri Kasam (2009)",
-    "url": "https://ia800807.us.archive.org/17/items/sanam-teri-kasam-1080p-2009_202602/Sanam%20Teri%20Kasam%201080p%202009.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Sanam Teri Kasam (2016)",
-    "url": "https://ia600905.us.archive.org/21/items/sanam-teri-kasam-4k-2016/Sanam%20Teri%20Kasam%204k%202016.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Sarkar  (2018)",
     "url": "https://s2.streamflixserver.site/movies/2018/sarkar.mkv",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2475,24 +2439,6 @@
   {
     "name": "Singh Is Kinng (2008)",
     "url": "https://ia801003.us.archive.org/4/items/singh-is-kinng-2008-1080p.-hybrid.-amzn.-web-dl.-h-264.-dd-5.1.-naps/Singh%20Is%20Kinng%20%282008%29%201080p.Hybrid.AMZN.WEB-DL.H264.DD5.1.Naps.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Singham (2011)",
-    "url": "https://ia802800.us.archive.org/20/items/singham-2011-hindi-1080-p-nf-web-dl-h-264-ddp-5.1-esub/Singham%20%282011%29%20HINDI%201080P%20NF%20WEB-DL%20H264%20DDP5.1%20ESUB.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Singham Returns (2014)",
-    "url": "https://ia801007.us.archive.org/7/items/singham-returns-1080p-2014/Singham%20Returns%201080p%202014.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2619,15 +2565,6 @@
   {
     "name": "Wanted (2009)",
     "url": "https://ia801405.us.archive.org/6/items/wanted-2009-full-movie-in-4k-salman-khan-ayesha-takia-prakash-raj-mahesh-manjrekar-720-p-hd/Wanted%202009%20Full%20Movie%20in%204k%20_%20Salman%20Khan_%20Ayesha%20Takia_%20Prakash%20Raj_%20Mahesh%20Manjrekar%20_%28720P_HD%29.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Welcome (2007)",
-    "url": "https://ia802807.us.archive.org/7/items/welcome-1080p-2007/Welcome%201080p%202007-1080p.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -8829,6 +8766,75 @@
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Welcome (2007)",
+    "url": "https://ia802807.us.archive.org/7/items/welcome-1080p-2007/Welcome%201080p%202007-1080p.mp4",
+    "category": "WELCOME 2007 TO 2015",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Welcome Back (2015)",
+    "url": "https://s3.streamflixserver.site/movies/2015/welcomeback.mkv",
+    "category": "WELCOME 2007 TO 2015",
+    "streamType": "offline"
+  },
+  {
+    "name": "Singham 1 (2011)",
+    "url": "https://ia802800.us.archive.org/20/items/singham-2011-hindi-1080-p-nf-web-dl-h-264-ddp-5.1-esub/Singham%20%282011%29%20HINDI%201080P%20NF%20WEB-DL%20H264%20DDP5.1%20ESUB.mp4?cnt=0",
+    "category": "SINGHAM 2011 TO 2014",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Singham Returns (2014)",
+    "url": "https://ia801007.us.archive.org/7/items/singham-returns-1080p-2014/Singham%20Returns%201080p%202014.ia.mp4",
+    "category": "SINGHAM 2011 TO 2014",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Ek Deewane Ki Deewaniyat",
+    "url": "https://s3.streamflixserver.site/movies/2025/ekdeewanekideewaniyat.mkv",
+    "category": "SANAM TERI KASAM 2009 TO 2026",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Sanam Teri Kasam (2009)",
+    "url": "https://ia800807.us.archive.org/17/items/sanam-teri-kasam-1080p-2009_202602/Sanam%20Teri%20Kasam%201080p%202009.ia.mp4",
+    "category": "SANAM TERI KASAM 2009 TO 2026",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Sanam Teri Kasam (2016)",
+    "url": "https://ia600905.us.archive.org/21/items/sanam-teri-kasam-4k-2016/Sanam%20Teri%20Kasam%204k%202016.ia.mp4",
+    "category": "SANAM TERI KASAM 2009 TO 2026",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Gadar 2 (2023)",
+    "url": "https://s3.streamflixserver.site/movies/2023/gadar2.mkv",
+    "category": "GADAR 2001 TO 2023",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
     "badgeColor": "#ffffff"
   }
 ]
