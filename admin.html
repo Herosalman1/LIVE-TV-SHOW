@@ -35,8 +35,175 @@
         .input-pro:focus { border-color: #ff003c; box-shadow: 0 0 12px rgba(255, 0, 60, 0.2); outline: none; }
         select.input-pro option { background: #161b22; color: #fff; padding: 10px; }
 
+        /* ⚡ BIGGER & CLEARER MOVE CHANNEL POPUP (CENTERED FOLDER DROPDOWN) */
+        #channelMoveModal {
+            align-items: center !important;
+        }
+        #channelMoveModal .modal-content {
+            max-width: 560px !important;
+            width: 94% !important;
+            padding: 30px 26px !important;
+        }
+        .custom-move-dd {
+            position: relative;
+            width: 100%;
+        }
+        .custom-move-dd-btn {
+            width: 100%;
+            min-height: 52px;
+            padding: 13px 44px 13px 16px;
+            background: #010409;
+            color: #ffffff;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .custom-move-dd-btn:hover, .custom-move-dd.open .custom-move-dd-btn {
+            border-color: #388bfd;
+            box-shadow: 0 0 12px rgba(56, 139, 253, 0.25);
+        }
+        .custom-move-dd-btn::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 7px solid #8b949e;
+            transition: transform 0.2s;
+        }
+        .custom-move-dd.open .custom-move-dd-btn::after {
+            transform: translateY(-50%) rotate(180deg);
+            border-top-color: #388bfd;
+        }
+        .custom-move-dd-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(3px);
+            z-index: 1190;
+        }
+        .custom-move-dd.open .custom-move-dd-backdrop {
+            display: block;
+        }
+        .custom-move-dd-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(92vw, 540px);
+            max-height: 70vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            background: #161b22;
+            border: 2px solid #388bfd;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.92), 0 0 25px rgba(56, 139, 253, 0.25);
+            z-index: 1200;
+            padding: 10px;
+        }
+        .custom-move-dd.open .custom-move-dd-menu {
+            display: block;
+        }
+        .custom-move-dd-item {
+            padding: 11px 14px;
+            font-size: 15.5px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: #e6edf3;
+            border-radius: 7px;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.15s, color 0.15s;
+        }
+        .custom-move-dd-item:hover {
+            background: rgba(56, 139, 253, 0.2);
+            color: #ffffff;
+        }
+        .custom-move-dd-item.selected {
+            background: #1f6feb;
+            color: #ffffff;
+        }
+        #channelMoveModal h3 {
+            font-size: 20px !important;
+        }
+        #channelMoveModal #moveChannelName {
+            font-size: 18px !important;
+            line-height: 1.45;
+            display: inline-block;
+            margin-top: 4px;
+            word-break: break-word;
+        }
+        #channelMoveModal label {
+            font-size: 13.5px !important;
+            letter-spacing: 0.5px;
+        }
+        #channelMoveModal select.input-pro {
+            font-size: 16px !important;
+            font-weight: 600;
+            padding: 14px 46px 14px 16px !important;
+            min-height: 52px;
+        }
+        #channelMoveModal select.input-pro option {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 14px;
+            background: #161b22;
+            color: #ffffff;
+        }
+        #channelMoveModal .btn-pro {
+            font-size: 15px !important;
+            padding: 13px !important;
+        }
+
         .cat-group { display: flex; gap: 10px; margin-bottom: 15px; align-items: center; width: 100%; min-width: 0; }
-        .cat-group select.input-pro, .cat-group input.input-pro { margin-bottom: 0; flex: 1; min-width: 0; height: 48px; }
+        .cat-group select.input-pro, .cat-group input.input-pro, .cat-group .custom-move-dd { margin-bottom: 0; flex: 1; min-width: 0; height: 48px; }
+        #pCatCustomDD .custom-move-dd-btn {
+            min-height: 48px;
+            height: 48px;
+            padding: 0 42px 0 18px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        #pCatCustomDD .custom-move-dd-btn.placeholder-state {
+            color: #8b949e;
+        }
+        #pCatCustomDD .custom-move-dd-btn:hover, #pCatCustomDD.open .custom-move-dd-btn {
+            border-color: #ff003c;
+            box-shadow: 0 0 12px rgba(255, 0, 60, 0.2);
+        }
+        #pCatCustomDD.open .custom-move-dd-btn::after {
+            border-top-color: #ff003c;
+        }
+        #pCatCustomDD .custom-move-dd-menu {
+            border-color: #ff003c;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.92), 0 0 25px rgba(255, 0, 60, 0.25);
+        }
+        #pCatCustomDD .custom-move-dd-item.new-cat-highlight {
+            background: #00ea77;
+            color: #000000;
+            font-weight: 700;
+        }
+        #pCatCustomDD .custom-move-dd-item.new-cat-highlight:hover {
+            background: #00ff88;
+            color: #000000;
+        }
         .cat-group input.input-pro { text-transform: uppercase; border-color: #00ea77; }
         .add-cat-btn { 
             width: 84px; min-width: 84px; max-width: 84px; padding: 0; height: 48px; background: #21262d; color: #00ea77; border: 1px solid #30363d; 
@@ -268,8 +435,8 @@
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 12px; margin-bottom: 15px; }
         .close-btn { color: #da3633; font-size: 24px; font-weight: bold; cursor: pointer; background: none; border: none; }
         #projectList { overflow-y: auto; padding-right: 5px; flex-grow: 1; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+        ::-webkit-scrollbar { display: none; width: 0; height: 0; }
+        * { -ms-overflow-style: none; scrollbar-width: none; }
         
         .type-switch-container {
             display: flex; background: #010409; border: 1px solid #30363d; border-radius: 10px; overflow: hidden; margin-bottom: 15px; width: 100%;
@@ -405,7 +572,12 @@
         <input type="url" id="pLink" class="input-pro" placeholder="Stream URL (.m3u8 link)">
         
         <div class="cat-group">
-            <select id="pCat" class="input-pro" onchange="handleCategoryChange()" size="1"></select>
+            <select id="pCat" onchange="handleCategoryChange()" style="display: none;"></select>
+            <div class="custom-move-dd" id="pCatCustomDD">
+                <button type="button" class="custom-move-dd-btn placeholder-state" id="pCatCustomBtn" onclick="toggleMainCatDD(event)">SELECT OPTION</button>
+                <div class="custom-move-dd-backdrop" onclick="closeMainCatDD()"></div>
+                <div class="custom-move-dd-menu" id="pCatCustomMenu"></div>
+            </div>
             <input type="text" id="newCategoryInput" class="input-pro" placeholder="TYPE FOLDER NAME..." style="display: none;" onkeydown="if(event.key==='Enter'){event.preventDefault();toggleCatInput();}">
             <button type="button" class="add-cat-btn" id="catToggleBtn" onclick="toggleCatInput()">+ NEW</button>
         </div>
@@ -510,24 +682,29 @@
 
     <!-- ⚡ MOVE SINGLE CHANNEL MODAL -->
     <div id="channelMoveModal" class="modal" style="z-index: 1000;">
-        <div class="modal-content" style="max-width: 400px; text-align: center; border-color: #388bfd;">
-            <h3 style="color: #388bfd; margin-bottom: 10px;"><i class="fa-solid fa-truck-fast"></i> MOVE CHANNEL</h3>
-            <p style="color: #c9d1d9; font-size: 13px; margin-bottom: 15px;">Kahan move karna hai: <br><strong style="color:#fff; font-size:15px;" id="moveChannelName"></strong></p>
+        <div class="modal-content" style="max-width: 560px; text-align: center; border-color: #388bfd;">
+            <h3 style="color: #388bfd; margin-bottom: 12px;"><i class="fa-solid fa-truck-fast"></i> MOVE CHANNEL</h3>
+            <p style="color: #c9d1d9; font-size: 15px; margin-bottom: 18px;">Kahan move karna hai: <br><strong style="color:#fff; font-size:18px;" id="moveChannelName"></strong></p>
             
-            <div style="text-align: left; margin-bottom: 15px;">
-                <label style="color: #8b949e; font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block;">SELECT TYPE:</label>
-                <select id="moveTypeSelect" class="input-pro" onchange="updateMoveFolders()" style="margin-bottom: 12px; padding: 10px; font-size: 13px;">
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label style="color: #8b949e; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; display: block;">SELECT TYPE:</label>
+                <select id="moveTypeSelect" class="input-pro" onchange="updateMoveFolders()" style="margin-bottom: 16px; padding: 14px 46px 14px 16px; font-size: 16px;">
                     <option value="live">LIVE TV</option>
                     <option value="offline">OFFLINE STREAM</option>
                 </select>
 
-                <label style="color: #8b949e; font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block;">SELECT FOLDER:</label>
-                <select id="moveFolderSelect" class="input-pro" style="margin-bottom: 0; padding: 10px; font-size: 13px;"></select>
+                <label style="color: #8b949e; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; display: block;">SELECT FOLDER:</label>
+                <select id="moveFolderSelect" style="display:none;"></select>
+                <div class="custom-move-dd" id="moveFolderCustomDD">
+                    <button type="button" class="custom-move-dd-btn" id="moveFolderCustomBtn" onclick="toggleMoveFolderDD(event)">SELECT FOLDER</button>
+                    <div class="custom-move-dd-backdrop" onclick="closeMoveFolderDD()"></div>
+                    <div class="custom-move-dd-menu" id="moveFolderCustomMenu"></div>
+                </div>
             </div>
             
-            <div style="display: flex; gap: 10px; width: 100%;">
-                <button class="btn-pro" style="background:#1f6feb; color:#fff; margin-bottom:0; flex:1; font-size:13px;" onclick="confirmChannelMove()"><i class="fa-solid fa-check"></i> MOVE</button>
-                <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; margin-bottom:0; flex:1; font-size:13px;" onclick="closeChannelMoveModal()">CANCEL</button>
+            <div style="display: flex; gap: 12px; width: 100%;">
+                <button class="btn-pro" style="background:#1f6feb; color:#fff; margin-bottom:0; flex:1; font-size:15px;" onclick="confirmChannelMove()"><i class="fa-solid fa-check"></i> MOVE</button>
+                <button class="btn-pro" style="background:#21262d; color:#fff; border: 1px solid #30363d; margin-bottom:0; flex:1; font-size:15px;" onclick="closeChannelMoveModal()">CANCEL</button>
             </div>
         </div>
     </div>
@@ -1031,31 +1208,67 @@
 
         // ⚡ CHANNEL MOVE LOGIC
         let movingChannelIndex = -1;
+        function toggleMoveFolderDD(e) {
+            if (e) e.stopPropagation();
+            const dd = document.getElementById('moveFolderCustomDD');
+            if (!dd) return;
+            const willOpen = !dd.classList.contains('open');
+            dd.classList.toggle('open', willOpen);
+            if (willOpen) {
+                const selectedItem = dd.querySelector('.custom-move-dd-item.selected');
+                if (selectedItem) {
+                    setTimeout(() => selectedItem.scrollIntoView({ block: 'center' }), 10);
+                }
+            }
+        }
+        function closeMoveFolderDD() {
+            const dd = document.getElementById('moveFolderCustomDD');
+            if (dd) dd.classList.remove('open');
+        }
+        function syncMoveFolderUI(val) {
+            const selFolder = document.getElementById('moveFolderSelect');
+            const btn = document.getElementById('moveFolderCustomBtn');
+            const menu = document.getElementById('moveFolderCustomMenu');
+            if (selFolder) selFolder.value = val;
+            if (btn) btn.textContent = val || 'SELECT FOLDER';
+            if (menu) {
+                menu.querySelectorAll('.custom-move-dd-item').forEach(el => {
+                    el.classList.toggle('selected', el.dataset.val === val);
+                });
+            }
+        }
+        document.addEventListener('click', function(e) {
+            const dd = document.getElementById('moveFolderCustomDD');
+            if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+        });
         function openChannelMoveModal(idx) {
             movingChannelIndex = idx;
             const ch = channelsArray[idx];
             document.getElementById('moveChannelName').innerText = ch.name;
             document.getElementById('moveTypeSelect').value = ch.streamType || 'live';
-            updateMoveFolders();
-            document.getElementById('moveFolderSelect').value = ch.category || "UNCATEGORIZED";
+            closeMoveFolderDD();
+            updateMoveFolders(ch.category || "UNCATEGORIZED");
             document.getElementById('channelMoveModal').style.display = 'flex';
         }
         function closeChannelMoveModal() {
+            closeMoveFolderDD();
             document.getElementById('channelMoveModal').style.display = 'none';
         }
-        function updateMoveFolders() {
+        function updateMoveFolders(preferredCat = null) {
             const selType = document.getElementById('moveTypeSelect').value;
             const selFolder = document.getElementById('moveFolderSelect');
+            const menu = document.getElementById('moveFolderCustomMenu');
             selFolder.innerHTML = '';
+            if (menu) menu.innerHTML = '';
             
             const typeCats = [];
-            (customTypeCategories[selType] || []).forEach(c => {
-                if(!typeCats.includes(c)) typeCats.push(c);
-            });
             channelsArray.forEach(ch => {
                 const t = ch.streamType || 'live';
                 const c = ch.category || "UNCATEGORIZED";
                 if(t === selType && !typeCats.includes(c)) typeCats.push(c);
+            });
+            (customTypeCategories[selType] || []).forEach(c => {
+                if(!typeCats.includes(c)) typeCats.push(c);
             });
             if (selType === 'live') {
                 defaultCategories.forEach(c => {
@@ -1067,7 +1280,23 @@
                 const opt = document.createElement('option');
                 opt.value = c; opt.innerText = c;
                 selFolder.appendChild(opt);
+
+                if (menu) {
+                    const item = document.createElement('div');
+                    item.className = 'custom-move-dd-item';
+                    item.dataset.val = c;
+                    item.textContent = c;
+                    item.onclick = function(e) {
+                        e.stopPropagation();
+                        syncMoveFolderUI(c);
+                        closeMoveFolderDD();
+                    };
+                    menu.appendChild(item);
+                }
             });
+
+            const initialVal = (preferredCat && typeCats.includes(preferredCat)) ? preferredCat : (typeCats[0] || '');
+            syncMoveFolderUI(initialVal);
         }
         function confirmChannelMove() {
             if(movingChannelIndex === -1) return;
@@ -1184,9 +1413,62 @@
             document.querySelector('#loginSection .btn-green').innerHTML = "<i class='fa-solid fa-right-to-bracket'></i> ENTER ADMIN PANEL";
         }
 
+        function toggleMainCatDD(e) {
+            if (e) e.stopPropagation();
+            const dd = document.getElementById('pCatCustomDD');
+            if (!dd) return;
+            const willOpen = !dd.classList.contains('open');
+            dd.classList.toggle('open', willOpen);
+            if (willOpen) {
+                const selectedItem = dd.querySelector('.custom-move-dd-item.selected');
+                if (selectedItem) {
+                    setTimeout(() => selectedItem.scrollIntoView({ block: 'center' }), 10);
+                }
+            }
+        }
+        function closeMainCatDD() {
+            const dd = document.getElementById('pCatCustomDD');
+            if (dd) dd.classList.remove('open');
+        }
+        function syncMainCatUI(val) {
+            const selectEl = document.getElementById('pCat');
+            const btn = document.getElementById('pCatCustomBtn');
+            const menu = document.getElementById('pCatCustomMenu');
+            if (selectEl) selectEl.value = val || '';
+            if (btn) {
+                if (val) {
+                    btn.classList.remove('placeholder-state');
+                    btn.textContent = (latestAddedCategory === val) ? ("★ " + val + " (NEW)") : val;
+                    if (latestAddedCategory === val) {
+                        btn.style.borderColor = "#00ea77";
+                        btn.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
+                    } else {
+                        btn.style.borderColor = "";
+                        btn.style.boxShadow = "";
+                    }
+                } else {
+                    btn.classList.add('placeholder-state');
+                    btn.textContent = 'SELECT OPTION';
+                    btn.style.borderColor = "";
+                    btn.style.boxShadow = "";
+                }
+            }
+            if (menu) {
+                menu.querySelectorAll('.custom-move-dd-item').forEach(el => {
+                    el.classList.toggle('selected', el.dataset.val === val);
+                });
+            }
+        }
+        document.addEventListener('click', function(e) {
+            const dd = document.getElementById('pCatCustomDD');
+            if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+        });
+
         function renderCategoryDropdown(selectCat = null) {
             const selectEl = document.getElementById('pCat');
+            const menu = document.getElementById('pCatCustomMenu');
             selectEl.innerHTML = '<option value="" disabled selected>SELECT OPTION</option>';
+            if (menu) menu.innerHTML = '';
             
             const activeTypeCategories = [];
 
@@ -1221,29 +1503,28 @@
             activeTypeCategories.forEach(cat => {
                 const opt = document.createElement('option');
                 opt.value = cat;
-                if (latestAddedCategory === cat) {
-                    opt.innerText = "★ " + cat + " (NEW)";
-                    opt.style.background = "#00ea77";
-                    opt.style.color = "#000000";
-                    opt.style.fontWeight = "700";
-                } else {
-                    opt.innerText = cat;
-                }
+                opt.innerText = (latestAddedCategory === cat) ? ("★ " + cat + " (NEW)") : cat;
                 selectEl.appendChild(opt);
+
+                if (menu) {
+                    const item = document.createElement('div');
+                    item.className = 'custom-move-dd-item' + (latestAddedCategory === cat ? ' new-cat-highlight' : '');
+                    item.dataset.val = cat;
+                    item.textContent = (latestAddedCategory === cat) ? ("★ " + cat + " (NEW)") : cat;
+                    item.onclick = function(e) {
+                        e.stopPropagation();
+                        syncMainCatUI(cat);
+                        closeMainCatDD();
+                        handleCategoryChange();
+                    };
+                    menu.appendChild(item);
+                }
             });
             
             if (selectCat && activeTypeCategories.includes(selectCat)) {
-                selectEl.value = selectCat;
-                if (latestAddedCategory === selectCat) {
-                    selectEl.style.borderColor = "#00ea77";
-                    selectEl.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
-                } else {
-                    selectEl.style.borderColor = "";
-                    selectEl.style.boxShadow = "";
-                }
+                syncMainCatUI(selectCat);
             } else {
-                selectEl.style.borderColor = "";
-                selectEl.style.boxShadow = "";
+                syncMainCatUI('');
             }
             
             if (editIndex === null && !isCustomCat) {
@@ -1254,13 +1535,7 @@
         function handleCategoryChange() {
             const selectEl = document.getElementById('pCat');
             const cat = selectEl.value;
-            if (cat && latestAddedCategory === cat) {
-                selectEl.style.borderColor = "#00ea77";
-                selectEl.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
-            } else {
-                selectEl.style.borderColor = "";
-                selectEl.style.boxShadow = "";
-            }
+            syncMainCatUI(cat);
 
             if (editIndex !== null || isCustomCat) return; 
             if (!cat) return;
@@ -1293,13 +1568,14 @@
 
         // ⚡ SAME AS "+ BADGE" -> "+ NEW" OPENS INLINE INPUT & BUTTON BECOMES "ADD" (FIXED WIDTH)
         function toggleCatInput() {
-            const selectEl = document.getElementById('pCat');
+            const customDD = document.getElementById('pCatCustomDD');
             const inputEl = document.getElementById('newCategoryInput');
             const btnEl = document.getElementById('catToggleBtn');
 
             if (!isCustomCat) {
                 isCustomCat = true;
-                selectEl.style.display = 'none';
+                closeMainCatDD();
+                if (customDD) customDD.style.display = 'none';
                 inputEl.style.display = 'block';
                 inputEl.value = '';
                 btnEl.innerText = 'ADD';
@@ -1310,18 +1586,19 @@
                 isCustomCat = false;
                 inputEl.style.display = 'none';
                 inputEl.value = '';
-                selectEl.style.display = 'block';
+                if (customDD) customDD.style.display = 'block';
                 btnEl.innerText = '+ NEW';
                 btnEl.classList.remove('add-mode');
 
                 if (rawCat) {
-                    savedCategories = savedCategories.filter(c => c !== rawCat);
-                    savedCategories.unshift(rawCat);
+                    // Folder list / GitHub order mein sabse NICHE hi add hoga (pehle jaisa)
+                    if (!savedCategories.includes(rawCat)) savedCategories.push(rawCat);
 
+                    // Sirf dropdown (#pCat) mein sabse TOP par dikhega
                     customTypeCategories[currentStreamType] = (customTypeCategories[currentStreamType] || []).filter(c => c !== rawCat);
                     customTypeCategories[currentStreamType].unshift(rawCat);
 
-                    // Sirf latest new folder hi highlight rahega, purana normal ho jayega
+                    // Sirf latest new folder hi dropdown mein highlight rahega, purana normal ho jayega
                     latestAddedCategory = rawCat;
                     renderCategoryDropdown(rawCat);
                 } else {
@@ -1395,10 +1672,6 @@
                 folderDiv.className = 'category-folder';
                 folderDiv.setAttribute('draggable', 'true');
                 folderDiv.setAttribute('data-cat-name', cat);
-                if (latestAddedCategory === cat) {
-                    folderDiv.style.border = '1.5px solid #00ea77';
-                    folderDiv.style.boxShadow = '0 0 12px rgba(0, 234, 119, 0.25)';
-                }
 
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'category-header';
