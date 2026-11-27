@@ -1308,10 +1308,8 @@
             const willOpen = !dd.classList.contains('open');
             dd.classList.toggle('open', willOpen);
             if (willOpen) {
-                const selectedItem = dd.querySelector('.custom-move-dd-item.selected');
-                if (selectedItem) {
-                    setTimeout(() => selectedItem.scrollIntoView({ block: 'center' }), 10);
-                }
+                const menu = document.getElementById('moveFolderCustomMenu');
+                if (menu) menu.scrollTop = 0;
             }
         }
         function closeMoveFolderDD() {
@@ -1552,10 +1550,8 @@
             const willOpen = !dd.classList.contains('open');
             dd.classList.toggle('open', willOpen);
             if (willOpen) {
-                const selectedItem = dd.querySelector('.custom-move-dd-item.selected');
-                if (selectedItem) {
-                    setTimeout(() => selectedItem.scrollIntoView({ block: 'center' }), 10);
-                }
+                const menu = document.getElementById('pCatCustomMenu');
+                if (menu) menu.scrollTop = 0;
             }
         }
         function closeMainCatDD() {
