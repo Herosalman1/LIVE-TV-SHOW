@@ -1105,15 +1105,6 @@
     "badgeColor": "#03140a"
   },
   {
-    "name": "Dhamaal 4 (2026)",
-    "url": "https://s2.streamflixserver.site/movies/2026/Dhamaal4.mkv",
-    "category": "2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#00ea77",
-    "badgeColor": "#03140a"
-  },
-  {
     "name": "Do Deewane Seher Mein (2026)",
     "url": "https://s1.streamflixserver.site/movies/2026/DoDeewaneSeherMein.mkv",
     "category": "2026 NEW MOVIE'S",
@@ -1708,33 +1699,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Dabangg 1 (2010)",
-    "url": "https://archive.org/serve/dabangg-1080-2010/Dabangg%201080%202010.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dabangg 2 (2012)",
-    "url": "https://archive.org/serve/dabangg-2-1080p-2012/Dabangg%202%201080p%202012.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dabangg 3 (2019)",
-    "url": "https://archive.org/serve/dabangg-3-2019-amzn-web-rip-hindi-org-720p/Dabangg%203%20%282019%29%20AMZN%20WebRip%20Hindi%20ORG%20720p.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Dangal 1080p (2016)",
     "url": "https://ia800403.us.archive.org/17/items/1920-london-2016_202601/Dangal%201080p%202016.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -1753,62 +1717,8 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Dhadak 1 (2018)",
-    "url": "https://ia600609.us.archive.org/22/items/dhadak.-2018/Dhadak.%282018%29.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dhadak 2 (2025)",
-    "url": "https://ia800407.us.archive.org/2/items/dhadak.-2.-2025/Dhadak.2.%282025%29.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dhamaal (2007)",
-    "url": "https://ia800703.us.archive.org/10/items/dhamaal-1080p-2007/Dhamaal%201080p%202007.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Dhamarukam (2012)",
     "url": "https://media.ultrashow.club/movies/133d7f7d8936/master.m3u8?e=1794242419&st=_pQPCpIc3RvfsrjqmNboHA",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dhoom 1 (2004)",
-    "url": "https://ia800503.us.archive.org/5/items/dhoom-1080p-2004/Dhoom%201080p%202004.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dhoom 2 (2006)",
-    "url": "https://ia801505.us.archive.org/30/items/dhoom-2-1080p-2006_20260216/Dhoom%202%201080p%202006.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Dhoom 3 (2013)",
-    "url": "https://ia803104.us.archive.org/26/items/dhoom-3-1080p-2013/Dhoom%203%201080p%202013.ia.mp4?cnt=0",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -1846,24 +1756,9 @@
     "name": "Ek Deewane Ki Deewaniyat",
     "url": "https://s3.streamflixserver.site/movies/2025/ekdeewanekideewaniyat.mkv",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
-  },
-  {
-    "name": "Ek Villain (2014)",
-    "url": "https://ia801008.us.archive.org/27/items/ek-villain-2014-erosnow-by-dusic-tv/Ek%20Villain%20%282014%29%20EROSNOW%20%5BBy-DusicTv%5D.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Ek Villain Returns (2022)",
-    "url": "https://ia801902.us.archive.org/17/items/ek-villain-returns-1080p-2022/Ek%20Villain%20Returns%201080p%202022.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
     "badgeColor": "#ffffff"
   },
   {
@@ -1932,42 +1827,6 @@
   {
     "name": "Hadh Kar Di Aapne (2000)",
     "url": "https://ia802802.us.archive.org/15/items/hadh-kar-di-aapne-2000-1080p-amzn-web-dl-ddp-2.0-h-264/Hadh%20Kar%20Di%20Aapne%20%282000%29%201080p%20AMZN%20WEB-DL%20DDP%202.0%20H264.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Hate Story 1 (2012)",
-    "url": "https://dn710009.ca.archive.org/0/items/hate-story-2012-nf-web-rip-hindi-1080p-x-264-dd-5.1-esub/Hate%20Story%202012%20NF%20WebRip%20Hindi%201080p%20x264%20DD%205.1%20ESub.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Hate Story 2 (2014)",
-    "url": "https://ia803109.us.archive.org/15/items/hate-story-1080p-2012/Hate%20Story%202%201080p%202014.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Hate Story 3 (2015)",
-    "url": "https://archive.org/serve/hate-story-3-1080p-2015/Hate%20Story%203%201080p%202015.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Hate Story 4 (2018)",
-    "url": "https://archive.org/download/hate-story-4-1080p-2018/Hate%20Story%204%201080p%202018.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2050,7 +1909,10 @@
     "name": "Junglee (2019)",
     "url": "https://archive.org/serve/moana-2_202610/MOANA%202.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Kaal (2005)",
@@ -2134,24 +1996,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Kis Kisko Pyaar Karoon 1 (2015)",
-    "url": "https://ia600106.us.archive.org/15/items/kis-kisko-pyaar-karoon-2015-hindi-720p-web-dl-x-264-dd-5.1-esubs-sun-george/Kis%20Kisko%20Pyaar%20Karoon%20%282015%29%20Hindi%20-%20720p%20WEB-DL%20-%20x264%20-%20DD%20%205.1%20-%20ESubs%20-Sun%20George.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Kis Kisko Pyaar Karoon 2 (2025)",
-    "url": "https://ia800500.us.archive.org/7/items/kis-kisko-pyaar-karoon-2-1080p-2025/Kis%20Kisko%20Pyaar%20Karoon%202%204k%202025.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Kranti (2002)",
     "url": "https://ia600603.us.archive.org/0/items/kranti-544p-2002/Kranti%20544p%202002.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2173,7 +2017,10 @@
     "name": "Kurup (2021)",
     "url": "https://archive.org/serve/sijjhub-media-9594170226-1794707734/Kurup_2021_480p_9594170226.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Kya Kool Hain Hum 3 (2016)",
@@ -2464,24 +2311,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Pushpa 1 The Rise (2021)",
-    "url": "https://s2.streamflixserver.site/movies/2021/pushpa.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Pushpa 2 The Rule (2024)",
-    "url": "https://s1.streamflixserver.site/movies/2025/Pushpa2.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Pyaar Tune Kya Kiya (2001)",
     "url": "https://dn801204.us.archive.org/0/items/pyaar-tune-kya-kiya-2001-web-rip-1080p-x-264-telly/Pyaar%20Tune%20Kya%20Kiya%202001%20WebRip%201080p%20x264%20%20-%20%5BTelly%5D.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2502,33 +2331,6 @@
   {
     "name": "Ra-One (2011)",
     "url": "https://ia600405.us.archive.org/16/items/ra.-one-1080p-2011/Ra.One%201080p%202011.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Race 1 (2008)",
-    "url": "https://ia800806.us.archive.org/11/items/race-1080p-2008/Race%201080p%202008.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Race 2 (2013)",
-    "url": "https://ia600607.us.archive.org/35/items/race-2-1080p-2013/Race%202%201080p%202013.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Race 3 (2018)",
-    "url": "https://ia803204.us.archive.org/10/items/race-3-1080p-2018_202601/Race%203%201080p%202018.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2565,24 +2367,6 @@
   {
     "name": "Resident Evil (2026)",
     "url": "https://archive.org/serve/sijjhub-media-1423191-1794432939/Resident_Evil_2026_1080p_1423191.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Robot 1 (2010)",
-    "url": "https://ia803103.us.archive.org/18/items/robot-1080p-2010/Robot%201080p%202010.ia.mp4?cnt=0",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Robot 2 (2018)",
-    "url": "https://ia800401.us.archive.org/17/items/robot-2.0-1080p-2018/Robot%202.0%201080p%202018.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -2671,15 +2455,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Sarkar (2018)",
-    "url": "https://ia600500.us.archive.org/28/items/sarkar-hindi-2k/Sarkar%20%28%20Hindi%202k%20%29.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Shaitaan (2024)",
     "url": "https://ia803109.us.archive.org/24/items/shaitaan-1080p-2024/Shaitaan%201080p%202024.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2728,7 +2503,10 @@
     "name": "Sita Ramam (2022)",
     "url": "https://archive.org/serve/prmovies-sita-ramam-hindi-dubbed/Prmovies-Sita_Ramam_Hindi_Dubbed.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Sitaare Zameen Par (2025)",
@@ -2749,28 +2527,13 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Son of Sardaar 1 (2012)",
-    "url": "https://s1.streamflixserver.site/movies/2012/SonofSardaar.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "Son of Sardaar 2 (2025)",
-    "url": "https://s2.streamflixserver.site/movies/2025/SonofSardaar2.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Spirited Away (2001)",
     "url": "https://ia601606.us.archive.org/13/items/spirited-away-2001-dual-audio-hindi-japanese-1080-p-hevc/Spirited%20Away%202001%20Dual%20Audio%20Hindi%20Japanese%201080P%20Hevc.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Taarzan: The Wonder Car (2004)",
@@ -2856,42 +2619,6 @@
   {
     "name": "Wanted (2009)",
     "url": "https://ia801405.us.archive.org/6/items/wanted-2009-full-movie-in-4k-salman-khan-ayesha-takia-prakash-raj-mahesh-manjrekar-720-p-hd/Wanted%202009%20Full%20Movie%20in%204k%20_%20Salman%20Khan_%20Ayesha%20Takia_%20Prakash%20Raj_%20Mahesh%20Manjrekar%20_%28720P_HD%29.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "WAR 1 (2019)",
-    "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%201080p%202019.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "WAR 1 (2019)",
-    "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%201080p%202019.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "WAR 2 (2025)",
-    "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%202%204K%202025.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
-    "name": "WAR 2 (2025)",
-    "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%202%204K%202025.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
     "streamType": "offline",
     "badge": "OLD",
@@ -8559,27 +8286,39 @@
   },
   {
     "name": "Hate Story 1 (2012)",
-    "url": "https://ia800100.us.archive.org/5/items/hate-story-1080p-2012_202602/Hate%20Story%201080p%202012.ia.mp4",
+    "url": "https://dn710009.ca.archive.org/0/items/hate-story-2012-nf-web-rip-hindi-1080p-x-264-dd-5.1-esub/Hate%20Story%202012%20NF%20WebRip%20Hindi%201080p%20x264%20DD%205.1%20ESub.mp4",
     "category": "HATE STORY 2012 TO 2018",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Hate Story 2 (2014)",
-    "url": "https://ia903109.us.archive.org/15/items/hate-story-1080p-2012/Hate%20Story%202%201080p%202014.mp4?cnt=0",
+    "url": "https://ia803109.us.archive.org/15/items/hate-story-1080p-2012/Hate%20Story%202%201080p%202014.mp4?cnt=0",
     "category": "HATE STORY 2012 TO 2018",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Hate Story 3 (2015)",
-    "url": "https://ia601008.us.archive.org/23/items/hate-story-3-1080p-2015/Hate%20Story%203%201080p%202015.ia.mp4?cnt=0",
+    "url": "https://archive.org/serve/hate-story-3-1080p-2015/Hate%20Story%203%201080p%202015.ia.mp4",
     "category": "HATE STORY 2012 TO 2018",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Hate Story 4 (2018)",
-    "url": "https://ia601902.us.archive.org/2/items/hate-story-4-1080p-2018/Hate%20Story%204%201080p%202018.ia.mp4?cnt=0",
+    "url": "https://archive.org/download/hate-story-4-1080p-2018/Hate%20Story%204%201080p%202018.ia.mp4",
     "category": "HATE STORY 2012 TO 2018",
-    "streamType": "offline"
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Jism 1 (2003)",
@@ -8822,6 +8561,271 @@
     "name": "Murder 2 (2011)",
     "url": "https://ia600709.us.archive.org/4/items/murder-2-1080p-2011/Murder%202%201080p%202011.ia.mp4",
     "category": "MURDER 2004 TO 2011",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dabangg 1 (2010)",
+    "url": "https://archive.org/serve/dabangg-1080-2010/Dabangg%201080%202010.ia.mp4",
+    "category": "DABANGG 2010 TO 2019",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dabangg 2 (2012)",
+    "url": "https://archive.org/serve/dabangg-2-1080p-2012/Dabangg%202%201080p%202012.ia.mp4",
+    "category": "DABANGG 2010 TO 2019",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dabangg 3 (2019)",
+    "url": "https://archive.org/serve/dabangg-3-2019-amzn-web-rip-hindi-org-720p/Dabangg%203%20%282019%29%20AMZN%20WebRip%20Hindi%20ORG%20720p.mp4",
+    "category": "DABANGG 2010 TO 2019",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhadak 1 (2018)",
+    "url": "https://ia600609.us.archive.org/22/items/dhadak.-2018/Dhadak.%282018%29.mp4",
+    "category": "DHADAK 2018 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhadak 2 (2025)",
+    "url": "https://ia800407.us.archive.org/2/items/dhadak.-2.-2025/Dhadak.2.%282025%29.mp4",
+    "category": "DHADAK 2018 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhoom 1 (2004)",
+    "url": "https://ia800503.us.archive.org/5/items/dhoom-1080p-2004/Dhoom%201080p%202004.ia.mp4?cnt=0",
+    "category": "DHOOM 2004 TO 2013",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhoom 2 (2006)",
+    "url": "https://ia801505.us.archive.org/30/items/dhoom-2-1080p-2006_20260216/Dhoom%202%201080p%202006.ia.mp4?cnt=0",
+    "category": "DHOOM 2004 TO 2013",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhoom 3 (2013)",
+    "url": "https://ia803104.us.archive.org/26/items/dhoom-3-1080p-2013/Dhoom%203%201080p%202013.ia.mp4?cnt=0",
+    "category": "DHOOM 2004 TO 2013",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Pushpa 1 The Rise (2021)",
+    "url": "https://s2.streamflixserver.site/movies/2021/pushpa.mkv",
+    "category": "PUSHPA 2021 TO 2024",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Pushpa 2 The Rule (2024)",
+    "url": "https://s1.streamflixserver.site/movies/2025/Pushpa2.mkv",
+    "category": "PUSHPA 2021 TO 2024",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Race 1 (2008)",
+    "url": "https://ia800806.us.archive.org/11/items/race-1080p-2008/Race%201080p%202008.ia.mp4?cnt=0",
+    "category": "RACE 2008 TO 2018",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Race 2 (2013)",
+    "url": "https://ia600607.us.archive.org/35/items/race-2-1080p-2013/Race%202%201080p%202013.ia.mp4",
+    "category": "RACE 2008 TO 2018",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Race 3 (2018)",
+    "url": "https://ia803204.us.archive.org/10/items/race-3-1080p-2018_202601/Race%203%201080p%202018.ia.mp4",
+    "category": "RACE 2008 TO 2018",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Robot 1 (2010)",
+    "url": "https://ia803103.us.archive.org/18/items/robot-1080p-2010/Robot%201080p%202010.ia.mp4?cnt=0",
+    "category": "ROBOT 2010 TO 2018",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Robot 2 (2018)",
+    "url": "https://ia800401.us.archive.org/17/items/robot-2.0-1080p-2018/Robot%202.0%201080p%202018.ia.mp4",
+    "category": "ROBOT 2010 TO 2018",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "WAR 1 (2019)",
+    "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%201080p%202019.ia.mp4",
+    "category": "WAR 2019 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "WAR 1 (2019)",
+    "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%201080p%202019.ia.mp4",
+    "category": "WAR 2019 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "WAR 2 (2025)",
+    "url": "https://ia800607.us.archive.org/26/items/war-2-4-k-2025_202601/War%202%204K%202025.ia.mp4",
+    "category": "WAR 2019 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "WAR 2 (2025)",
+    "url": "https://ia600601.us.archive.org/22/items/war-2-4-k-2025/War%202%204K%202025.ia.mp4",
+    "category": "WAR 2019 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Son of Sardaar 1 (2012)",
+    "url": "https://s1.streamflixserver.site/movies/2012/SonofSardaar.mkv",
+    "category": "SON OF SARDAAR 2012 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Son of Sardaar 2 (2025)",
+    "url": "https://s2.streamflixserver.site/movies/2025/SonofSardaar2.mkv",
+    "category": "SON OF SARDAAR 2012 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Ek Villain (2014)",
+    "url": "https://ia801008.us.archive.org/27/items/ek-villain-2014-erosnow-by-dusic-tv/Ek%20Villain%20%282014%29%20EROSNOW%20%5BBy-DusicTv%5D.mp4",
+    "category": "EK VILLAIN 2014 TO 2022",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Ek Villain Returns (2022)",
+    "url": "https://ia801902.us.archive.org/17/items/ek-villain-returns-1080p-2022/Ek%20Villain%20Returns%201080p%202022.ia.mp4",
+    "category": "EK VILLAIN 2014 TO 2022",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhamaal 1 (2007)",
+    "url": "https://ia800703.us.archive.org/10/items/dhamaal-1080p-2007/Dhamaal%201080p%202007.ia.mp4?cnt=0",
+    "category": "DHAMAAL 2007 TO 2026",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 1
+  },
+  {
+    "name": "Double Dhamaal 2 (2011)",
+    "url": "https://s3.streamflixserver.site/movies/2011/doubledhamaal.mkv",
+    "category": "DHAMAAL 2007 TO 2026",
+    "streamType": "offline",
+    "pinOrder": 2,
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Total Dhamaal 3 (2019)",
+    "url": "https://s2.streamflixserver.site/movies/2019/totaldhamaal.mkv",
+    "category": "DHAMAAL 2007 TO 2026",
+    "streamType": "offline",
+    "pinOrder": 3,
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Dhamaal 4 (2026)",
+    "url": "https://s2.streamflixserver.site/movies/2026/Dhamaal4.mkv",
+    "category": "DHAMAAL 2007 TO 2026",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#00ea77",
+    "badgeColor": "#03140a",
+    "pinOrder": 4
+  },
+  {
+    "name": "Kis Kisko Pyaar Karoon 1 (2015)",
+    "url": "https://ia600106.us.archive.org/15/items/kis-kisko-pyaar-karoon-2015-hindi-720p-web-dl-x-264-dd-5.1-esubs-sun-george/Kis%20Kisko%20Pyaar%20Karoon%20%282015%29%20Hindi%20-%20720p%20WEB-DL%20-%20x264%20-%20DD%20%205.1%20-%20ESubs%20-Sun%20George.mp4",
+    "category": "KIS KISKO PYAAR KAROON 2015 TO 2025",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
+  },
+  {
+    "name": "Kis Kisko Pyaar Karoon 2 (2025)",
+    "url": "https://ia800500.us.archive.org/7/items/kis-kisko-pyaar-karoon-2-1080p-2025/Kis%20Kisko%20Pyaar%20Karoon%202%204k%202025.mp4",
+    "category": "KIS KISKO PYAAR KAROON 2015 TO 2025",
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#64748b",
