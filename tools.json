@@ -1789,15 +1789,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Golmaal Fun Unlimited (2006)",
-    "url": "https://ia800506.us.archive.org/13/items/aatma-1080p-2006/Golmaal%20Fun%20Unlimited%201080p%202006.ia.mp4",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Hadh Kar Di Aapne (2000)",
     "url": "https://ia802802.us.archive.org/15/items/hadh-kar-di-aapne-2000-1080p-amzn-web-dl-ddp-2.0-h-264/Hadh%20Kar%20Di%20Aapne%20%282000%29%201080p%20AMZN%20WEB-DL%20DDP%202.0%20H264.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -2586,21 +2577,11 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Golmaal 5 (2027)",
-    "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
-    "category": "UP COMING MOVIE'S 2026-27",
-    "streamType": "offline",
-    "pinOrder": 6,
-    "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Hero Ki Horrorine (2027)",
     "url": "https://archive.org/serve/coming-soon-hd-0123454/Coming%20Soon....webm",
     "category": "UP COMING MOVIE'S 2026-27",
     "streamType": "offline",
-    "pinOrder": 7,
+    "pinOrder": 6,
     "badge": "NEW",
     "badgeBg": "#5b687c",
     "badgeColor": "#ffffff"
@@ -2726,18 +2707,6 @@
     "streamType": "offline"
   },
   {
-    "name": "Bhoothnath 1 (2008)",
-    "url": "https://dn721603.ca.archive.org/0/items/bhoothnath.-2008.-hindi.-720p.-brrip.x-264/Bhoothnath.2008.Hindi.720p.BRRip.x264.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Bhootnath Returns 2 (2014)",
-    "url": "https://dn721802.ca.archive.org/0/items/bhootnath-returns-hindi-children-movie/Bhootnath%20Returns%20Hindi%20Children%20Movie.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
     "name": "Brahmastra 1 (2022)",
     "url": "https://ia600802.us.archive.org/8/items/brah-mastra-part-one-shiva-4k-2022/BrahMastra%20Part%20One%20Shiva%204k%202022.mp4?cnt=0",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
@@ -2800,12 +2769,6 @@
   {
     "name": "House No. 13 (1991)",
     "url": "https://dn711408.ca.archive.org/0/items/thakshak-1999-hindi.-dv-drip.-720p.-x-264.-aac.-5.1.-hon-3y.-e.-sub.-by.juleyano/House%20No.%2013%20%281991%29%20Hindi.Horror.WEB.DL.720p.x264.AAC.ESubs.-odd.BY.juleyano.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Jaani Dushman (1979)",
-    "url": "https://dn601201.us.archive.org/0/items/jaani-dushman-1979-hindi-dv-drip.-480p.-x-264-ac-3-5.1.-arabic.-e.subs.-hon-3y.-by.juleyano/Jaani%20Dushman%201979%20Hindi%20DvDRip.480p.%20x264%20AC3%205.1.Arabic.E.subs.Hon3y.BY.juleyano.mp4?cnt=0",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
     "streamType": "offline"
   },
@@ -2884,12 +2847,6 @@
   {
     "name": "Shaitani Ilaaka (1990)",
     "url": "https://dn711408.ca.archive.org/0/items/thakshak-1999-hindi.-dv-drip.-720p.-x-264.-aac.-5.1.-hon-3y.-e.-sub.-by.juleyano/Shaitani%20Ilaaka%20%281990%29%20Hindi..Horror.WEB.DL.720p.x264.AAC.ESubs.BY%20juleyano.mp4",
-    "category": "HORROR : भूत प्रेत वाली फिल्में",
-    "streamType": "offline"
-  },
-  {
-    "name": "Shiva The Super Hero 2 (2012)",
-    "url": "https://archive.org/serve/shiva-the-super-hero-2-damarukam-hindi-dubbed-movie-nagarjuna-anushka-shetty-prakash-raj-480-p/Shiva%20The%20Super%20Hero%202%20%28Damarukam%29%20Hindi%20Dubbed%20Movie%20_%20Nagarjuna_%20Anushka%20Shetty%20_%20Prakash%20Raj%28480P%29.mp4",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
     "streamType": "offline"
   },
@@ -7781,8 +7738,7 @@
     "streamType": "offline",
     "badge": "OLD",
     "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 1
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Awarapan 2 (2026)",
@@ -7911,16 +7867,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Cocktail 2 (2026)",
-    "url": "https://s1.streamflixserver.site/movies/2026/Cocktail2.mkv",
-    "category": "COCKTAIL 2012 TO 2026",
-    "streamType": "offline",
-    "badge": "NEW",
-    "badgeBg": "#00ea77",
-    "badgeColor": "#03140a",
-    "pinOrder": 1
-  },
-  {
     "name": "Cocktail 1 (2012)",
     "url": "https://ia600401.us.archive.org/23/items/cocktail-1080p-2012/Cocktail%201080p%202012.ia.mp4",
     "category": "COCKTAIL 2012 TO 2026",
@@ -7930,20 +7876,28 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Border 2 (2026)",
-    "url": "https://ia800807.us.archive.org/6/items/border-2-4k-2026/Border%202%204k%202026.mp4",
-    "category": "BORDER 1997 TO 2026",
+    "name": "Cocktail 2 (2026)",
+    "url": "https://s1.streamflixserver.site/movies/2026/Cocktail2.mkv",
+    "category": "COCKTAIL 2012 TO 2026",
     "streamType": "offline",
     "badge": "NEW",
-    "badgeBg": "#5b687c",
-    "badgeColor": "#ffffff",
-    "pinOrder": 1
+    "badgeBg": "#00ea77",
+    "badgeColor": "#03140a"
   },
   {
     "name": "Border 1 (1997)",
     "url": "https://ia800800.us.archive.org/23/items/border-1080p-1997/Border%201080p%201997.ia.mp4?cnt=0",
     "category": "BORDER 1997 TO 2026",
     "streamType": "offline"
+  },
+  {
+    "name": "Border 2 (2026)",
+    "url": "https://ia800807.us.archive.org/6/items/border-2-4k-2026/Border%202%204k%202026.mp4",
+    "category": "BORDER 1997 TO 2026",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff"
   },
   {
     "name": "Aashiqui 1 (1990)",
@@ -8625,6 +8579,12 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Jaani Dushman (1979)",
+    "url": "https://dn601201.us.archive.org/0/items/jaani-dushman-1979-hindi-dv-drip.-480p.-x-264-ac-3-5.1.-arabic.-e.subs.-hon-3y.-by.juleyano/Jaani%20Dushman%201979%20Hindi%20DvDRip.480p.%20x264%20AC3%205.1.Arabic.E.subs.Hon3y.BY.juleyano.mp4?cnt=0",
+    "category": "NAGIN 1976 TO 2002",
+    "streamType": "offline"
+  },
+  {
     "name": "JAANI DUSHMAN (2002)",
     "url": "https://dn710607.ca.archive.org/0/items/jaani-dushman-ek-anokhi-kahani.-2002.-untouched-dvd-9.-ntsc.-video-sound/Jaani%20Dushman-Ek%20Anokhi%20Kahani.2002.Untouched%20DVD9.NTSC.Video%20Sound.mp4",
     "category": "NAGIN 1976 TO 2002",
@@ -8748,6 +8708,12 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Shiva The Super Hero 2 (2012)",
+    "url": "https://archive.org/serve/shiva-the-super-hero-2-damarukam-hindi-dubbed-movie-nagarjuna-anushka-shetty-prakash-raj-480-p/Shiva%20The%20Super%20Hero%202%20%28Damarukam%29%20Hindi%20Dubbed%20Movie%20_%20Nagarjuna_%20Anushka%20Shetty%20_%20Prakash%20Raj%28480P%29.mp4",
+    "category": "TEMPER 2015 TO 2019",
+    "streamType": "offline"
+  },
+  {
     "name": "Temper (2015)",
     "url": "https://mediad.ultrashow.club/movies/a06bb4a3c837/master.m3u8?e=1795801515&st=04OZx8e2qMoz0GiHz05-aw",
     "category": "TEMPER 2015 TO 2019",
@@ -8833,5 +8799,72 @@
     "url": "https://archive.org/serve/muni-kanchana-1-2026-south-indian-full-horror-movie-in-hindi-me-raghava-lawrence/Muni_%20Kanchana-1-2026%20South%20Indian%20full%20Horror%20Movie%20In%20Hindi%20Me%20_%20Raghava%20Lawrence_%20Vedhika_%20Rajkiran%28480P%29.mp4",
     "category": "KANCHANA 2011 TO 2020",
     "streamType": "offline"
+  },
+  {
+    "name": "Bhoothnath 1 (2008)",
+    "url": "https://dn721603.ca.archive.org/0/items/bhoothnath.-2008.-hindi.-720p.-brrip.x-264/Bhoothnath.2008.Hindi.720p.BRRip.x264.mp4",
+    "category": "BHOOTHNATH 2008 TO 2014",
+    "streamType": "offline"
+  },
+  {
+    "name": "Bhootnath Returns 2 (2014)",
+    "url": "https://dn721802.ca.archive.org/0/items/bhootnath-returns-hindi-children-movie/Bhootnath%20Returns%20Hindi%20Children%20Movie.mp4",
+    "category": "BHOOTHNATH 2008 TO 2014",
+    "streamType": "offline"
+  },
+  {
+    "name": "GOLMAAL (1979)",
+    "url": "https://archive.org/download/nayakan-1987-hindi.-dubbed.-webrip.-720p.x-264.-aac.-esub.-enigma..-by.juleyano/Gol%20Maal%20%281979%29%20Hindi.NTSC.DvDRip.480p.%20x264.AAC.5.1.ESubs.Chapters.BY.juleyano.ia.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "pinOrder": 1
+  },
+  {
+    "name": "Golmaal Fun Unlimited (2006)",
+    "url": "https://ia800506.us.archive.org/13/items/aatma-1080p-2006/Golmaal%20Fun%20Unlimited%201080p%202006.ia.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff",
+    "pinOrder": 2
+  },
+  {
+    "name": "Golmaal Returns (2008)",
+    "url": "https://archive.org/serve/golmaal-returns-ts-og/Golmaal%20Returns%20%28TS-OG%29.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "pinOrder": 3
+  },
+  {
+    "name": "Golmaal 3 (2010)",
+    "url": "https://archive.org/serve/golmaal-3-ts-og/Golmaal%203%20%28TS-OG%29.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "pinOrder": 4
+  },
+  {
+    "name": "Jatts in Golmaal (2013)",
+    "url": "https://s1.streamflixserver.site/movies/2013/jattsingolmaal.mkv",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "pinOrder": 5
+  },
+  {
+    "name": "Golmaal Again (2017)",
+    "url": "https://archive.org/serve/golmaal-again-ts-og/Golmaal%20Again%20%28TS-OG%29.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "pinOrder": 6
+  },
+  {
+    "name": "Golmaal 5 (2027)",
+    "url": "https://archive.org/serve/golmaal-5-full-comedy-movie-akshay-kumar-ajay-devgn-arshad-warsi-saif-ali-khan-n/GOLMAAL%205%20Full%20Comedy%20Movie%20%20Akshay%20Kumar%2C%20Ajay%20Devgn%2C%20Arshad%20Warsi%2C%20Saif%20Ali%20Khan%20%20New%20Movie%202026%20-%20Movie%20Shift%20%28360p%2C%20h264%29.mp4",
+    "category": "GOLMAAL 2006 TO 2027",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 7
   }
 ]
