@@ -858,11 +858,21 @@
     "streamType": "live"
   },
   {
+    "name": "Kaali Kheti (2026)",
+    "url": "https://archive.org/serve/26_20261127/%E0%A4%95%E0%A4%BE%E0%A4%B2%E0%A5%80%20%E0%A4%96%E0%A5%87%E0%A4%A4%E0%A5%80%2026.mp4",
+    "category": "2026 NEW MOVIE'S",
+    "streamType": "offline",
+    "badge": "NEW",
+    "badgeBg": "#5b687c",
+    "badgeColor": "#ffffff",
+    "pinOrder": 1
+  },
+  {
     "name": "Alpha (2026)",
     "url": "https://ia903203.us.archive.org/8/items/alpha-hindi-2k/Alpha%20%28%20Hindi%202k%20%29.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 1,
+    "pinOrder": 2,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -872,7 +882,7 @@
     "url": "https://ia800505.us.archive.org/27/items/bhooth-bangla-hindi-1080-p/Bhooth%20Bangla%20%5BHindi%5D-1080P.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 2,
+    "pinOrder": 3,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -882,7 +892,7 @@
     "url": "https://archive.org/download/the-vvaan-force-of-the-forrest-2026-hindi/The%20Vvaan%20Force%20of%20the%20Forrest%202026%20Hindi.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 3,
+    "pinOrder": 4,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -892,7 +902,7 @@
     "url": "https://s3.streamflixserver.site/movies/2026/Mirzapur-The%20Movie.mkv",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 4,
+    "pinOrder": 5,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -902,7 +912,7 @@
     "url": "https://archive.org/serve/sijjhub-media-1019404531-1794655098/Ramayana_Rise_of_a_Legend_V2_Bollywood_Hindi_Movie_HQCam_FilmyFly_2026_Bollywood_South_Hindi_Movies_And_2026_480p_1019404531.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 5,
+    "pinOrder": 6,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -912,7 +922,7 @@
     "url": "https://archive.org/serve/sijjhub-media-2942041982-1794654945/Blind_Game_Bollywood_Hindi_Movie_2026_480p_2942041982.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 6,
+    "pinOrder": 7,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -922,7 +932,7 @@
     "url": "https://lizer123.site/getm3u8/G2EFVC3J?ext=.m3u8",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 7,
+    "pinOrder": 8,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -932,7 +942,7 @@
     "url": "https://lizer123.site/getm3u8/TENZDP7R?ext=.m3u8",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 8,
+    "pinOrder": 9,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -942,7 +952,7 @@
     "url": "https://ia601907.us.archive.org/17/items/hai-jawani-toh-ishq-hona-hai-2026-hindi-hd-zee-5-480p-1vegamovies.tw/Hai%20Jawani%20Toh%20Ishq%20Hona%20Hai%20%282026%29%20Hindi%20HD%20Zee5%20480p-1vegamovies.tw.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 9,
+    "pinOrder": 10,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -952,7 +962,7 @@
     "url": "https://archive.org/serve/sijjhub-media-3798836861-1794622488/Ikka_Bollywood_Hindi_Movie_2026_480p_3798836861.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 10,
+    "pinOrder": 11,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -962,7 +972,7 @@
     "url": "https://s2.streamflixserver.site/movies/2026/Immortal2026.mkv",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 11,
+    "pinOrder": 12,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
@@ -972,7 +982,7 @@
     "url": "https://archive.org/serve/sijjhub-media-2989394487-1794610183/Hanuman_Ansh_Bollywood_Hindi_Movie_HQCam_FilmyFly_2026_Bollywood_South_Hindi_Movies_And_2026_720p_2989394487.ia.mp4",
     "category": "2026 NEW MOVIE'S",
     "streamType": "offline",
-    "pinOrder": 12,
+    "pinOrder": 13,
     "badge": "NEW",
     "badgeBg": "#00ea77",
     "badgeColor": "#03140a"
