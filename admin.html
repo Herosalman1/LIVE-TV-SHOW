@@ -170,15 +170,15 @@
             color: #ffffff;
         }
         .custom-move-dd-item.new-cat-highlight .dd-sno-cell {
-            color: #000000;
-            border-right-color: rgba(0, 0, 0, 0.2);
+            color: #8b949e;
+            border-right-color: rgba(255, 255, 255, 0.14);
         }
         .custom-move-dd-item:hover {
             background: rgba(56, 139, 253, 0.2);
             color: #ffffff;
         }
         .custom-move-dd-item.selected {
-            background: #1f6feb;
+            background: rgba(255, 255, 255, 0.06);
             color: #ffffff;
         }
         #channelMoveModal h3 {
@@ -237,14 +237,65 @@
             border-color: #ff003c;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.92), 0 0 25px rgba(255, 0, 60, 0.25);
         }
-        #pCatCustomDD .custom-move-dd-item.new-cat-highlight {
-            background: #00ea77;
-            color: #000000;
-            font-weight: 700;
+        @property --neon-angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
         }
-        #pCatCustomDD .custom-move-dd-item.new-cat-highlight:hover {
-            background: #00ff88;
-            color: #000000;
+        @keyframes neonBlueBorderRun {
+            0% { --neon-angle: 0deg; }
+            100% { --neon-angle: 360deg; }
+        }
+        .custom-move-dd-item.new-cat-highlight {
+            position: relative;
+            color: #e6edf3 !important;
+            font-weight: 600;
+            border: 2px solid transparent !important;
+            border-radius: 8px 8px 0 0 !important;
+            background:
+                linear-gradient(#161b22, #161b22) padding-box,
+                conic-gradient(
+                    from var(--neon-angle),
+                    #001aff 0deg,
+                    #0066ff 60deg,
+                    #00d4ff 120deg,
+                    #ffffff 145deg,
+                    #00d4ff 170deg,
+                    #0033cc 240deg,
+                    #001aff 360deg
+                ) border-box !important;
+            box-shadow: none !important;
+            animation: neonBlueBorderRun 2s linear infinite;
+            z-index: 2;
+        }
+        .custom-move-dd-item.new-cat-highlight:hover {
+            background:
+                linear-gradient(#1c2738, #1c2738) padding-box,
+                conic-gradient(
+                    from var(--neon-angle),
+                    #001aff 0deg,
+                    #0066ff 60deg,
+                    #00d4ff 120deg,
+                    #ffffff 145deg,
+                    #00d4ff 170deg,
+                    #0033cc 240deg,
+                    #001aff 360deg
+                ) border-box !important;
+        }
+        .custom-move-dd-item.new-cat-highlight.selected {
+            background:
+                linear-gradient(#161b22, #161b22) padding-box,
+                conic-gradient(
+                    from var(--neon-angle),
+                    #001aff 0deg,
+                    #0066ff 60deg,
+                    #00d4ff 120deg,
+                    #ffffff 145deg,
+                    #00d4ff 170deg,
+                    #0033cc 240deg,
+                    #001aff 360deg
+                ) border-box !important;
+            color: #ffffff !important;
         }
         .cat-group input.input-pro { text-transform: uppercase; border-color: #00ea77; }
         .add-cat-btn { 
@@ -799,7 +850,7 @@
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
         let savedCategories = [...defaultCategories];
         let customTypeCategories = { live: [], offline: [] };
-        let latestAddedCategory = null;
+        let latestAddedCategory = localStorage.getItem('tv_latest_added_cat') || null;
 
         function getUniformBadgeColor() {
             return { bg: UNIFORM_OFFLINE_BG, color: UNIFORM_OFFLINE_FG };
@@ -1272,7 +1323,17 @@
             const btn = document.getElementById('moveFolderCustomBtn');
             const menu = document.getElementById('moveFolderCustomMenu');
             if (selFolder) selFolder.value = val;
-            if (btn) btn.textContent = val || 'SELECT FOLDER';
+            if (btn) {
+                if (val) {
+                    btn.textContent = (latestAddedCategory === val) ? ("★ " + val + " (NEW)") : val;
+                    btn.style.borderColor = "";
+                    btn.style.boxShadow = "";
+                } else {
+                    btn.textContent = 'SELECT FOLDER';
+                    btn.style.borderColor = "";
+                    btn.style.boxShadow = "";
+                }
+            }
             if (menu) {
                 menu.querySelectorAll('.custom-move-dd-item').forEach(el => {
                     el.classList.toggle('selected', el.dataset.val === val);
@@ -1304,14 +1365,34 @@
             if (menu) menu.innerHTML = '';
             
             const typeCats = [];
+
+            // 1. Permanent latest new folder sabse TOP par (refresh ke baad bhi)
+            if (latestAddedCategory) {
+                const existsInType = (customTypeCategories[selType] || []).includes(latestAddedCategory) ||
+                    channelsArray.some(ch => (ch.streamType || 'live') === selType && (ch.category || "UNCATEGORIZED") === latestAddedCategory);
+                if (existsInType && !typeCats.includes(latestAddedCategory)) {
+                    typeCats.push(latestAddedCategory);
+                }
+            }
+            (customTypeCategories[selType] || []).forEach(c => {
+                if(!typeCats.includes(c)) typeCats.push(c);
+            });
+
+            // 2. Saved order ke hisaab se existing folders
+            savedCategories.forEach(c => {
+                const hasInType = channelsArray.some(ch => (ch.streamType || 'live') === selType && (ch.category || "UNCATEGORIZED") === c);
+                if (hasInType && !typeCats.includes(c)) {
+                    typeCats.push(c);
+                }
+            });
+
+            // 3. Koi bacha hua folder
             channelsArray.forEach(ch => {
                 const t = ch.streamType || 'live';
                 const c = ch.category || "UNCATEGORIZED";
                 if(t === selType && !typeCats.includes(c)) typeCats.push(c);
             });
-            (customTypeCategories[selType] || []).forEach(c => {
-                if(!typeCats.includes(c)) typeCats.push(c);
-            });
+
             if (selType === 'live') {
                 defaultCategories.forEach(c => {
                     if(!typeCats.includes(c)) typeCats.push(c);
@@ -1320,19 +1401,21 @@
             
             typeCats.forEach((c, idx) => {
                 const opt = document.createElement('option');
-                opt.value = c; opt.innerText = c;
+                opt.value = c;
+                opt.innerText = (latestAddedCategory === c) ? ("★ " + c + " (NEW)") : c;
                 selFolder.appendChild(opt);
 
                 if (menu) {
                     const item = document.createElement('div');
-                    item.className = 'custom-move-dd-item';
+                    item.className = 'custom-move-dd-item' + (latestAddedCategory === c ? ' new-cat-highlight' : '');
                     item.dataset.val = c;
+                    const displayLabel = (latestAddedCategory === c) ? ("★ " + c + " (NEW)") : c;
                     const snoSpan = document.createElement('span');
                     snoSpan.className = 'dd-sno-cell';
                     snoSpan.textContent = `${idx + 1}.`;
                     const nameSpan = document.createElement('span');
                     nameSpan.className = 'dd-name-cell';
-                    nameSpan.textContent = c;
+                    nameSpan.textContent = displayLabel;
                     item.appendChild(snoSpan);
                     item.appendChild(nameSpan);
                     item.onclick = function(e) {
@@ -1488,13 +1571,8 @@
                 if (val) {
                     btn.classList.remove('placeholder-state');
                     btn.textContent = (latestAddedCategory === val) ? ("★ " + val + " (NEW)") : val;
-                    if (latestAddedCategory === val) {
-                        btn.style.borderColor = "#00ea77";
-                        btn.style.boxShadow = "0 0 12px rgba(0, 234, 119, 0.35)";
-                    } else {
-                        btn.style.borderColor = "";
-                        btn.style.boxShadow = "";
-                    }
+                    btn.style.borderColor = "";
+                    btn.style.boxShadow = "";
                 } else {
                     btn.classList.add('placeholder-state');
                     btn.textContent = 'SELECT OPTION';
@@ -1521,7 +1599,14 @@
             
             const activeTypeCategories = [];
 
-            // 1. Naye banaye gaye folders sabse TOP par
+            // 1. Permanent latest new folder sabse TOP par (refresh ke baad bhi)
+            if (latestAddedCategory) {
+                const existsInType = (customTypeCategories[currentStreamType] || []).includes(latestAddedCategory) ||
+                    channelsArray.some(ch => (ch.streamType || 'live') === currentStreamType && (ch.category || "UNCATEGORIZED") === latestAddedCategory);
+                if (existsInType && !activeTypeCategories.includes(latestAddedCategory)) {
+                    activeTypeCategories.push(latestAddedCategory);
+                }
+            }
             (customTypeCategories[currentStreamType] || []).forEach(cat => {
                 if (!activeTypeCategories.includes(cat)) activeTypeCategories.push(cat);
             });
@@ -1655,8 +1740,9 @@
                     customTypeCategories[currentStreamType] = (customTypeCategories[currentStreamType] || []).filter(c => c !== rawCat);
                     customTypeCategories[currentStreamType].unshift(rawCat);
 
-                    // Sirf latest new folder hi dropdown mein highlight rahega, purana normal ho jayega
+                    // Permanent neon: tab tak neon rahega jab tak koi aur new folder na banaya jaye
                     latestAddedCategory = rawCat;
+                    localStorage.setItem('tv_latest_added_cat', rawCat);
                     renderCategoryDropdown(rawCat);
                 } else {
                     handleCategoryChange();
@@ -1887,6 +1973,7 @@
             savedCategories = [...new Set(savedCategories)];
             if (latestAddedCategory === oldName) {
                 latestAddedCategory = formattedName;
+                localStorage.setItem('tv_latest_added_cat', formattedName);
             }
 
             renderCategoryDropdown();
@@ -1900,6 +1987,7 @@
             savedCategories = savedCategories.filter(c => c !== catName);
             if (latestAddedCategory === catName) {
                 latestAddedCategory = null;
+                localStorage.removeItem('tv_latest_added_cat');
             }
             
             renderCategoryDropdown();
