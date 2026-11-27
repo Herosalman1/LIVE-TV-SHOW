@@ -1765,15 +1765,6 @@
     "badgeColor": "#ffffff"
   },
   {
-    "name": "Gadar: Ek Prem Katha (2001)",
-    "url": "https://s1.streamflixserver.site/movies/2001/gadar.mkv",
-    "category": "BELLOW 2026 NEW MOVIE'S",
-    "streamType": "offline",
-    "badge": "OLD",
-    "badgeBg": "#64748b",
-    "badgeColor": "#ffffff"
-  },
-  {
     "name": "Garam Masala (2005)",
     "url": "https://ia601002.us.archive.org/7/items/rain-the-terror-within-2005/Garam%20Masala%201080p%202005.ia.mp4",
     "category": "BELLOW 2026 NEW MOVIE'S",
@@ -8817,6 +8808,15 @@
     "badgeColor": "#ffffff"
   },
   {
+    "name": "Gadar: Ek Prem Katha (2001)",
+    "url": "https://s1.streamflixserver.site/movies/2001/gadar.mkv",
+    "category": "GADAR 2001 TO 2023",
+    "streamType": "offline",
+    "badge": "OLD",
+    "badgeBg": "#64748b",
+    "badgeColor": "#ffffff"
+  },
+  {
     "name": "Judwaa 1 (1997)",
     "url": "https://ia903209.us.archive.org/22/items/judwaa-1997-720p-hindi-org-web-dl/Judwaa%20%281997%29%20720p%20Hindi%20ORG%20WEB%20DL.mp4",
     "category": "JUDWAA 1997 TO 2017",
@@ -9209,5 +9209,11 @@
     "badgeBg": "#5b687c",
     "badgeColor": "#ffffff",
     "pinOrder": 7
+  },
+  {
+    "name": "1H 40M : EPISODE",
+    "url": "https://archive.org/serve/t-e-o-o-s/T-E-O-O-S.mp4",
+    "category": "THE END OF OAK STREET 2026",
+    "streamType": "offline"
   }
 ]
