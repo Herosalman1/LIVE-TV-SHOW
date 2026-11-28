@@ -780,6 +780,48 @@
     "streamType": "live"
   },
   {
+    "name": "Aankhon Se Tune 2.0 song",
+    "url": "https://youtu.be/LX2zshAgECQ?si=Gw7QMou70e6N-L_z",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "Aap Ki Kashish",
+    "url": "https://youtu.be/2drBOxrFl4s?si=l6X5URzgHihvDU7X",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "Aashiq Banaya Aapne",
+    "url": "https://youtu.be/0bAVd9jJE2Q?si=NJMidmHHaiyYQVYh",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "Afsaana Banaaya Aapne song",
+    "url": "https://youtu.be/u9MpnqWC6Xg?si=vZR86j4rdMl-UY6_",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "Dard-E-Dil Dard-E-Jigar song",
+    "url": "https://youtu.be/4rPcOxl-cyM?si=XOFXUEfWqD6cPsXz",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "GUZARISH",
+    "url": "https://youtu.be/CEbB9kdu8ng?si=P1090qCppcYF65j9",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
+    "name": "Jhalak Dikhla Ja Full Song",
+    "url": "https://youtu.be/vnlk8V-q0oU?si=fvQbi5YBtCi3XRyT",
+    "category": "TRANDING NEW SONG ♪",
+    "streamType": "live"
+  },
+  {
     "name": "Cricket Gold",
     "url": "https://epg.provider.plex.tv/library/parts/698f7631338300003d436270-65e0c8c6d899afe817b9d224.m3u8?includeAllStreams=1&x-plex-product=Plex+Mediaverse&x-plex-token=e5EqzivsgbAdxsZvQZCy&auto=0",
     "category": "SPORTS",
@@ -2956,6 +2998,12 @@
   {
     "name": "Veerana (1988)",
     "url": "https://dn710200.ca.archive.org/0/items/veerana-1988-blu-ray-1080p-hindi-dts-hdma-2.0-x-264-esub-mkv-cinemas/Veerana%201988%20BluRay%201080p%20Hindi%20DTS%20HDMA%202.0%20x264%20ESub%20-%20mkvCinemas.mp4",
+    "category": "HORROR : भूत प्रेत वाली फिल्में",
+    "streamType": "offline"
+  },
+  {
+    "name": "When Evil Lurks (2023)",
+    "url": "https://s2.streamflixserver.site/movies/2023/whenevillurks.mkv",
     "category": "HORROR : भूत प्रेत वाली फिल्में",
     "streamType": "offline"
   },
