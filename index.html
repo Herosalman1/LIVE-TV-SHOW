@@ -818,11 +818,110 @@
         let isYouTubeEnded = false;
         let ytProgressTimer = null;
 
+        let ytAutoNextTriggeredForCurrentVideo = false;
+
+        function autoPlayNextInSameFolder() {
+            if (!isYouTubeActive || ytAutoNextTriggeredForCurrentVideo) return;
+            ytAutoNextTriggeredForCurrentVideo = true;
+            const { nextIndex } = getCategoryNeighbors();
+            if (typeof nextIndex === 'number' && nextIndex !== -1 && nextIndex !== currentPlayingIndex) {
+                setTimeout(() => {
+                    if (isYouTubeActive) {
+                        playChannelByIndex(nextIndex);
+                    }
+                }, 250);
+            } else {
+                isYouTubeEnded = true;
+                isYouTubePaused = true;
+                playPauseIcon.className = "fa-solid fa-play";
+                playPauseText.innerText = "Play";
+                overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                showEndScreenOverlay();
+            }
+        }
+
+        function requestYouTubeIframeTimeInfo() {
+            if (!isYouTubeActive || !ytPlayerHost) return;
+            const ifr = ytPlayerHost.querySelector('iframe');
+            if (ifr && ifr.contentWindow) {
+                try {
+                    ifr.contentWindow.postMessage(JSON.stringify({
+                        event: 'listening',
+                        id: 1,
+                        channel: 'widget'
+                    }), '*');
+                    ifr.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: 'getCurrentTime',
+                        args: []
+                    }), '*');
+                    ifr.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: 'getDuration',
+                        args: []
+                    }), '*');
+                } catch (e) {}
+            }
+        }
+
+        window.addEventListener('message', function(event) {
+            if (!isYouTubeActive) return;
+            let raw = event.data;
+            if (!raw) return;
+            if (typeof raw === 'string') {
+                try { raw = JSON.parse(raw); } catch (e) { return; }
+            }
+            if (!raw || typeof raw !== 'object') return;
+
+            // Handle YouTube iframe state change via postMessage
+            if (raw.event === 'onStateChange' && raw.info === 0) {
+                autoPlayNextInSameFolder();
+                return;
+            }
+            if (raw.event === 'infoDelivery' && raw.info) {
+                if (typeof raw.info.duration === 'number' && raw.info.duration > 0) {
+                    ytReportedDuration = raw.info.duration;
+                }
+                if (typeof raw.info.currentTime === 'number' && raw.info.currentTime >= 0) {
+                    ytReportedCurrentTime = raw.info.currentTime;
+                }
+                if (typeof raw.info.playerState === 'number' && raw.info.playerState === 0) {
+                    autoPlayNextInSameFolder();
+                    return;
+                }
+                if (ytReportedDuration > 1 && ytReportedCurrentTime >= ytReportedDuration - 0.5) {
+                    autoPlayNextInSameFolder();
+                    return;
+                }
+                updateProgressUI();
+            }
+        });
+
         function startYouTubeProgressTimer() {
             clearInterval(ytProgressTimer);
             ytProgressTimer = setInterval(() => {
-                if (isYouTubeActive && ytApiPlayer) {
+                if (!isYouTubeActive) return;
+                if (ytApiPlayer) {
+                    try {
+                        if (typeof ytApiPlayer.getPlayerState === 'function' && ytApiPlayer.getPlayerState() === 0) {
+                            autoPlayNextInSameFolder();
+                            return;
+                        }
+                        if (typeof ytApiPlayer.getDuration === 'function' && typeof ytApiPlayer.getCurrentTime === 'function') {
+                            const d = ytApiPlayer.getDuration();
+                            const c = ytApiPlayer.getCurrentTime();
+                            if (d > 1 && c >= d - 0.5 && !isYouTubePaused) {
+                                autoPlayNextInSameFolder();
+                                return;
+                            }
+                        }
+                    } catch (e) {}
                     updateProgressUI();
+                } else {
+                    requestYouTubeIframeTimeInfo();
+                    if (ytReportedDuration > 1 && ytReportedCurrentTime >= ytReportedDuration - 0.5) {
+                        autoPlayNextInSameFolder();
+                    }
                 }
             }, 500);
         }
@@ -971,17 +1070,7 @@
                             if (e.data === 0) {
                                 didStart = true;
                                 clearTimeout(ytTvFallbackTimer);
-                                const { nextIndex } = getCategoryNeighbors();
-                                if (typeof nextIndex === 'number' && nextIndex !== -1 && nextIndex !== currentPlayingIndex) {
-                                    playChannelByIndex(nextIndex);
-                                } else {
-                                    isYouTubeEnded = true;
-                                    isYouTubePaused = true;
-                                    playPauseIcon.className = "fa-solid fa-play";
-                                    playPauseText.innerText = "Play";
-                                    overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-                                    showEndScreenOverlay();
-                                }
+                                autoPlayNextInSameFolder();
                             } else if (e.data === 1 || e.data === 3) {
                                 didStart = true;
                                 clearTimeout(ytTvFallbackTimer);
@@ -1016,6 +1105,7 @@
         function stopYouTubePlayer() {
             applyPinchScale(1);
             isScrubbingSeekBar = false;
+            ytAutoNextTriggeredForCurrentVideo = false;
             ytReportedDuration = 0;
             ytReportedCurrentTime = 0;
             isYouTubeMutedState = false;
