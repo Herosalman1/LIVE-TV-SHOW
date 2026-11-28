@@ -162,6 +162,24 @@
         .video-container.yt-clean-mode .yt-player-frame {
             overflow: hidden;
         }
+        .video-container.yt-clean-mode .yt-player-frame > div,
+        .video-container.yt-clean-mode .yt-player-frame iframe {
+            width: calc(100% + 140px);
+            height: calc(100% + 140px);
+            margin-left: -70px;
+            margin-top: -70px;
+        }
+        .video-container.yt-clean-mode.pinch-zoomed .yt-player-frame > div,
+        .video-container.yt-clean-mode.pinch-zoomed .yt-player-frame iframe {
+            width: 100%;
+            height: 100%;
+            margin-left: 0;
+            margin-top: 0;
+        }
+        .video-container.yt-clean-mode.yt-touch-active .yt-player-frame > div,
+        .video-container.yt-clean-mode.yt-touch-active .yt-player-frame iframe {
+            filter: brightness(0.68) contrast(1.08);
+        }
 
         .stream-timer {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -1167,7 +1185,10 @@
         }
 
         function stopYouTubePlayer() {
-            if (videoContainer) videoContainer.classList.remove('yt-clean-mode');
+            if (videoContainer) {
+                videoContainer.classList.remove('yt-clean-mode');
+                videoContainer.classList.remove('yt-touch-active');
+            }
             if (touchCatcher) touchCatcher.style.zIndex = '10';
             applyPinchScale(1, 0, 0);
             isScrubbingSeekBar = false;
@@ -2347,13 +2368,21 @@
 
         function showOverlay() {
             customOverlay.classList.add('show');
+            if (videoContainer && isYouTubeActive) {
+                videoContainer.classList.add('yt-touch-active');
+            }
             clearTimeout(overlayTimer);
             const isPausedNow = isYouTubeActive ? isYouTubePaused : video.paused;
             if (!isPausedNow) {
                 overlayTimer = setTimeout(() => { hideOverlay(); }, 1000);
             }
         }
-        function hideOverlay() { customOverlay.classList.remove('show'); }
+        function hideOverlay() {
+            customOverlay.classList.remove('show');
+            if (videoContainer) {
+                videoContainer.classList.remove('yt-touch-active');
+            }
+        }
 
         touchCatcher.addEventListener('click', function(e) {
             const currentTime = new Date().getTime();
