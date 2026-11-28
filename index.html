@@ -203,7 +203,7 @@
         .sidebar { width: max-content; min-width: min(100%, 640px); max-width: min(100%, 700px); margin: 0 auto; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         
         .sidebar-tabs { display: flex; width: 100%; border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.2); margin-bottom: 4px; }
-        .sidebar-tab { flex: 1; padding: 12px 0; font-size: 13px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; text-transform: uppercase;}
+        .sidebar-tab { flex: 1; padding: 12px 4px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; text-transform: uppercase; white-space: nowrap;}
         .sidebar-tab.active { color: #fff; border-bottom: 2px solid var(--accent-red); background: rgba(229, 9, 20, 0.1); }
         .sidebar-tab i { color: var(--accent-red); margin-right: 8px; }
         
@@ -716,6 +716,7 @@
             <div class="sidebar-tabs">
                 <button class="sidebar-tab active" id="tabLive" onclick="switchView('live')"><i class="fa-solid fa-tv"></i> Live TV</button>
                 <button class="sidebar-tab" id="tabOffline" onclick="switchView('offline')"><i class="fa-solid fa-film"></i> Offline Stream</button>
+                <button class="sidebar-tab" id="tabTrending" onclick="switchView('trending')"><i class="fa-solid fa-music"></i> Trending Song</button>
             </div>
             <div class="channel-list-container" id="channelList">
                 <div style="text-align:center; color:var(--text-muted); padding:30px; font-size: 13px;">
@@ -747,7 +748,7 @@
             </div>
             <div class="global-search-meta" id="globalSearchMetaBar">
                 <span id="globalSearchCount"></span>
-                <span>Live TV + Offline Stream</span>
+                <span>Live TV + Offline Stream + Trending Song</span>
             </div>
             <div class="global-search-results" id="globalSearchResults"></div>
         </div>
@@ -801,6 +802,8 @@
                     channel: 'widget'
                 }), '*');
                 sendYouTubeCommand('addEventListener', ['onStateChange']);
+                sendYouTubeCommand('unloadModule', ['captions']);
+                sendYouTubeCommand('unloadModule', ['cc']);
             } catch (e) {}
         }
 
@@ -844,6 +847,8 @@
                 isYouTubeEnded = false;
                 isYouTubePaused = false;
                 hideEndScreenOverlay();
+                sendYouTubeCommand('unloadModule', ['captions']);
+                sendYouTubeCommand('unloadModule', ['cc']);
                 playPauseIcon.className = "fa-solid fa-pause";
                 playPauseText.innerText = "Pause";
             } else if (state === 2) {
@@ -1088,6 +1093,7 @@
             currentView = type;
             document.getElementById('tabLive').className = type === 'live' ? 'sidebar-tab active' : 'sidebar-tab';
             document.getElementById('tabOffline').className = type === 'offline' ? 'sidebar-tab active' : 'sidebar-tab';
+            document.getElementById('tabTrending').className = type === 'trending' ? 'sidebar-tab active' : 'sidebar-tab';
             renderChannels();
         }
 
@@ -1110,7 +1116,7 @@
             });
 
             if (categories.length === 0) {
-                channelListEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:20px; font-size: 13px;">No ${currentView === 'live' ? 'Live TV' : 'Offline Stream'} Channels Found.</div>`;
+                channelListEl.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:20px; font-size: 13px;">No ${currentView === 'live' ? 'Live TV' : (currentView === 'trending' ? 'Trending Song' : 'Offline Stream')} Channels Found.</div>`;
                 const searchTrigger = document.createElement('div');
                 searchTrigger.className = 'search-folder-trigger';
                 searchTrigger.onclick = () => openGlobalSearch();
@@ -1174,7 +1180,7 @@
                     const badgeHTML = effBadge ? `<span class="ott-badge ${getBadgeClass(effBadge)}">${effBadge}</span>` : '';
 
                     item.innerHTML = `
-                        <div class="channel-name" title="${ch.name}"><i class="fa-solid fa-tv"></i> ${ch.name}</div>
+                        <div class="channel-name" title="${ch.name}"><i class="fa-solid ${currentView === 'trending' ? 'fa-music' : 'fa-tv'}"></i> ${ch.name}</div>
                         <div class="item-right-actions">
                             ${badgeHTML}
                             <button class="play-btn">PLAY</button>
@@ -1435,9 +1441,10 @@
             }
 
             folderMatches.forEach(f => {
+                const isTrending = f.streamType === 'trending';
                 const isOffline = f.streamType === 'offline';
-                const badgeLabel = isOffline ? 'OFFLINE' : 'LIVE';
-                const badgeClass = isOffline ? 'badge-offline' : 'badge-live';
+                const badgeLabel = isTrending ? 'TRENDING' : (isOffline ? 'OFFLINE' : 'LIVE');
+                const badgeClass = (isOffline || isTrending) ? 'badge-offline' : 'badge-live';
 
                 const row = document.createElement('div');
                 row.className = 'search-result-item';
@@ -1454,10 +1461,10 @@
             });
 
             itemMatches.forEach(({ ch, idx }) => {
-                const isOffline = (ch.streamType || 'live') === 'offline';
+                const st = ch.streamType || 'live';
                 const effBadge = getEffectiveBadge(ch);
                 const badgeHTML = effBadge ? `<span class="ott-badge ${getBadgeClass(effBadge)}">${effBadge}</span>` : '';
-                const iconClass = isOffline ? 'fa-film' : 'fa-tv';
+                const iconClass = st === 'trending' ? 'fa-music' : (st === 'offline' ? 'fa-film' : 'fa-tv');
 
                 const row = document.createElement('div');
                 row.className = 'search-result-item';
@@ -1528,7 +1535,7 @@
                     const originParam = (window.location.origin && window.location.origin.startsWith('http'))
                         ? `&origin=${encodeURIComponent(window.location.origin)}`
                         : '';
-                    ytPlayer.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${originParam}`;
+                    ytPlayer.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&cc_load_policy=0&iv_load_policy=3${originParam}`;
                     ytPlayer.style.display = 'block';
                 }
                 return;
