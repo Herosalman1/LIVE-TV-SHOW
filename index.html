@@ -1010,6 +1010,8 @@
 
         function stopYouTubePlayer() {
             applyPinchScale(1);
+            isYouTubeMutedState = false;
+            if (overlayMuteBtn) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             stopYouTubeProgressTimer();
             clearTimeout(ytTvFallbackTimer);
             ytTvFallbackTimer = null;
@@ -2248,14 +2250,42 @@
             showOverlay(); 
         });
         
+        let isYouTubeMutedState = false;
+
+        function postYouTubeCommand(funcName, args = []) {
+            if (!ytPlayerHost) return;
+            const ifr = ytPlayerHost.querySelector('iframe');
+            if (ifr && ifr.contentWindow) {
+                try {
+                    ifr.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: funcName,
+                        args: args
+                    }), '*');
+                } catch (e) {}
+            }
+        }
+
         function toggleMute(event) {
             if(event) event.stopPropagation();
-            if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.isMuted === 'function') {
-                if (ytApiPlayer.isMuted()) {
-                    ytApiPlayer.unMute();
+            if (isYouTubeActive) {
+                let currentlyMuted = isYouTubeMutedState;
+                if (ytApiPlayer && typeof ytApiPlayer.isMuted === 'function') {
+                    try { currentlyMuted = Boolean(ytApiPlayer.isMuted()); } catch (e) {}
+                }
+                if (currentlyMuted) {
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.unMute === 'function') ytApiPlayer.unMute();
+                    } catch (e) {}
+                    postYouTubeCommand('unMute');
+                    isYouTubeMutedState = false;
                     overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
                 } else {
-                    ytApiPlayer.mute();
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.mute === 'function') ytApiPlayer.mute();
+                    } catch (e) {}
+                    postYouTubeCommand('mute');
+                    isYouTubeMutedState = true;
                     overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
                 }
                 showOverlay();
@@ -2271,12 +2301,17 @@
             if(event) event.stopPropagation();
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
 
-            if (isYouTubeActive && ytApiPlayer) {
+            if (isYouTubeActive) {
                 if (isYouTubeEnded) {
                     hideEndScreenOverlay();
                     isYouTubeEnded = false;
                     isYouTubePaused = false;
-                    try { ytApiPlayer.seekTo(0, true); ytApiPlayer.playVideo(); } catch (e) {}
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.seekTo === 'function') ytApiPlayer.seekTo(0, true);
+                        if (ytApiPlayer && typeof ytApiPlayer.playVideo === 'function') ytApiPlayer.playVideo();
+                    } catch (e) {}
+                    postYouTubeCommand('seekTo', [0, true]);
+                    postYouTubeCommand('playVideo');
                     playPauseIcon.className = "fa-solid fa-pause";
                     playPauseText.innerText = "Pause";
                     overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
@@ -2284,14 +2319,20 @@
                     return;
                 }
                 if (isYouTubePaused) {
-                    try { ytApiPlayer.playVideo(); } catch (e) {}
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.playVideo === 'function') ytApiPlayer.playVideo();
+                    } catch (e) {}
+                    postYouTubeCommand('playVideo');
                     isYouTubePaused = false;
                     playPauseIcon.className = "fa-solid fa-pause";
                     playPauseText.innerText = "Pause";
                     overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
                     showOverlay();
                 } else {
-                    try { ytApiPlayer.pauseVideo(); } catch (e) {}
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.pauseVideo === 'function') ytApiPlayer.pauseVideo();
+                    } catch (e) {}
+                    postYouTubeCommand('pauseVideo');
                     isYouTubePaused = true;
                     playPauseIcon.className = "fa-solid fa-play";
                     playPauseText.innerText = "Play";
