@@ -142,6 +142,9 @@
             display: block;
             pointer-events: none;
         }
+        .video-container.yt-clean-mode .yt-player-frame {
+            overflow: hidden;
+        }
 
         /* ⚡ VIP POPUP TIMER, PLEASE WAIT & ERROR CENTERED */
         .stream-timer { 
@@ -999,6 +1002,7 @@
 
         function mountYouTubePlayer(ytId, originalUrl) {
             if (!ytPlayerHost) return;
+            if (videoContainer) videoContainer.classList.add('yt-clean-mode');
             clearTimeout(ytTvFallbackTimer);
             ytTvFallbackTimer = null;
             if (ytApiPlayer) {
@@ -1103,6 +1107,7 @@
         }
 
         function stopYouTubePlayer() {
+            if (videoContainer) videoContainer.classList.remove('yt-clean-mode');
             applyPinchScale(1);
             isScrubbingSeekBar = false;
             ytAutoNextTriggeredForCurrentVideo = false;
