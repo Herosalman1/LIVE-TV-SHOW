@@ -80,20 +80,21 @@
         .video-container:-ms-fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container:fullscreen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
         .video-container.mobile-pseudo-fullscreen {
-            position: fixed !important;
-            inset: 0 !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            height: 100dvh !important;
-            max-width: 100vw !important;
-            max-height: 100vh !important;
-            max-height: 100dvh !important;
-            border-radius: 0 !important;
-            margin: 0 !important;
             z-index: 9990 !important;
-            background: #000 !important;
+        }
+        @media (max-width: 899px) and (orientation: portrait) {
+            .video-container.mobile-pseudo-fullscreen.force-landscape-rotate {
+                top: 50% !important;
+                left: 50% !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 100dvh !important;
+                height: 100vw !important;
+                min-width: 100dvh !important;
+                min-height: 100vw !important;
+                transform: translate(-50%, -50%) rotate(90deg) !important;
+                transform-origin: center center !important;
+            }
         }
         .video-container:fullscreen .yt-player-frame,
         .video-container:-webkit-full-screen .yt-player-frame,
@@ -103,17 +104,53 @@
             width: 100% !important;
             height: 100% !important;
         }
+        .video-container:fullscreen,
+        .video-container:-webkit-full-screen,
+        .video-container:-moz-full-screen,
+        .video-container:-ms-fullscreen,
+        .video-container.mobile-pseudo-fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            height: 100dvh !important;
+            max-width: none !important;
+            max-height: none !important;
+            min-width: 100vw !important;
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: #000 !important;
+            overflow: hidden !important;
+        }
+        .video-container:fullscreen .yt-player-frame,
+        .video-container:-webkit-full-screen .yt-player-frame,
+        .video-container:-moz-full-screen .yt-player-frame,
+        .video-container.mobile-pseudo-fullscreen .yt-player-frame,
+        .video-container:-ms-fullscreen .yt-player-frame {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            overflow: hidden !important;
+        }
         .video-container:fullscreen .yt-player-frame > div,
         .video-container:fullscreen .yt-player-frame iframe,
         .video-container:-webkit-full-screen .yt-player-frame > div,
         .video-container.mobile-pseudo-fullscreen .yt-player-frame > div,
         .video-container.mobile-pseudo-fullscreen .yt-player-frame iframe,
         .video-container:-webkit-full-screen .yt-player-frame iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.16);
-            transform-origin: center center;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) scale(1.16) !important;
+            transform-origin: center center !important;
             width: 100% !important;
             height: 100% !important;
             max-width: none !important;
@@ -133,19 +170,11 @@
             display: none;
             z-index: 5;
             pointer-events: none;
-            overflow: hidden;
         }
         .yt-player-frame > div,
         .yt-player-frame iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.16);
-            transform-origin: center center;
             width: 100% !important;
             height: 100% !important;
-            max-width: none !important;
-            max-height: none !important;
             border: none;
             display: block;
             pointer-events: none;
@@ -2304,19 +2333,41 @@
 
         let isMobilePseudoFullScreen = false;
 
+        function updateMobileRotationClass() {
+            if (!isMobilePseudoFullScreen) {
+                videoContainer.classList.remove('force-landscape-rotate');
+                return;
+            }
+            const isPortrait = window.innerHeight > window.innerWidth;
+            const isTouchMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window);
+            if (isTouchMobile && isPortrait) {
+                videoContainer.classList.add('force-landscape-rotate');
+            } else {
+                videoContainer.classList.remove('force-landscape-rotate');
+            }
+        }
+
         function enterMobilePseudoFS() {
             isMobilePseudoFullScreen = true;
             videoContainer.classList.add('mobile-pseudo-fullscreen');
+            updateMobileRotationClass();
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
             lockLandscape();
-            setTimeout(syncYouTubeFullscreenSize, 80);
-            setTimeout(syncYouTubeFullscreenSize, 260);
+            setTimeout(() => {
+                updateMobileRotationClass();
+                syncYouTubeFullscreenSize();
+            }, 80);
+            setTimeout(() => {
+                updateMobileRotationClass();
+                syncYouTubeFullscreenSize();
+            }, 300);
         }
 
         function exitMobilePseudoFS() {
             isMobilePseudoFullScreen = false;
             videoContainer.classList.remove('mobile-pseudo-fullscreen');
+            videoContainer.classList.remove('force-landscape-rotate');
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
             unlockOrientation();
@@ -2400,18 +2451,33 @@
             if (!isYouTubeActive || !ytPlayerHost) return;
             const ifr = ytPlayerHost.querySelector('iframe');
             if (!ifr) return;
+            const inFs = isAnyFullScreenActive();
             const rect = videoContainer.getBoundingClientRect();
-            const w = Math.max(1, Math.round(rect.width || window.innerWidth));
-            const h = Math.max(1, Math.round(rect.height || window.innerHeight));
-            ifr.style.position = 'absolute';
-            ifr.style.top = '50%';
-            ifr.style.left = '50%';
-            ifr.style.transform = 'translate(-50%, -50%) scale(1.16)';
-            ifr.style.transformOrigin = 'center center';
-            ifr.style.width = '100%';
-            ifr.style.height = '100%';
+            let w = Math.max(1, Math.round(rect.width || window.innerWidth));
+            let h = Math.max(1, Math.round(rect.height || window.innerHeight));
+            if (inFs && videoContainer.classList.contains('force-landscape-rotate')) {
+                w = Math.max(1, Math.round(window.innerHeight));
+                h = Math.max(1, Math.round(window.innerWidth));
+            }
             ifr.setAttribute('width', String(w));
             ifr.setAttribute('height', String(h));
+            if (inFs) {
+                ifr.style.position = 'absolute';
+                ifr.style.top = '50%';
+                ifr.style.left = '50%';
+                ifr.style.transform = 'translate(-50%, -50%) scale(1.16)';
+                ifr.style.transformOrigin = 'center center';
+                ifr.style.width = '100%';
+                ifr.style.height = '100%';
+            } else {
+                ifr.style.position = '';
+                ifr.style.top = '';
+                ifr.style.left = '';
+                ifr.style.transform = '';
+                ifr.style.transformOrigin = '';
+                ifr.style.width = '100%';
+                ifr.style.height = '100%';
+            }
             if (ytApiPlayer && typeof ytApiPlayer.setSize === 'function') {
                 try { ytApiPlayer.setSize(w, h); } catch (e) {}
             }
@@ -2453,12 +2519,14 @@
         document.addEventListener('msfullscreenchange', handleFullScreenChange);
         window.addEventListener('orientationchange', () => {
             if (isAnyFullScreenActive()) {
-                setTimeout(syncYouTubeFullscreenSize, 150);
-                setTimeout(syncYouTubeFullscreenSize, 400);
+                updateMobileRotationClass();
+                setTimeout(() => { updateMobileRotationClass(); syncYouTubeFullscreenSize(); }, 150);
+                setTimeout(() => { updateMobileRotationClass(); syncYouTubeFullscreenSize(); }, 400);
             }
         });
         window.addEventListener('resize', () => {
             if (isAnyFullScreenActive()) {
+                updateMobileRotationClass();
                 syncYouTubeFullscreenSize();
             }
         });
