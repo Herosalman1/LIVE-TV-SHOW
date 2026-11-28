@@ -826,6 +826,9 @@
         function autoPlayNextInSameFolder() {
             if (!isYouTubeActive || ytAutoNextTriggeredForCurrentVideo) return;
             ytAutoNextTriggeredForCurrentVideo = true;
+            if (ytDirectPlayingIndex !== -1 && playNextDirectYouTubeSong()) {
+                return;
+            }
             const { nextIndex } = getCategoryNeighbors();
             if (typeof nextIndex === 'number' && nextIndex !== -1 && nextIndex !== currentPlayingIndex) {
                 setTimeout(() => {
@@ -1380,7 +1383,383 @@
             else { icon.className = "fa-solid fa-folder"; }
         }
 
+        let ytDirectSearchResults = [];
+        let ytDirectPlayingIndex = -1;
+
+        function getYtApiKey() {
+            try {
+                return (localStorage.getItem('hs_yt_api_key') || '').trim();
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function setYtApiKey(key) {
+            try {
+                if (key) localStorage.setItem('hs_yt_api_key', key.trim());
+                else localStorage.removeItem('hs_yt_api_key');
+            } catch (e) {}
+        }
+
+        let ytLastSearchedQuery = '';
+
+        function playDirectYouTubeSearchItem(idx, titleText) {
+            if (!Array.isArray(ytDirectSearchResults) || idx < 0 || idx >= ytDirectSearchResults.length) return;
+            const item = ytDirectSearchResults[idx];
+            if (!item || !item.videoId) return;
+            ytDirectPlayingIndex = idx;
+            const baseQuery = (ytLastSearchedQuery || '').trim();
+            const displayLabel = titleText
+                ? titleText
+                : (baseQuery ? `${baseQuery} (${idx + 1})` : (item.title || 'YouTube Song'));
+            nowPlayingText.innerHTML = `<i class="fa-brands fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${displayLabel}</span>`;
+
+            stopYouTubePlayer();
+            if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+            video.style.display = 'none';
+            if (touchCatcher) touchCatcher.style.display = 'block';
+
+            isYouTubeActive = true;
+            isYouTubePaused = false;
+            isYouTubeEnded = false;
+            playPauseIcon.className = "fa-solid fa-pause";
+            playPauseText.innerText = "Pause";
+            overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+            mountYouTubePlayer(item.videoId, `https://www.youtube.com/watch?v=${item.videoId}`);
+        }
+
+        function playNextDirectYouTubeSong() {
+            if (!Array.isArray(ytDirectSearchResults) || ytDirectSearchResults.length === 0) return false;
+            if (ytDirectPlayingIndex < 0) return false;
+            const nextIdx = (ytDirectPlayingIndex + 1) % ytDirectSearchResults.length;
+            playDirectYouTubeSearchItem(nextIdx);
+            return true;
+        }
+
+        function setYtStatusText(text) {
+            const statusEl = document.getElementById('ytSongSearchStatus');
+            if (!statusEl) return;
+            const labelSpan = statusEl.querySelector('span');
+            if (labelSpan) labelSpan.textContent = text;
+            else statusEl.textContent = text;
+        }
+
+        function renderYtDirectResults(list, labelMsg) {
+            const resultsBox = document.getElementById('ytSongSearchResults');
+            if (!resultsBox) return;
+            resultsBox.innerHTML = '';
+            ytDirectSearchResults = list;
+            if (!Array.isArray(list) || list.length === 0) {
+                setYtStatusText('Koi song nahi mila.');
+                return;
+            }
+            setYtStatusText(labelMsg || `${list.length} songs mile`);
+            const shortBase = (ytLastSearchedQuery || '').trim();
+            list.forEach((song, i) => {
+                const row = document.createElement('div');
+                row.className = 'channel-item';
+                const shortLabel = shortBase ? `${shortBase} (${i + 1})` : song.title;
+                row.onclick = () => playDirectYouTubeSearchItem(i, shortLabel);
+                row.innerHTML = `
+                    <div class="channel-name" title="${shortLabel}"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> ${shortLabel}</div>
+                    <div class="item-right-actions">
+                        <button type="button" class="play-btn">PLAY</button>
+                    </div>
+                `;
+                resultsBox.appendChild(row);
+            });
+        }
+
+        function parseYouTubeSearchHtmlForSongs(htmlText) {
+            if (!htmlText || typeof htmlText !== 'string') return [];
+            const results = [];
+            const seenIds = new Set();
+
+            // 1. Extract from ytInitialData JSON embedded in YouTube search results HTML
+            const markerIdx = htmlText.indexOf('var ytInitialData =');
+            const altIdx = markerIdx !== -1 ? markerIdx : htmlText.indexOf('ytInitialData =');
+            if (altIdx !== -1) {
+                const startBrace = htmlText.indexOf('{', altIdx);
+                if (startBrace !== -1) {
+                    let depth = 0;
+                    let endBrace = -1;
+                    let inStr = false;
+                    let esc = false;
+                    for (let i = startBrace; i < htmlText.length && i < startBrace + 2500000; i++) {
+                        const ch = htmlText[i];
+                        if (inStr) {
+                            if (esc) esc = false;
+                            else if (ch === '\\') esc = true;
+                            else if (ch === '"') inStr = false;
+                        } else {
+                            if (ch === '"') inStr = true;
+                            else if (ch === '{') depth++;
+                            else if (ch === '}') {
+                                depth--;
+                                if (depth === 0) {
+                                    endBrace = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if (endBrace !== -1) {
+                        try {
+                            const ytData = JSON.parse(htmlText.slice(startBrace, endBrace + 1));
+                            const walk = (node) => {
+                                if (!node || typeof node !== 'object' || results.length >= 14) return;
+                                if (Array.isArray(node)) {
+                                    for (let i = 0; i < node.length; i++) walk(node[i]);
+                                    return;
+                                }
+                                if (node.videoRenderer && node.videoRenderer.videoId) {
+                                    const vr = node.videoRenderer;
+                                    const vid = String(vr.videoId);
+                                    if (/^[a-zA-Z0-9_-]{11}$/.test(vid) && !seenIds.has(vid)) {
+                                        seenIds.add(vid);
+                                        let titleStr = '';
+                                        if (vr.title && Array.isArray(vr.title.runs)) {
+                                            titleStr = vr.title.runs.map(r => r.text || '').join('');
+                                        } else if (vr.title && vr.title.simpleText) {
+                                            titleStr = vr.title.simpleText;
+                                        }
+                                        let chName = 'YouTube';
+                                        if (vr.ownerText && Array.isArray(vr.ownerText.runs) && vr.ownerText.runs[0]) {
+                                            chName = vr.ownerText.runs[0].text || 'YouTube';
+                                        }
+                                        results.push({
+                                            videoId: vid,
+                                            title: titleStr || 'YouTube Song',
+                                            channel: chName
+                                        });
+                                    }
+                                }
+                                for (const k of Object.keys(node)) {
+                                    walk(node[k]);
+                                }
+                            };
+                            walk(ytData);
+                        } catch (e) {}
+                    }
+                }
+            }
+
+            // 2. Fallback regex for /watch?v=VIDEOID in HTML
+            if (results.length === 0) {
+                const re = /"videoId":"([a-zA-Z0-9_-]{11})"/g;
+                let m;
+                while ((m = re.exec(htmlText)) !== null && results.length < 12) {
+                    const vid = m[1];
+                    if (!seenIds.has(vid)) {
+                        seenIds.add(vid);
+                        results.push({
+                            videoId: vid,
+                            title: `YouTube Song (${vid})`,
+                            channel: 'YouTube'
+                        });
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        async function searchViaPublicPipedFallback(q) {
+            // Search across ALL YouTube video types (movies, songs, clips, etc.) without restricting to songs/music
+            const pipedUrls = [
+                `https://pipedapi.kavin.rocks/search?q=${encodeURIComponent(q)}&filter=videos`,
+                `https://pipedapi.adminforge.de/search?q=${encodeURIComponent(q)}&filter=videos`,
+                `https://api.piped.private.coffee/search?q=${encodeURIComponent(q)}&filter=videos`
+            ];
+            for (const ep of pipedUrls) {
+                try {
+                    const r = await fetch(ep);
+                    if (!r.ok) continue;
+                    const d = await r.json();
+                    const arr = Array.isArray(d && d.items) ? d.items : [];
+                    const parsed = arr
+                        .map(it => {
+                            const urlStr = it && it.url ? String(it.url) : '';
+                            const m = urlStr.match(/[?&]v=([a-zA-Z0-9_-]{11})/) || urlStr.match(/\/watch\?v=([a-zA-Z0-9_-]{11})/);
+                            const vid = m ? m[1] : (it && it.id ? String(it.id) : '');
+                            return (vid && /^[a-zA-Z0-9_-]{11}$/.test(vid)) ? {
+                                videoId: vid,
+                                title: it.title || q,
+                                channel: it.uploaderName || 'YouTube'
+                            } : null;
+                        })
+                        .filter(Boolean)
+                        .slice(0, 14);
+                    if (parsed.length > 0) return parsed;
+                } catch (e) {}
+            }
+
+            const invidiousUrls = [
+                `https://inv.nadeko.net/api/v1/search?q=${encodeURIComponent(q)}&type=video`,
+                `https://yewtu.be/api/v1/search?q=${encodeURIComponent(q)}&type=video`
+            ];
+            for (const ep of invidiousUrls) {
+                try {
+                    const r = await fetch(ep);
+                    if (!r.ok) continue;
+                    const arr = await r.json();
+                    if (!Array.isArray(arr)) continue;
+                    const parsed = arr
+                        .map(it => {
+                            const vid = it && it.videoId ? String(it.videoId) : '';
+                            return (vid && /^[a-zA-Z0-9_-]{11}$/.test(vid)) ? {
+                                videoId: vid,
+                                title: it.title || q,
+                                channel: it.author || 'YouTube'
+                            } : null;
+                        })
+                        .filter(Boolean)
+                        .slice(0, 14);
+                    if (parsed.length > 0) return parsed;
+                } catch (e) {}
+            }
+
+            // Proxy YouTube search page for exact query `q` (all types: movies, songs, videos)
+            const ytSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+            const proxyUrls = [
+                `https://api.allorigins.win/raw?url=${encodeURIComponent(ytSearchUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(ytSearchUrl)}`
+            ];
+            for (const pUrl of proxyUrls) {
+                try {
+                    const r = await fetch(pUrl);
+                    if (!r.ok) continue;
+                    const txt = await r.text();
+                    const parsed = parseYouTubeSearchHtmlForSongs(txt);
+                    if (parsed.length > 0) return parsed;
+                } catch (e) {}
+            }
+
+            return [];
+        }
+
+        async function runYouTubeSongSearch() {
+            const inputEl = document.getElementById('ytSongSearchInput');
+            const statusEl = document.getElementById('ytSongSearchStatus');
+            const resultsBox = document.getElementById('ytSongSearchResults');
+            if (!inputEl || !statusEl || !resultsBox) return;
+
+            const q = (inputEl.value || '').trim();
+            if (!q) {
+                setYtStatusText('Movie / Song / Video ka naam likhein...');
+                return;
+            }
+            ytLastSearchedQuery = q;
+
+            // If user pasted a direct YouTube URL or 11-char ID, play immediately
+            const directId = extractYouTubeId(q) || (/^[a-zA-Z0-9_-]{11}$/.test(q) ? q : null);
+            if (directId) {
+                ytDirectSearchResults = [{ videoId: directId, title: q, channel: 'YouTube' }];
+                ytDirectPlayingIndex = 0;
+                setYtStatusText('Playing YouTube link...');
+                playDirectYouTubeSearchItem(0, q);
+                return;
+            }
+
+            setYtStatusText('Searching all types...');
+            resultsBox.innerHTML = '';
+
+            const apiKey = getYtApiKey();
+            if (apiKey) {
+                try {
+                    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=14&q=${encodeURIComponent(q)}&key=${encodeURIComponent(apiKey)}`;
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
+
+                    if (res.ok && !data.error) {
+                        const items = Array.isArray(data.items) ? data.items : [];
+                        const parsed = items
+                            .map(it => {
+                                const vid = it && it.id ? it.id.videoId : '';
+                                const sn = it && it.snippet ? it.snippet : {};
+                                return vid ? {
+                                    videoId: vid,
+                                    title: sn.title || q,
+                                    channel: sn.channelTitle || 'YouTube'
+                                } : null;
+                            })
+                            .filter(Boolean);
+                        if (parsed.length > 0) {
+                            renderYtDirectResults(parsed, `${parsed.length} results mile`);
+                            return;
+                        }
+                    } else if (data && data.error && /api key not valid/i.test(String(data.error.message || ''))) {
+                        setYtApiKey('');
+                    }
+                } catch (e) {}
+            }
+
+            // Free public search fallback across all video types (no API key required)
+            const fallbackList = await searchViaPublicPipedFallback(q);
+            if (fallbackList.length > 0) {
+                renderYtDirectResults(fallbackList, `${fallbackList.length} results mile`);
+                return;
+            }
+
+            // Also include any matching items already in savedChannels as instant backup
+            const localMatches = savedChannels
+                .map(ch => ({ videoId: extractYouTubeId(ch.url), title: ch.name || q, channel: ch.category || 'Saved' }))
+                .filter(it => it.videoId && it.title.toLowerCase().includes(q.toLowerCase()));
+            if (localMatches.length > 0) {
+                renderYtDirectResults(localMatches, `${localMatches.length} results mile`);
+                return;
+            }
+
+            setYtStatusText('Abhi network se results nahi aaye, dobara SEARCH dabayein.');
+        }
+
         function appendBottomSearchBox() {
+            if (currentView === 'trending') {
+                const ytBoxWrap = document.createElement('div');
+                ytBoxWrap.className = 'yt-song-search-bottom';
+                ytBoxWrap.style.cssText = 'margin-top: auto; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; width: 100%;';
+
+                const resultsList = document.createElement('div');
+                resultsList.id = 'ytSongSearchResults';
+                resultsList.style.cssText = 'display: flex; flex-direction: column; gap: 4px; max-height: 180px; overflow-y: auto;';
+
+                const statusLine = document.createElement('div');
+                statusLine.id = 'ytSongSearchStatus';
+                statusLine.style.cssText = 'font-size: 10px; color: var(--text-muted); padding: 0 4px; display: flex; justify-content: space-between; align-items: center;';
+                statusLine.innerHTML = `<span>All Type Search (Movie / Song / Video)</span>`;
+
+                const inputRow = document.createElement('div');
+                inputRow.className = 'search-folder-trigger';
+                inputRow.style.cssText = 'margin-top: 0; margin-bottom: 10px; padding: 6px 10px 6px 14px; cursor: default;';
+                inputRow.innerHTML = `
+                    <i class="fa-brands fa-youtube" style="color:#ff0000; margin-right:8px; font-size:13px;"></i>
+                    <input type="text" id="ytSongSearchInput" placeholder="Movie, Song ya kuch bhi search karein..." autocomplete="off" style="flex:1; min-width:0; background:transparent; border:none; outline:none; color:#ffffff; font-size:11px; font-family:'Inter','Poppins',sans-serif;">
+                    <button type="button" id="ytSongSearchGoBtn" class="play-btn" style="background:#e50914; border-color:#e50914; color:#fff; padding:5px 10px; font-size:9.5px;">SEARCH</button>
+                `;
+
+                ytBoxWrap.appendChild(resultsList);
+                ytBoxWrap.appendChild(statusLine);
+                ytBoxWrap.appendChild(inputRow);
+                channelListEl.appendChild(ytBoxWrap);
+
+                const inp = inputRow.querySelector('#ytSongSearchInput');
+                const goBtn = inputRow.querySelector('#ytSongSearchGoBtn');
+                if (goBtn) goBtn.onclick = (e) => { e.stopPropagation(); runYouTubeSongSearch(); };
+                if (inp) {
+                    inp.onkeydown = (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            runYouTubeSongSearch();
+                        }
+                    };
+                }
+                return;
+            }
+
             const searchTrigger = document.createElement('div');
             searchTrigger.className = 'search-folder-trigger';
             searchTrigger.setAttribute('tabindex', '0');
@@ -1766,6 +2145,7 @@
 
         function playChannelByIndex(index) {
             if(index < 0 || index >= savedChannels.length) return;
+            ytDirectPlayingIndex = -1;
             currentPlayingIndex = index;
             const ch = savedChannels[index];
             
