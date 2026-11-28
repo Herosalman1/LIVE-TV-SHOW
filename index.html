@@ -72,7 +72,13 @@
         .video-container { 
             width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
             overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
-            position: relative; touch-action: none;
+            position: relative; touch-action: none; --pinch-scale: 1;
+        }
+        .video-container.pinch-zoomed .yt-player-frame > div,
+        .video-container.pinch-zoomed .yt-player-frame iframe {
+            transform: scale(var(--pinch-scale, 1));
+            transform-origin: center center;
+            transition: none;
         }
 
         .video-container:-webkit-full-screen { max-width: 100% !important; max-height: 100% !important; width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0 !important; }
@@ -244,7 +250,7 @@
         .ctrl-btn i { margin: 0 8px; }
         .ctrl-btn.main-play { background: var(--accent-red); border-color: var(--accent-red); padding: 9px 16px; box-shadow: 0 3px 10px var(--accent-glow); flex: 1.2; }
 
-        .sidebar { width: max-content; min-width: min(100%, 640px); max-width: min(100%, 700px); margin: 0 auto; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; max-height: 45vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .sidebar { width: max-content; min-width: min(100%, 640px); max-width: min(100%, 700px); margin: 0 auto; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; min-height: 360px; max-height: 56vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         
         .sidebar-tabs { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.14); background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.32)); margin-bottom: 4px; }
         .sidebar-tab { flex: 1; padding: 12px 6px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-right: 1px solid rgba(255, 255, 255, 0.14); border-bottom: 2.5px solid transparent; cursor: pointer; transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; font-family: 'Poppins', sans-serif; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.4px; }
@@ -1003,6 +1009,7 @@
         }
 
         function stopYouTubePlayer() {
+            applyPinchScale(1);
             stopYouTubeProgressTimer();
             clearTimeout(ytTvFallbackTimer);
             ytTvFallbackTimer = null;
@@ -2503,6 +2510,68 @@
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
             showEndScreenOverlay();
         });
+
+
+        // ==========================================
+        // ⚡ TWO-FINGER PINCH ZOOM FOR YOUTUBE & PLAYER
+        // ==========================================
+        let pinchStartDist = 0;
+        let pinchCurrentScale = 1;
+        let pinchBaseScale = 1;
+        let isPinchingTwoFingers = false;
+
+        function getTouchDistance(t1, t2) {
+            const dx = t1.clientX - t2.clientX;
+            const dy = t1.clientY - t2.clientY;
+            return Math.hypot(dx, dy);
+        }
+
+        function applyPinchScale(sc) {
+            const clamped = Math.max(1, Math.min(2.5, Number(sc.toFixed(2))));
+            pinchCurrentScale = clamped;
+            videoContainer.style.setProperty('--pinch-scale', String(clamped));
+            if (clamped > 1.01) {
+                videoContainer.classList.add('pinch-zoomed');
+            } else {
+                videoContainer.classList.remove('pinch-zoomed');
+            }
+            if (!isYouTubeActive) {
+                video.style.transform = clamped > 1.01 ? `scale(${clamped})` : '';
+                video.style.transformOrigin = 'center center';
+            }
+        }
+
+        videoContainer.addEventListener('touchstart', function(e) {
+            if (e.touches && e.touches.length === 2) {
+                e.preventDefault();
+                e.stopPropagation();
+                isPinchingTwoFingers = true;
+                pinchBaseScale = pinchCurrentScale || 1;
+                pinchStartDist = getTouchDistance(e.touches[0], e.touches[1]);
+                clearTimeout(overlayTimer);
+            }
+        }, { passive: false });
+
+        videoContainer.addEventListener('touchmove', function(e) {
+            if (isPinchingTwoFingers && e.touches && e.touches.length === 2) {
+                e.preventDefault();
+                e.stopPropagation();
+                const dist = getTouchDistance(e.touches[0], e.touches[1]);
+                if (pinchStartDist > 0) {
+                    applyPinchScale(pinchBaseScale * (dist / pinchStartDist));
+                }
+            }
+        }, { passive: false });
+
+        function handlePinchEnd(e) {
+            if (!e.touches || e.touches.length < 2) {
+                isPinchingTwoFingers = false;
+                pinchStartDist = 0;
+            }
+        }
+
+        videoContainer.addEventListener('touchend', handlePinchEnd, { passive: false });
+        videoContainer.addEventListener('touchcancel', handlePinchEnd, { passive: false });
 
         // ==========================================
         // ⚡ TV / DESKTOP SETTINGS (Fullscreen Hold-to-Seek & Arrow Keys Only)
