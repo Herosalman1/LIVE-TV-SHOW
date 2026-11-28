@@ -76,43 +76,18 @@
         }
         .video-container.pinch-zoomed .yt-player-frame > div,
         .video-container.pinch-zoomed .yt-player-frame iframe {
-            transform: translate3d(var(--pinch-x, 0px), var(--pinch-y, 0px), 0) scale(var(--pinch-scale, 1));
-            transform-origin: center center;
-            transition: none;
-        }
-        .video-container.pinch-zoomed video {
             transform: translate3d(var(--pinch-x, 0px), var(--pinch-y, 0px), 0) scale(var(--pinch-scale, 1)) !important;
-            transform-origin: center center;
-            transition: none;
+            transform-origin: center center !important;
+            transition: none !important;
         }
+        .video-container.pinch-zoomed video,
         .video-container.pinch-zoomed #tvPlayer {
             transform: translate(var(--pinch-tx, 0px), var(--pinch-ty, 0px)) scale(var(--pinch-scale, 1));
             transform-origin: center center;
             transition: none;
         }
         .pinch-zoom-badge {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(14, 19, 31, 0.88);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-            z-index: 45;
-            display: none;
-            pointer-events: auto;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
-        }
-        .pinch-zoom-badge.visible {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            display: none !important;
         }
         .global-search-results {
             flex: 1;
@@ -205,7 +180,7 @@
         }
         .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
 
-        .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
+        .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 30; cursor: pointer; touch-action: none; }
 
         .end-screen-overlay {
             position: absolute;
@@ -782,9 +757,6 @@
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
                 <div id="ytPlayerHost" class="yt-player-frame"></div>
-                <button type="button" class="pinch-zoom-badge" id="pinchZoomBadge" onclick="resetPinchZoom(event)" title="Tap to Reset Zoom">
-                    <span id="pinchZoomLabel">1.0x</span> · Reset
-                </button>
                 <div class="stream-timer" id="popTimer"></div>
                 <div class="error-overlay" id="popError">
                     <i class="fa-solid fa-triangle-exclamation"></i>
@@ -911,8 +883,6 @@
         const popTimer = document.getElementById('popTimer');
         const popError = document.getElementById('popError');
         const endScreenOverlay = document.getElementById('endScreenOverlay');
-        const pinchZoomBadge = document.getElementById('pinchZoomBadge');
-        const pinchZoomLabel = document.getElementById('pinchZoomLabel');
 
         let pTime = null;
         let urlProbeController = null;
@@ -1093,6 +1063,7 @@
         function mountYouTubePlayer(ytId, originalUrl) {
             if (!ytPlayerHost) return;
             if (videoContainer) videoContainer.classList.add('yt-clean-mode');
+            if (touchCatcher) touchCatcher.style.zIndex = '30';
             clearTimeout(ytTvFallbackTimer);
             ytTvFallbackTimer = null;
             if (ytApiPlayer) {
@@ -1197,7 +1168,8 @@
 
         function stopYouTubePlayer() {
             if (videoContainer) videoContainer.classList.remove('yt-clean-mode');
-            applyPinchScale(1);
+            if (touchCatcher) touchCatcher.style.zIndex = '10';
+            applyPinchScale(1, 0, 0);
             isScrubbingSeekBar = false;
             ytAutoNextTriggeredForCurrentVideo = false;
             ytReportedDuration = 0;
@@ -1445,17 +1417,16 @@
             }
         }
 
-        function setYtApiKey(key) {
-            try {
-                if (key) localStorage.setItem('hs_yt_api_key', key.trim());
-                else localStorage.removeItem('hs_yt_api_key');
-            } catch (e) {}
-        }
-
-        function formatSearchResultTitle(rawTitle) {
-            const t = String(rawTitle || 'YouTube Video');
-            const maxChars = 58;
-            return t.length > maxChars ? t.slice(0, maxChars) + '...' : t;
+        function hideSearchResultsOnPlay() {
+            const resultsBox = document.getElementById('ytSongSearchResults');
+            const statusEl = document.getElementById('ytSongSearchStatus');
+            if (resultsBox) {
+                resultsBox.innerHTML = '';
+                resultsBox.style.display = 'none';
+            }
+            if (statusEl) {
+                statusEl.style.display = 'none';
+            }
         }
 
         function playDirectYouTubeSearchItem(idx, titleText) {
@@ -1463,6 +1434,7 @@
             const item = ytDirectSearchResults[idx];
             if (!item || !item.videoId) return;
             ytDirectPlayingIndex = idx;
+            hideSearchResultsOnPlay();
             const typedQuery = (ytLastSearchedQuery || '').trim();
             const displayLabel = typedQuery || titleText || item.title || 'YouTube Video';
             nowPlayingText.innerHTML = `<i class="fa-brands fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${displayLabel}</span>`;
@@ -1503,8 +1475,13 @@
 
         function renderYtDirectResults(list, labelMsg) {
             const resultsBox = document.getElementById('ytSongSearchResults');
+            const statusEl = document.getElementById('ytSongSearchStatus');
             if (!resultsBox) return;
             resultsBox.innerHTML = '';
+            resultsBox.style.display = 'flex';
+            if (statusEl) {
+                statusLine.style.display = 'flex';
+            }
             ytDirectSearchResults = list;
             if (!Array.isArray(list) || list.length === 0) {
                 setYtStatusText('Koi result nahi mila.');
@@ -2956,11 +2933,7 @@
         }
 
         function syncPinchZoomBadge() {
-            if (!pinchZoomBadge || !pinchZoomLabel) return;
-            if (pinchCurrentScale > 1.01) {
-                pinchZoomLabel.textContent = `${pinchCurrentScale.toFixed(1)}x`;
-                pinchZoomBadge.classList.add('visible');
-            } else {
+            if (pinchZoomBadge) {
                 pinchZoomBadge.classList.remove('visible');
             }
         }
@@ -2971,7 +2944,7 @@
         }
 
         function applyPinchScale(sc, tx = pinchTranslateX, ty = pinchTranslateY) {
-            const clamped = Math.max(1, Math.min(3, Number(sc.toFixed(2))));
+            const clamped = Math.max(1, Math.min(3.5, Number(sc.toFixed(2))));
             const clampedPan = clampPinchPan(tx, ty, clamped);
             pinchCurrentScale = clamped;
             pinchTranslateX = clampedPan.x;
@@ -2991,17 +2964,25 @@
                 videoContainer.style.setProperty('--pinch-y', '0px');
             }
 
-            if (!isYouTubeActive) {
-                video.style.transform = clamped > 1.01
-                    ? `translate3d(${pinchTranslateX.toFixed(1)}px, ${pinchTranslateY.toFixed(1)}px, 0) scale(${clamped})`
-                    : '';
-                video.style.transformOrigin = 'center center';
+            video.style.transform = clamped > 1.01
+                ? `translate3d(${pinchTranslateX.toFixed(1)}px, ${pinchTranslateY.toFixed(1)}px, 0) scale(${clamped})`
+                : '';
+            video.style.transformOrigin = 'center center';
+
+            if (ytPlayerHost) {
+                const ytTarget = ytPlayerHost.querySelector('iframe') || ytPlayerHost.firstElementChild;
+                if (ytTarget) {
+                    ytTarget.style.transform = clamped > 1.01
+                        ? `translate3d(${pinchTranslateX.toFixed(1)}px, ${pinchTranslateY.toFixed(1)}px, 0) scale(${clamped})`
+                        : '';
+                    ytTarget.style.transformOrigin = 'center center';
+                }
             }
             syncPinchZoomBadge();
         }
 
-        videoContainer.addEventListener('touchstart', function(e) {
-            if (e.touches && e.touches.length === 2) {
+        function onTwoFingerStart(e) {
+            if (e.touches && e.touches.length >= 2) {
                 e.preventDefault();
                 e.stopPropagation();
                 isPinchingTwoFingers = true;
@@ -3014,46 +2995,38 @@
                 pinchStartMidY = mid.y;
                 clearTimeout(overlayTimer);
             }
-        }, { passive: false });
+        }
 
-        videoContainer.addEventListener('touchmove', function(e) {
-            if (isPinchingTwoFingers && e.touches && e.touches.length === 2) {
+        function onTwoFingerMove(e) {
+            if (isPinchingTwoFingers && e.touches && e.touches.length >= 2) {
                 e.preventDefault();
                 e.stopPropagation();
                 const dist = getTouchDistance(e.touches[0], e.touches[1]);
                 const mid = getTouchMidpoint(e.touches[0], e.touches[1]);
                 if (pinchStartDist > 0) {
-                    const nextScale = pinchBaseScale * (dist / pinchStartDist);
-                    const dx = mid.x - pinchStartMidX;
-                    const dy = mid.y - pinchStartMidY;
+                    const ratio = dist / pinchStartDist;
+                    const nextScale = pinchBaseScale * (1 + (ratio - 1) * 1.15);
+                    const dx = (mid.x - pinchStartMidX) * 1.1;
+                    const dy = (mid.y - pinchStartMidY) * 1.1;
                     applyPinchScale(nextScale, pinchStartTranslateX + dx, pinchStartTranslateY + dy);
                 }
             }
-        }, { passive: false });
+        }
 
         function handlePinchEnd(e) {
             if (!e.touches || e.touches.length < 2) {
                 isPinchingTwoFingers = false;
                 pinchStartDist = 0;
-                if (pinchCurrentScale < 1.05) {
+                if (pinchCurrentScale < 1.04) {
                     applyPinchScale(1, 0, 0);
                 }
             }
         }
 
-        videoContainer.addEventListener('touchend', handlePinchEnd, { passive: false });
-        videoContainer.addEventListener('touchcancel', handlePinchEnd, { passive: false });
-
-        let seekInterval = null;
-        let holdMultiplier = 0;
-
-        function checkIsActuallyFullScreen() {
-            if (isMobilePseudoFullScreen) return true;
-            const fsEl = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-            if (!fsEl) return false;
-            const rect = videoContainer.getBoundingClientRect();
-            return rect.width >= window.innerWidth - 5 && rect.height >= window.innerHeight - 5;
-        }
+        videoContainer.addEventListener('touchstart', onTwoFingerStart, { passive: false, capture: true });
+        videoContainer.addEventListener('touchmove', onTwoFingerMove, { passive: false, capture: true });
+        videoContainer.addEventListener('touchend', handlePinchEnd, { passive: false, capture: true });
+        videoContainer.addEventListener('touchcancel', handlePinchEnd, { passive: false, capture: true });
 
         document.addEventListener('keydown', function(event) {
             if (checkIsActuallyFullScreen()) {
