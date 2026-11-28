@@ -971,12 +971,17 @@
                             if (e.data === 0) {
                                 didStart = true;
                                 clearTimeout(ytTvFallbackTimer);
-                                isYouTubeEnded = true;
-                                isYouTubePaused = true;
-                                playPauseIcon.className = "fa-solid fa-play";
-                                playPauseText.innerText = "Play";
-                                overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-                                showEndScreenOverlay();
+                                const { nextIndex } = getCategoryNeighbors();
+                                if (typeof nextIndex === 'number' && nextIndex !== -1 && nextIndex !== currentPlayingIndex) {
+                                    playChannelByIndex(nextIndex);
+                                } else {
+                                    isYouTubeEnded = true;
+                                    isYouTubePaused = true;
+                                    playPauseIcon.className = "fa-solid fa-play";
+                                    playPauseText.innerText = "Play";
+                                    overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                                    showEndScreenOverlay();
+                                }
                             } else if (e.data === 1 || e.data === 3) {
                                 didStart = true;
                                 clearTimeout(ytTvFallbackTimer);
@@ -1010,6 +1015,9 @@
 
         function stopYouTubePlayer() {
             applyPinchScale(1);
+            isScrubbingSeekBar = false;
+            ytReportedDuration = 0;
+            ytReportedCurrentTime = 0;
             isYouTubeMutedState = false;
             if (overlayMuteBtn) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             stopYouTubeProgressTimer();
@@ -2154,12 +2162,27 @@
             return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
 
+        let isScrubbingSeekBar = false;
+        let ytReportedDuration = 0;
+        let ytReportedCurrentTime = 0;
+
         function updateProgressUI() {
-            if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.getDuration === 'function') {
-                const dur = ytApiPlayer.getDuration();
-                const cur = ytApiPlayer.getCurrentTime();
+            if (isYouTubeActive) {
+                let dur = 0;
+                let cur = 0;
+                if (ytApiPlayer && typeof ytApiPlayer.getDuration === 'function') {
+                    dur = ytApiPlayer.getDuration();
+                    cur = ytApiPlayer.getCurrentTime();
+                    if (dur > 0 && !isNaN(dur)) ytReportedDuration = dur;
+                    if (!isNaN(cur) && cur >= 0) ytReportedCurrentTime = cur;
+                } else {
+                    dur = ytReportedDuration;
+                    cur = ytReportedCurrentTime;
+                }
                 if (!dur || isNaN(dur) || dur <= 0) return;
-                overlaySeekBar.value = (cur / dur) * 100;
+                if (!isScrubbingSeekBar) {
+                    overlaySeekBar.value = Math.max(0, Math.min(100, (cur / dur) * 100));
+                }
                 overlayTime.innerText = `${formatTime(cur)} / ${formatTime(dur)}`;
                 return;
             }
@@ -2232,23 +2255,62 @@
             }
         });
 
-        overlaySeekBar.addEventListener('input', () => {
-            if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.getDuration === 'function') {
-                const dur = ytApiPlayer.getDuration();
+        function applySeekFromBar() {
+            const pct = parseFloat(overlaySeekBar.value) || 0;
+            if (isYouTubeActive) {
+                const dur = (ytApiPlayer && typeof ytApiPlayer.getDuration === 'function' && ytApiPlayer.getDuration() > 0)
+                    ? ytApiPlayer.getDuration()
+                    : ytReportedDuration;
                 if (dur && !isNaN(dur) && dur > 0) {
-                    const seekSec = (overlaySeekBar.value / 100) * dur;
-                    try { ytApiPlayer.seekTo(seekSec, true); } catch (e) {}
+                    const seekSec = (pct / 100) * dur;
+                    ytReportedCurrentTime = seekSec;
+                    try {
+                        if (ytApiPlayer && typeof ytApiPlayer.seekTo === 'function') {
+                            ytApiPlayer.seekTo(seekSec, true);
+                        }
+                    } catch (e) {}
+                    postYouTubeCommand('seekTo', [seekSec, true]);
                     overlayTime.innerText = `${formatTime(seekSec)} / ${formatTime(dur)}`;
                 }
                 showOverlay();
                 return;
             }
             if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) {
-                video.currentTime = (overlaySeekBar.value / 100) * video.duration;
-                updateProgressUI(); 
+                video.currentTime = (pct / 100) * video.duration;
+                updateProgressUI();
             }
-            showOverlay(); 
+            showOverlay();
+        }
+
+        overlaySeekBar.addEventListener('pointerdown', (e) => {
+            e.stopPropagation();
+            isScrubbingSeekBar = true;
+            clearTimeout(overlayTimer);
         });
+        overlaySeekBar.addEventListener('touchstart', (e) => {
+            e.stopPropagation();
+            isScrubbingSeekBar = true;
+            clearTimeout(overlayTimer);
+        }, { passive: true });
+        overlaySeekBar.addEventListener('input', (e) => {
+            e.stopPropagation();
+            applySeekFromBar();
+        });
+        overlaySeekBar.addEventListener('change', (e) => {
+            e.stopPropagation();
+            applySeekFromBar();
+            isScrubbingSeekBar = false;
+            showOverlay();
+        });
+        const finishSeekScrub = () => {
+            if (isScrubbingSeekBar) {
+                applySeekFromBar();
+                isScrubbingSeekBar = false;
+                showOverlay();
+            }
+        };
+        document.addEventListener('pointerup', finishSeekScrub);
+        document.addEventListener('touchend', finishSeekScrub, { passive: true });
         
         let isYouTubeMutedState = false;
 
