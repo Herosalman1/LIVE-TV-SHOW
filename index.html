@@ -22,25 +22,25 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        
+
         body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
-        
-        /* ⚡ HIDE SCROLLBARS COMPLETELY */
+
+        /* Hide scrollbars while keeping scroll behavior intact */
         ::-webkit-scrollbar { display: none; width: 0; height: 0; }
         * { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .header { 
-            background: rgba(7, 9, 14, 0.95); 
+        .header {
+            background: rgba(7, 9, 14, 0.95);
             backdrop-filter: blur(20px);
-            padding: 15px 25px; 
-            border-bottom: 1px solid var(--border-color); 
-            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 25px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 100;
         }
         .header-brand { display: flex; align-items: center; font-size: 18px; font-weight: 700; color: #fff; }
         .header-brand i.fa-tv { margin-right: 12px; color: var(--accent-red); font-size: 20px; filter: drop-shadow(0 0 6px var(--accent-glow)); }
         .header-brand i.fa-bolt { margin-left: 12px; color: var(--accent-red); font-size: 20px; filter: drop-shadow(0 0 6px var(--accent-glow)); }
-        
+
         .live-badge {
             display: flex; align-items: center; gap: 8px;
             background: rgba(229, 9, 20, 0.15); border: 1px solid rgba(229, 9, 20, 0.4);
@@ -58,20 +58,20 @@
         }
 
         .main-container { display: flex; flex-direction: column; width: 100%; max-width: 1200px; margin: 0 auto; padding: 4px; gap: 10px; }
-        
+
         .player-section { width: 100%; display: flex; flex-direction: column; align-items: center; order: 1; margin-bottom: 12px; }
-        
-        .now-playing { 
-            width: 100%; max-width: 900px; margin-bottom: 8px; font-size: 12px; color: var(--text-muted); 
-            text-align: center; font-weight: 500; background: var(--bg-card); padding: 8px 12px; 
+
+        .now-playing {
+            width: 100%; max-width: 900px; margin-bottom: 8px; font-size: 12px; color: var(--text-muted);
+            text-align: center; font-weight: 500; background: var(--bg-card); padding: 8px 12px;
             border-radius: 8px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
         }
         .now-playing i { margin-right: 8px; }
         .now-playing span { color: #fff; font-weight: 600; text-transform: uppercase; margin-left: 8px; }
 
-        .video-container { 
-            width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px; 
-            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color); 
+        .video-container {
+            width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 8px;
+            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.6); border: 1px solid var(--border-color);
             position: relative; touch-action: none; --pinch-scale: 1;
         }
         .video-container.pinch-zoomed .yt-player-frame > div,
@@ -120,7 +120,7 @@
             max-width: 100% !important;
             max-height: 100% !important;
         }
-        
+
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; pointer-events: none; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
@@ -132,41 +132,39 @@
             border: none;
             background: #000;
             display: none;
-            z-index: 5;
-            pointer-events: none;
+            z-index: 25;
+            pointer-events: auto;
         }
         .yt-player-frame iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: block;
-            pointer-events: none;
+            pointer-events: auto;
         }
         .video-container.yt-clean-mode .yt-player-frame {
             overflow: hidden;
         }
 
-        /* ⚡ VIP POPUP TIMER, PLEASE WAIT & ERROR CENTERED */
-        .stream-timer { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            background: transparent; color: #ffffff; text-align: center; 
-            font-weight: 500; font-size: 14px; z-index: 50; display: none; 
-            letter-spacing: 2px; font-family: 'Poppins', sans-serif; 
-            text-shadow: 0 4px 15px rgba(0,0,0,0.9); 
-            white-space: nowrap; 
+        .stream-timer {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: transparent; color: #ffffff; text-align: center;
+            font-weight: 500; font-size: 14px; z-index: 50; display: none;
+            letter-spacing: 2px; font-family: 'Poppins', sans-serif;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+            white-space: nowrap;
         }
-        .error-overlay { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #000; color: #ff4d4f; display: none; 
-            flex-direction: column; align-items: center; justify-content: center; 
-            z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; 
+        .error-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; color: #ff4d4f; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px;
             font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;
         }
         .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
 
         .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
 
-        /* ⚡ END OF VIDEO CENTER ACTION OVERLAY (⏮ ↺ ⏭ - CLEAN TRANSPARENT PNG-STYLE ICONS) */
         .end-screen-overlay {
             position: absolute;
             inset: 0;
@@ -253,15 +251,16 @@
         .ctrl-btn i { margin: 0 8px; }
         .ctrl-btn.main-play { background: var(--accent-red); border-color: var(--accent-red); padding: 9px 16px; box-shadow: 0 3px 10px var(--accent-glow); flex: 1.2; }
 
-        .sidebar { width: max-content; min-width: min(100%, 640px); max-width: min(100%, 700px); margin: 0 auto; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; min-height: 360px; max-height: 56vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        
+        /* Fixed-width sidebar so long titles never expand layout width */
+        .sidebar { width: 100%; min-width: 0; max-width: min(100%, 700px); margin: 0 auto; background: var(--bg-sidebar); border-radius: 10px; border: 1px solid var(--border-color); display: flex; flex-direction: column; min-height: 360px; max-height: 56vh; overflow: hidden; order: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+
         .sidebar-tabs { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.14); background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.32)); margin-bottom: 4px; }
         .sidebar-tab { flex: 1; padding: 12px 6px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-right: 1px solid rgba(255, 255, 255, 0.14); border-bottom: 2.5px solid transparent; cursor: pointer; transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; font-family: 'Poppins', sans-serif; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.4px; }
         .sidebar-tab:last-child { border-right: none; }
         .sidebar-tab:hover:not(.active) { color: #e2e8f0; background: rgba(255, 255, 255, 0.05); }
         .sidebar-tab.active { color: #fff; border-bottom: 2.5px solid var(--accent-red); background: linear-gradient(180deg, rgba(229, 9, 20, 0.18) 0%, rgba(229, 9, 20, 0.08) 100%); box-shadow: inset 0 -10px 18px -12px rgba(229, 9, 20, 0.75); }
         .sidebar-tab i { color: var(--accent-red); margin-right: 7px; }
-        
+
         .channel-list-container { flex: 1; min-height: 0; overflow-y: auto; padding: 8px 6px 18px 6px; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; }
         .category-folder { flex-shrink: 0; margin-bottom: 6px; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .category-header { padding: 10px 10px; background: rgba(0,0,0,0.15); font-weight: 600; font-size: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #fff; }
@@ -271,10 +270,9 @@
         .channel-item { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 6px; margin-bottom: 4px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; gap: 5px; width: 100%; }
         .channel-item.active { background: rgba(229, 9, 20, 0.12); border-left: 3px solid var(--accent-red); border-color: rgba(229, 9, 20, 0.3); }
         .channel-item.active .channel-name { color: #fff; font-weight: 600; }
-        .channel-name { font-weight: 500; font-size: 11.5px; color: var(--text-muted); flex: 1; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4; min-width: 0; }
+        .channel-name { font-weight: 500; font-size: 11.5px; color: var(--text-muted); flex: 1 1 auto; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4; min-width: 0; max-width: 100%; }
         .channel-name i { color: var(--accent-red); margin-right: 5px; }
 
-        /* ⚡ ALIGNED RIGHT-SIDE BADGE + PLAY BUTTON */
         .item-right-actions {
             display: flex;
             align-items: center;
@@ -312,7 +310,6 @@
             margin-right: 4px;
             animation: pulseLive 1.4s infinite;
         }
-        /* ⚡ UNIFORM SLATE COLOR MATCHING ADMIN PANEL (#5b687c) */
         .badge-offline {
             background: #5b687c;
             color: #ffffff;
@@ -320,10 +317,39 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
         }
 
+        #ytSongSearchResults {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            flex: 1 1 auto;
+            min-height: 140px;
+            max-height: none;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #ytSongSearchResults .channel-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            gap: 8px;
+            overflow: hidden;
+        }
+        #ytSongSearchResults .channel-name {
+            flex: 1 1 0%;
+            width: 0;
+            min-width: 0;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #e2e8f0;
+        }
+
         .play-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-color); padding: 4px 7px; border-radius: 4px; font-size: 8.5px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
 
-
-        /* ⚡ REAL SEARCH BOX LOOK AT THE BOTTOM */
         .search-folder-trigger {
             flex-shrink: 0;
             margin-top: auto;
@@ -551,9 +577,6 @@
             .search-result-title i { margin-right: 7px; }
         }
 
-
-
-        /* ⚡ STYLISH ARROW FROM ARCHIVE UPLOADER INSIDE SEARCH BOX */
         .stylish-arrow {
             flex: 1 1 auto;
             display: flex;
@@ -609,7 +632,6 @@
             }
         }
 
-
         .search-row-arrow {
             flex: 1 1 auto;
             min-width: 48px;
@@ -622,7 +644,6 @@
                 font-size: 19px;
             }
         }
-
 
         .search-input-box-shell {
             position: relative;
@@ -674,7 +695,7 @@
             .header-brand i.fa-tv { font-size: 22px; }
             .header-brand i.fa-bolt { font-size: 20px; }
             .main-container { max-width: 1500px; height: calc(100vh - 75px); flex-direction: row; overflow: hidden; padding: 25px; }
-            .sidebar { margin: 0 30px 0 0; width: max-content; min-width: 550px; max-width: 700px; max-height: 100%; height: 100%; order: 1; border-radius: 14px; }
+            .sidebar { margin: 0 30px 0 0; width: 640px; min-width: 550px; max-width: 700px; flex: 0 0 min(640px, 46vw); max-height: 100%; height: 100%; order: 1; border-radius: 14px; }
             .sidebar-tabs .sidebar-tab { font-size: 14px; padding: 15px 0; }
             .channel-list-container { padding: 16px 12px 22px 12px; }
             .category-folder { border-radius: 10px; margin-bottom: 10px; }
@@ -711,12 +732,12 @@
     </div>
 
     <div class="main-container">
-        
+
         <div class="player-section">
             <div class="now-playing" id="nowPlayingText">
                 <i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i> Select a channel to stream...
             </div>
-            
+
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
                 <div id="ytPlayerHost" class="yt-player-frame"></div>
@@ -759,7 +780,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="player-controls-bar">
                 <button class="ctrl-btn" onclick="playPrevChannel()"><i class="fa-solid fa-backward-step"></i> Prev</button>
                 <button class="ctrl-btn main-play" onclick="togglePausePlay()" id="playPauseBtn"><i class="fa-solid fa-pause" id="playPauseIcon"></i> <span id="playPauseText">Pause</span></button>
@@ -783,7 +804,7 @@
 
     </div>
 
-    <!-- ⚡ FULLSCREEN GLOBAL SEARCH MODAL -->
+    <!-- Fullscreen Global Search Modal -->
     <div class="global-search-modal" id="globalSearchModal" onclick="if(event.target===this) closeGlobalSearch()">
         <div class="global-search-box">
             <div class="global-search-header">
@@ -820,8 +841,43 @@
         let isYouTubePaused = false;
         let isYouTubeEnded = false;
         let ytProgressTimer = null;
-
         let ytAutoNextTriggeredForCurrentVideo = false;
+        let ytTvFallbackTimer = null;
+        let isScrubbingSeekBar = false;
+        let ytReportedDuration = 0;
+        let ytReportedCurrentTime = 0;
+        let isYouTubeMutedState = false;
+
+        const videoContainer = document.getElementById('videoContainer');
+        const nowPlayingText = document.getElementById('nowPlayingText');
+        const channelListEl = document.getElementById('channelList');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const playPauseText = document.getElementById('playPauseText');
+
+        const touchCatcher = document.getElementById('touchCatcher');
+        const customOverlay = document.getElementById('customOverlay');
+        const overlayPlayBtn = document.getElementById('overlayPlayBtn');
+        const overlaySeekBar = document.getElementById('overlaySeekBar');
+        const overlayTime = document.getElementById('overlayTime');
+        const overlayMuteBtn = document.getElementById('overlayMuteBtn');
+        const fullScreenBtn = document.getElementById('fullScreenBtn');
+        const overlayBottom = document.getElementById('overlayBottom');
+
+        const popTimer = document.getElementById('popTimer');
+        const popError = document.getElementById('popError');
+        const endScreenOverlay = document.getElementById('endScreenOverlay');
+
+        let pTime = null;
+        let urlProbeController = null;
+        let currentStreamToken = 0;
+        let hlsInstance = null;
+        let savedChannels = [];
+        let currentPlayingIndex = -1;
+        let overlayTimer;
+        let currentView = 'live';
+        let activePlayUrl = '';
+        let hlsRetryCount = 0;
 
         function autoPlayNextInSameFolder() {
             if (!isYouTubeActive || ytAutoNextTriggeredForCurrentVideo) return;
@@ -851,21 +907,9 @@
             const ifr = ytPlayerHost.querySelector('iframe');
             if (ifr && ifr.contentWindow) {
                 try {
-                    ifr.contentWindow.postMessage(JSON.stringify({
-                        event: 'listening',
-                        id: 1,
-                        channel: 'widget'
-                    }), '*');
-                    ifr.contentWindow.postMessage(JSON.stringify({
-                        event: 'command',
-                        func: 'getCurrentTime',
-                        args: []
-                    }), '*');
-                    ifr.contentWindow.postMessage(JSON.stringify({
-                        event: 'command',
-                        func: 'getDuration',
-                        args: []
-                    }), '*');
+                    ifr.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*');
+                    ifr.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'getCurrentTime', args: [] }), '*');
+                    ifr.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'getDuration', args: [] }), '*');
                 } catch (e) {}
             }
         }
@@ -879,7 +923,6 @@
             }
             if (!raw || typeof raw !== 'object') return;
 
-            // Handle YouTube iframe state change via postMessage
             if (raw.event === 'onStateChange' && raw.info === 0) {
                 autoPlayNextInSameFolder();
                 return;
@@ -968,8 +1011,6 @@
             try { player.unloadModule('cc'); } catch (e) {}
         }
 
-        let ytTvFallbackTimer = null;
-
         function isSmartTvDevice() {
             const ua = navigator.userAgent || '';
             return /SmartTV|SMART-TV|TV|Tizen|Web0S|WebOS|AFT|BRAVIA|Viera|NetCast|PhilipsTV|HbbTV|AppleTV|CrKey|Hisense|Vidaa/i.test(ua);
@@ -999,7 +1040,7 @@
             ifr.style.height = '100%';
             ifr.style.border = 'none';
             ifr.style.display = 'block';
-            ifr.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=0&rel=0&playsinline=1&iv_load_policy=3&fs=1&enablejsapi=1${originParam}`;
+            ifr.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=0&controls=1&rel=0&playsinline=1&fs=1&enablejsapi=1${originParam}`;
             ytPlayerHost.appendChild(ifr);
         }
 
@@ -1018,7 +1059,6 @@
             const isHttp = window.location.protocol === 'http:' || window.location.protocol === 'https:';
             const isTv = isSmartTvDevice();
 
-            // On Smart TVs or when YT API is not ready yet, use reliable direct embed iframe immediately
             if (isTv || !window.YT || !window.YT.Player || !isHttp) {
                 renderDirectYouTubeIframe(ytId);
                 if (!isTv && isHttp && !ytApiReady) {
@@ -1038,10 +1078,8 @@
                     autoplay: 1,
                     rel: 0,
                     playsinline: 1,
-                    iv_load_policy: 3,
                     fs: 1,
-                    controls: 0,
-                    disablekb: 1,
+                    controls: 1,
                     origin: window.location.origin
                 };
 
@@ -1098,7 +1136,7 @@
                                 overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
                             }
                         },
-                        onError: function(e) {
+                        onError: function() {
                             if (!isYouTubeActive) return;
                             renderDirectYouTubeIframe(ytId);
                         }
@@ -1136,25 +1174,6 @@
             video.style.display = 'block';
             if (touchCatcher) touchCatcher.style.display = 'block';
         }
-        const videoContainer = document.getElementById('videoContainer');
-        const nowPlayingText = document.getElementById('nowPlayingText');
-        const channelListEl = document.getElementById('channelList');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playPauseIcon = document.getElementById('playPauseIcon');
-        const playPauseText = document.getElementById('playPauseText');
-        
-        const touchCatcher = document.getElementById('touchCatcher');
-        const customOverlay = document.getElementById('customOverlay');
-        const overlayPlayBtn = document.getElementById('overlayPlayBtn');
-        const overlaySeekBar = document.getElementById('overlaySeekBar');
-        const overlayTime = document.getElementById('overlayTime');
-        const overlayMuteBtn = document.getElementById('overlayMuteBtn');
-        const fullScreenBtn = document.getElementById('fullScreenBtn');
-        const overlayBottom = document.getElementById('overlayBottom');
-        
-        const popTimer = document.getElementById('popTimer');
-        const popError = document.getElementById('popError');
-        const endScreenOverlay = document.getElementById('endScreenOverlay');
 
         function showEndScreenOverlay() {
             hideOverlay();
@@ -1233,15 +1252,6 @@
             else playNextChannel();
         }
 
-        let pTime = null;
-        let urlProbeController = null;
-        let currentStreamToken = 0;
-        let hlsInstance = null;
-        let savedChannels = [];
-        let currentPlayingIndex = -1;
-        let overlayTimer; 
-        let currentView = 'live'; 
-
         function getBadgeClass(badge) {
             return badge === "LIVE" ? "badge-live" : "badge-offline";
         }
@@ -1253,7 +1263,6 @@
             return "";
         }
 
-        // ⚡ 20 SEC TIMER -> THEN "⏱ Please Wait .." UNTIL VIDEO PLAYS (NO FALSE HEAD 404)
         function startPTimer() {
             clearInterval(pTime);
             currentStreamToken++;
@@ -1269,10 +1278,10 @@
             pTime = setInterval(() => {
                 if (token !== currentStreamToken) { clearInterval(pTime); return; }
                 tl--;
-                if(tl > 0) { 
-                    if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
-                } else { 
-                    clearInterval(pTime); 
+                if(tl > 0) {
+                    if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
+                } else {
+                    clearInterval(pTime);
                     if(popTimer) {
                         popTimer.innerHTML = '⏱ Please Wait ..';
                         popTimer.style.display = 'block';
@@ -1280,9 +1289,6 @@
                 }
             }, 1000);
         }
-
-        let activePlayUrl = '';
-        let hlsRetryCount = 0;
 
         function clearAllPopups() {
             clearInterval(pTime);
@@ -1302,7 +1308,6 @@
 
         function triggerError() {
             if (!activePlayUrl) return;
-            // Keep showing Please Wait until video actually plays
             showPleaseWaitState();
         }
 
@@ -1347,12 +1352,9 @@
                         renderChannels();
                         return;
                     }
-                } catch (e) {
-                    // Try next fallback source
-                }
+                } catch (e) {}
             }
 
-            // Offline fallback from localStorage cache if network unavailable
             try {
                 const cached = JSON.parse(localStorage.getItem('tv_cached_channels') || 'null');
                 if (Array.isArray(cached) && cached.length > 0) {
@@ -1379,12 +1381,13 @@
             const content = document.getElementById('folder-' + catId);
             content.classList.toggle('open');
             const icon = document.getElementById('icon-' + catId);
-            if(content.classList.contains('open')) { icon.className = "fa-solid fa-folder-open"; } 
+            if(content.classList.contains('open')) { icon.className = "fa-solid fa-folder-open"; }
             else { icon.className = "fa-solid fa-folder"; }
         }
 
         let ytDirectSearchResults = [];
         let ytDirectPlayingIndex = -1;
+        let ytLastSearchedQuery = '';
 
         function getYtApiKey() {
             try {
@@ -1401,17 +1404,19 @@
             } catch (e) {}
         }
 
-        let ytLastSearchedQuery = '';
+        function formatSearchResultTitle(rawTitle) {
+            const t = String(rawTitle || 'YouTube Video');
+            const maxChars = 58;
+            return t.length > maxChars ? t.slice(0, maxChars) + '...' : t;
+        }
 
         function playDirectYouTubeSearchItem(idx, titleText) {
             if (!Array.isArray(ytDirectSearchResults) || idx < 0 || idx >= ytDirectSearchResults.length) return;
             const item = ytDirectSearchResults[idx];
             if (!item || !item.videoId) return;
             ytDirectPlayingIndex = idx;
-            const baseQuery = (ytLastSearchedQuery || '').trim();
-            const displayLabel = titleText
-                ? titleText
-                : (baseQuery ? `${baseQuery} (${idx + 1})` : (item.title || 'YouTube Song'));
+            const typedQuery = (ytLastSearchedQuery || '').trim();
+            const displayLabel = typedQuery || titleText || item.title || 'YouTube Video';
             nowPlayingText.innerHTML = `<i class="fa-brands fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${displayLabel}</span>`;
 
             stopYouTubePlayer();
@@ -1420,7 +1425,7 @@
             video.removeAttribute('src');
             video.load();
             video.style.display = 'none';
-            if (touchCatcher) touchCatcher.style.display = 'block';
+            if (touchCatcher) touchCatcher.style.display = 'none';
 
             isYouTubeActive = true;
             isYouTubePaused = false;
@@ -1454,18 +1459,19 @@
             resultsBox.innerHTML = '';
             ytDirectSearchResults = list;
             if (!Array.isArray(list) || list.length === 0) {
-                setYtStatusText('Koi song nahi mila.');
+                setYtStatusText('Koi result nahi mila.');
                 return;
             }
-            setYtStatusText(labelMsg || `${list.length} songs mile`);
-            const shortBase = (ytLastSearchedQuery || '').trim();
+            setYtStatusText(labelMsg || `${list.length} results mile`);
             list.forEach((song, i) => {
                 const row = document.createElement('div');
                 row.className = 'channel-item';
-                const shortLabel = shortBase ? `${shortBase} (${i + 1})` : song.title;
-                row.onclick = () => playDirectYouTubeSearchItem(i, shortLabel);
+                const origTitle = song.title || 'YouTube Video';
+                const shownTitle = formatSearchResultTitle(origTitle);
+                const safeAttrTitle = origTitle.replace(/"/g, '&quot;');
+                row.onclick = () => playDirectYouTubeSearchItem(i, ytLastSearchedQuery || origTitle);
                 row.innerHTML = `
-                    <div class="channel-name" title="${shortLabel}"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> ${shortLabel}</div>
+                    <div class="channel-name" title="${safeAttrTitle}"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> ${shownTitle}</div>
                     <div class="item-right-actions">
                         <button type="button" class="play-btn">PLAY</button>
                     </div>
@@ -1479,7 +1485,6 @@
             const results = [];
             const seenIds = new Set();
 
-            // 1. Extract from ytInitialData JSON embedded in YouTube search results HTML
             const markerIdx = htmlText.indexOf('var ytInitialData =');
             const altIdx = markerIdx !== -1 ? markerIdx : htmlText.indexOf('ytInitialData =');
             if (altIdx !== -1) {
@@ -1548,7 +1553,6 @@
                 }
             }
 
-            // 2. Fallback regex for /watch?v=VIDEOID in HTML
             if (results.length === 0) {
                 const re = /"videoId":"([a-zA-Z0-9_-]{11})"/g;
                 let m;
@@ -1569,7 +1573,6 @@
         }
 
         async function searchViaPublicPipedFallback(q) {
-            // Search across ALL YouTube video types (movies, songs, clips, etc.) without restricting to songs/music
             const pipedUrls = [
                 `https://pipedapi.kavin.rocks/search?q=${encodeURIComponent(q)}&filter=videos`,
                 `https://pipedapi.adminforge.de/search?q=${encodeURIComponent(q)}&filter=videos`,
@@ -1623,7 +1626,6 @@
                 } catch (e) {}
             }
 
-            // Proxy YouTube search page for exact query `q` (all types: movies, songs, videos)
             const ytSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
             const proxyUrls = [
                 `https://api.allorigins.win/raw?url=${encodeURIComponent(ytSearchUrl)}`,
@@ -1655,7 +1657,6 @@
             }
             ytLastSearchedQuery = q;
 
-            // If user pasted a direct YouTube URL or 11-char ID, play immediately
             const directId = extractYouTubeId(q) || (/^[a-zA-Z0-9_-]{11}$/.test(q) ? q : null);
             if (directId) {
                 ytDirectSearchResults = [{ videoId: directId, title: q, channel: 'YouTube' }];
@@ -1698,14 +1699,12 @@
                 } catch (e) {}
             }
 
-            // Free public search fallback across all video types (no API key required)
             const fallbackList = await searchViaPublicPipedFallback(q);
             if (fallbackList.length > 0) {
                 renderYtDirectResults(fallbackList, `${fallbackList.length} results mile`);
                 return;
             }
 
-            // Also include any matching items already in savedChannels as instant backup
             const localMatches = savedChannels
                 .map(ch => ({ videoId: extractYouTubeId(ch.url), title: ch.name || q, channel: ch.category || 'Saved' }))
                 .filter(it => it.videoId && it.title.toLowerCase().includes(q.toLowerCase()));
@@ -1721,20 +1720,20 @@
             if (currentView === 'trending') {
                 const ytBoxWrap = document.createElement('div');
                 ytBoxWrap.className = 'yt-song-search-bottom';
-                ytBoxWrap.style.cssText = 'margin-top: auto; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; width: 100%;';
+                ytBoxWrap.style.cssText = 'flex: 1 1 auto; min-height: 0; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 100%; min-width: 0; overflow: hidden;';
 
                 const resultsList = document.createElement('div');
                 resultsList.id = 'ytSongSearchResults';
-                resultsList.style.cssText = 'display: flex; flex-direction: column; gap: 4px; max-height: 180px; overflow-y: auto;';
+                resultsList.style.cssText = 'flex: 1 1 auto; min-height: 140px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto;';
 
                 const statusLine = document.createElement('div');
                 statusLine.id = 'ytSongSearchStatus';
-                statusLine.style.cssText = 'font-size: 10px; color: var(--text-muted); padding: 0 4px; display: flex; justify-content: space-between; align-items: center;';
+                statusLine.style.cssText = 'flex-shrink: 0; font-size: 10px; color: var(--text-muted); padding: 0 4px; display: flex; justify-content: space-between; align-items: center;';
                 statusLine.innerHTML = `<span>All Type Search (Movie / Song / Video)</span>`;
 
                 const inputRow = document.createElement('div');
                 inputRow.className = 'search-folder-trigger';
-                inputRow.style.cssText = 'margin-top: 0; margin-bottom: 10px; padding: 6px 10px 6px 14px; cursor: default;';
+                inputRow.style.cssText = 'flex-shrink: 0; margin-top: 2px; margin-bottom: 10px; padding: 6px 10px 6px 14px; cursor: default;';
                 inputRow.innerHTML = `
                     <i class="fa-brands fa-youtube" style="color:#ff0000; margin-right:8px; font-size:13px;"></i>
                     <input type="text" id="ytSongSearchInput" placeholder="Movie, Song ya kuch bhi search karein..." autocomplete="off" style="flex:1; min-width:0; background:transparent; border:none; outline:none; color:#ffffff; font-size:11px; font-family:'Inter','Poppins',sans-serif;">
@@ -1824,10 +1823,10 @@
                 if(channelsInCat.length === 0) return;
 
                 const catId = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() + '-' + currentView;
-                
+
                 const folder = document.createElement('div');
                 folder.className = 'category-folder';
-                
+
                 folder.innerHTML = `
                     <div class="category-header" onclick="toggleFolder('${catId}')">
                         <span><i class="fa-solid fa-folder" id="icon-${catId}" style="margin-right:8px; color:#e50914;"></i> ${cat}</span>
@@ -1861,8 +1860,6 @@
             appendBottomSearchBox();
         }
 
-
-        // ⚡ GLOBAL FULLSCREEN SEARCH SYSTEM (EMPTY ON OPEN, INSTANT SINGLE-CHAR MATCH ON TYPE)
         function openGlobalSearch(startVoice = false) {
             const modal = document.getElementById('globalSearchModal');
             const input = document.getElementById('globalSearchInput');
@@ -1878,8 +1875,6 @@
             }, 50);
         }
 
-
-        // ⚡ VOICE SEARCH (BOLKAR SEARCH KAREIN) INSIDE SEARCH BOX
         let speechRecognizer = null;
         let isVoiceListening = false;
 
@@ -2069,10 +2064,7 @@
                 const streamType = ch.streamType || 'live';
                 const key = `${streamType}::${catName.toLowerCase()}`;
                 if (!folderMap.has(key)) {
-                    folderMap.set(key, {
-                        catName,
-                        streamType
-                    });
+                    folderMap.set(key, { catName, streamType });
                 }
             });
 
@@ -2148,7 +2140,7 @@
             ytDirectPlayingIndex = -1;
             currentPlayingIndex = index;
             const ch = savedChannels[index];
-            
+
             document.querySelectorAll('.channel-item').forEach(el => el.classList.remove('active'));
             const activeItem = document.querySelector(`.channel-item[data-index="${index}"]`);
             if(activeItem) activeItem.classList.add('active');
@@ -2177,7 +2169,7 @@
                 video.removeAttribute('src');
                 video.load();
                 video.style.display = 'none';
-                if (touchCatcher) touchCatcher.style.display = 'block';
+                if (touchCatcher) touchCatcher.style.display = 'none';
 
                 isYouTubeActive = true;
                 isYouTubePaused = false;
@@ -2195,9 +2187,9 @@
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
                 video.pause(); video.removeAttribute('src'); video.load();
 
-                let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 if (isMobile) {
-                    let cleanUrl = url.replace(/^https?:\/\/(t\.me|telegram\.dog)\//i, '');
+                    const cleanUrl = url.replace(/^https?:\/\/(t\.me|telegram\.dog)\//i, '');
                     window.location.href = `tg://resolve?domain=${cleanUrl}`;
                 } else {
                     window.open(url, '_blank');
@@ -2210,12 +2202,12 @@
                 if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
                 video.pause(); video.removeAttribute('src'); video.load();
 
-                let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 if (isMobile) {
-                    let isAndroid = /Android/i.test(navigator.userAgent);
+                    const isAndroid = /Android/i.test(navigator.userAgent);
                     if (isAndroid) {
-                        let cleanUrl = url.replace(/^https?:\/\//i, '');
-                        let scheme = url.startsWith('https') ? 'https' : 'http';
+                        const cleanUrl = url.replace(/^https?:\/\//i, '');
+                        const scheme = url.startsWith('https') ? 'https' : 'http';
                         window.location.href = `intent://${cleanUrl}#Intent;package=org.videolan.vlc;type=video/*;scheme=${scheme};end;`;
                     } else {
                         window.location.href = "vlc://" + url;
@@ -2223,6 +2215,7 @@
                 } else {
                     const playerWindow = window.open('about:blank', '_blank');
                     setTimeout(() => {
+                        if (!playerWindow) return;
                         const htmlContent = `<!DOCTYPE html>
                         <html>
                         <head>
@@ -2237,12 +2230,9 @@
                                 .video-container { width: 100vw; height: 100vh; position: relative; touch-action: none; }
                                 video { width: 100%; height: 100%; object-fit: fill; outline: none; background: #000; pointer-events: none; }
                                 video::-webkit-media-controls { display: none !important; }
-                                
-                                /* VIP POPUP TIMER & PLEASE WAIT */
                                 .stream-timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent; color: #ffffff; text-align: center; font-weight: 500; font-size: 14px; z-index: 50; display: none; letter-spacing: 2px; font-family: 'Poppins', sans-serif; text-shadow: 0 4px 15px rgba(0,0,0,0.9); white-space: nowrap;}
                                 .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;}
                                 .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
-
                                 .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
                                 .custom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 20; }
                                 .custom-overlay.show { opacity: 1; pointer-events: none; }
@@ -2286,10 +2276,9 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <script>
-                                const video = document.getElementById('video'); 
-                                const videoSrc = "${url}"; 
+                                const video = document.getElementById('video');
+                                const videoSrc = "${url}";
                                 const videoContainer = document.getElementById('videoContainer');
                                 const touchCatcher = document.getElementById('touchCatcher');
                                 const customOverlay = document.getElementById('customOverlay');
@@ -2298,29 +2287,24 @@
                                 const overlayTime = document.getElementById('overlayTime');
                                 const overlayMuteBtn = document.getElementById('overlayMuteBtn');
                                 const fullScreenBtn = document.getElementById('fullScreenBtn');
-                                const overlayBottom = document.getElementById('overlayBottom');
-                                
                                 const popTimer = document.getElementById('popTimer');
                                 const popError = document.getElementById('popError');
                                 let pTime = null;
-                                let urlProbeController = null;
 
                                 function startPTimer() {
                                     clearInterval(pTime);
-                                    if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; }
                                     if(popError) popError.style.display = 'none';
                                     let tl = 20;
                                     if(popTimer) {
                                         popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
                                         popTimer.style.display = 'block';
                                     }
-
                                     pTime = setInterval(() => {
                                         tl--;
-                                        if(tl > 0) { 
-                                            if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC'; 
-                                        } else { 
-                                            clearInterval(pTime); 
+                                        if(tl > 0) {
+                                            if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
+                                        } else {
+                                            clearInterval(pTime);
                                             if(popTimer) {
                                                 popTimer.innerHTML = '⏱ Please Wait ..';
                                                 popTimer.style.display = 'block';
@@ -2329,204 +2313,19 @@
                                     }, 1000);
                                 }
                                 function popErr() { if(popError) popError.style.display = 'none'; if(popTimer) { popTimer.innerHTML = '⏱ Please Wait ..'; popTimer.style.display = 'block'; } }
-
                                 startPTimer();
-
-                                video.addEventListener('playing', () => { clearInterval(pTime); if (urlProbeController) { urlProbeController.abort(); urlProbeController = null; } if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
+                                video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
                                 video.addEventListener('error', () => { popErr(); });
 
-                                let overlayTimer;
-                                let lastClickTime = 0;
-                                let seekInterval = null;
-                                let holdMultiplier = 0;
-
-                                if (window.Hls && Hls.isSupported()) { 
-                                    var hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video); 
-                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(e=>console.log(e)); }); 
-                                    hls.on(Hls.Events.ERROR, function(e, data) {
-                                        if(data.fatal) {
-                                            switch(data.type) {
-                                                case Hls.ErrorTypes.NETWORK_ERROR: hls.destroy(); popErr(); break;
-                                                case Hls.ErrorTypes.MEDIA_ERROR: hls.recoverMediaError(); break;
-                                                default: hls.destroy(); popErr(); break;
-                                            }
-                                        }
-                                    });
-                                } else if (video.canPlayType('application/vnd.apple.mpegurl')) { 
-                                    video.src = videoSrc; video.addEventListener('loadedmetadata', function() { video.play().catch(e=>console.log(e)); }); 
+                                if (window.Hls && Hls.isSupported()) {
+                                    const hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video);
+                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(()=>{}); });
                                 } else {
-                                    video.src = videoSrc; video.play().catch(e=>popErr());
+                                    video.src = videoSrc; video.play().catch(()=>popErr());
                                 }
-
-                                function formatTime(sec) {
-                                    if (isNaN(sec) || sec === Infinity) return "LIVE";
-                                    let h = Math.floor(sec / 3600); let m = Math.floor((sec % 3600) / 60); let s = Math.floor(sec % 60);
-                                    if (h > 0) return h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
-                                    return m + ':' + (s < 10 ? '0' : '') + s;
-                                }
-
-                                function updateProgressUI() {
-                                    if (!video.duration || isNaN(video.duration)) return;
-                                    if (video.duration === Infinity) { overlaySeekBar.value = 100; overlayTime.innerText = "LIVE"; } 
-                                    else { overlaySeekBar.value = (video.currentTime / video.duration) * 100; overlayTime.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration); }
-                                }
-
-                                video.addEventListener('timeupdate', updateProgressUI);
-                                video.addEventListener('seeking', updateProgressUI);
-
-                                function safeSeek(seconds) {
-                                    let newTime = video.currentTime + seconds;
-                                    if (!isNaN(video.duration) && video.duration !== Infinity && video.duration > 0) {
-                                        newTime = Math.min(newTime, video.duration);
-                                    }
-                                    video.currentTime = Math.max(0, newTime);
-                                    updateProgressUI(); 
-                                    showOverlay();
-                                }
-
-                                function showOverlay() { 
-                                    customOverlay.classList.add('show'); 
-                                    clearTimeout(overlayTimer);
-                                    if (!video.paused) {
-                                        overlayTimer = setTimeout(() => { hideOverlay(); }, 1000); 
-                                    }
-                                }
-                                function hideOverlay() { customOverlay.classList.remove('show'); }
-
-                                function togglePausePlay() { 
-                                    if (video.paused) { video.play(); } 
-                                    else { video.pause(); showOverlay(); } 
-                                }
-
-                                if ('mediaSession' in navigator) {
-                                    try {
-                                        navigator.mediaSession.setActionHandler('play', () => { video.play(); });
-                                        navigator.mediaSession.setActionHandler('pause', () => { video.pause(); showOverlay(); });
-                                    } catch (e) {}
-                                }
-
-                                overlayPlayBtn.addEventListener('click', function(e) { e.stopPropagation(); togglePausePlay(); });
-                                video.addEventListener('play', () => {
-            hideEndScreenOverlay(); overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; });
-                                video.addEventListener('pause', () => { overlayPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; });
-
-                                touchCatcher.addEventListener('click', function(e) {
-                                    const currentTime = new Date().getTime(); const tapDelay = currentTime - lastClickTime;
-                                    if (tapDelay < 350 && tapDelay > 0) {
-                                        const rect = touchCatcher.getBoundingClientRect(); const tapX = e.clientX - rect.left;
-                                        if (tapX > rect.width / 2) { safeSeek(10); } else { safeSeek(-10); } 
-                                        lastClickTime = 0; 
-                                    } else {
-                                        if (customOverlay.classList.contains('show')) { hideOverlay(); } else { showOverlay(); }
-                                        lastClickTime = currentTime;
-                                    }
-                                });
-
-                                overlaySeekBar.addEventListener('input', () => { if (video.duration && video.duration !== Infinity && !isNaN(video.duration)) { video.currentTime = (overlaySeekBar.value / 100) * video.duration; updateProgressUI(); } showOverlay(); });
-                                document.getElementById('overlayBottom').addEventListener('click', function(e) { e.stopPropagation(); });
-                                
-                                overlayMuteBtn.addEventListener('click', function(e) { e.stopPropagation(); video.muted = !video.muted; if(video.muted) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>'; showOverlay(); });
-
-                                function toggleFullScreen() {
-                                    const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-                                    if (!isFullScreen) {
-                                        if (videoContainer.requestFullscreen) { videoContainer.requestFullscreen().then(lockLandscape).catch(e=>console.log(e)); } 
-                                        else if (videoContainer.webkitRequestFullscreen) { videoContainer.webkitRequestFullscreen(); lockLandscape(); } 
-                                    } else {
-                                        if (document.exitFullscreen) { document.exitFullscreen().then(unlockOrientation).catch(e=>console.log(e)); } 
-                                        else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); unlockOrientation(); }
-                                    }
-                                    showOverlay();
-                                }
-                                fullScreenBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleFullScreen(); });
-
-                                function lockLandscape() { if (screen.orientation && screen.orientation.lock) { screen.orientation.lock('landscape').catch(e=>console.log(e)); } }
-                                function unlockOrientation() { if (screen.orientation && screen.orientation.unlock) { screen.orientation.unlock(); } }
-
-                                document.addEventListener('keydown', function(event) {
-                                    const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-                                    if (isFullScreen) {
-                                        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-                                            event.preventDefault();
-                                        }
-                                        
-                                        // ⚡ TV REMOTE & KEYBOARD PLAY/PAUSE (Space, MediaPlayPause, Enter, Select)
-                                        const k = event.key || '';
-                                        const c = event.code || '';
-                                        const kc = event.keyCode || 0;
-                                        if (c === 'Space' || k === ' ' || k === 'MediaPlayPause' || k === 'MediaPlay' || k === 'MediaPause' || k === 'Pause' || k === 'Enter' || k === 'Select' || kc === 179 || kc === 19 || kc === 13 || kc === 32) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                            togglePausePlay();
-                                            return;
-                                        }
-                                        
-                                        // ⚡ VOLUME CONTROL: + / - / F2 / F3
-                                        if (event.key === '+' || event.key === '=' || event.key === 'F3') {
-                                            event.preventDefault();
-                                            video.volume = Math.min(1, video.volume + 0.05);
-                                            if (video.volume > 0) { video.muted = false; overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>'; }
-                                            showOverlay();
-                                            return;
-                                        }
-                                        if (event.key === '-' || event.key === '_' || event.key === 'F2') {
-                                            event.preventDefault();
-                                            video.volume = Math.max(0, video.volume - 0.05);
-                                            if (video.volume === 0) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-                                            showOverlay();
-                                            return;
-                                        }
-                                        if (k === 'AudioVolumeMute' || k === 'VolumeMute' || kc === 173) {
-                                            event.preventDefault();
-                                            video.muted = !video.muted;
-                                            if(video.muted) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-                                            else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-                                            showOverlay();
-                                            return;
-                                        }
-
-                                        if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') && !event.repeat) {
-                                            if (seekInterval) clearInterval(seekInterval);
-                                            holdMultiplier = 0;
-                                            
-                                            const direction = event.key === 'ArrowRight' ? 1 : -1;
-                                            safeSeek(10 * direction); 
-                                            
-                                            seekInterval = setInterval(() => { 
-                                                holdMultiplier++;
-                                                let skipAmount = 10;
-                                                if (holdMultiplier > 4) skipAmount = 20; 
-                                                if (holdMultiplier > 10) skipAmount = 30; 
-                                                safeSeek(skipAmount * direction); 
-                                            }, 150);
-                                        }
-                                    }
-                                });
-
-                                document.addEventListener('keyup', function(event) {
-                                    const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-                                    if (isFullScreen) {
-                                        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-                                            if (seekInterval) { clearInterval(seekInterval); seekInterval = null; }
-                                            holdMultiplier = 0;
-                                            event.preventDefault();
-                                        }
-                                    }
-                                });
-
-                                document.addEventListener('wheel', function(event) {
-                                    const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-                                    if (isFullScreen || videoContainer.contains(event.target)) {
-                                        event.preventDefault(); let currentVolume = video.volume;
-                                        if (event.deltaY < 0) { currentVolume = Math.min(1, currentVolume + 0.05); } else if (event.deltaY > 0) { currentVolume = Math.max(0, currentVolume - 0.05); }
-                                        video.volume = currentVolume;
-                                        if (currentVolume === 0) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-                                    }
-                                }, { passive: false });
                             <\/script>
                         </body>
                         </html>`;
-                        
                         playerWindow.document.open();
                         playerWindow.document.write(htmlContent);
                         playerWindow.document.close();
@@ -2536,14 +2335,14 @@
             }
 
             nowPlayingText.innerHTML = `<i class="fa-solid fa-circle-play" style="color: var(--accent-red); margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
-            
+
             activePlayUrl = '';
             hlsRetryCount = 0;
             if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
             video.pause();
             video.removeAttribute('src');
             video.load();
-            
+
             activePlayUrl = url;
             startPTimer();
 
@@ -2617,29 +2416,20 @@
             } else if (lowerUrl.includes('.m3u8')) {
                 startHlsPlayback(true);
             } else if (Hls.isSupported()) {
-                // Extensionless IPTV / Live stream URLs: try HLS first, auto-fallback to direct video if needed
                 startHlsPlayback(true);
             } else {
                 startNativePlayback(false);
             }
         }
 
-        // ==========================================
-        // ⚡ INSTANT UI SYNC LOGIC
-        // ==========================================
-        
         function formatTime(sec) {
             if (isNaN(sec) || sec === Infinity) return "LIVE";
-            let h = Math.floor(sec / 3600);
-            let m = Math.floor((sec % 3600) / 60);
-            let s = Math.floor(sec % 60);
+            const h = Math.floor(sec / 3600);
+            const m = Math.floor((sec % 3600) / 60);
+            const s = Math.floor(sec % 60);
             if (h > 0) return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
             return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
-
-        let isScrubbingSeekBar = false;
-        let ytReportedDuration = 0;
-        let ytReportedCurrentTime = 0;
 
         function updateProgressUI() {
             if (isYouTubeActive) {
@@ -2661,7 +2451,7 @@
                 overlayTime.innerText = `${formatTime(cur)} / ${formatTime(dur)}`;
                 return;
             }
-            if (!video.duration || isNaN(video.duration)) return; 
+            if (!video.duration || isNaN(video.duration)) return;
 
             if (video.duration === Infinity) {
                 overlaySeekBar.value = 100;
@@ -2689,26 +2479,24 @@
                 showOverlay();
                 return;
             }
-            
+
             let newTime = video.currentTime + seconds;
-            
             if (!isNaN(video.duration) && video.duration !== Infinity && video.duration > 0) {
                 newTime = Math.min(newTime, video.duration);
             }
             video.currentTime = Math.max(0, newTime);
-            
-            updateProgressUI(); 
+            updateProgressUI();
             showOverlay();
         }
 
         let lastClickTime = 0;
 
-        function showOverlay() { 
-            customOverlay.classList.add('show'); 
+        function showOverlay() {
+            customOverlay.classList.add('show');
             clearTimeout(overlayTimer);
             const isPausedNow = isYouTubeActive ? isYouTubePaused : video.paused;
             if (!isPausedNow) {
-                overlayTimer = setTimeout(() => { hideOverlay(); }, 1000); 
+                overlayTimer = setTimeout(() => { hideOverlay(); }, 1000);
             }
         }
         function hideOverlay() { customOverlay.classList.remove('show'); }
@@ -2720,9 +2508,9 @@
             if (tapDelay < 350 && tapDelay > 0) {
                 const rect = touchCatcher.getBoundingClientRect();
                 const tapX = e.clientX - rect.left;
-                if (tapX > rect.width / 2) { safeSeek(10); } 
-                else { safeSeek(-10); } 
-                lastClickTime = 0; 
+                if (tapX > rect.width / 2) { safeSeek(10); }
+                else { safeSeek(-10); }
+                lastClickTime = 0;
             } else {
                 if (customOverlay.classList.contains('show')) { hideOverlay(); }
                 else { showOverlay(); }
@@ -2786,8 +2574,6 @@
         };
         document.addEventListener('pointerup', finishSeekScrub);
         document.addEventListener('touchend', finishSeekScrub, { passive: true });
-        
-        let isYouTubeMutedState = false;
 
         function postYouTubeCommand(funcName, args = []) {
             if (!ytPlayerHost) return;
@@ -2879,12 +2665,12 @@
                 return;
             }
 
-            if (video.paused) { 
+            if (video.paused) {
                 video.play();
                 showOverlay();
-            } else { 
-                video.pause(); 
-                showOverlay(); 
+            } else {
+                video.pause();
+                showOverlay();
             }
         }
 
@@ -2917,14 +2703,14 @@
         function playNextChannel() {
             if(savedChannels.length === 0) return;
             let nextIndex = currentPlayingIndex + 1;
-            if (nextIndex >= savedChannels.length) nextIndex = 0; 
+            if (nextIndex >= savedChannels.length) nextIndex = 0;
             playChannelByIndex(nextIndex);
         }
 
         function playPrevChannel() {
             if(savedChannels.length === 0) return;
             let prevIndex = currentPlayingIndex - 1;
-            if (prevIndex < 0) prevIndex = savedChannels.length - 1; 
+            if (prevIndex < 0) prevIndex = savedChannels.length - 1;
             playChannelByIndex(prevIndex);
         }
 
@@ -2999,7 +2785,7 @@
                     try {
                         const p = exitFs.call(document);
                         if (p && typeof p.then === 'function') {
-                            p.then(unlockOrientation).catch(e=>console.log(e));
+                            p.then(unlockOrientation).catch(()=>{});
                         } else {
                             unlockOrientation();
                         }
@@ -3012,9 +2798,7 @@
 
         function lockLandscape() {
             if (screen.orientation && screen.orientation.lock) {
-                screen.orientation.lock('landscape').catch(function(error) {
-                    console.log('Orientation lock failed:', error);
-                });
+                screen.orientation.lock('landscape').catch(()=>{});
             }
         }
 
@@ -3038,7 +2822,6 @@
             }
         }
 
-        // ⚡ TV FULLSCREEN EXIT FIX: Reset intervals and restore focus to dashboard
         function handleFullScreenChange() {
             const nativeFs = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
             if (nativeFs && isMobilePseudoFullScreen) {
@@ -3083,16 +2866,12 @@
                 syncYouTubeFullscreenSize();
             }
         });
-        
+
         video.addEventListener('ended', function() {
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
             showEndScreenOverlay();
         });
 
-
-        // ==========================================
-        // ⚡ TWO-FINGER PINCH ZOOM FOR YOUTUBE & PLAYER
-        // ==========================================
         let pinchStartDist = 0;
         let pinchCurrentScale = 1;
         let pinchBaseScale = 1;
@@ -3151,9 +2930,6 @@
         videoContainer.addEventListener('touchend', handlePinchEnd, { passive: false });
         videoContainer.addEventListener('touchcancel', handlePinchEnd, { passive: false });
 
-        // ==========================================
-        // ⚡ TV / DESKTOP SETTINGS (Fullscreen Hold-to-Seek & Arrow Keys Only)
-        // ==========================================
         let seekInterval = null;
         let holdMultiplier = 0;
 
@@ -3168,10 +2944,9 @@
         document.addEventListener('keydown', function(event) {
             if (checkIsActuallyFullScreen()) {
                 if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-                    event.preventDefault(); 
+                    event.preventDefault();
                 }
-                
-                // ⚡ TV REMOTE & KEYBOARD PLAY/PAUSE (Space, MediaPlayPause, Enter, Select)
+
                 const k = event.key || '';
                 const c = event.code || '';
                 const kc = event.keyCode || 0;
@@ -3181,8 +2956,7 @@
                     togglePausePlay();
                     return;
                 }
-                
-                // ⚡ VOLUME CONTROL: + / - / F2 / F3
+
                 if (event.key === '+' || event.key === '=' || event.key === 'F3') {
                     event.preventDefault();
                     if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.getVolume === 'function') {
@@ -3219,11 +2993,11 @@
                 if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') && !event.repeat) {
                     if (seekInterval) clearInterval(seekInterval);
                     holdMultiplier = 0;
-                    
+
                     const direction = event.key === 'ArrowRight' ? 1 : -1;
-                    safeSeek(10 * direction); 
-                    
-                    seekInterval = setInterval(() => { 
+                    safeSeek(10 * direction);
+
+                    seekInterval = setInterval(() => {
                         if (!checkIsActuallyFullScreen()) {
                             clearInterval(seekInterval);
                             seekInterval = null;
@@ -3232,11 +3006,11 @@
                         }
                         holdMultiplier++;
                         let skipAmount = 10;
-                        
-                        if (holdMultiplier > 4) skipAmount = 20; 
-                        if (holdMultiplier > 10) skipAmount = 30; 
-                        
-                        safeSeek(skipAmount * direction); 
+
+                        if (holdMultiplier > 4) skipAmount = 20;
+                        if (holdMultiplier > 10) skipAmount = 30;
+
+                        safeSeek(skipAmount * direction);
                     }, 150);
                 }
             } else {
@@ -3265,7 +3039,7 @@
 
         document.addEventListener('wheel', function(event) {
             if (checkIsActuallyFullScreen() || videoContainer.contains(event.target)) {
-                event.preventDefault(); 
+                event.preventDefault();
                 if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.getVolume === 'function') {
                     let v = ytApiPlayer.getVolume() || 0;
                     if (event.deltaY < 0) v = Math.min(100, v + 5);
@@ -3276,15 +3050,14 @@
                     return;
                 }
                 let currentVolume = video.volume;
-                if (event.deltaY < 0) { currentVolume = Math.min(1, currentVolume + 0.05); } 
+                if (event.deltaY < 0) { currentVolume = Math.min(1, currentVolume + 0.05); }
                 else if (event.deltaY > 0) { currentVolume = Math.max(0, currentVolume - 0.05); }
                 video.volume = currentVolume;
-                
+
                 if (currentVolume === 0) overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
                 else overlayMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             }
-        }, { passive: false }); 
-
+        }, { passive: false });
     </script>
 </body>
 </html>
