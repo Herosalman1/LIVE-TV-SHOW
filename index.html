@@ -1755,7 +1755,7 @@
 
                 const resultsList = document.createElement('div');
                 resultsList.id = 'ytSongSearchResults';
-                resultsList.style.cssText = 'flex: 1 1 auto; min-height: 140px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto;';
+                resultsList.style.cssText = 'flex: 1 1 auto; min-height: 0; display: none; flex-direction: column; gap: 4px; overflow-y: auto;';
 
                 const statusLine = document.createElement('div');
                 statusLine.id = 'ytSongSearchStatus';
@@ -1764,7 +1764,7 @@
 
                 const inputRow = document.createElement('div');
                 inputRow.className = 'search-folder-trigger';
-                inputRow.style.cssText = 'flex-shrink: 0; margin-top: 2px; margin-bottom: 10px; padding: 6px 10px 6px 14px; cursor: default;';
+                inputRow.style.cssText = 'flex-shrink: 0; margin-top: auto; margin-bottom: 10px; padding: 6px 10px 6px 14px; cursor: default;';
                 inputRow.innerHTML = `
                     <i class="fa-brands fa-youtube" style="color:#ff0000; margin-right:8px; font-size:13px;"></i>
                     <input type="text" id="ytSongSearchInput" placeholder="Movie, Song ya kuch bhi search karein..." autocomplete="off" style="flex:1; min-width:0; background:transparent; border:none; outline:none; color:#ffffff; font-size:11px; font-family:'Inter','Poppins',sans-serif;">
@@ -2060,6 +2060,7 @@
                 if (folderIcon) folderIcon.className = "fa-solid fa-folder-open";
             }
             playChannelByIndex(index);
+            setTimeout(() => showOverlay(), 120);
         }
 
         function renderGlobalSearchResults() {
@@ -2244,123 +2245,9 @@
                         window.location.href = "vlc://" + url;
                     }
                 } else {
-                    const playerWindow = window.open('about:blank', '_blank');
-                    setTimeout(() => {
-                        if (!playerWindow) return;
-                        const htmlContent = `<!DOCTYPE html>
-                        <html>
-                        <head>
-                            <title>${name} - Live Stream</title>
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-                            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
-                            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-                            <style>
-                                html, body { background: #000; margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; }
-                                *, *:focus, *:focus-visible { outline: none !important; }
-                                .video-container { width: 100vw; height: 100vh; position: relative; touch-action: none; }
-                                video { width: 100%; height: 100%; object-fit: fill; outline: none; background: #000; pointer-events: none; }
-                                video::-webkit-media-controls { display: none !important; }
-                                .stream-timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent; color: #ffffff; text-align: center; font-weight: 500; font-size: 14px; z-index: 50; display: none; letter-spacing: 2px; font-family: 'Poppins', sans-serif; text-shadow: 0 4px 15px rgba(0,0,0,0.9); white-space: nowrap;}
-                                .error-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #ff4d4f; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 60; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px;}
-                                .error-overlay i { font-size: 55px; margin-bottom: 15px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.5); }
-                                .touch-catcher { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
-                                .custom-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 20; }
-                                .custom-overlay.show { opacity: 1; pointer-events: none; }
-                                .overlay-center { display: flex; justify-content: center; align-items: center; flex: 1; pointer-events: none; }
-                                .overlay-btn { background: transparent; border: none; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.2s; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8)); pointer-events: auto; }
-                                .overlay-btn:active { transform: scale(0.9); color: #e50914; }
-                                .play-pause-btn { font-size: 60px; }
-                                .overlay-bottom { padding: 25px 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); pointer-events: auto; width: 100%; box-sizing: border-box; }
-                                .progress-container { width: 100%; display: flex; align-items: center; margin-bottom: 12px; }
-                                .seek-bar { -webkit-appearance: none; width: 100%; height: 5px; background: rgba(255,255,255,0.3); border-radius: 5px; outline: none; cursor: pointer; }
-                                .seek-bar::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
-                                .time-volume-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-                                .time-text { color: #fff; font-size: 15px; font-weight: 500; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;}
-                                .vol-btn { background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 5px;}
-                                @media (min-width: 900px) { .stream-timer { font-size: 18px; letter-spacing: 3px; } }
-                            </style>
-                        </head>
-                        <body>
-                            <div class="video-container" id="videoContainer">
-                                <video id="video" autoplay playsinline></video>
-                                <div class="stream-timer" id="popTimer"></div>
-                                <div class="error-overlay" id="popError">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <span>STREAM ERROR 404 ...</span>
-                                </div>
-                                <div class="touch-catcher" id="touchCatcher"></div>
-                                <div class="custom-overlay" id="customOverlay">
-                                    <div style="flex:0.2;"></div>
-                                    <div class="overlay-center">
-                                        <button class="overlay-btn play-pause-btn" id="overlayPlayBtn"><i class="fa-solid fa-pause"></i></button>
-                                    </div>
-                                    <div class="overlay-bottom" id="overlayBottom">
-                                        <div class="progress-container"><input type="range" class="seek-bar" id="overlaySeekBar" value="0" step="0.1" tabindex="0"></div>
-                                        <div class="time-volume-row">
-                                            <span class="time-text" id="overlayTime">0:00 / 0:00</span>
-                                            <div>
-                                                <button class="vol-btn" id="overlayMuteBtn"><i class="fa-solid fa-volume-high"></i></button>
-                                                <button class="vol-btn" id="fullScreenBtn" style="margin-left:25px;"><i class="fa-solid fa-expand"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <script>
-                                const video = document.getElementById('video');
-                                const videoSrc = "${url}";
-                                const videoContainer = document.getElementById('videoContainer');
-                                const touchCatcher = document.getElementById('touchCatcher');
-                                const customOverlay = document.getElementById('customOverlay');
-                                const overlayPlayBtn = document.getElementById('overlayPlayBtn');
-                                const overlaySeekBar = document.getElementById('overlaySeekBar');
-                                const overlayTime = document.getElementById('overlayTime');
-                                const overlayMuteBtn = document.getElementById('overlayMuteBtn');
-                                const fullScreenBtn = document.getElementById('fullScreenBtn');
-                                const popTimer = document.getElementById('popTimer');
-                                const popError = document.getElementById('popError');
-                                let pTime = null;
-
-                                function startPTimer() {
-                                    clearInterval(pTime);
-                                    if(popError) popError.style.display = 'none';
-                                    let tl = 20;
-                                    if(popTimer) {
-                                        popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
-                                        popTimer.style.display = 'block';
-                                    }
-                                    pTime = setInterval(() => {
-                                        tl--;
-                                        if(tl > 0) {
-                                            if(popTimer) popTimer.innerHTML = '⏱ TIMER : ' + tl + ' SEC';
-                                        } else {
-                                            clearInterval(pTime);
-                                            if(popTimer) {
-                                                popTimer.innerHTML = '⏱ Please Wait ..';
-                                                popTimer.style.display = 'block';
-                                            }
-                                        }
-                                    }, 1000);
-                                }
-                                function popErr() { if(popError) popError.style.display = 'none'; if(popTimer) { popTimer.innerHTML = '⏱ Please Wait ..'; popTimer.style.display = 'block'; } }
-                                startPTimer();
-                                video.addEventListener('playing', () => { clearInterval(pTime); if(popTimer) popTimer.style.display = 'none'; if(popError) popError.style.display = 'none'; });
-                                video.addEventListener('error', () => { popErr(); });
-
-                                if (window.Hls && Hls.isSupported()) {
-                                    const hls = new Hls(); hls.loadSource(videoSrc); hls.attachMedia(video);
-                                    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(()=>{}); });
-                                } else {
-                                    video.src = videoSrc; video.play().catch(()=>popErr());
-                                }
-                            <\/script>
-                        </body>
-                        </html>`;
-                        playerWindow.document.open();
-                        playerWindow.document.write(htmlContent);
-                        playerWindow.document.close();
-                    }, 200);
+                    if (touchCatcher) touchCatcher.style.display = 'block';
+                    showOverlay();
+                    try { window.open(url, '_blank', 'noopener,noreferrer'); } catch (e) {}
                 }
                 return;
             }
@@ -2451,72 +2338,8 @@
             } else {
                 startNativePlayback(false);
             }
-        }
 
-        function formatTime(sec) {
-            if (isNaN(sec) || sec === Infinity) return "LIVE";
-            const h = Math.floor(sec / 3600);
-            const m = Math.floor((sec % 3600) / 60);
-            const s = Math.floor(sec % 60);
-            if (h > 0) return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
-            return `${m}:${s < 10 ? '0' : ''}${s}`;
-        }
-
-        function updateProgressUI() {
-            if (isYouTubeActive) {
-                let dur = 0;
-                let cur = 0;
-                if (ytApiPlayer && typeof ytApiPlayer.getDuration === 'function') {
-                    dur = ytApiPlayer.getDuration();
-                    cur = ytApiPlayer.getCurrentTime();
-                    if (dur > 0 && !isNaN(dur)) ytReportedDuration = dur;
-                    if (!isNaN(cur) && cur >= 0) ytReportedCurrentTime = cur;
-                } else {
-                    dur = ytReportedDuration;
-                    cur = ytReportedCurrentTime;
-                }
-                if (!dur || isNaN(dur) || dur <= 0) return;
-                if (!isScrubbingSeekBar) {
-                    overlaySeekBar.value = Math.max(0, Math.min(100, (cur / dur) * 100));
-                }
-                overlayTime.innerText = `${formatTime(cur)} / ${formatTime(dur)}`;
-                return;
-            }
-            if (!video.duration || isNaN(video.duration)) return;
-
-            if (video.duration === Infinity) {
-                overlaySeekBar.value = 100;
-                overlayTime.innerText = "LIVE";
-            } else {
-                overlaySeekBar.value = (video.currentTime / video.duration) * 100;
-                overlayTime.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-            }
-        }
-
-        video.addEventListener('timeupdate', updateProgressUI);
-        video.addEventListener('seeking', updateProgressUI);
-
-        function safeSeek(seconds, event) {
-            if(event) event.stopPropagation();
-            hideEndScreenOverlay();
-
-            if (isYouTubeActive && ytApiPlayer && typeof ytApiPlayer.getCurrentTime === 'function') {
-                const dur = ytApiPlayer.getDuration() || 0;
-                let newTime = (ytApiPlayer.getCurrentTime() || 0) + seconds;
-                if (dur > 0) newTime = Math.min(newTime, dur);
-                newTime = Math.max(0, newTime);
-                try { ytApiPlayer.seekTo(newTime, true); } catch (e) {}
-                updateProgressUI();
-                showOverlay();
-                return;
-            }
-
-            let newTime = video.currentTime + seconds;
-            if (!isNaN(video.duration) && video.duration !== Infinity && video.duration > 0) {
-                newTime = Math.min(newTime, video.duration);
-            }
-            video.currentTime = Math.max(0, newTime);
-            updateProgressUI();
+            if (touchCatcher) touchCatcher.style.display = 'block';
             showOverlay();
         }
 
