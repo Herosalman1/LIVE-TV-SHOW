@@ -659,6 +659,7 @@
         <div class="type-switch-container">
             <button class="type-switch-btn active" id="btnLiveTV" onclick="setStreamType('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
             <button class="type-switch-btn" id="btnOfflineStream" onclick="setStreamType('offline')"><i class="fa-solid fa-film"></i> OFFLINE STREAM</button>
+            <button class="type-switch-btn" id="btnTrendingSong" onclick="setStreamType('trending')"><i class="fa-solid fa-music"></i> TRENDING SONG</button>
         </div>
 
         <input type="text" id="pName" class="input-pro" placeholder="Channel Name (e.g. Aaj Tak HD)" onblur="formatYearInName(this)">
@@ -719,6 +720,7 @@
             <div class="admin-tabs">
                 <button class="admin-tab active" id="modalTabLive" onclick="switchModalView('live')"><i class="fa-solid fa-tv"></i> LIVE TV</button>
                 <button class="admin-tab" id="modalTabOffline" onclick="switchModalView('offline')"><i class="fa-solid fa-film"></i> OFFLINE STREAM</button>
+                <button class="admin-tab" id="modalTabTrending" onclick="switchModalView('trending')"><i class="fa-solid fa-music"></i> TRENDING SONG</button>
             </div>
             <p class="subtitle" style="text-align: left; margin-top:-5px; font-size:12px;">💡 Pure folder par ek saath badge lagane ke liye folder ke 'Set Badge' button ko dabayein. 'UPLOAD TO GITHUB' dabana na bhoolein.</p>
             
@@ -760,12 +762,15 @@
             <h3 style="color: #00ea77; margin-bottom: 10px;"><i class="fa-solid fa-exchange-alt"></i> SHIFT FOLDER</h3>
             <p style="color: #c9d1d9; font-size: 14px; margin-bottom: 15px;">Kahan shift karna chahte hain folder <br><strong style="color:#fff; font-size:16px;">"<span id="shiftCatName"></span>"</strong> ko?</p>
             
-            <div style="display: flex; gap: 10px; margin-bottom: 15px; width: 100%;">
-                <button class="btn-pro btn-blue" style="margin-bottom:0; flex:1; font-size:13px;" onclick="applyShiftType('live')">
+            <div style="display: flex; gap: 8px; margin-bottom: 15px; width: 100%; flex-wrap: wrap;">
+                <button class="btn-pro btn-blue" style="margin-bottom:0; flex:1; font-size:12px; padding:12px 6px;" onclick="applyShiftType('live')">
                     <i class="fa-solid fa-tv"></i> LIVE TV
                 </button>
-                <button class="btn-pro btn-green" style="margin-bottom:0; flex:1; font-size:13px;" onclick="applyShiftType('offline')">
+                <button class="btn-pro btn-green" style="margin-bottom:0; flex:1; font-size:12px; padding:12px 6px;" onclick="applyShiftType('offline')">
                     <i class="fa-solid fa-film"></i> OFFLINE
+                </button>
+                <button class="btn-pro btn-yellow" style="margin-bottom:0; flex:1; font-size:12px; padding:12px 6px;" onclick="applyShiftType('trending')">
+                    <i class="fa-solid fa-music"></i> TRENDING
                 </button>
             </div>
             
@@ -784,6 +789,7 @@
                 <select id="moveTypeSelect" class="input-pro" onchange="updateMoveFolders()" style="margin-bottom: 16px; padding: 14px 46px 14px 16px; font-size: 16px;">
                     <option value="live">LIVE TV</option>
                     <option value="offline">OFFLINE STREAM</option>
+                    <option value="trending">TRENDING SONG</option>
                 </select>
 
                 <label style="color: #8b949e; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; display: block;">SELECT FOLDER:</label>
@@ -849,7 +855,7 @@
         
         const defaultCategories = ["NEWS", "MOVIE", "KIDS CARTOON", "MUSIC", "SPORTS", "SERIAL EPISODE"];
         let savedCategories = [...defaultCategories];
-        let customTypeCategories = { live: [], offline: [] };
+        let customTypeCategories = { live: [], offline: [], trending: [] };
         let latestAddedCategory = localStorage.getItem('tv_latest_added_cat') || null;
 
         function getUniformBadgeColor() {
@@ -1459,13 +1465,9 @@
 
         function setStreamType(type) {
             currentStreamType = type;
-            if (type === 'live') {
-                document.getElementById('btnLiveTV').classList.add('active');
-                document.getElementById('btnOfflineStream').classList.remove('active');
-            } else {
-                document.getElementById('btnLiveTV').classList.remove('active');
-                document.getElementById('btnOfflineStream').classList.add('active');
-            }
+            document.getElementById('btnLiveTV').classList.toggle('active', type === 'live');
+            document.getElementById('btnOfflineStream').classList.toggle('active', type === 'offline');
+            document.getElementById('btnTrendingSong').classList.toggle('active', type === 'trending');
             updateFormFlagButtons();
             renderCategoryDropdown();
         }
@@ -1474,6 +1476,7 @@
             currentModalView = type;
             document.getElementById('modalTabLive').className = type === 'live' ? 'admin-tab active' : 'admin-tab';
             document.getElementById('modalTabOffline').className = type === 'offline' ? 'admin-tab active' : 'admin-tab';
+            document.getElementById('modalTabTrending').className = type === 'trending' ? 'admin-tab active' : 'admin-tab';
             renderList();
         }
 
@@ -1829,7 +1832,7 @@
                 const actionsDiv = document.createElement('div');
                 actionsDiv.className = 'cat-actions';
 
-                if (currentModalView === 'offline') {
+                if (currentModalView === 'offline' || currentModalView === 'trending') {
                     const badgeBtn = document.createElement('button');
                     badgeBtn.type = 'button';
                     badgeBtn.className = 'bulk-badge-btn';
@@ -1886,7 +1889,7 @@
                     item.setAttribute('draggable', 'true');
                     item.setAttribute('data-index', ch.originalIndex);
                     
-                    let iconHTML = ch.streamType === 'offline' ? '<i class="fa-solid fa-film" style="color: #00ea77; margin-right: 5px;" title="Offline"></i>' : '<i class="fa-solid fa-tv" style="color: #ff003c; margin-right: 5px;" title="Live TV"></i>';
+                    let iconHTML = ch.streamType === 'trending' ? '<i class="fa-solid fa-music" style="color: #facc15; margin-right: 5px;" title="Trending Song"></i>' : (ch.streamType === 'offline' ? '<i class="fa-solid fa-film" style="color: #00ea77; margin-right: 5px;" title="Offline"></i>' : '<i class="fa-solid fa-tv" style="color: #ff003c; margin-right: 5px;" title="Live TV"></i>');
                     let pinRankHTML = isPinned ? `<span class="pin-rank-tag"><i class="fa-solid fa-thumbtack"></i> #${ch.pinOrder}</span>` : '';
                     let badgeHTML = renderBadgeHTML(effBadge, ch);
 
@@ -1908,7 +1911,7 @@
                     `;
                     item.querySelector('.ch-name-text').textContent = ch.name;
                     const badgeMount = item.querySelector('.badge-slot-mount');
-                    if ((ch.streamType || 'live') === 'offline') {
+                    if ((ch.streamType || 'live') !== 'live') {
                         const selEl = document.createElement('select');
                         selEl.className = 'list-badge-select';
                         selEl.title = 'Select Badge (Double click to rename)';
@@ -2096,7 +2099,7 @@
             name = name.replace(/\s?(\d{4})$/, ' ($1)');
             const link = document.getElementById('pLink').value.trim();
             let selectedBadge = "";
-            if (currentStreamType === 'offline') {
+            if (currentStreamType !== 'live') {
                 if (isAddingNewBadge) {
                     const typed = (document.getElementById('customBadgeNameInput').value || '').trim().toUpperCase();
                     if (typed) {
@@ -2258,9 +2261,11 @@
             savedCategories.forEach(cat => {
                 let liveChans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat && (ch.streamType || 'live') === 'live');
                 let offlineChans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat && (ch.streamType || 'live') === 'offline');
+                let trendingChans = channelsArray.filter(ch => (ch.category || "UNCATEGORIZED") === cat && (ch.streamType || 'live') === 'trending');
                 sortFolderChannels(liveChans);
                 sortFolderChannels(offlineChans);
-                groupedChannels = groupedChannels.concat(liveChans, offlineChans);
+                sortFolderChannels(trendingChans);
+                groupedChannels = groupedChannels.concat(liveChans, offlineChans, trendingChans);
             });
             
             let uncategorizedChannels = channelsArray.filter(ch => !savedCategories.includes(ch.category || "UNCATEGORIZED"));
