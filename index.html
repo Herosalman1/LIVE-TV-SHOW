@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>HeroSalman1 Live TV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -88,8 +88,8 @@
                 left: 50% !important;
                 right: auto !important;
                 bottom: auto !important;
-                width: 100dvh !important;
-                height: 100vw !important;
+                width: calc(100dvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px) + 24px) !important;
+                height: calc(100vw + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px) + 24px) !important;
                 min-width: 100dvh !important;
                 min-height: 100vw !important;
                 transform: translate(-50%, -50%) rotate(90deg) !important;
@@ -110,18 +110,16 @@
         .video-container:-ms-fullscreen,
         .video-container.mobile-pseudo-fullscreen {
             position: fixed !important;
-            inset: 0 !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            height: 100dvh !important;
+            inset: calc(env(safe-area-inset-top, 0px) * -1) calc(env(safe-area-inset-right, 0px) * -1) calc(env(safe-area-inset-bottom, 0px) * -1) calc(env(safe-area-inset-left, 0px) * -1) !important;
+            top: calc(env(safe-area-inset-top, 0px) * -1) !important;
+            left: calc(env(safe-area-inset-left, 0px) * -1) !important;
+            right: calc(env(safe-area-inset-right, 0px) * -1) !important;
+            bottom: calc(env(safe-area-inset-bottom, 0px) * -1) !important;
+            width: calc(100vw + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px)) !important;
+            height: calc(100dvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
             max-width: none !important;
             max-height: none !important;
             min-width: 100vw !important;
-            min-height: 100vh !important;
             min-height: 100dvh !important;
             border-radius: 0 !important;
             margin: 0 !important;
@@ -149,7 +147,7 @@
             position: absolute !important;
             top: 50% !important;
             left: 50% !important;
-            transform: translate(-50%, -50%) scale(1.16) !important;
+            transform: translate(-50%, -50%) scale(1.24) !important;
             transform-origin: center center !important;
             width: 100% !important;
             height: 100% !important;
@@ -854,6 +852,29 @@
         let isYouTubeEnded = false;
         let ytProgressTimer = null;
 
+        let ytAutoHideTimer = null;
+
+        function startYouTube5SecHideTimer() {
+            clearTimeout(ytAutoHideTimer);
+            ytAutoHideTimer = setTimeout(() => {
+                if (isYouTubeActive && ytPlayerHost) {
+                    ytPlayerHost.style.display = 'none';
+                }
+            }, 5000);
+        }
+
+        function showYouTubePlayerSurface() {
+            if (isYouTubeActive && ytPlayerHost) {
+                ytPlayerHost.style.display = 'block';
+                setTimeout(syncYouTubeFullscreenSize, 40);
+            }
+        }
+
+        function clearYouTube5SecHideTimer() {
+            clearTimeout(ytAutoHideTimer);
+            ytAutoHideTimer = null;
+        }
+
         function startYouTubeProgressTimer() {
             clearInterval(ytProgressTimer);
             ytProgressTimer = setInterval(() => {
@@ -943,6 +964,7 @@
                             } catch (err) {}
                             disableYouTubeCaptions(e.target);
                             startYouTubeProgressTimer();
+                            startYouTube5SecHideTimer();
                             try { e.target.playVideo(); } catch (err) {}
                         },
                         onApiChange: function(e) {
@@ -963,6 +985,7 @@
                                 isYouTubePaused = false;
                                 hideEndScreenOverlay();
                                 disableYouTubeCaptions(e.target);
+                                startYouTube5SecHideTimer();
                                 playPauseIcon.className = "fa-solid fa-pause";
                                 playPauseText.innerText = "Pause";
                                 overlayPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
@@ -1008,6 +1031,7 @@
 
         function stopYouTubePlayer() {
             stopYouTubeProgressTimer();
+            clearYouTube5SecHideTimer();
             pendingYouTubePlay = null;
             isYouTubeActive = false;
             isYouTubePaused = false;
@@ -1686,6 +1710,7 @@
 
                 isYouTubeEnded = false;
                 mountYouTubePlayer(ytId, url);
+                startYouTube5SecHideTimer();
                 return;
             }
 
@@ -2465,7 +2490,7 @@
                 ifr.style.position = 'absolute';
                 ifr.style.top = '50%';
                 ifr.style.left = '50%';
-                ifr.style.transform = 'translate(-50%, -50%) scale(1.16)';
+                ifr.style.transform = 'translate(-50%, -50%) scale(1.24)';
                 ifr.style.transformOrigin = 'center center';
                 ifr.style.width = '100%';
                 ifr.style.height = '100%';
