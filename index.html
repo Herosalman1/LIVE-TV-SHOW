@@ -1409,6 +1409,12 @@
         let ytDirectPlayingIndex = -1;
         let ytLastSearchedQuery = '';
 
+        function formatSearchResultTitle(rawTitle) {
+            const t = String(rawTitle || 'YouTube Video');
+            const maxChars = 58;
+            return t.length > maxChars ? t.slice(0, maxChars) + '...' : t;
+        }
+
         function getYtApiKey() {
             try {
                 return (localStorage.getItem('hs_yt_api_key') || '').trim();
@@ -1480,7 +1486,7 @@
             resultsBox.innerHTML = '';
             resultsBox.style.display = 'flex';
             if (statusEl) {
-                statusLine.style.display = 'flex';
+                statusEl.style.display = 'flex';
             }
             ytDirectSearchResults = list;
             if (!Array.isArray(list) || list.length === 0) {
@@ -2907,6 +2913,9 @@
         let pinchStartMidX = 0;
         let pinchStartMidY = 0;
         let isPinchingTwoFingers = false;
+        let seekInterval = null;
+        let holdMultiplier = 0;
+        const pinchZoomBadge = document.getElementById('pinchZoomBadge') || null;
 
         function getTouchDistance(t1, t2) {
             const dx = t1.clientX - t2.clientX;
@@ -2937,10 +2946,12 @@
                 pinchZoomBadge.classList.remove('visible');
             }
         }
-
-        function resetPinchZoom(event) {
-            if (event) event.stopPropagation();
-            applyPinchScale(1, 0, 0);
+        function checkIsActuallyFullScreen() {
+            if (isMobilePseudoFullScreen) return true;
+            const fsEl = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (!fsEl) return false;
+            const rect = videoContainer.getBoundingClientRect();
+            return rect.width >= window.innerWidth - 5 && rect.height >= window.innerHeight - 5;
         }
 
         function applyPinchScale(sc, tx = pinchTranslateX, ty = pinchTranslateY) {
