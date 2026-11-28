@@ -82,6 +82,16 @@
         video { width: 100%; height: 100%; outline: none; background: #000; object-fit: fill; display: block; pointer-events: none; }
         video::-webkit-media-controls { display: none !important; }
         video::-webkit-media-controls-enclosure { display: none !important; }
+        .yt-player-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+            display: none;
+            z-index: 25;
+        }
 
         /* ⚡ VIP POPUP TIMER, PLEASE WAIT & ERROR CENTERED */
         .stream-timer { 
@@ -653,6 +663,7 @@
             
             <div class="video-container" id="videoContainer">
                 <video id="tvPlayer" autoplay playsinline></video>
+                <iframe id="ytPlayer" class="yt-player-frame" title="YouTube Video Player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
                 <div class="stream-timer" id="popTimer"></div>
                 <div class="error-overlay" id="popError">
                     <i class="fa-solid fa-triangle-exclamation"></i>
@@ -743,7 +754,121 @@
     </div>
 
     <script>
-        const video = document.getElementById('tvPlayer'); 
+        const video = document.getElementById('tvPlayer');
+        const ytPlayer = document.getElementById('ytPlayer');
+        let isYouTubeActive = false;
+        let isYouTubePaused = false;
+
+        function extractYouTubeId(url) {
+            if (!url) return null;
+            const patterns = [
+                /(?:youtube\.com\/watch\?(?:.*&)?v=)([a-zA-Z0-9_-]{11})/i,
+                /(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/i,
+                /(?:youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/i,
+                /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/i,
+                /(?:youtube\.com\/live\/)([a-zA-Z0-9_-]{11})/i
+            ];
+            for (const p of patterns) {
+                const m = url.match(p);
+                if (m && m[1]) return m[1];
+            }
+            return null;
+        }
+
+        let ytHandshakeTimers = [];
+        let isYouTubeEnded = false;
+
+        function clearYouTubeHandshakeTimers() {
+            ytHandshakeTimers.forEach(t => clearTimeout(t));
+            ytHandshakeTimers = [];
+        }
+
+        function sendYouTubeCommand(func, args = '') {
+            if (!ytPlayer || !ytPlayer.contentWindow) return;
+            ytPlayer.contentWindow.postMessage(JSON.stringify({
+                event: 'command',
+                func: func,
+                args: args
+            }), '*');
+        }
+
+        function subscribeYouTubeEvents() {
+            if (!ytPlayer || !ytPlayer.contentWindow || !isYouTubeActive) return;
+            try {
+                ytPlayer.contentWindow.postMessage(JSON.stringify({
+                    event: 'listening',
+                    id: 1,
+                    channel: 'widget'
+                }), '*');
+                sendYouTubeCommand('addEventListener', ['onStateChange']);
+            } catch (e) {}
+        }
+
+        if (ytPlayer) {
+            ytPlayer.addEventListener('load', function() {
+                if (!isYouTubeActive) return;
+                clearYouTubeHandshakeTimers();
+                subscribeYouTubeEvents();
+                ytHandshakeTimers.push(setTimeout(subscribeYouTubeEvents, 400));
+                ytHandshakeTimers.push(setTimeout(subscribeYouTubeEvents, 1000));
+                ytHandshakeTimers.push(setTimeout(subscribeYouTubeEvents, 2000));
+            });
+        }
+
+        window.addEventListener('message', function(event) {
+            if (!isYouTubeActive) return;
+            const orig = event.origin || '';
+            if (!orig.includes('youtube.com') && !orig.includes('youtube-nocookie.com')) return;
+
+            let data = event.data;
+            if (typeof data === 'string') {
+                try { data = JSON.parse(data); } catch (e) { return; }
+            }
+            if (!data || typeof data !== 'object') return;
+
+            let state = null;
+            if (data.event === 'onStateChange' && typeof data.info === 'number') {
+                state = data.info;
+            } else if (data.event === 'infoDelivery' && data.info && typeof data.info.playerState === 'number') {
+                state = data.info.playerState;
+            }
+
+            if (state === 0) {
+                // YouTube Video Ended -> Show exact same black screen with ⏮ ↺ ⏭ buttons
+                isYouTubeEnded = true;
+                isYouTubePaused = true;
+                playPauseIcon.className = "fa-solid fa-play";
+                playPauseText.innerText = "Play";
+                showEndScreenOverlay();
+            } else if (state === 1) {
+                isYouTubeEnded = false;
+                isYouTubePaused = false;
+                hideEndScreenOverlay();
+                playPauseIcon.className = "fa-solid fa-pause";
+                playPauseText.innerText = "Pause";
+            } else if (state === 2) {
+                isYouTubePaused = true;
+                playPauseIcon.className = "fa-solid fa-play";
+                playPauseText.innerText = "Play";
+            }
+        });
+
+        function stopYouTubePlayer() {
+            clearYouTubeHandshakeTimers();
+            const wasActive = isYouTubeActive;
+            isYouTubeActive = false;
+            isYouTubePaused = false;
+            isYouTubeEnded = false;
+            if (ytPlayer) {
+                if (wasActive || ytPlayer.getAttribute('src')) {
+                    ytPlayer.removeAttribute('src');
+                    ytPlayer.src = 'about:blank';
+                }
+                ytPlayer.style.display = 'none';
+            }
+            video.style.display = 'block';
+            if (touchCatcher) touchCatcher.style.display = 'block';
+        } 
         const videoContainer = document.getElementById('videoContainer');
         const nowPlayingText = document.getElementById('nowPlayingText');
         const channelListEl = document.getElementById('channelList');
@@ -812,6 +937,15 @@
             if (event) event.stopPropagation();
             hideEndScreenOverlay();
             if (currentPlayingIndex !== -1 && savedChannels[currentPlayingIndex]) {
+                if (isYouTubeActive && ytPlayer && ytPlayer.contentWindow) {
+                    isYouTubeEnded = false;
+                    isYouTubePaused = false;
+                    playPauseIcon.className = "fa-solid fa-pause";
+                    playPauseText.innerText = "Pause";
+                    sendYouTubeCommand('seekTo', [0, true]);
+                    sendYouTubeCommand('playVideo');
+                    return;
+                }
                 video.currentTime = 0;
                 updateProgressUI();
                 video.play().catch(() => {
@@ -988,6 +1122,11 @@
                 return;
             }
 
+            function getYearRank(str) {
+                const m = String(str || '').match(/(19\d{2}|20\d{2})/);
+                return m ? parseInt(m[1], 10) : null;
+            }
+
             categories.forEach(cat => {
                 const channelsInCat = viewChannels
                     .map((ch) => ({...ch, originalIndex: savedChannels.indexOf(ch)}))
@@ -996,6 +1135,15 @@
                         const aPin = (typeof a.pinOrder === 'number' && a.pinOrder > 0) ? a.pinOrder : Infinity;
                         const bPin = (typeof b.pinOrder === 'number' && b.pinOrder > 0) ? b.pinOrder : Infinity;
                         if (aPin !== bPin) return aPin - bPin;
+
+                        const yrA = getYearRank(a.name);
+                        const yrB = getYearRank(b.name);
+                        if (yrA !== null && yrB !== null && yrA !== yrB) {
+                            return yrA - yrB;
+                        }
+                        if (yrA !== null && yrB === null) return -1;
+                        if (yrA === null && yrB !== null) return 1;
+
                         return a.name.localeCompare(b.name, 'en', { numeric: true, sensitivity: 'base' });
                     });
 
@@ -1354,10 +1502,37 @@
             if(popTimer) popTimer.style.display = 'none';
             if(popError) popError.style.display = 'none';
 
+            stopYouTubePlayer();
             overlaySeekBar.value = 0;
             overlayTime.innerText = "0:00 / 0:00";
             hideOverlay();
             hideEndScreenOverlay();
+
+            const ytId = extractYouTubeId(url);
+            if (ytId) {
+                nowPlayingText.innerHTML = `<i class="fa-brands fa-youtube" style="color: #ff0000; margin-right: 8px;"></i> Now Playing: <span style="margin-left: 8px;">${name}</span>`;
+                if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+                video.pause();
+                video.removeAttribute('src');
+                video.load();
+                video.style.display = 'none';
+                if (touchCatcher) touchCatcher.style.display = 'none';
+
+                isYouTubeActive = true;
+                isYouTubePaused = false;
+                playPauseIcon.className = "fa-solid fa-pause";
+                playPauseText.innerText = "Pause";
+
+                isYouTubeEnded = false;
+                if (ytPlayer) {
+                    const originParam = (window.location.origin && window.location.origin.startsWith('http'))
+                        ? `&origin=${encodeURIComponent(window.location.origin)}`
+                        : '';
+                    ytPlayer.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${originParam}`;
+                    ytPlayer.style.display = 'block';
+                }
+                return;
+            }
 
             if (url.includes('t.me/') || url.includes('telegram.dog/')) {
                 nowPlayingText.innerHTML = `<i class="fa-solid fa-paper-plane" style="color: #0088cc; margin-right: 8px;"></i> Opening Telegram: <span style="margin-left: 8px;">${name}</span>`;
@@ -1880,6 +2055,31 @@
         function togglePausePlay(event) {
             if(event) event.stopPropagation();
             if (savedChannels.length === 0 || currentPlayingIndex === -1) return;
+
+            if (isYouTubeActive && ytPlayer && ytPlayer.contentWindow) {
+                if (isYouTubeEnded) {
+                    hideEndScreenOverlay();
+                    isYouTubeEnded = false;
+                    isYouTubePaused = false;
+                    sendYouTubeCommand('seekTo', [0, true]);
+                    sendYouTubeCommand('playVideo');
+                    playPauseIcon.className = "fa-solid fa-pause";
+                    playPauseText.innerText = "Pause";
+                    return;
+                }
+                if (isYouTubePaused) {
+                    sendYouTubeCommand('playVideo');
+                    isYouTubePaused = false;
+                    playPauseIcon.className = "fa-solid fa-pause";
+                    playPauseText.innerText = "Pause";
+                } else {
+                    sendYouTubeCommand('pauseVideo');
+                    isYouTubePaused = true;
+                    playPauseIcon.className = "fa-solid fa-play";
+                    playPauseText.innerText = "Play";
+                }
+                return;
+            }
 
             if (video.paused) { 
                 video.play();
